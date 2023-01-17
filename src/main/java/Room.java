@@ -5,6 +5,12 @@ public class Room {
     // Floor contains robot trace path
     private int floor[][];
     private int floorSize;
+    private boolean isInitialized;
+
+    public Room() {
+        rob = new Robot();
+        isInitialized = false;
+    }
 
     // Initialize the system - robot and floor (I n/i n)
     // TODO: Add check for n > 0
@@ -15,6 +21,7 @@ public class Room {
         // Initialize floor
         floor = new int[n][n];
         floorSize = n;
+        isInitialized = true;
     }
 
     // Move pen up (U/u) or down (D/d)
@@ -65,7 +72,7 @@ public class Room {
     // Print pen position and direction (C/c)
     public void printPenState() {
         String robPos = "Position: " + rob.getRobotDescription();
-        String robPen = " - Pen: " + rob.getPenPosDescription() + " - Facing: " + rob.getPenDirDescription()
+        String robPen = " - Pen: " + rob.getPenPosDescription() + " - Facing: " + rob.getPenDirDescription();
         System.out.println(robPos + robPen);
     }
 
@@ -91,5 +98,17 @@ public class Room {
         for(int k = 0; k < floorSize; k++) {
             System.out.print(k + " ");
         }
+    }
+
+    public int[][] getFloor() {
+        return floor;
+    }
+
+    public int getFloorSize() {
+        return floorSize;
+    }
+
+    public boolean isInitialized() {
+        return isInitialized;
     }
 }
