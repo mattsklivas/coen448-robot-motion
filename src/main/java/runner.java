@@ -1,3 +1,4 @@
+import java.io.StringBufferInputStream;
 import java.util.*;
 
 public class runner {
@@ -163,16 +164,16 @@ public class runner {
         return Arrays.asList(isExit, room);
     }
 
-    public static void formatKnownCommands(Set alpha, Set alphaNum) {
-        alpha.add('u');
-        alpha.add('d');
-        alpha.add('r');
-        alpha.add('l');
-        alpha.add('p');
-        alpha.add('c');
-        alpha.add('q');
+    public static void formatKnownCommands(Set<String> alpha, Set<String> alphaNum) {
+        alpha.add("u");
+        alpha.add("d");
+        alpha.add("r");
+        alpha.add("l");
+        alpha.add("p");
+        alpha.add("c");
+        alpha.add("q");
 
-        alphaNum.add('m');
-        alphaNum.add('i');
+        alphaNum.add("m");
+        alphaNum.add("i");
     }
 }
