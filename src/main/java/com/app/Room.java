@@ -35,7 +35,7 @@ public class Room {
         robot.setRobotDirection(rotateDirection);
     }
 
-    public void dfs(int pos, int offset, int initialPos, int spaces) {
+    private void dfs(int pos, int offset, int initialPos, int spaces) {
         if (pos == this.floorSize - 1) {
             return;
         }
@@ -44,7 +44,7 @@ public class Room {
             return;
         }
 
-        if (pos >= initialPos + spaces * offset) {
+        if (pos > initialPos + spaces * offset) {
             return;
         }
 
@@ -57,7 +57,7 @@ public class Room {
         dfs(pos + offset, offset, initialPos, spaces);
     }
 
-    public void bfs(int pos, int offset, int initialPos, int spaces) {
+    private void bfs(int pos, int offset, int initialPos, int spaces) {
         if (pos == this.floorSize - 1) {
             return;
         }
