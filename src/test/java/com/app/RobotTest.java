@@ -145,4 +145,5 @@ public class RobotTest {
         testRobot.setRobotDirection(1);
         assertEquals(0, testRobot.getRobotDirection());
     }
+
 }

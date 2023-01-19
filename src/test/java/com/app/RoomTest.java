@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
+
 public class RoomTest {
 
     @Test
@@ -61,6 +62,21 @@ public class RoomTest {
         assertEquals("north", testRobot.getRobotDirDescription());
         assertFalse(testRobot.isPenDown());
 
+        testRobot.setRobotDirection(1);
+        testRoom.moveRobot(1);
+        assertEquals(1, testRobot.getRobotRow());
+        assertEquals(1, testRobot.getRobotCol());
+        assertEquals("east", testRobot.getRobotDirDescription());
+        assertFalse(testRobot.isPenDown());
+        testRoom.printRobotState();
+
+        
+        int[][] floorArr = testRoom.getFloor();
+        for (int i = 0; i < testRoom.getFloorSize(); i++) {
+            assertArrayEquals(new int[n], floorArr[i]);
+        }
+
+        testRoom.printFloor();
         // testRoom.moveRobot(100);
         // assertEquals(0, testRobot.getRobotRow());
         // assertEquals(2, testRobot.getRobotCol());
@@ -102,5 +118,22 @@ public class RoomTest {
         // assertEquals(3, testRobot.getRobotCol());
         // assertEquals("east", testRobot.getRobotDirDescription());
         // assertFalse(testRobot.isPenDown());
+    }
+
+    @Test
+    public void testMovePen() {
+        int n = 10;
+        Room testRoom = new Room(n);
+
+        Robot testRobot = testRoom.getRobot();
+
+        assertTrue(testRoom.isInitialized());
+        assertFalse(testRobot.isPenDown());
+
+        testRoom.movePen(true);
+        assertTrue(testRobot.isPenDown());
+
+        testRoom.movePen(false);
+        assertFalse(testRobot.isPenDown());
     }
 }

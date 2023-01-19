@@ -8,7 +8,6 @@ public class runner {
 
     public static void main(String[] args) throws Exception {
 
-        List<Object> commandResult;
         Scanner sc = new Scanner(System.in);
 
         while(true) {
@@ -27,7 +26,7 @@ public class runner {
         sc.close();
     }
 
-    public static boolean parseCommand(String command) {
+    private static boolean parseCommand(String command) {
         /*
         AVAILABLE STANDALONE COMMANDS:
         [U|u] Pen up
@@ -171,7 +170,7 @@ public class runner {
     // State = do we want to move pen down
     // curr = up = false
     // state = down = true
-    public static void movePenDown(boolean state) {
+    private static void movePenDown(boolean state) {
         if (room.getRobot().isPenDown() == state) {
             System.out.println( String.format("Pen is already in the %s position.", room.getRobot().getPenPosition()));
         } else {
@@ -180,17 +179,13 @@ public class runner {
         } 
     }
 
-    public static List<Object> formatOutput(boolean isExit, Room room) {
-        return Arrays.asList(isExit, room);
-    }
-
-    public static void printInitializedError() {
+    private static void printInitializedError() {
         System.out.println("Error: com.app.Room must be initialized before executing the command provided.");
         System.out.println("Initialize command: I <n> | i <n>");
         System.out.println("n: size of the room (n x n)");
     }
 
-    public static void formatKnownCommands(Set<Character> alpha, Set<Character> alphaNum) {
+    private static void formatKnownCommands(Set<Character> alpha, Set<Character> alphaNum) {
         alpha.add('u');
         alpha.add('d');
         alpha.add('r');

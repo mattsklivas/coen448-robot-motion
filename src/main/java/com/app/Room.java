@@ -30,11 +30,6 @@ public class Room {
         robot.setIsPenDown(isPenDown);
     }
 
-    // Turn robot left (L/l) or right (R/r)
-    public void turnRobot(int rotateDirection) {
-        robot.setRobotDirection(rotateDirection);
-    }
-
     private void dfs(int pos, int offset, int initialPos, int spaces) {
         if (pos == this.floorSize - 1) {
             return;
@@ -44,12 +39,12 @@ public class Room {
             return;
         }
 
-        if (pos > initialPos + spaces * offset) {
-            return;
-        }
-
         if (robot.isPenDown()) {
             this.floor[pos][robot.getRobotCol()] = 1;
+        }
+
+        if (pos >= initialPos + spaces * offset) {
+            return;
         }
 
         robot.incrementRobotRow(offset);
@@ -66,13 +61,14 @@ public class Room {
             return;
         }
 
-        if (pos > initialPos + spaces * offset) {
-            return;
-        }
-
         if (robot.isPenDown()) {
             this.floor[robot.getRobotRow()][pos] = 1;
         }
+
+        if (pos >= initialPos + spaces * offset) {
+            return;
+        }
+
 
         robot.incrementRobotCol(offset);
 
