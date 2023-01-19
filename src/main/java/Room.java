@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Room {
     // Robot walks in room on floor
     private Robot robot;
@@ -33,39 +35,86 @@ public class Room {
         robot.setRobotDirection(rotateDirection);
     }
 
+    public void dfs(int pos, int offset, int initialPos, int spaces) {
+        if (pos == this.floorSize - 1) {
+            return;
+        }
+
+        if (pos < 0) {
+            return;
+        }
+
+        if (pos >= initialPos + spaces * offset) {
+            return;
+        }
+
+        if (robot.isPenDown()) {
+            this.floor[pos][robot.getRobotCol()] = 1;
+        }
+
+        robot.incrementRobotRow(offset);
+
+        dfs(pos + offset, offset, initialPos, spaces);
+    }
+
+    public void bfs(int pos, int offset, int initialPos, int spaces) {
+        if (pos == this.floorSize - 1) {
+            return;
+        }
+
+        if (pos < 0) {
+            return;
+        }
+
+        if (pos > initialPos + spaces * offset) {
+            return;
+        }
+
+        if (robot.isPenDown()) {
+            this.floor[robot.getRobotRow()][pos] = 1;
+        }
+
+        robot.incrementRobotCol(offset);
+
+        bfs(pos + offset, offset, initialPos, spaces);
+    }
+
+
     // Move robot forward s spaces (M s/m s)
-    // TODO: Add check for s > 0
-    // Better ways to do this tbh based on the diretion should just do a bfs/dfs and mark the path
-    // this will handle running up to the wall etc
-    public void moveRobot(int s) {
+    public void moveRobot(int spaces) {
         // Get current direction
-        int robDir = robot.getRobotDirection();
+        int robotDir = robot.getRobotDirection();
+        int offset = robotDir < 2 ? 1 : -1;
+        
+        // method: 0 -> dfs, 1 -> bfs
+        boolean type = robotDir % 2 != 0 ? true : false;
 
-        // Vertical move (0 - Up, 2 - Down)
-        if(robDir == 0 || robDir == 2) {
-            // Get and update robot column index by s spaces
-            // Moving up (0) and down (2) by increasing and decreasing col index respectively
-            int currCol = robot.getRobotCol();
-            currCol = (robDir == 0) ? currCol + s : currCol - s;
+        // Get initial position: vertical move -> col, horizontal move -> row
+        int initialPos = type ? robot.getRobotCol() : robot.getRobotRow();
 
-            // Check new column index to remain in range
-            if(currCol >= floorSize) {
-                System.out.println("Error - Invalid Vertical Move!");
+        if (!type) {
+            if (initialPos < this.floorSize && initialPos >= 0) {
+                if (robot.isPenDown()) {
+                    this.floor[initialPos][robot.getRobotCol()] = 1;
+                }
+
+                robot.incrementRobotRow(offset);
+
+                dfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                robot.setRobotCol(currCol);
+                System.out.println("Robot is at the edge of the room");
             }
-        // Horizontal move (1 - Right, 3 - Left)
         } else {
-            // Get and update robot row index by s spaces
-            // Moving right (1) and left (3) by increasing and decreasing row index respectively
-            int currRow = robot.getRobotCol();
-            currRow = (robDir == 1) ? currRow + s : currRow - s;
+            if (initialPos < this.floorSize && initialPos >= 0) {
+                if (robot.isPenDown()) {
+                    this.floor[robot.getRobotRow()][initialPos] = 1;
+                }
 
-            // Check new row index to remain in range
-            if (currRow >= floorSize) {
-                System.out.println("Error - Invalid Horizontal Move!");
+                robot.incrementRobotCol(offset);
+
+                bfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                robot.setRobotRow(currRow);
+                System.out.println("Robot is at the edge of the room");
             }
         }
     }
@@ -96,6 +145,9 @@ public class Room {
 
         // Print col indices
         for(int k = 0; k < floorSize; k++) {
+            if (k == 0) {
+                System.out.print("\\ ");
+            }
             System.out.print(k + " ");
         }
 

@@ -23,6 +23,14 @@ public class Robot {
         this.robotDirection = 0;
     }
 
+    public void incrementRobotRow(int inc) {
+        this.robotRow += inc;
+    }
+
+    public void incrementRobotCol(int inc) {
+        this.robotCol += inc;
+    }
+
     public void setRobotCol(int col) {
         this.robotCol = col;
     }
