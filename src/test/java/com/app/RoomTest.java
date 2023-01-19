@@ -17,7 +17,7 @@ public class RoomTest {
 
     // todo: change to parametrized and add more tests cases
     @Test
-    public void testRoomInitization() {
+    public void testRoomInitialization() {
         int n = 10;
         Room testRoom = new Room(n);
         assertTrue(testRoom.isInitialized());
