@@ -1,20 +1,22 @@
+package com.app;
+
 import java.lang.Math;
 
 public class Robot {
     // Current robot position in room
     private int robotRow, robotCol;
 
-    // Robot pen position as either up or down
+    // com.app.Robot pen position as either up or down
     // Up (False), Down (True)
     private boolean isPenDown;
 
-    // Robot pen direction
+    // com.app.Robot pen direction
     // Up/North (0), Right/East (1), Down/South (2), Left/West (3)
     // Note: Vertical is Even, Horizontal is Odd
     private int robotDirection;
 
     public Robot() {
-        // Robot starts at (0, 0)
+        // com.app.Robot starts at (0, 0)
         this.robotRow = 0;
         this.robotCol = 0;
 

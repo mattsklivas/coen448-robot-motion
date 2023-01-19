@@ -1,7 +1,7 @@
-import java.lang.Math;
+package com.app;
 
 public class Room {
-    // Robot walks in room on floor
+    // com.app.Robot walks in room on floor
     private Robot robot;
 
     // Floor contains robot trace path
@@ -102,7 +102,7 @@ public class Room {
 
                 dfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("Robot is at the edge of the room");
+                System.out.println("com.app.Robot is at the edge of the room");
             }
         } else {
             if (initialPos < this.floorSize && initialPos >= 0) {
@@ -114,7 +114,7 @@ public class Room {
 
                 bfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("Robot is at the edge of the room");
+                System.out.println("com.app.Robot is at the edge of the room");
             }
         }
     }
@@ -132,10 +132,10 @@ public class Room {
             System.out.print(i + " ");
 
             for(int j = 0; j < floorSize; j++) {
-                // Robot passed over floor tile (1 as *)
+                // com.app.Robot passed over floor tile (1 as *)
                 if(floor[i][j] == 1)
                     System.out.print("* ");
-                // Robot has NOT visited floor tile yet (0 as blank)
+                // com.app.Robot has NOT visited floor tile yet (0 as blank)
                 else
                     System.out.print("  ");
             }

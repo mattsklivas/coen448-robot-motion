@@ -1,3 +1,5 @@
+package com.app;
+
 import java.util.*;
 
 public class runner {
@@ -82,12 +84,12 @@ public class runner {
                     case 'r':
                         // turn robot right
                         room.getRobot().setRobotDirection(1);
-                        System.out.println(String.format("Robot is now facing %s", room.getRobot().getRobotDirDescription()));
+                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
                         break;
                     case 'l':
                         // turn robot left
                         room.getRobot().setRobotDirection(-1);
-                        System.out.println(String.format("Robot is now facing %s", room.getRobot().getRobotDirDescription()));
+                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
                         break;
                     case 'p':
                         System.out.println("Floor printout:");
@@ -147,7 +149,7 @@ public class runner {
                     break;
                 case 'i':
                     if (room.isInitialized()) {
-                        System.out.println("Room is being reinitialized...");
+                        System.out.println("com.app.Room is being reinitialized...");
                         room = new Room(parsedParam);
                         room.printRobotState();
                     } else {
@@ -167,7 +169,6 @@ public class runner {
     }
 
     // State = do we want to move pen down
-
     // curr = up = false
     // state = down = true
     public static void movePenDown(boolean state) {
@@ -184,7 +185,7 @@ public class runner {
     }
 
     public static void printInitializedError() {
-        System.out.println("Error: Room must be initialized before executing the command provided.");
+        System.out.println("Error: com.app.Room must be initialized before executing the command provided.");
         System.out.println("Initialize command: I <n> | i <n>");
         System.out.println("n: size of the room (n x n)");
     }
