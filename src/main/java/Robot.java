@@ -1,6 +1,8 @@
+import java.lang.Math;
+
 public class Robot {
     // Current robot position in room
-    private int currCol, currRow;
+    private int robotRow, robotCol;
 
     // Robot pen position as either up or down
     // Up (False), Down (True)
@@ -9,66 +11,67 @@ public class Robot {
     // Robot pen direction
     // Up/North (0), Right/East (1), Down/South (2), Left/West (3)
     // Note: Vertical is Even, Horizontal is Odd
-    private int penDirection;
+    private int robotDirection;
 
     public Robot() {
         // Robot starts at (0, 0)
-        currCol = 0;
-        currRow = 0;
+        this.robotRow = 0;
+        this.robotCol = 0;
 
         // Pen initially up and north
-        isPenDown = false;
-        penDirection = 0;
+        this.isPenDown = false;
+        this.robotDirection = 0;
     }
 
-    public void setRobotCol(int newCol) {
-        currCol = newCol;
+    public void setRobotCol(int col) {
+        this.robotCol = col;
     }
 
-    public void setRobotRow(int newRow) {
-        currRow = newRow;
+    public void setRobotRow(int row) {
+        this.robotRow = row;
     }
 
-    public void setPenPosition(boolean isPenStillDown) {
-        isPenDown = isPenStillDown;
+    public void setIsPenDown(boolean state) {
+        this.isPenDown = state;
     }
 
-    public void setPenDirection(int rotateDirection) {
+    public void setRobotDirection(int rotateDirection) {
         // Update direction based on rotation direction
         // Rotate left (-1) and right (+1)
-        penDirection = (penDirection + rotateDirection) % 4;
+        this.robotDirection = Math.floorMod(this.robotDirection + rotateDirection, 4);
     }
-
+    
     public int getRobotCol() {
-        return currCol;
+        return this.robotCol;
     }
 
     public int getRobotRow() {
-        return currRow;
+        return this.robotRow;
     }
 
-    public boolean getPenPosition() {
-        return isPenDown;
+    public boolean isPenDown() {
+        return this.isPenDown;
     }
 
-    public int getPenDirection() {
-        return penDirection;
+    public int getRobotDirection() {
+        return this.robotDirection;
     }
 
+    // format: (row, col)
     public String getRobotDescription() {
-        return currRow + ", " + currCol;
+        return this.robotRow + ", " + this.robotCol;
     }
 
-    public String getPenPosDescription() {
-        return isPenDown ? "down" : "up";
+    public String getPenPosition() {
+        return this.isPenDown ? "down" : "up";
     }
 
-    public String getPenDirDescription() {
-        if(penDirection == 0)
+    public String getRobotDirDescription() {
+        if(this.robotDirection == 0)
             return "north";
-        else if(penDirection == 1)
+        else if(this.robotDirection == 1)
             return "east";
-        else if(penDirection == 2)
+        else if(this.robotDirection == 2)
             return "south";
         else
             return "west";
