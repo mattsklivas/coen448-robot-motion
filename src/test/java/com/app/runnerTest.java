@@ -2,12 +2,11 @@ package com.app;
 
 import java.io.InputStream;
 import java.io.FileInputStream;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class runnerTest {
     @Test
-    public void testUninitializedRoom() throws Exception {
+    public void testRunner() throws Exception {
         final InputStream defaultIS = System.in;
         // get file directory ../test_inputs
         String currDir = System.getProperty("user.dir");

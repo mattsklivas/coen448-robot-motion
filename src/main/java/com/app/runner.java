@@ -141,7 +141,7 @@ public class runner {
                     break;
                 case 'i':
                     if (room.isInitialized()) {
-                        System.out.println("com.app.Room is being reinitialized...");
+                        System.out.println("Room is being reinitialized...");
                         room = new Room(parsedParam);
                         room.printRobotState();
                     } else {
@@ -174,7 +174,7 @@ public class runner {
     }
 
     private static void printInitializedError() {
-        System.out.println("Error: com.app.Room must be initialized before executing the command provided.");
+        System.out.println("Error: Room must be initialized before executing the command provided.");
         System.out.println("Initialize command: I <n> | i <n>");
         System.out.println("n: size of the room (n x n)");
     }
