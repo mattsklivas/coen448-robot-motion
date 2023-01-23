@@ -1,0 +1,276 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Room</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.app</a>
+</div>
+
+<h1>Coverage Summary for Class: Room (com.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Room</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.3%
+  </span>
+  <span class="absValue">
+    (102/113)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.app;
+&nbsp;
+&nbsp;public class Room {
+&nbsp;    // com.app.Robot walks in room on floor
+&nbsp;    private Robot robot;
+&nbsp;
+&nbsp;    // Floor contains robot trace path
+&nbsp;    private int floor[][];
+&nbsp;    private int floorSize;
+&nbsp;    private boolean isInitialized;
+&nbsp;
+<b class="fc">&nbsp;    public Room() {</b>
+<b class="fc">&nbsp;        robot = new Robot();</b>
+<b class="fc">&nbsp;        isInitialized = false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Initialize the system - robot and floor (I n/i n)
+<b class="fc">&nbsp;    public Room(int n) {</b>
+&nbsp;        // Initialize robot
+<b class="fc">&nbsp;        robot = new Robot();</b>
+&nbsp;
+&nbsp;        // Initialize floor
+<b class="fc">&nbsp;        floor = new int[n][n];</b>
+<b class="fc">&nbsp;        floorSize = n;</b>
+<b class="fc">&nbsp;        isInitialized = true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Move pen up (U/u) or down (D/d)
+&nbsp;    public void movePen(boolean isPenDown) {
+<b class="fc">&nbsp;        robot.setIsPenDown(isPenDown);</b>
+&nbsp;
+<b class="fc">&nbsp;        if (robot.isPenDown()) {</b>
+<b class="fc">&nbsp;            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        System.out.println(this.floor[0][0]);</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private void dfs(int pos, int offset, int initialPos, int spaces) {</b>
+<b class="fc">&nbsp;        if (pos &gt;= this.floorSize) {</b>
+&nbsp;            return;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        if (pos &lt; 0) {</b>
+&nbsp;            return;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        if (robot.isPenDown()) {</b>
+<b class="nc">&nbsp;            this.floor[pos][robot.getRobotCol()] = 1;</b>
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        if (pos &gt;= initialPos + spaces * offset) {</b>
+<b class="fc">&nbsp;            return;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        robot.incrementRobotRow(offset);</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        dfs(pos + offset, offset, initialPos, spaces);</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private void bfs(int pos, int offset, int initialPos, int spaces) {</b>
+<b class="fc">&nbsp;        if (pos &gt;= this.floorSize) {</b>
+&nbsp;            return;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        if (pos &lt; 0) {</b>
+&nbsp;            return;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        if (robot.isPenDown()) {</b>
+<b class="nc">&nbsp;            this.floor[robot.getRobotRow()][pos] = 1;</b>
+&nbsp;        }
+<b class="nc">&nbsp;</b>
+<b class="fc">&nbsp;        if (pos &gt;= initialPos + spaces * offset) {</b>
+<b class="nc">&nbsp;            return;</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        robot.incrementRobotCol(offset);</b>
+&nbsp;
+<b class="fc">&nbsp;        bfs(pos + offset, offset, initialPos, spaces);</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;</b>
+&nbsp;    // Move robot forward s spaces (M s/m s)
+<b class="fc">&nbsp;    public void moveRobot(int spaces) {</b>
+<b class="fc">&nbsp;        // Get current direction</b>
+<b class="fc">&nbsp;        int robotDir = robot.getRobotDirection();</b>
+<b class="fc">&nbsp;        int offset = robotDir &lt; 2 ? 1 : -1;</b>
+<b class="fc">&nbsp;        </b>
+<b class="fc">&nbsp;        // method: 0 -&gt; dfs, 1 -&gt; bfs</b>
+<b class="fc">&nbsp;        boolean type = robotDir % 2 != 0 ? true : false;</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        // Get initial position: vertical move -&gt; col, horizontal move -&gt; row</b>
+<b class="fc">&nbsp;        int initialPos = type ? robot.getRobotCol() : robot.getRobotRow();</b>
+&nbsp;
+<b class="fc">&nbsp;        if (!type) {</b>
+<b class="fc">&nbsp;            if (initialPos &lt; this.floorSize &amp;&amp; initialPos &gt;= 0) {</b>
+<b class="fc">&nbsp;                if (robot.isPenDown()) {</b>
+<b class="fc">&nbsp;                    this.floor[initialPos][robot.getRobotCol()] = 1;</b>
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;</b>
+<b class="fc">&nbsp;                robot.incrementRobotRow(offset);</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;                dfs(initialPos + offset, offset, initialPos, spaces);</b>
+<b class="fc">&nbsp;            } else {</b>
+<b class="fc">&nbsp;                System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        } else {</b>
+<b class="fc">&nbsp;            if (initialPos &lt; this.floorSize &amp;&amp; initialPos &gt;= 0) {</b>
+<b class="fc">&nbsp;                if (robot.isPenDown()) {</b>
+<b class="fc">&nbsp;                    this.floor[robot.getRobotRow()][initialPos] = 1;</b>
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;</b>
+<b class="fc">&nbsp;                robot.incrementRobotCol(offset);</b>
+&nbsp;
+<b class="fc">&nbsp;                bfs(initialPos + offset, offset, initialPos, spaces);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    // Print pen position and direction (C/c)
+&nbsp;    public void printRobotState() {
+<b class="fc">&nbsp;        System.out.println(String.format(&quot;Position: %s - Pen: %s - Facing: %s&quot;, </b>
+<b class="fc">&nbsp;                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription()));</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    // Print floor matrix with indices (P/p)</b>
+<b class="fc">&nbsp;    public void printFloor() {</b>
+<b class="fc">&nbsp;        for(int i = floorSize - 1; i &gt;= 0; i--) {</b>
+<b class="fc">&nbsp;            // Print row indices</b>
+<b class="fc">&nbsp;            System.out.print(i + &quot; &quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;            for(int j = 0; j &lt; floorSize; j++) {</b>
+<b class="fc">&nbsp;                // com.app.Robot passed over floor tile (1 as *)</b>
+<b class="fc">&nbsp;                if(floor[i][j] == 1)</b>
+<b class="fc">&nbsp;                    System.out.print(&quot;* &quot;);</b>
+<b class="fc">&nbsp;                // com.app.Robot has NOT visited floor tile yet (0 as blank)</b>
+&nbsp;                else
+<b class="fc">&nbsp;                    System.out.print(&quot;  &quot;);</b>
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;            System.out.println();</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        // Print col indices</b>
+<b class="fc">&nbsp;        for(int k = 0; k &lt; floorSize; k++) {</b>
+<b class="fc">&nbsp;            if (k == 0) {</b>
+<b class="fc">&nbsp;                System.out.print(&quot;\\ &quot;);</b>
+&nbsp;            }
+<b class="fc">&nbsp;            System.out.print(k + &quot; &quot;);</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        System.out.println();</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="nc">&nbsp;    public Robot getRobot() {</b>
+<b class="fc">&nbsp;        return this.robot;</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="nc">&nbsp;    public int[][] getFloor() {</b>
+<b class="fc">&nbsp;        return floor;</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    public int getFloorSize() {</b>
+<b class="fc">&nbsp;        return floorSize;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isInitialized() {
+<b class="fc">&nbsp;        return isInitialized;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-23 14:14</div>
+</div>
+</body>
+</html>

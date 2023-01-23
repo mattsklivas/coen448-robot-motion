@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Robot</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.app</a>
+</div>
+
+<h1>Coverage Summary for Class: Robot (com.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Robot</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.app;
+&nbsp;
+&nbsp;import java.lang.Math;
+&nbsp;
+&nbsp;public class Robot {
+&nbsp;    // Current robot position in room
+&nbsp;    private int robotRow, robotCol;
+&nbsp;
+&nbsp;    // com.app.Robot pen position as either up or down
+&nbsp;    // Up (False), Down (True)
+&nbsp;    private boolean isPenDown;
+&nbsp;
+&nbsp;    // com.app.Robot pen direction
+&nbsp;    // Up/North (0), Right/East (1), Down/South (2), Left/West (3)
+&nbsp;    // Note: Vertical is Even, Horizontal is Odd
+&nbsp;    private int robotDirection;
+&nbsp;
+<b class="fc">&nbsp;    public Robot() {</b>
+&nbsp;        // com.app.Robot starts at (0, 0)
+<b class="fc">&nbsp;        this.robotRow = 0;</b>
+<b class="fc">&nbsp;        this.robotCol = 0;</b>
+&nbsp;
+&nbsp;        // Pen initially up and north
+<b class="fc">&nbsp;        this.isPenDown = false;</b>
+<b class="fc">&nbsp;        this.robotDirection = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void incrementRobotRow(int inc) {
+<b class="fc">&nbsp;        this.robotRow += inc;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void incrementRobotCol(int inc) {
+<b class="fc">&nbsp;        this.robotCol += inc;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRobotCol(int col) {
+<b class="fc">&nbsp;        this.robotCol = col;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRobotRow(int row) {
+<b class="fc">&nbsp;        this.robotRow = row;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setIsPenDown(boolean state) {
+<b class="fc">&nbsp;        this.isPenDown = state;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRobotDirection(int rotateDirection) {
+&nbsp;        // Update direction based on rotation direction
+&nbsp;        // Rotate left (-1) and right (+1)
+<b class="fc">&nbsp;        this.robotDirection = Math.floorMod(this.robotDirection + rotateDirection, 4);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    public int getRobotCol() {
+<b class="fc">&nbsp;        return this.robotCol;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getRobotRow() {
+<b class="fc">&nbsp;        return this.robotRow;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isPenDown() {
+<b class="fc">&nbsp;        return this.isPenDown;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getRobotDirection() {
+<b class="fc">&nbsp;        return this.robotDirection;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // format: (row, col)
+&nbsp;    public String getRobotDescription() {
+<b class="fc">&nbsp;        return this.robotRow + &quot;, &quot; + this.robotCol;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getPenPosition() {
+<b class="fc">&nbsp;        return this.isPenDown ? &quot;down&quot; : &quot;up&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRobotDirDescription() {
+<b class="fc">&nbsp;        if(this.robotDirection == 0)</b>
+<b class="fc">&nbsp;            return &quot;north&quot;;</b>
+<b class="fc">&nbsp;        else if(this.robotDirection == 1)</b>
+<b class="fc">&nbsp;            return &quot;east&quot;;</b>
+<b class="fc">&nbsp;        else if(this.robotDirection == 2)</b>
+<b class="fc">&nbsp;            return &quot;south&quot;;</b>
+&nbsp;        else
+<b class="fc">&nbsp;            return &quot;west&quot;;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-23 14:14</div>
+</div>
+</body>
+</html>
