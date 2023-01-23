@@ -28,6 +28,11 @@ public class Room {
     // Move pen up (U/u) or down (D/d)
     public void movePen(boolean isPenDown) {
         robot.setIsPenDown(isPenDown);
+
+        if (robot.isPenDown()) {
+            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
+        }
+
     }
 
     private void dfs(int pos, int offset, int initialPos, int spaces) {
@@ -98,7 +103,7 @@ public class Room {
 
                 dfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("com.app.Robot is at the edge of the room");
+                System.out.println("Robot is at the edge of the room");
             }
         } else {
             if (initialPos < this.floorSize && initialPos >= 0) {
@@ -110,7 +115,7 @@ public class Room {
 
                 bfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("com.app.Robot is at the edge of the room");
+                System.out.println("Robot is at the edge of the room");
             }
         }
     }

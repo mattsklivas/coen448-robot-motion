@@ -80,11 +80,11 @@ public class runner {
                     case 'd' -> movePenDown(true);
                     case 'r' -> {
                         room.getRobot().setRobotDirection(1);
-                        System.out.printf("com.app.Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
+                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
                     }
                     case 'l' -> {
                         room.getRobot().setRobotDirection(-1);
-                        System.out.printf("com.app.Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
+                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
                     }
                     case 'p' -> {
                         System.out.println("Floor printout:");
