@@ -29,10 +29,9 @@ public class Room {
     public void movePen(boolean isPenDown) {
         robot.setIsPenDown(isPenDown);
 
-        if (robot.isPenDown()) {
-            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
-        }
-        System.out.println(this.floor[0][0]);
+        // Set current tile to 1 when putting pen down
+        if (robot.isPenDown())
+            floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
     }
 
     private void recursMove(int pos, int offset, int initialPos, int spaces, boolean isHorizontal) {
@@ -106,8 +105,8 @@ public class Room {
 
     // Print pen position and direction (C/c)
     public void printRobotState() {
-        System.out.println(String.format("Position: %s - Pen: %s - Facing: %s", 
-                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription()));
+        System.out.printf("Position: %s - Pen: %s - Facing: %s%n",
+                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());
     }
 
     // Print floor matrix with indices (P/p)
