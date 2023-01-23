@@ -35,7 +35,7 @@ public class Room {
     }
 
     private void recursMove(int pos, int offset, int initialPos, int spaces, boolean isHorizontal) {
-        if (pos >= this.floorSize) {
+        if (pos >= this.floorSize - 1) {
             return;
         }
 
@@ -51,7 +51,7 @@ public class Room {
             }
         }
 
-        if (pos >= initialPos + spaces * offset) {
+        if (pos == initialPos + spaces * offset) {
             return;
         }
 
@@ -70,33 +70,34 @@ public class Room {
         int robotDir = robot.getRobotDirection();
         int offset = robotDir < 2 ? 1 : -1;
         
-        // method: 0 -> dfs, 1 -> bfs
-        boolean type = robotDir % 2 != 0 ? true : false;
+        //
+        boolean isHorizontal = robotDir % 2 != 0 ? true : false;
 
         // Get initial position: vertical move -> col, horizontal move -> row
-        int initialPos = type ? robot.getRobotCol() : robot.getRobotRow();
+        int initialPos = isHorizontal ? robot.getRobotCol() : robot.getRobotRow();
 
-        if (!type) {
-            if (initialPos < this.floorSize && initialPos >= 0) {
+
+        if (!isHorizontal) {
+            if (initialPos <= this.floorSize && initialPos >= 0) {
                 if (robot.isPenDown()) {
                     this.floor[initialPos][robot.getRobotCol()] = 1;
                 }
 
                 robot.incrementRobotRow(offset);
 
-                recursMove(initialPos + offset, offset, initialPos, spaces, false);
+                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);
             } else {
                 System.out.println("Robot is at the edge of the room");
             }
         } else {
-            if (initialPos < this.floorSize && initialPos >= 0) {
+            if (initialPos <= this.floorSize && initialPos >= 0) {
                 if (robot.isPenDown()) {
                     this.floor[robot.getRobotRow()][initialPos] = 1;
                 }
 
                 robot.incrementRobotCol(offset);
 
-                recursMove(initialPos + offset, offset, initialPos, spaces, true);
+                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);
             } else {
                 System.out.println("Robot is at the edge of the room");
             }
