@@ -2,6 +2,9 @@ i 5
 d
 m 5
 p
+i 5
+D
+p
 i 10
 D
 m 20
