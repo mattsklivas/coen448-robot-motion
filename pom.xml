@@ -15,10 +15,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
+            <!-- <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
+            <scope>test</scope> -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.1</version>
             <scope>test</scope>
+            <!-- <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope> -->
         </dependency>
     </dependencies>
 </project>

@@ -2,7 +2,8 @@ package com.app;
 
 import java.io.InputStream;
 import java.io.FileInputStream;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class runnerTest {
     @Test

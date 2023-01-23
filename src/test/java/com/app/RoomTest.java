@@ -1,15 +1,13 @@
 package com.app;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
-import org.junit.runners.Parameterized;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.*;;
 
 
 public class RoomTest {
-
     @Test
     public void testUninitializedRoom() {
         Room testRoom = new Room();
@@ -17,12 +15,12 @@ public class RoomTest {
     }
 
     // todo: change to parametrized and add more tests cases
-    @Test
-    public void testRoomInitialization() {
-        int n = 10;
-        Room testRoom = new Room(n);
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+    public void testRoomInitialization(int size) {
+        Room testRoom = new Room(size);
         assertTrue(testRoom.isInitialized());
-        assertEquals(n, testRoom.getFloorSize());
+        assertEquals(size, testRoom.getFloorSize());
     }
 
     @Test
@@ -136,4 +134,7 @@ public class RoomTest {
         testRoom.movePen(false);
         assertFalse(testRobot.isPenDown());
     }
+
+    // parametrized tests for testing initializeRoom
+    
 }
