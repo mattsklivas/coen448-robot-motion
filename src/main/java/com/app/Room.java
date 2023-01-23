@@ -35,7 +35,7 @@ public class Room {
         System.out.println(this.floor[0][0]);
     }
 
-    private void dfs(int pos, int offset, int initialPos, int spaces) {
+    private void recursMove(int pos, int offset, int initialPos, int spaces, boolean isHorizontal) {
         if (pos >= this.floorSize) {
             return;
         }
@@ -45,41 +45,25 @@ public class Room {
         }
 
         if (robot.isPenDown()) {
-            this.floor[pos][robot.getRobotCol()] = 1;
+            if (isHorizontal) {
+                this.floor[robot.getRobotRow()][pos] = 1;
+            } else {
+                this.floor[pos][robot.getRobotCol()] = 1;
+            }
         }
 
         if (pos >= initialPos + spaces * offset) {
             return;
         }
 
-        robot.incrementRobotRow(offset);
+        if (isHorizontal) {
+            robot.incrementRobotCol(offset);
+        } else {
+            robot.incrementRobotRow(offset);
+        }
 
-        dfs(pos + offset, offset, initialPos, spaces);
+        recursMove(pos + offset, offset, initialPos, spaces, isHorizontal);
     }
-
-    private void bfs(int pos, int offset, int initialPos, int spaces) {
-        if (pos >= this.floorSize) {
-            return;
-        }
-
-        if (pos < 0) {
-            return;
-        }
-
-        if (robot.isPenDown()) {
-            this.floor[robot.getRobotRow()][pos] = 1;
-        }
-
-        if (pos >= initialPos + spaces * offset) {
-            return;
-        }
-
-
-        robot.incrementRobotCol(offset);
-
-        bfs(pos + offset, offset, initialPos, spaces);
-    }
-
 
     // Move robot forward s spaces (M s/m s)
     public void moveRobot(int spaces) {
@@ -101,7 +85,7 @@ public class Room {
 
                 robot.incrementRobotRow(offset);
 
-                dfs(initialPos + offset, offset, initialPos, spaces);
+                recursMove(initialPos + offset, offset, initialPos, spaces, false);
             } else {
                 System.out.println("Robot is at the edge of the room");
             }
@@ -113,7 +97,7 @@ public class Room {
 
                 robot.incrementRobotCol(offset);
 
-                bfs(initialPos + offset, offset, initialPos, spaces);
+                recursMove(initialPos + offset, offset, initialPos, spaces, true);
             } else {
                 System.out.println("Robot is at the edge of the room");
             }
