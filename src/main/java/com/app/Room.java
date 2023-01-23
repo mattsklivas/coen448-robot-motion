@@ -32,11 +32,11 @@ public class Room {
         if (robot.isPenDown()) {
             this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
         }
-
+        System.out.println(this.floor[0][0]);
     }
 
     private void dfs(int pos, int offset, int initialPos, int spaces) {
-        if (pos == this.floorSize - 1) {
+        if (pos >= this.floorSize) {
             return;
         }
 
@@ -58,7 +58,7 @@ public class Room {
     }
 
     private void bfs(int pos, int offset, int initialPos, int spaces) {
-        if (pos == this.floorSize - 1) {
+        if (pos >= this.floorSize) {
             return;
         }
 
