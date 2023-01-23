@@ -124,6 +124,10 @@ public class runner {
                 try {
                     // Parse the provided parameter to an integer
                     parsedParam = Integer.parseInt(param);
+                    if (parsedParam > 100) {
+                        System.out.println("Error: Numerical parameter provided is too large. Please try again...");
+                        return false;
+                    }
                 } catch (NumberFormatException e) {
                     System.out.println("Error: Unable to parse provided command parameter. Please try again...");
                     return false;

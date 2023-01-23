@@ -114,15 +114,15 @@ public class Room {
     public void printFloor() {
         for(int i = floorSize - 1; i >= 0; i--) {
             // Print row indices
-            System.out.print(i + " ");
+            System.out.printf("%-3d", i);
 
             for(int j = 0; j < floorSize; j++) {
                 // com.app.Robot passed over floor tile (1 as *)
                 if(floor[i][j] == 1)
-                    System.out.print("* ");
+                    System.out.printf("%-3s", "*");
                 // com.app.Robot has NOT visited floor tile yet (0 as blank)
                 else
-                    System.out.print("  ");
+                    System.out.printf("%-3s", " ");
             }
 
             System.out.println();
@@ -131,9 +131,9 @@ public class Room {
         // Print col indices
         for(int k = 0; k < floorSize; k++) {
             if (k == 0) {
-                System.out.print("\\ ");
+                System.out.printf("%-3s", "\\");
             }
-            System.out.print(k + " ");
+            System.out.printf("%-3d", k);
         }
 
         System.out.println();
