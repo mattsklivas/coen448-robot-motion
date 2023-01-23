@@ -71,34 +71,27 @@ public class runner {
                 return true;
             }
             else if (room.isInitialized()) {
-                switch(option) {
-                    case 'u':
-                        // move pen up
-                        movePenDown(false);
-                        break;
-                    case 'd':
-                        // move pen down
-                        movePenDown(true);
-                        break;
-                    case 'r':
-                        // turn robot right
+                // move pen up
+                // move pen down
+                // turn robot right
+                // turn robot left
+                switch (option) {
+                    case 'u' -> movePenDown(false);
+                    case 'd' -> movePenDown(true);
+                    case 'r' -> {
                         room.getRobot().setRobotDirection(1);
-                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
-                        break;
-                    case 'l':
-                        // turn robot left
+                        System.out.printf("com.app.Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
+                    }
+                    case 'l' -> {
                         room.getRobot().setRobotDirection(-1);
-                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
-                        break;
-                    case 'p':
+                        System.out.printf("com.app.Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
+                    }
+                    case 'p' -> {
                         System.out.println("Floor printout:");
                         room.printFloor();
-                        break;
-                    case 'c':
-                        room.printRobotState();
-                        break;
-                    default:
-                        System.out.println("Error: Command not recognized. Please try again...");
+                    }
+                    case 'c' -> room.printRobotState();
+                    default -> System.out.println("Error: Command not recognized. Please try again...");
                 }
             } else {
                 printInitializedError();
@@ -172,10 +165,10 @@ public class runner {
     // state = down = true
     private static void movePenDown(boolean state) {
         if (room.getRobot().isPenDown() == state) {
-            System.out.println( String.format("Pen is already in the %s position.", room.getRobot().getPenPosition()));
+            System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());
         } else {
             room.getRobot().setIsPenDown(state);
-            System.out.println(String.format("Pen is now in the %s position.", room.getRobot().getPenPosition()));
+            System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());
         } 
     }
 
