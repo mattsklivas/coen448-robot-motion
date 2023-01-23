@@ -28,6 +28,11 @@ public class Room {
     // Move pen up (U/u) or down (D/d)
     public void movePen(boolean isPenDown) {
         robot.setIsPenDown(isPenDown);
+
+        if (robot.isPenDown()) {
+            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
+        }
+
     }
 
     private void dfs(int pos, int offset, int initialPos, int spaces) {
