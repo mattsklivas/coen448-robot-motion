@@ -83,12 +83,12 @@ public class runner {
                     case 'r':
                         // turn robot right
                         room.getRobot().setRobotDirection(1);
-                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
+                        System.out.println(String.format("Robot is now facing %s", room.getRobot().getRobotDirDescription()));
                         break;
                     case 'l':
                         // turn robot left
                         room.getRobot().setRobotDirection(-1);
-                        System.out.println(String.format("com.app.Robot is now facing %s", room.getRobot().getRobotDirDescription()));
+                        System.out.println(String.format("Robot is now facing %s", room.getRobot().getRobotDirDescription()));
                         break;
                     case 'p':
                         System.out.println("Floor printout:");

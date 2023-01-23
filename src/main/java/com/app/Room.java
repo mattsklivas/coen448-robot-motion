@@ -98,7 +98,7 @@ public class Room {
 
                 dfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("com.app.Robot is at the edge of the room");
+                System.out.println("Robot is at the edge of the room");
             }
         } else {
             if (initialPos < this.floorSize && initialPos >= 0) {
@@ -110,7 +110,7 @@ public class Room {
 
                 bfs(initialPos + offset, offset, initialPos, spaces);
             } else {
-                System.out.println("com.app.Robot is at the edge of the room");
+                System.out.println("Robot is at the edge of the room");
             }
         }
     }
