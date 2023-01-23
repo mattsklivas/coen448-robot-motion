@@ -167,7 +167,8 @@ public class runner {
         if (room.getRobot().isPenDown() == state) {
             System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());
         } else {
-            room.getRobot().setIsPenDown(state);
+            // room.getRobot().setIsPenDown(state);
+            room.movePen(state);
             System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());
         } 
     }
