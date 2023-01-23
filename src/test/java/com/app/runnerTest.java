@@ -10,8 +10,9 @@ public class runnerTest {
         final InputStream defaultIS = System.in;
         // get file directory ../test_inputs
         String currDir = System.getProperty("user.dir");
+        String testDir = "/src/test/java/com/app/test_inputs/";
 
-        final FileInputStream fileIS = new FileInputStream(currDir + "/src/test/java/com/app/test_inputs/test_inputs_main.txt");
+        final FileInputStream fileIS = new FileInputStream(currDir + testDir + "test_inputs_main.txt");
         System.setIn(fileIS);
         runner.main(null);
         System.setIn(defaultIS);
