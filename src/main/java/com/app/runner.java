@@ -3,9 +3,10 @@ package com.app;
 import java.util.*;
 
 public class runner {
-    // Entrypoint of program execution
+    // Room object
     public static Room room = new Room();
 
+    // Entrypoint of program execution
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
@@ -98,7 +99,6 @@ public class runner {
                 return false;
             }
 
-            // Switch case here
         } else if (knownCommandsAlphaNum.contains(option) && command.length() > 1) {
             String param = "";
             int parsedParam = -1;
@@ -118,7 +118,7 @@ public class runner {
 
             // Check if the extra parameter is an integer
             if (!param.matches("^[0-9]*[1-9][0-9]*$")) {
-                System.out.println("Error: Positive numerical parameter required for the provided command. Please try again...");
+                System.out.println("Error: Numerical parameter required for the provided command (input comprised of numbers 0 to 9). Please try again...");
                 return false;
             } else {
                 try {
@@ -141,7 +141,7 @@ public class runner {
                     break;
                 case 'i':
                     if (room.isInitialized()) {
-                        System.out.println("com.app.Room is being reinitialized...");
+                        System.out.println("Room is being reinitialized...");
                         room = new Room(parsedParam);
                         room.printRobotState();
                     } else {
@@ -173,7 +173,7 @@ public class runner {
     }
 
     private static void printInitializedError() {
-        System.out.println("Error: com.app.Room must be initialized before executing the command provided.");
+        System.out.println("Error: Room must be initialized before executing the command provided.");
         System.out.println("Initialize command: I <n> | i <n>");
         System.out.println("n: size of the room (n x n)");
     }
