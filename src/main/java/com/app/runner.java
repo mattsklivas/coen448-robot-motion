@@ -72,10 +72,6 @@ public class runner {
                 return true;
             }
             else if (room.isInitialized()) {
-                // move pen up
-                // move pen down
-                // turn robot right
-                // turn robot left
                 switch (option) {
                     case 'u' -> movePenDown(false);
                     case 'd' -> movePenDown(true);

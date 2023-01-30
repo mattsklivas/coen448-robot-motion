@@ -54,15 +54,15 @@ public class RoomTest {
         assertFalse(testRobot.isPenDown());
 
         testRoom.moveRobot(moves);
-        assertEquals(moves < n ? moves : n, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", moves < n ? moves : n, testRobot.getRobotRow()));
+        assertEquals(moves < n ? moves : n - 1, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", moves < n ? moves : n, testRobot.getRobotRow()));
         assertEquals(0, testRobot.getRobotCol(), String.format("Robot col expected: %d is not equal to robot col returned: %d", 0, testRobot.getRobotCol()));
         assertEquals("north", testRobot.getRobotDirDescription(), String.format("Robot direction expected: %s is not equal to robot direction returned: %s", "north", testRobot.getRobotDirDescription()));
         assertFalse(testRobot.isPenDown());
 
         testRobot.setRobotDirection(1);
         testRoom.moveRobot(moves);
-        assertEquals(moves < n ? moves : n, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", moves < n ? moves : n, testRobot.getRobotRow()));
-        assertEquals(moves < n ? moves : n, testRobot.getRobotCol(), String.format("Robot col expected: %d is not equal to robot col returned: %d", moves < n ? moves : n, testRobot.getRobotCol()));
+        assertEquals(moves < n ? moves : n - 1, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", moves < n ? moves : n, testRobot.getRobotRow()));
+        assertEquals(moves < n ? moves : n - 1, testRobot.getRobotCol(), String.format("Robot col expected: %d is not equal to robot col returned: %d", moves < n ? moves : n, testRobot.getRobotCol()));
         assertEquals("east", testRobot.getRobotDirDescription(), String.format("Robot direction expected: %s is not equal to robot direction returned: %s", "east", testRobot.getRobotDirDescription()));
         assertFalse(testRobot.isPenDown());
         testRoom.printRobotState();
