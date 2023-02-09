@@ -25,14 +25,17 @@ public class Robot {
         this.robotDirection = 0;
     }
 
+    // Move up (+y) and down (-y)
     public void incrementRobotRow(int inc) {
         this.robotRow += inc;
     }
 
+    // Move left (-x) and right (+x)
     public void incrementRobotCol(int inc) {
         this.robotCol += inc;
     }
 
+    // Update current col
     public void setRobotCol(int col) {
         this.robotCol = col;
     }
