@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    87%
+    74.3%
   </span>
   <span class="absValue">
-    (100/115)
+    (107/144)
   </span>
 </td>
 </tr>
@@ -227,79 +227,76 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            // Check if the command is Q
 <b class="fc">&nbsp;            if (checkForExit(option)) {</b>
 <b class="fc">&nbsp;                return true;</b>
-&nbsp;            }
-&nbsp;
-<b class="fc">&nbsp;            else if (room.isInitialized()) {</b>
+<b class="fc">&nbsp;            } else if (room.isInitialized()) {</b>
 <b class="fc">&nbsp;                switch (option) {</b>
 <b class="fc">&nbsp;                    case &#39;u&#39; -&gt; movePenDown(false);</b>
 <b class="fc">&nbsp;                    case &#39;d&#39; -&gt; movePenDown(true);</b>
-&nbsp;                    case &#39;r&#39; -&gt; {
+<b class="nc">&nbsp;                    case &#39;r&#39; -&gt; {</b>
 <b class="fc">&nbsp;                        room.getRobot().setRobotDirection(1);</b>
 <b class="fc">&nbsp;                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());</b>
 <b class="fc">&nbsp;                    }</b>
-&nbsp;                    case &#39;l&#39; -&gt; {
-<b class="nc">&nbsp;                        room.getRobot().setRobotDirection(-1);</b>
-<b class="nc">&nbsp;                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());</b>
-<b class="nc">&nbsp;                    }</b>
-&nbsp;                    case &#39;p&#39; -&gt; {
+<b class="nc">&nbsp;                    case &#39;l&#39; -&gt; {</b>
+<b class="fc">&nbsp;                        room.getRobot().setRobotDirection(-1);</b>
+<b class="fc">&nbsp;                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());</b>
+<b class="fc">&nbsp;                    }</b>
+<b class="nc">&nbsp;                    case &#39;p&#39; -&gt; {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Floor printout:&quot;);</b>
 <b class="fc">&nbsp;                        room.printFloor();</b>
 <b class="fc">&nbsp;                    }</b>
 <b class="fc">&nbsp;                    case &#39;c&#39; -&gt; room.printRobotState();</b>
 <b class="nc">&nbsp;                    default -&gt; System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
-&nbsp;                }
-&nbsp;            } else {
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;            } else {</b>
 <b class="nc">&nbsp;                printInitializedError();</b>
 <b class="nc">&nbsp;                return false;</b>
-&nbsp;            }
-&nbsp;
+<b class="nc">&nbsp;            }</b>
 <b class="fc">&nbsp;        } else if (knownCommandsAlphaNum.contains(option) &amp;&amp; command.length() &gt; 1) {</b>
 <b class="fc">&nbsp;            String param = &quot;&quot;;</b>
 <b class="fc">&nbsp;            int parsedParam = -1;</b>
-&nbsp;
-&nbsp;            // Get the command&#39;s integer parameter if it exists
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            // Get the command&#39;s integer parameter if it exists</b>
 <b class="fc">&nbsp;            param = getParam(command);</b>
 &nbsp;
 &nbsp;            // Check if the extra parameter is an integer
 <b class="fc">&nbsp;            if (!validateParamFormat(param)) {</b>
 <b class="fc">&nbsp;                return false;</b>
 &nbsp;            }
-&nbsp;
-&nbsp;            // convert the parameter to an integer
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            // convert the parameter to an integer</b>
 <b class="fc">&nbsp;            parsedParam = Integer.parseInt(param);</b>
 &nbsp;
 <b class="fc">&nbsp;            switch(option) {</b>
-&nbsp;                case &#39;m&#39; -&gt; {
+<b class="nc">&nbsp;                case &#39;m&#39; -&gt; {</b>
 <b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Moving robot...&quot;);</b>
 <b class="fc">&nbsp;                        room.moveRobot(parsedParam);</b>
-&nbsp;                    } else {
+<b class="nc">&nbsp;                    } else {</b>
 <b class="fc">&nbsp;                        printInitializedError();</b>
-&nbsp;                    }
+<b class="nc">&nbsp;                    }</b>
 <b class="fc">&nbsp;                }</b>
-&nbsp;                case &#39;i&#39; -&gt; {
+<b class="nc">&nbsp;                case &#39;i&#39; -&gt; {</b>
 <b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Room is being reinitialized...&quot;);</b>
 <b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
 <b class="fc">&nbsp;                        room.printRobotState();</b>
-&nbsp;                    } else {
+<b class="nc">&nbsp;                    } else {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Initializing floor...&quot; + parsedParam);</b>
 <b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Initializing floor...&quot;);</b>
-&nbsp;                    }
+<b class="nc">&nbsp;                    }</b>
 <b class="fc">&nbsp;                }</b>
-&nbsp;                default -&gt; {
+<b class="nc">&nbsp;                default -&gt; {</b>
 <b class="nc">&nbsp;                    System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
-&nbsp;                }
+<b class="nc">&nbsp;                }</b>
 &nbsp;            }
 <b class="fc">&nbsp;        } else {</b>
 <b class="fc">&nbsp;            System.out.println(&quot;Error: Invalid command entered. Please try again...&quot;);</b>
 &nbsp;        }
-&nbsp;
+<b class="nc">&nbsp;</b>
 <b class="fc">&nbsp;        return false;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;
+<b class="nc">&nbsp;</b>
 &nbsp;    // State = do we want to move pen down
 &nbsp;    // curr = up = false
 &nbsp;    // state = down = true
@@ -307,21 +304,20 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        if (room.getRobot().isPenDown() == state) {</b>
 <b class="fc">&nbsp;            System.out.printf(&quot;Pen is already in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
 &nbsp;        } else {
-&nbsp;            // room.getRobot().setIsPenDown(state);
 <b class="fc">&nbsp;            room.movePen(state);</b>
 <b class="fc">&nbsp;            System.out.printf(&quot;Pen is now in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
 &nbsp;        } 
 &nbsp;    }
-&nbsp;
-&nbsp;
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;</b>
 &nbsp;    private static void printInitializedError() {
 <b class="fc">&nbsp;        System.out.println(&quot;Error: Room must be initialized before executing the command provided.&quot;);</b>
 <b class="fc">&nbsp;        System.out.println(&quot;Initialize command: I &lt;n&gt; | i &lt;n&gt;&quot;);</b>
 <b class="fc">&nbsp;        System.out.println(&quot;n: size of the room (n x n)&quot;);</b>
 &nbsp;    }
-&nbsp;
-&nbsp;
-&nbsp;    private static void formatKnownCommands(Set&lt;Character&gt; alpha, Set&lt;Character&gt; alphaNum) {
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private static void formatKnownCommands(Set&lt;Character&gt; alpha, Set&lt;Character&gt; alphaNum) {</b>
 <b class="fc">&nbsp;        alpha.add(&#39;u&#39;);</b>
 <b class="fc">&nbsp;        alpha.add(&#39;d&#39;);</b>
 <b class="fc">&nbsp;        alpha.add(&#39;r&#39;);</b>
@@ -329,10 +325,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        alpha.add(&#39;p&#39;);</b>
 <b class="fc">&nbsp;        alpha.add(&#39;c&#39;);</b>
 <b class="fc">&nbsp;        alpha.add(&#39;q&#39;);</b>
-&nbsp;
+<b class="fc">&nbsp;</b>
 <b class="fc">&nbsp;        alphaNum.add(&#39;m&#39;);</b>
 <b class="fc">&nbsp;        alphaNum.add(&#39;i&#39;);</b>
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;}
 </code>
 </pre>
@@ -357,7 +353,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-09 17:19</div>
+    <div style="float:right;">generated on 2023-02-09 17:27</div>
 </div>
 </body>
 </html>

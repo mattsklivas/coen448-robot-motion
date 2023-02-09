@@ -150,9 +150,7 @@ public class runner {
             // Check if the command is Q
             if (checkForExit(option)) {
                 return true;
-            }
-
-            else if (room.isInitialized()) {
+            } else if (room.isInitialized()) {
                 switch (option) {
                     case 'u' -> movePenDown(false);
                     case 'd' -> movePenDown(true);
@@ -175,7 +173,6 @@ public class runner {
                 printInitializedError();
                 return false;
             }
-
         } else if (knownCommandsAlphaNum.contains(option) && command.length() > 1) {
             String param = "";
             int parsedParam = -1;
@@ -204,7 +201,6 @@ public class runner {
                     if (room.isInitialized()) {
                         System.out.println("Room is being reinitialized...");
                         room = new Room(parsedParam);
-                        room.printRobotState();
                     } else {
                         room = new Room(parsedParam);
                         System.out.println("Initializing floor...");
