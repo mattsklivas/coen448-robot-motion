@@ -3,6 +3,37 @@ package com.app;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+/*
+Robot Test Cases:
+
+Methods:
+- 1 test per method
+- Robot()
+- setRobotCol()
+- setRobotRow()
+- setIsPenDown()
+- getRobotCol()
+- getRobotRow()
+- isPenDown()
+- getRobotDirection()
+- getRobotDescription()
+- getPenPosition()
+- getRobotDirDescription()
+
+Note: 4 for setRobotDirection
+- +1, -1
+- Boundaries: -1 (3), 4 (0)
+
+Note: 2 each for incrementRobotRow and incrementRobotCol
+- +1, -1 and +2, -2
+
+Variables
+- robotRow and robotCol domain: (-n, n)
+- isPenDown domain: (False, True)
+- robotDirection domain: (0,3)
+ */
+
+//TODO: Add test case id and description for each
 public class RobotTest {
     @Test
     public void testUninitializedRobot() {

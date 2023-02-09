@@ -5,6 +5,40 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+
+/*
+Room Test Cases:
+
+Methods:
+- 1 test per method
+- Room()
+- printRobotState()
+- getRobot()
+- getFloor()
+- getFloorSize()
+- isInitialized()
+
+Note: 4 for Room(n)
+- -1 (neg), +1(base), +100 (large)
+- Boundary: 0
+
+Note: 2 for movePen
+- True->False, False->True
+
+Note: 10 for moveRobot
+- 1 (left, Pen down), 2 (right, Pen up), 2 (up, Pen down), 1 (down, Pen up), x > n (left, right), y > n (up, down)
+- Boundaries: 0 (down, col), 0 (left, row), n (up, col), n(right, row)
+
+Note: 2 for printFloor
+- empty, w/ stars
+
+Variables
+- floor[][] domain: (n by n)
+- floorSize domain: n
+- isInitialized domain: (False, True)
+ */
+
+//TODO: Add test case id and description for each
 public class RoomTest {
     @Test
     public void testUninitializedRoom() {
