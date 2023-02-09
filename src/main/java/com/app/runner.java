@@ -8,7 +8,6 @@ public class runner {
 
     // Entrypoint of program execution
     public static void main(String[] args) throws Exception {
-
         Scanner sc = new Scanner(System.in);
 
         while(true) {
@@ -17,7 +16,7 @@ public class runner {
             boolean isExit = parseCommand(sc.nextLine());
 
             // Exit the program if the command Q has been entered
-            if (isExit){
+            if (isExit) {
                 break;
             }
 
@@ -43,8 +42,8 @@ public class runner {
         [I n|i n] Initialize the system
         */
 
-        Set<Character> knownCommandsAlpha = new HashSet<Character>();
-        Set<Character> knownCommandsAlphaNum = new HashSet<Character>();
+        Set<Character> knownCommandsAlpha = new HashSet<>();
+        Set<Character> knownCommandsAlphaNum = new HashSet<>();
 
         formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);
 

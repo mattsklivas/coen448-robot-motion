@@ -34,73 +34,39 @@ public class Room {
             floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
     }
 
-    private void recursMove(int pos, int offset, int initialPos, int spaces, boolean isHorizontal) {
-        if (pos >= this.floorSize - 1) {
-            return;
-        }
-
-        if (pos < 0) {
-            return;
-        }
-
-        if (robot.isPenDown()) {
-            if (isHorizontal) {
-                this.floor[robot.getRobotRow()][pos] = 1;
-            } else {
-                this.floor[pos][robot.getRobotCol()] = 1;
-            }
-        }
-
-        if (pos == initialPos + spaces * offset) {
-            return;
-        }
-
-        if (isHorizontal) {
-            robot.incrementRobotCol(offset);
-        } else {
-            robot.incrementRobotRow(offset);
-        }
-
-        recursMove(pos + offset, offset, initialPos, spaces, isHorizontal);
-    }
-
     // Move robot forward s spaces (M s/m s)
     public void moveRobot(int spaces) {
         // Get current direction
         int robotDir = robot.getRobotDirection();
+
+        // Moving down (2) and left (3) with negative offset
+        // Moving up (0) and right (1) with positive offset
         int offset = robotDir < 2 ? 1 : -1;
-        
-        //
+
+        // Moving vertical (up 0, down 2) or horizontal (right 1, left 3)
         boolean isHorizontal = robotDir % 2 != 0 ? true : false;
 
         // Get initial position: vertical move -> col, horizontal move -> row
         int initialPos = isHorizontal ? robot.getRobotCol() : robot.getRobotRow();
 
+        int newPos = 0;
+        for(int i = 1; i <= spaces; i++) {
+            newPos = initialPos + i*offset;
+            if (newPos >= floorSize || newPos < 0) {
+                System.out.println("Robot is at the edge of the room");
+                break;
+            }
 
-        if (!isHorizontal) {
-            if (initialPos <= this.floorSize && initialPos >= 0) {
-                if (robot.isPenDown()) {
-                    this.floor[initialPos][robot.getRobotCol()] = 1;
-                }
-
+            // Modify row if moving horizontal
+            if(isHorizontal)
+                robot.incrementRobotCol(offset);
+            // Modify col otherwise (moving vertical)
+            else
                 robot.incrementRobotRow(offset);
 
-                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);
-            } else {
-                System.out.println("Robot is at the edge of the room");
-            }
-        } else {
-            if (initialPos <= this.floorSize && initialPos >= 0) {
-                if (robot.isPenDown()) {
-                    this.floor[robot.getRobotRow()][initialPos] = 1;
-                }
-
-                robot.incrementRobotCol(offset);
-
-                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);
-            } else {
-                System.out.println("Robot is at the edge of the room");
-            }
+            // Draw if pen down
+            if (robot.isPenDown())
+                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
         }
     }
 
