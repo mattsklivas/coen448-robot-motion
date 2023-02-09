@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    95.2%
+    88.7%
   </span>
   <span class="absValue">
-    (59/62)
+    (55/62)
   </span>
 </td>
 </tr>
@@ -122,7 +122,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        if (robot.isPenDown()) {</b>
 <b class="fc">&nbsp;            if (isHorizontal) {</b>
 <b class="fc">&nbsp;                this.floor[robot.getRobotRow()][pos] = 1;</b>
-<b class="fc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;            } else {</b>
 <b class="fc">&nbsp;                this.floor[pos][robot.getRobotCol()] = 1;</b>
 &nbsp;            }
 &nbsp;        }
@@ -133,7 +133,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 <b class="fc">&nbsp;        if (isHorizontal) {</b>
 <b class="fc">&nbsp;            robot.incrementRobotCol(offset);</b>
-<b class="fc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;        } else {</b>
 <b class="fc">&nbsp;            robot.incrementRobotRow(offset);</b>
 &nbsp;        }
 &nbsp;
@@ -162,7 +162,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                robot.incrementRobotRow(offset);</b>
 &nbsp;
 <b class="fc">&nbsp;                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);</b>
-<b class="fc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;            } else {</b>
 <b class="nc">&nbsp;                System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
 &nbsp;            }
 <b class="nc">&nbsp;        } else {</b>
@@ -174,7 +174,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                robot.incrementRobotCol(offset);</b>
 &nbsp;
 <b class="fc">&nbsp;                recursMove(initialPos + offset, offset, initialPos, spaces, isHorizontal);</b>
-<b class="fc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;            } else {</b>
 <b class="nc">&nbsp;                System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
 &nbsp;            }
 &nbsp;        }
@@ -254,7 +254,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-09 17:19</div>
+    <div style="float:right;">generated on 2023-02-09 17:27</div>
 </div>
 </body>
 </html>

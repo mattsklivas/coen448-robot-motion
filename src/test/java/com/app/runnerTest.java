@@ -28,7 +28,7 @@ public class runnerTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q "})
+    @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"})
     public void testParseCommand(String command) {
         command = command.toLowerCase().strip();
         boolean expected = command == "q";
