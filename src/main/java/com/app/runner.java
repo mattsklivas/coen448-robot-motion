@@ -44,6 +44,10 @@ public class runner {
 
     public static String getParam(String command) {
         // Get the command's integer parameter if it exists
+        if (command.length() <= 1) {
+            return null;
+        }
+
         if (command.charAt(1) == ' ') {
             // Check if an integer parameter is included
             if (command.length() == 2) {
@@ -51,9 +55,9 @@ public class runner {
                 return null;
             }
 
-            return command.substring(2);
+            return command.substring(2).strip();
         } else {
-            return command.substring(1);
+            return command.substring(1).strip();
         }
     }
 
@@ -91,7 +95,7 @@ public class runner {
 
     public static boolean validateParamFormat(String param) {
         // Check if the extra parameter is an integer
-        if (!param.matches("^[0-9]*[1-9][0-9]*$")) {
+        if (!param.matches("[0-9]+")) {
             System.out.println("Error: Positive non-zero numerical parameter required for the provided command. Please try again...");
             return false;
         } else {
@@ -111,7 +115,7 @@ public class runner {
     }
 
 
-    private static boolean parseCommand(String command) {
+    public static boolean parseCommand(String command) {
         /*
         AVAILABLE STANDALONE COMMANDS:
         [U|u] Pen up
@@ -128,7 +132,7 @@ public class runner {
         */
 
         // Set any alpha characters to lowercase and trim the string
-        command = command.toLowerCase().trim();
+        command = command.toLowerCase().strip();
 
         char option = getOption(command);
 
