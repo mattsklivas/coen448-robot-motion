@@ -38,15 +38,28 @@ Variables
 - isInitialized domain: (False, True)
  */
 
-//TODO: Add test case id and description for each
 public class RoomTest {
+
+    // Test Function #11
+    // Test type : Functional, blackbox
+    // Input : No input.
+    // Description : Room has been created but not initialized yet.
+    // Expected output : <isInitialized() false>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @Test
     public void testUninitializedRoom() {
         Room testRoom = new Room();
         assertFalse(testRoom.isInitialized());
     }
 
-    // todo: change to parametrized and add more tests cases
+    // Test Function #12
+    // Test type : Functional, blackbox
+    // Input : size = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    // Description : Room initialized to size N specified by first checking if it has been initialized and then comparing value of size N specified (2D) to actual room size
+    // Expected output : <isInitialized() true getFloorSize() size>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
     public void testRoomInitialization(int size) {
@@ -55,6 +68,13 @@ public class RoomTest {
         assertEquals(size, testRoom.getFloorSize(), String.format("Room size entered: %d is not equal to room size returned: %d", size, testRoom.getFloorSize()));
     }
 
+    // Test Function #13
+    // Test type : Functional, blackbox
+    // Input : size = {7, 8, 1, 3, 5, 10, 8} <Room(n) size>
+    // Description : Determine if a created robot is initialized to all the correct values while a room at size N specified
+    // Expected output : <isInitialized() true getFloorSize() size getRobotRow() 0 getRobotCol() 0 getRobotDirDescription() north isPenDown() false>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
     public void testRobotCreation(int size) {
@@ -71,6 +91,15 @@ public class RoomTest {
         assertFalse(testRobot.isPenDown());
     }
 
+    // Test Function #14
+    // Test type : Functional, blackbox
+    // Input : moves = {7, 8, 1, 3, 5, 10, 8}, <Room(n) 10 moveRobot() moves setRobotDirection() 1 moveRobot() moves>
+    // Description : Robot can move on the floor accurately depending on which direction and number of moves are provided.
+    // Expected output : <isInitialized() true getFloorSize() 10 getRobotRow() 0 getRobotCol 0 getRobotDirDescription north isPenDown() false ...
+    // getRobotRow() n-1 getRobotCol 0 getRobotDirDescription north isPenDown() false ...
+    // getRobotRow() n-1 getRobotCol n-1 getRobotDirDescription east isPenDown() false floorArr[i] int[n]>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
     public void testRobotMovement(int moves) {
@@ -109,6 +138,14 @@ public class RoomTest {
         testRoom.printFloor();
     }
 
+    // Test Function #15
+    // Test type : Functional, blackbox
+    // Input : moves = {4, 2, 3} <Room(n) 10 setRobotDirection() -1 moveRobot() moves>
+    // Description : Robot doesn't go out of bounds (beyond the wall of room) when given instructions to.
+    // Robot at initial position of 0,0 turned west and moved by N moves. Should remain at 0,0.
+    // Expected output : <getRobotRow() 0 getRobotCol() 0 getRobotDirDescription() west>
+    // Tester : Ali Turkman
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(ints = {4, 2, 3})
     public void testRobotBoundary(int moves) {
@@ -142,6 +179,13 @@ public class RoomTest {
         testRoom.printFloor();
     }
 
+    // Test Function #16
+    // Test type : Functional, blackbox
+    // Input : <Room(n) 10 movePen() true false>.
+    // Description : Pen can be turned up and down when asserted.
+    // Expected output : <isPenDown() false true false >
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @Test
     public void testMovePen() {
         int n = 10;

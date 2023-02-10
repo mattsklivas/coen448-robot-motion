@@ -13,6 +13,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class runnerTest {
+
+    // Test Function #17
+    // Test type : Functional, blackbox
+    // Input : test_inputs file values
+    // Description : Program can run values specified in test inputs text file.
+    // Expected output : No exceptions thrown.
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @Test
     public void testRunner() throws Exception {
         final InputStream defaultIS = System.in;
@@ -25,6 +33,13 @@ public class runnerTest {
         System.setIn(defaultIS);
     }
 
+    // Test Function #18
+    // Test type : Functional, blackbox
+    // Input : strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"}
+    // Description : Parses commands to make sure program can accept all command inputs even if in improper format like the command being followed by a space or uppercase.
+    // Expected output : Commands in improper format (like " q" instead of "q") yield same result as proper format (like "q").
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"})
     public void testParseCommand(String command) {
@@ -35,6 +50,14 @@ public class runnerTest {
 
     }
 
+    // Test Function #19
+    // Test type : Functional, blackbox
+    // Input : <Room(n) 10 movePen() true false>.
+    // Description : Validates the getOption command.
+    // Expected output : <isPenDown() false true false >
+    // Tester : Nicholas Harris
+    // Date : 9th February
+    // Verify
     @ParameterizedTest
     @ValueSource(strings = {"a", "a ", "q  ", " ", "m", "m    "})
     public void testGetOption(String command) {
@@ -44,6 +67,13 @@ public class runnerTest {
         assertEquals(expected, actual);
     }
 
+    // Test Function #20
+    // Test type : Functional, blackbox
+    // Input : strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"}
+    // Description : Parses command to confirm both proper and improper command formats are accepted and executed, also accounts for null values.
+    // Expected output : <expected actual>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"})
     public void testGetParam(String command) {
@@ -58,6 +88,13 @@ public class runnerTest {
         assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
     }
 
+    // Test Function #21
+    // Test type : Functional, blackbox
+    // Input : strings = {"u", "D", "R", "R 10", "c", "Q", "q 10", "P p", "p"}
+    // Description : Validates singleton commands
+    // Expected output : <expected, actual>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(strings = {"u", "D", "R", "R 10", "c", "Q", "q 10", "P p", "p"})
     public void testValidateSingletonCommand(String command) {
@@ -67,6 +104,13 @@ public class runnerTest {
         assertEquals(expected, actual);
     }
 
+    // Test Function #22
+    // Test type : Functional, blackbox
+    // Input : chars = {'a', 'A', 'q', 'Q', 'd', 'q', 'U', 'r', 't'}
+    // Description : Validates commands to check for exit.
+    // Expected output : <expected, actual>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(chars = {'a', 'A', 'q', 'Q', 'd', 'q', 'U', 'r', 't'})
     public void testCheckForExit(char option) {
@@ -76,6 +120,13 @@ public class runnerTest {
         assertEquals(expected, actual);
     }
 
+    // Test Function #23
+    // Test type : Functional, blackbox
+    // Input : chars = {'a', 'a', ' ', ' ', 'q', 'Q', 'M', 'n', ' '}
+    // Description : Checks for empty option provided.
+    // Expected output : <expected, actual>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(chars = {'a', 'a', ' ', ' ', 'q', 'Q', 'M', 'n', ' '})
     public void testCheckForEmptyOption(char option) {
@@ -85,6 +136,13 @@ public class runnerTest {
     }
 
 
+    // Test Function #24
+    // Test type : Functional, blackbox
+    // Input : strings = {"3", "-100", "100", "10000", " ", "45 ", "-45", "3.4", "-2.3", "hello"}
+    // Description : Validates parameter format.
+    // Expected output : <expected, actual> If exception : <exception.getMessage(), e.getMessage()>
+    // Tester : Nicholas Harris
+    // Date : 9th February
     @ParameterizedTest
     @ValueSource(strings = {"3", "-100", "100", "10000", " ", "45 ", "-45", "3.4", "-2.3", "hello"})
     public void validateParamFormat(String param) {
