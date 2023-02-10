@@ -43,7 +43,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
-    public void testUninitializedRobot() {
+    public void testInitializedRobot() {
         Robot testRobot = new Robot();
         assertFalse(testRobot.isPenDown());
     }
