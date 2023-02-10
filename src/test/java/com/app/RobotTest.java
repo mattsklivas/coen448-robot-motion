@@ -146,8 +146,8 @@ public class RobotTest {
     // Test Function #08
     // Test type : Functional, blackbox
     // Input : <setRobotDirection 1 1 1 -1 1 1>
-    // Description : Robot can rotate in all directions, including clockwise and counter-clockwise. getRobotDirDirection also returns right direction value.
-    // Expected output : Initially north, then CW east, then CW south, then CW west, then CCW south and direction value of 3, then CW west and direction value of 2, then CW north.
+    // Description : Robot can rotate in all directions, including clockwise and counter-clockwise. getRobotDirDirection also returns correction direction value.
+    // Expected output : <getRobotDirDescription() north east south west south west north getRobotDirection() 3 2>
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
