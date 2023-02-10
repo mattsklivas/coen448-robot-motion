@@ -52,9 +52,9 @@ public class runnerTest {
 
     // Test Function #19
     // Test type : Functional, blackbox
-    // Input : <Room(n) 10 movePen() true false>.
-    // Description : Validates the getOption command.
-    // Expected output : <isPenDown() false true false >
+    // Input : strings = {"a", "a ", "q  ", " ", "m", "m    "}
+    // Description : Validates the command to run getOption
+    // Expected output : <expected command, actual command>
     // Tester : Nicholas Harris
     // Date : 9th February
     // Verify
@@ -71,7 +71,7 @@ public class runnerTest {
     // Test type : Functional, blackbox
     // Input : strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"}
     // Description : Parses command to confirm both proper and improper command formats are accepted and executed, also accounts for null values.
-    // Expected output : <expected actual>
+    // Expected output : <expected command, actual command>
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
