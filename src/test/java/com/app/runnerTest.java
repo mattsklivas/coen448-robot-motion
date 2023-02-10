@@ -53,7 +53,7 @@ public class runnerTest {
     // Test Function #19
     // Test type : Functional, blackbox
     // Input : strings = {"a", "a ", "q  ", " ", "m", "m    "}
-    // Description : Validates the command to run getOption
+    // Description : Parses and returns the first char provided in the command.
     // Expected output : <expected command, actual command>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -70,7 +70,8 @@ public class runnerTest {
     // Test Function #20
     // Test type : Functional, blackbox
     // Input : strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"}
-    // Description : Parses command to confirm both proper and improper command formats are accepted and executed, also accounts for null values.
+    // Description : Parses command to confirm proper command formats are accepted and executed, also accounts for null values which cause rejection.
+    // Improper commands are not accepted, and are instead rejected.
     // Expected output : <expected command, actual command>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -139,7 +140,7 @@ public class runnerTest {
     // Test Function #24
     // Test type : Functional, blackbox
     // Input : strings = {"3", "-100", "100", "10000", " ", "45 ", "-45", "3.4", "-2.3", "hello"}
-    // Description : Validates parameter format.
+    // Description : Validates that the param is a positive number between 0 and 100, improper param values are rejected.
     // Expected output : <expected, actual> If exception : <exception.getMessage(), e.getMessage()>
     // Tester : Nicholas Harris
     // Date : 9th February
