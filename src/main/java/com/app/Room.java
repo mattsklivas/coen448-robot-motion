@@ -58,11 +58,23 @@ public class Room {
             }
 
             // Modify row if moving horizontal
-            if(isHorizontal)
+            if(isHorizontal) {
+                int newCol = robot.getRobotCol() + offset;
+                if (newCol >= floorSize || newCol < 0) {
+                    System.out.println("Robot is at the edge of the room");
+                    break;
+                }
                 robot.incrementRobotCol(offset);
+            }
             // Modify col otherwise (moving vertical)
-            else
+            else {
+                int newRow = robot.getRobotRow() + offset;
+                if (newRow >= floorSize || newRow < 0) {
+                    System.out.println("Robot is at the edge of the room");
+                    break;
+                }
                 robot.incrementRobotRow(offset);
+            }
 
             // Draw if pen down
             if (robot.isPenDown())

@@ -109,6 +109,39 @@ public class RoomTest {
         testRoom.printFloor();
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {4, 2, 3})
+    public void testRobotBoundary(int moves) {
+        int n = 10;
+        Room testRoom = new Room(n);
+
+        Robot testRobot = testRoom.getRobot();
+
+        assertTrue(testRoom.isInitialized());
+        assertEquals(n, testRoom.getFloorSize());
+
+        testRoom.movePen(true);
+        assertTrue(testRobot.isPenDown());
+
+        assertEquals(0, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", 0, testRobot.getRobotRow()));
+        assertEquals(0, testRobot.getRobotCol(), String.format("Robot col expected: %d is not equal to robot col returned: %d", 0, testRobot.getRobotCol()));
+        assertEquals("north", testRobot.getRobotDirDescription(), String.format("Robot direction expected: %s is not equal to robot direction returned: %s", "north", testRobot.getRobotDirDescription()));
+
+
+        testRobot.setRobotDirection(-1);
+        assertEquals("west", testRobot.getRobotDirDescription(), String.format("Robot direction expected: %s is not equal to robot direction returned: %s", "west", testRobot.getRobotDirDescription()));
+
+        testRoom.moveRobot(moves);
+        assertEquals(0, testRobot.getRobotRow(), String.format("Robot row expected: %d is not equal to robot row returned: %d", 0, testRobot.getRobotRow()));
+        assertEquals(0, testRobot.getRobotCol(), String.format("Robot col expected: %d is not equal to robot col returned: %d", 0, testRobot.getRobotCol()));
+        assertEquals("west", testRobot.getRobotDirDescription(), String.format("Robot direction expected: %s is not equal to robot direction returned: %s", "west", testRobot.getRobotDirDescription()));
+
+        testRoom.printRobotState();
+
+
+        testRoom.printFloor();
+    }
+
     @Test
     public void testMovePen() {
         int n = 10;
@@ -126,3 +159,4 @@ public class RoomTest {
         assertFalse(testRobot.isPenDown());
     }
 }
+
