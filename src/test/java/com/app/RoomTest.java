@@ -56,7 +56,7 @@ public class RoomTest {
     // Test Function #12
     // Test type : Functional, blackbox
     // Input : size = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-    // Description : Room initialized to size N specified by first checking if it has been initialized and then comparing value of size N specified (2D) to actual room size
+    // Description : Room initialized to size N specified by first checking if it has been initialized and then comparing value of size N specified (2D) to actual room size.
     // Expected output : <isInitialized() true getFloorSize() size>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -71,7 +71,7 @@ public class RoomTest {
     // Test Function #13
     // Test type : Functional, blackbox
     // Input : size = {7, 8, 1, 3, 5, 10, 8} <Room(n) size>
-    // Description : Determine if a created robot is initialized to all the correct values while a room at size N specified
+    // Description : Determine if a created robot is initialized to all the correct values while a room at size N specified.
     // Expected output : <isInitialized() true getFloorSize() size getRobotRow() 0 getRobotCol() 0 getRobotDirDescription() north isPenDown() false>
     // Tester : Nicholas Harris
     // Date : 9th February

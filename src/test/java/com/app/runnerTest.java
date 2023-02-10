@@ -37,7 +37,7 @@ public class runnerTest {
     // Test type : Functional, blackbox
     // Input : strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"}
     // Description : Parses commands to make sure program can accept all command inputs even if in improper format like the command being followed by a space or uppercase.
-    // Expected output : Commands in improper format (like " q" instead of "q") yield same result as proper format (like "q").
+    // Expected output : Commands in improper format (like "q " instead of "q") yield same result as proper format (like "q").
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
@@ -92,7 +92,7 @@ public class runnerTest {
     // Test Function #21
     // Test type : Functional, blackbox
     // Input : strings = {"u", "D", "R", "R 10", "c", "Q", "q 10", "P p", "p"}
-    // Description : Validates singleton commands
+    // Description : Validates singleton commands.
     // Expected output : <expected, actual>
     // Tester : Nicholas Harris
     // Date : 9th February

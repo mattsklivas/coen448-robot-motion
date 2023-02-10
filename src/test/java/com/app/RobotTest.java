@@ -38,7 +38,7 @@ public class RobotTest {
     // Test Function #01
     // Test type : Functional, blackbox
     // Input : No input.
-    // Description : Confirms robot has been initialized by verifying pen is up at initialization
+    // Description : Confirms robot has been initialized by verifying pen is up at initialization.
     // Expected output : <isPenDown() false>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -51,7 +51,7 @@ public class RobotTest {
     // Test Function #02
     // Test type : Functional, blackbox
     // Input : <incrementRobotRow() 1 incrementRobotRow() 1>
-    // Description : Robot can move in a position direction (up and right)
+    // Description : Robot can move in a position direction (up and right).
     // Expected output : <getRobotRow() 1 getRobotCol() 1>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -67,7 +67,7 @@ public class RobotTest {
     // Test Function #03
     // Test type : Functional, blackbox
     // Input : <incrementRobotRow() 1 -1>
-    // Description : Robot can move in a southern direction/down, does so by first moving up then down
+    // Description : Robot can move in a southern direction/down, does so by first moving up then down.
     // Expected output : <getRobotRow() 0>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -83,7 +83,7 @@ public class RobotTest {
     // Test Function #04
     // Test type : Functional, blackbox
     // Input : <setRobotCol 4>
-    // Description : Robot can move to a certain column with the setRobotCol() function
+    // Description : Robot can move to a certain column with the setRobotCol() function.
     // Expected output : <getRobotCol() 4>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -99,7 +99,7 @@ public class RobotTest {
     // Test Function #05
     // Test type : Functional, blackbox
     // Input : <setRobotRow 4>
-    // Description : Robot can move to a certain row with the setRobotRow() function
+    // Description : Robot can move to a certain row with the setRobotRow() function.
     // Expected output : <getRobotRow() 4>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -115,7 +115,7 @@ public class RobotTest {
     // Test Function #06
     // Test type : Functional, blackbox
     // Input : <setIsPenDown() true>.
-    // Description : Robot can move pen down
+    // Description : Robot can move pen down.
     // Expected output : <isPenDown() true>
     // Tester : Nicholas Harris
     // Date : 9th February
@@ -201,7 +201,7 @@ public class RobotTest {
     // Test Function #10
     // Test type : Functional, blackbox
     // Input : <setRobotDirection() 1 1 1 1 1 1 1 1>
-    // Description : Robot's direction can be accurately determined
+    // Description : Robot's direction can be accurately determined.
     // Expected output : <getRobotDirection() 0 1 2 3 0 1 2 3 0>
     // Tester : Nicholas Harris
     // Date : 9th February
