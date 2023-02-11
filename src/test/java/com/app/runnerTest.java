@@ -83,8 +83,6 @@ public class runnerTest {
         String actual = runner.getParam(command);
         if (expected == null) {
             assertNull(expected, actual);
-        } else {
-            assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
         }
         assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
     }
