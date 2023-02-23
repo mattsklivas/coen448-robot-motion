@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Robot.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">coen448-robot-motion</a> &gt; <a href="index.source.html" class="el_package">com.app</a> &gt; <span class="el_source">Robot.java</span></div><h1>Robot.java</h1><pre class="source lang-java linenums">package com.app;
+
+import java.lang.Math;
+
+public class Robot {
+    // Current robot position in room
+    private int robotRow, robotCol;
+
+    // com.app.Robot pen position as either up or down
+    // Up (False), Down (True)
+    private boolean isPenDown;
+
+    // com.app.Robot pen direction
+    // Up/North (0), Right/East (1), Down/South (2), Left/West (3)
+    // Note: Vertical is Even, Horizontal is Odd
+    private int robotDirection;
+
+<span class="fc" id="L18">    public Robot() {</span>
+        // com.app.Robot starts at (0, 0)
+<span class="fc" id="L20">        this.robotRow = 0;</span>
+<span class="fc" id="L21">        this.robotCol = 0;</span>
+
+        // Pen initially up and north
+<span class="fc" id="L24">        this.isPenDown = false;</span>
+<span class="fc" id="L25">        this.robotDirection = 0;</span>
+<span class="fc" id="L26">    }</span>
+
+    // Move up (+y) and down (-y)
+    public void incrementRobotRow(int inc) {
+<span class="fc" id="L30">        this.robotRow += inc;</span>
+<span class="fc" id="L31">    }</span>
+
+    // Move left (-x) and right (+x)
+    public void incrementRobotCol(int inc) {
+<span class="fc" id="L35">        this.robotCol += inc;</span>
+<span class="fc" id="L36">    }</span>
+
+    // Update current col
+    public void setRobotCol(int col) {
+<span class="fc" id="L40">        this.robotCol = col;</span>
+<span class="fc" id="L41">    }</span>
+
+    public void setRobotRow(int row) {
+<span class="fc" id="L44">        this.robotRow = row;</span>
+<span class="fc" id="L45">    }</span>
+
+    public void setIsPenDown(boolean state) {
+<span class="fc" id="L48">        this.isPenDown = state;</span>
+<span class="fc" id="L49">    }</span>
+
+    public void setRobotDirection(int rotateDirection) {
+        // Update direction based on rotation direction
+        // Rotate left (-1) and right (+1)
+<span class="fc" id="L54">        this.robotDirection = Math.floorMod(this.robotDirection + rotateDirection, 4);</span>
+<span class="fc" id="L55">    }</span>
+    
+    public int getRobotCol() {
+<span class="fc" id="L58">        return this.robotCol;</span>
+    }
+
+    public int getRobotRow() {
+<span class="fc" id="L62">        return this.robotRow;</span>
+    }
+
+    public boolean isPenDown() {
+<span class="fc" id="L66">        return this.isPenDown;</span>
+    }
+
+    public int getRobotDirection() {
+<span class="fc" id="L70">        return this.robotDirection;</span>
+    }
+
+    // format: (row, col)
+    public String getRobotDescription() {
+<span class="fc" id="L75">        return this.robotRow + &quot;, &quot; + this.robotCol;</span>
+    }
+
+    public String getPenPosition() {
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        return this.isPenDown ? &quot;down&quot; : &quot;up&quot;;</span>
+    }
+
+    public String getRobotDirDescription() {
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if(this.robotDirection == 0)</span>
+<span class="fc" id="L84">            return &quot;north&quot;;</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        else if(this.robotDirection == 1)</span>
+<span class="fc" id="L86">            return &quot;east&quot;;</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        else if(this.robotDirection == 2)</span>
+<span class="fc" id="L88">            return &quot;south&quot;;</span>
+        else
+<span class="fc" id="L90">            return &quot;west&quot;;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

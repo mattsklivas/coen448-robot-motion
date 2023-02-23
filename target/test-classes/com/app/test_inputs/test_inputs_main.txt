@@ -1,0 +1,43 @@
+m 5
+i 5
+d
+m 5
+p
+i 5
+D
+p
+i 10
+D
+m 20
+p
+m 5
+i -10
+i 10
+d
+d
+u
+d
+P
+C
+m4
+R
+m3
+P
+C
+i 20
+D
+m 20
+R
+m 20
+R
+m 20
+p
+i 1
+p
+d
+p
+m 1
+m 10
+l
+k
+q

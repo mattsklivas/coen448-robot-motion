@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>runner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">coen448-robot-motion</a> &gt; <a href="index.source.html" class="el_package">com.app</a> &gt; <span class="el_source">runner.java</span></div><h1>runner.java</h1><pre class="source lang-java linenums">package com.app;
+
+import java.util.*;
+
+<span class="nc" id="L5">public class runner {</span>
+    // Room object
+<span class="fc" id="L7">    public static Room room = new Room();</span>
+
+<span class="fc" id="L9">    public static Set&lt;Character&gt; knownCommandsAlpha = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L10">    public static Set&lt;Character&gt; knownCommandsAlphaNum = new HashSet&lt;&gt;();</span>
+
+    // Entrypoint of program execution
+    public static void main(String[] args) throws Exception {
+<span class="fc" id="L14">        Scanner sc = new Scanner(System.in);</span>
+
+<span class="fc" id="L16">        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</span>
+<span class="nc" id="L17">        while(true) {</span>
+            // Request new commands from the user
+<span class="fc" id="L19">            System.out.print(&quot;Enter command: &quot;);</span>
+<span class="nc" id="L20">            boolean isExit = parseCommand(sc.nextLine());</span>
+
+            // Exit the program if the command Q has been entered
+<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (isExit) {</span>
+<span class="nc" id="L24">                break;</span>
+            }
+
+<span class="nc" id="L27">            System.out.println();</span>
+        }
+
+<span class="nc" id="L30">        sc.close();</span>
+<span class="nc" id="L31">    }</span>
+
+
+    public static char getOption(String command) {
+<span class="fc" id="L35">        command = command.toLowerCase().trim();</span>
+        // Check if command is at least 1 character long
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (command.length() == 0) {</span>
+<span class="fc" id="L38">            return ' ';</span>
+        }
+<span class="fc" id="L40">        return command.charAt(0);</span>
+    }
+
+
+    public static String getParam(String command) {
+        // Get the command's integer parameter if it exists
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (command.length() &lt;= 1) {</span>
+<span class="nc" id="L47">            return null;</span>
+        }
+
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (command.charAt(1) == ' ') {</span>
+            // Check if an integer parameter is included
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (command.length() == 2) {</span>
+<span class="nc" id="L53">                System.out.println(&quot;Error: Numerical parameter required for the provided command. Please try again...&quot;);</span>
+<span class="nc" id="L54">                return null;</span>
+            }
+
+<span class="nc" id="L57">            return command.substring(2).strip();</span>
+        } else {
+<span class="nc" id="L59">            return command.substring(1).strip();</span>
+        }
+    }
+
+
+    public static boolean validateSingletonCommand(String command) {
+        // Check if the command is a known command
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (command.length() &gt; 1) {</span>
+<span class="fc" id="L67">            System.out.println(&quot;Error: Extra arguments included in command. Please try again...&quot;);</span>
+<span class="fc" id="L68">            return false;</span>
+        }
+
+<span class="fc" id="L71">        return true;</span>
+    }
+
+
+    public static boolean checkForExit(char option) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (option == 'q') {</span>
+<span class="fc" id="L77">            System.out.println(&quot;\nExiting program...&quot;);</span>
+<span class="fc" id="L78">            return true;</span>
+        }
+
+<span class="fc" id="L81">        return false;</span>
+    }
+
+
+    public static boolean checkForEmptyOption(char option) {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (option == ' ') {</span>
+<span class="fc" id="L87">            System.out.println(&quot;Error: No command entered. Please try again...&quot;);</span>
+<span class="fc" id="L88">            return true;</span>
+        }
+
+<span class="fc" id="L91">        return false;</span>
+    }
+
+
+    public static boolean validateParamFormat(String param) {
+        // Check if the extra parameter is an integer
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (!param.matches(&quot;[0-9]+&quot;)) {</span>
+<span class="fc" id="L98">            System.out.println(&quot;Error: Positive non-zero numerical parameter required for the provided command. Please try again...&quot;);</span>
+<span class="fc" id="L99">            return false;</span>
+        } else {
+            try {
+                // Parse the provided parameter to an integer
+<span class="fc bfc" id="L103" title="All 2 branches covered.">                if (Integer.parseInt(param) &gt; 100) {</span>
+<span class="fc" id="L104">                    System.out.println(&quot;Error: Numerical parameter provided is too large. Please try again...&quot;);</span>
+<span class="fc" id="L105">                    return false;</span>
+                }
+<span class="nc" id="L107">            } catch (NumberFormatException e) {</span>
+<span class="nc" id="L108">                System.out.println(&quot;Error: Unable to parse provided command parameter. Please try again...&quot;);</span>
+<span class="nc" id="L109">                return false;</span>
+            }
+        }
+
+<span class="fc" id="L113">        return true;</span>
+    }
+
+
+    public static boolean parseCommand(String command) {
+        /*
+        AVAILABLE STANDALONE COMMANDS:
+        [U|u] Pen up
+        [D|d] Pen down
+        [R|r] Turn right
+        [L|l] Turn left
+        [P|p] Print the NxN array + display the indices
+        [C|c] Print current position of the pen, whether it is up or down + its facing direction
+        [Q|q] Stop program
+
+        AVAILABLE COMMANDS WITH MULTIPLE PARAMETERS:
+        [M s|m s] Move forward s spaces (s is non-negative), zero or one space between m and s
+        [I n|i n] Initialize the system
+        */
+
+        // Set any alpha characters to lowercase and trim the string
+        command = command.toLowerCase().strip();
+
+        char option = getOption(command);
+
+        // Check if the command is empty
+        if (checkForEmptyOption(option)) {
+            return false;
+        }
+
+        // Check if first symbol represents a known command
+        if (knownCommandsAlpha.contains(option)) {
+            // Check if there's any additional arguments included
+            if (!validateSingletonCommand(command)) {
+                return false;
+            }
+
+            // Check if the command is Q
+            if (checkForExit(option)) {
+                return true;
+            } else if (room.isInitialized()) {
+                switch (option) {
+<span class="fc" id="L155">                    case 'u' -&gt; movePenDown(false);</span>
+                    case 'd' -&gt; movePenDown(true);
+                    case 'r' -&gt; {
+                        room.getRobot().setRobotDirection(1);
+                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());
+                    }
+                    case 'l' -&gt; {
+                        room.getRobot().setRobotDirection(-1);
+                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());
+                    }
+                    case 'p' -&gt; {
+                        System.out.println(&quot;Floor printout:&quot;);
+                        room.printFloor();
+                    }
+                    case 'c' -&gt; room.printRobotState();
+                    default -&gt; System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);
+                }
+            } else {
+                printInitializedError();
+                return false;
+            }
+        } else if (knownCommandsAlphaNum.contains(option) &amp;&amp; command.length() &gt; 1) {
+            String param = &quot;&quot;;
+            int parsedParam = -1;
+
+            // Get the command's integer parameter if it exists
+            param = getParam(command);
+
+            // Check if the extra parameter is an integer
+            if (!validateParamFormat(param)) {
+                return false;
+            }
+
+            // convert the parameter to an integer
+            parsedParam = Integer.parseInt(param);
+
+            switch(option) {
+                case 'm' -&gt; {
+                    if (room.isInitialized()) {
+                        System.out.println(&quot;Moving robot...&quot;);
+                        room.moveRobot(parsedParam);
+                    } else {
+                        printInitializedError();
+                    }
+                }
+                case 'i' -&gt; {
+                    if (room.isInitialized()) {
+                        System.out.println(&quot;Room is being reinitialized...&quot;);
+                        room = new Room(parsedParam);
+                    } else {
+                        room = new Room(parsedParam);
+                        System.out.println(&quot;Initializing floor...&quot;);
+                    }
+                }
+                default -&gt; {
+                    System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);
+                }
+            }
+        } else {
+            System.out.println(&quot;Error: Invalid command entered. Please try again...&quot;);
+        }
+
+        return false;
+    }
+
+
+    // State = do we want to move pen down
+    // curr = up = false
+    // state = down = true
+    private static void movePenDown(boolean state) {
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (room.getRobot().isPenDown() == state) {</span>
+<span class="nc" id="L226">            System.out.printf(&quot;Pen is already in the %s position.%n&quot;, room.getRobot().getPenPosition());</span>
+<span class="nc" id="L227">        } else {</span>
+<span class="nc" id="L228">            room.movePen(state);</span>
+<span class="nc" id="L229">            System.out.printf(&quot;Pen is now in the %s position.%n&quot;, room.getRobot().getPenPosition());</span>
+        } 
+<span class="nc" id="L231">    }</span>
+
+
+    private static void printInitializedError() {
+<span class="nc" id="L235">        System.out.println(&quot;Error: Room must be initialized before executing the command provided.&quot;);</span>
+<span class="nc" id="L236">        System.out.println(&quot;Initialize command: I &lt;n&gt; | i &lt;n&gt;&quot;);</span>
+<span class="nc" id="L237">        System.out.println(&quot;n: size of the room (n x n)&quot;);</span>
+<span class="nc" id="L238">    }</span>
+
+
+    private static void formatKnownCommands(Set&lt;Character&gt; alpha, Set&lt;Character&gt; alphaNum) {
+<span class="fc" id="L242">        alpha.add('u');</span>
+<span class="fc" id="L243">        alpha.add('d');</span>
+<span class="fc" id="L244">        alpha.add('r');</span>
+<span class="fc" id="L245">        alpha.add('l');</span>
+<span class="fc" id="L246">        alpha.add('p');</span>
+<span class="fc" id="L247">        alpha.add('c');</span>
+<span class="fc" id="L248">        alpha.add('q');</span>
+
+<span class="fc" id="L250">        alphaNum.add('m');</span>
+<span class="fc" id="L251">        alphaNum.add('i');</span>
+<span class="fc" id="L252">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
