@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    89.4%
+    87.9%
   </span>
   <span class="absValue">
-    (101/113)
+    (102/116)
   </span>
 </td>
 </tr>
@@ -90,7 +90,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        Scanner sc = new Scanner(System.in);</b>
 &nbsp;
 <b class="fc">&nbsp;        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</b>
-&nbsp;        while(true) {
+<b class="fc">&nbsp;        while(true) {</b>
 &nbsp;            // Request new commands from the user
 <b class="fc">&nbsp;            System.out.print(&quot;Enter command: &quot;);</b>
 <b class="fc">&nbsp;            boolean isExit = parseCommand(sc.nextLine());</b>
@@ -101,7 +101,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            }
 &nbsp;
 <b class="fc">&nbsp;            System.out.println();</b>
-<b class="fc">&nbsp;        }</b>
+&nbsp;        }
 &nbsp;
 <b class="fc">&nbsp;        sc.close();</b>
 &nbsp;    }
@@ -183,7 +183,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;            } catch (NumberFormatException e) {</b>
 <b class="nc">&nbsp;                System.out.println(&quot;Error: Unable to parse provided command parameter. Please try again...&quot;);</b>
 <b class="nc">&nbsp;                return false;</b>
-<b class="fc">&nbsp;            }</b>
+&nbsp;            }
 &nbsp;        }
 &nbsp;
 <b class="fc">&nbsp;        return true;</b>
@@ -245,7 +245,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                    case &#39;c&#39; -&gt; room.printRobotState();</b>
 <b class="nc">&nbsp;                    default -&gt; System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
 &nbsp;                }
-&nbsp;            } else {
+<b class="nc">&nbsp;            } else {</b>
 <b class="nc">&nbsp;                printInitializedError();</b>
 <b class="nc">&nbsp;                return false;</b>
 &nbsp;            }
@@ -269,7 +269,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Moving robot...&quot;);</b>
 <b class="fc">&nbsp;                        room.moveRobot(parsedParam);</b>
-&nbsp;                    } else {
+<b class="fc">&nbsp;                    } else {</b>
 <b class="fc">&nbsp;                        printInitializedError();</b>
 &nbsp;                    }
 <b class="fc">&nbsp;                }</b>
@@ -277,7 +277,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Room is being reinitialized...&quot;);</b>
 <b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
-&nbsp;                    } else {
+<b class="fc">&nbsp;                    } else {</b>
 <b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
 <b class="fc">&nbsp;                        System.out.println(&quot;Initializing floor...&quot;);</b>
 &nbsp;                    }
@@ -286,7 +286,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;                    System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
 &nbsp;                }
 &nbsp;            }
-<b class="fc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;        } else {</b>
 <b class="fc">&nbsp;            System.out.println(&quot;Error: Invalid command entered. Please try again...&quot;);</b>
 &nbsp;        }
 &nbsp;
@@ -300,7 +300,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    private static void movePenDown(boolean state) {
 <b class="fc">&nbsp;        if (room.getRobot().isPenDown() == state) {</b>
 <b class="fc">&nbsp;            System.out.printf(&quot;Pen is already in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
-&nbsp;        } else {
+<b class="fc">&nbsp;        } else {</b>
 <b class="fc">&nbsp;            room.movePen(state);</b>
 <b class="fc">&nbsp;            System.out.printf(&quot;Pen is now in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
 &nbsp;        } 
@@ -350,7 +350,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-09 17:38</div>
+    <div style="float:right;">generated on 2023-02-22 19:59</div>
 </div>
 </body>
 </html>

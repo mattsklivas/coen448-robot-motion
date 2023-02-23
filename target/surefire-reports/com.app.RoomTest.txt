@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+Test set: com.app.RoomTest
+-------------------------------------------------------------------------------
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 s - in com.app.RoomTest
+testRobotCreation{int}[1]  Time elapsed: 0.068 s
+testRobotCreation{int}[2]  Time elapsed: 0 s
+testRobotCreation{int}[3]  Time elapsed: 0 s
+testRobotCreation{int}[4]  Time elapsed: 0 s
+testRobotCreation{int}[5]  Time elapsed: 0 s
+testRobotCreation{int}[6]  Time elapsed: 0 s
+testRobotCreation{int}[7]  Time elapsed: 0 s
+testRobotBoundary{int}[1]  Time elapsed: 0.034 s
+testRobotBoundary{int}[2]  Time elapsed: 0.003 s
+testRobotBoundary{int}[3]  Time elapsed: 0.005 s
+testRobotMovement{int}[1]  Time elapsed: 0.009 s
+testRobotMovement{int}[2]  Time elapsed: 0.003 s
+testRobotMovement{int}[3]  Time elapsed: 0.007 s
+testRobotMovement{int}[4]  Time elapsed: 0.006 s
+testRobotMovement{int}[5]  Time elapsed: 0.006 s
+testRobotMovement{int}[6]  Time elapsed: 0.003 s
+testRobotMovement{int}[7]  Time elapsed: 0.003 s
+testUninitializedRoom  Time elapsed: 0.001 s
+testMovePen  Time elapsed: 0 s
+testRoomInitialization{int}[1]  Time elapsed: 0 s
+testRoomInitialization{int}[2]  Time elapsed: 0.001 s
+testRoomInitialization{int}[3]  Time elapsed: 0 s
+testRoomInitialization{int}[4]  Time elapsed: 0.001 s
+testRoomInitialization{int}[5]  Time elapsed: 0 s
+testRoomInitialization{int}[6]  Time elapsed: 0 s
+testRoomInitialization{int}[7]  Time elapsed: 0 s
+testRoomInitialization{int}[8]  Time elapsed: 0 s
+testRoomInitialization{int}[9]  Time elapsed: 0 s
+testRoomInitialization{int}[10]  Time elapsed: 0 s

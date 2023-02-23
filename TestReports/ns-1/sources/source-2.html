@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    92.5%
   </span>
   <span class="absValue">
-    (44/44)
+    (49/53)
   </span>
 </td>
 </tr>
@@ -134,11 +134,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            }
 &nbsp;
 &nbsp;            // Modify row if moving horizontal
-<b class="fc">&nbsp;            if(isHorizontal)</b>
+<b class="fc">&nbsp;            if(isHorizontal) {</b>
+<b class="fc">&nbsp;                int newCol = robot.getRobotCol() + offset;</b>
+<b class="fc">&nbsp;                if (newCol &gt;= floorSize || newCol &lt; 0) {</b>
+<b class="nc">&nbsp;                    System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
+<b class="nc">&nbsp;                    break;</b>
+&nbsp;                }
 <b class="fc">&nbsp;                robot.incrementRobotCol(offset);</b>
+<b class="fc">&nbsp;            }</b>
 &nbsp;            // Modify col otherwise (moving vertical)
-&nbsp;            else
+&nbsp;            else {
+<b class="fc">&nbsp;                int newRow = robot.getRobotRow() + offset;</b>
+<b class="fc">&nbsp;                if (newRow &gt;= floorSize || newRow &lt; 0) {</b>
+<b class="nc">&nbsp;                    System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
+<b class="nc">&nbsp;                    break;</b>
+&nbsp;                }
 <b class="fc">&nbsp;                robot.incrementRobotRow(offset);</b>
+&nbsp;            }
 &nbsp;
 &nbsp;            // Draw if pen down
 <b class="fc">&nbsp;            if (robot.isPenDown())</b>
@@ -220,7 +232,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-09 17:38</div>
+    <div style="float:right;">generated on 2023-02-22 19:59</div>
 </div>
 </body>
 </html>
