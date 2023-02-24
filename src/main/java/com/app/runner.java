@@ -152,22 +152,29 @@ public class runner {
                 return true;
             } else if (room.isInitialized()) {
                 switch (option) {
-                    case 'u' -> movePenDown(false);
-                    case 'd' -> movePenDown(true);
-                    case 'r' -> {
+                    case 'u':
+                        movePenDown(false);
+                        break;
+                    case 'd':
+                        movePenDown(true);
+                        break;
+                    case 'r':
                         room.getRobot().setRobotDirection(1);
                         System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
-                    }
-                    case 'l' -> {
+                        break;
+                    case 'l':
                         room.getRobot().setRobotDirection(-1);
                         System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
-                    }
-                    case 'p' -> {
+                        break;
+                    case 'p':
                         System.out.println("Floor printout:");
                         room.printFloor();
-                    }
-                    case 'c' -> room.printRobotState();
-                    default -> System.out.println("Error: Command not recognized. Please try again...");
+                        break;
+                    case 'c':
+                        room.printRobotState();
+                        break;
+                    default:
+                        System.out.println("Error: Command not recognized. Please try again...");
                 }
             } else {
                 printInitializedError();
@@ -189,15 +196,15 @@ public class runner {
             parsedParam = Integer.parseInt(param);
 
             switch(option) {
-                case 'm' -> {
+                case 'm':
                     if (room.isInitialized()) {
                         System.out.println("Moving robot...");
                         room.moveRobot(parsedParam);
                     } else {
                         printInitializedError();
                     }
-                }
-                case 'i' -> {
+                    break;
+                case 'i':
                     if (room.isInitialized()) {
                         System.out.println("Room is being reinitialized...");
                         room = new Room(parsedParam);
@@ -205,10 +212,9 @@ public class runner {
                         room = new Room(parsedParam);
                         System.out.println("Initializing floor...");
                     }
-                }
-                default -> {
+                    break;
+                default:
                     System.out.println("Error: Command not recognized. Please try again...");
-                }
             }
         } else {
             System.out.println("Error: Invalid command entered. Please try again...");
