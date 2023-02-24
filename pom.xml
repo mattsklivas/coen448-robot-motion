@@ -266,6 +266,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+                    <forkCount>0</forkCount>
                     <reportFormat>plain</reportFormat>
                     <includes>
                         <include>**/*Test*.java</include>
