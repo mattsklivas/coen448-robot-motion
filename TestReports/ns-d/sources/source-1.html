@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ErrorReportingRunner</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.internal.runners</a>
+</div>
+
+<h1>Coverage Summary for Class: ErrorReportingRunner (org.junit.internal.runners)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ErrorReportingRunner</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/35)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.internal.runners;
+&nbsp;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.lang.reflect.InvocationTargetException;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.List;
+&nbsp;import org.junit.runner.Description;
+&nbsp;import org.junit.runner.Runner;
+&nbsp;import org.junit.runner.notification.Failure;
+&nbsp;import org.junit.runner.notification.RunNotifier;
+&nbsp;import org.junit.runners.model.InitializationError;
+&nbsp;import org.junit.runners.model.InvalidTestClassError;
+&nbsp;
+&nbsp;public class ErrorReportingRunner extends Runner {
+<b class="nc">&nbsp;    private final List&lt;Throwable&gt; causes;</b>
+&nbsp;    private final String classNames;
+&nbsp;
+<b class="nc">&nbsp;    public ErrorReportingRunner(Class&lt;?&gt; testClass, Throwable cause) {</b>
+<b class="nc">&nbsp;        this(cause, testClass);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    public ErrorReportingRunner(Throwable cause, Class&lt;?&gt;... testClasses) {</b>
+<b class="nc">&nbsp;        if (testClasses != null &amp;&amp; testClasses.length != 0) {</b>
+<b class="nc">&nbsp;            Class[] arr$ = testClasses;</b>
+&nbsp;            int len$ = testClasses.length;
+&nbsp;
+<b class="nc">&nbsp;            for(int i$ = 0; i$ &lt; len$; ++i$) {</b>
+<b class="nc">&nbsp;                Class&lt;?&gt; testClass = arr$[i$];</b>
+&nbsp;                if (testClass == null) {
+&nbsp;                    throw new NullPointerException(&quot;Test class cannot be null&quot;);
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            this.classNames = this.getClassNames(testClasses);</b>
+<b class="nc">&nbsp;            this.causes = this.getCauses(cause);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            throw new NullPointerException(&quot;Test classes cannot be null or empty&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Description getDescription() {
+<b class="nc">&nbsp;        Description description = Description.createSuiteDescription(this.classNames, new Annotation[0]);</b>
+<b class="nc">&nbsp;        Iterator i$ = this.causes.iterator();</b>
+&nbsp;
+&nbsp;        while(i$.hasNext()) {
+&nbsp;            Throwable each = (Throwable)i$.next();
+&nbsp;            description.addChild(this.describeCause());
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;        return description;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    public void run(RunNotifier notifier) {</b>
+&nbsp;        Iterator i$ = this.causes.iterator();
+<b class="nc">&nbsp;</b>
+&nbsp;        while(i$.hasNext()) {
+&nbsp;            Throwable each = (Throwable)i$.next();
+&nbsp;            this.runCause(each, notifier);
+&nbsp;        }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    private String getClassNames(Class&lt;?&gt;... testClasses) {</b>
+<b class="nc">&nbsp;        StringBuilder builder = new StringBuilder();</b>
+&nbsp;        Class[] arr$ = testClasses;
+<b class="nc">&nbsp;        int len$ = testClasses.length;</b>
+<b class="nc">&nbsp;</b>
+&nbsp;        for(int i$ = 0; i$ &lt; len$; ++i$) {
+<b class="nc">&nbsp;            Class&lt;?&gt; testClass = arr$[i$];</b>
+<b class="nc">&nbsp;            if (builder.length() != 0) {</b>
+&nbsp;                builder.append(&quot;, &quot;);
+&nbsp;            }
+<b class="nc">&nbsp;</b>
+&nbsp;            builder.append(testClass.getName());
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return builder.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;Throwable&gt; getCauses(Throwable cause) {
+<b class="nc">&nbsp;        if (cause instanceof InvocationTargetException) {</b>
+<b class="nc">&nbsp;            return this.getCauses(cause.getCause());</b>
+<b class="nc">&nbsp;        } else if (cause instanceof InvalidTestClassError) {</b>
+<b class="nc">&nbsp;            return Collections.singletonList(cause);</b>
+&nbsp;        } else if (cause instanceof InitializationError) {
+&nbsp;            return ((InitializationError)cause).getCauses();
+&nbsp;        } else {
+&nbsp;            return cause instanceof org.junit.internal.runners.InitializationError ? ((org.junit.internal.runners.InitializationError)cause).getCauses() : Collections.singletonList(cause);
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private Description describeCause() {
+&nbsp;        return Description.createTestDescription(this.classNames, &quot;initializationError&quot;, new Annotation[0]);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void runCause(Throwable child, RunNotifier notifier) {
+&nbsp;        Description description = this.describeCause();
+&nbsp;        notifier.fireTestStarted(description);
+&nbsp;        notifier.fireTestFailure(new Failure(description, child));
+&nbsp;        notifier.fireTestFinished(description);
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

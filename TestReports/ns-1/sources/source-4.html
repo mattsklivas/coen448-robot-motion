@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RoomTest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.app</a>
+</div>
+
+<h1>Coverage Summary for Class: RoomTest (com.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RoomTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (66/66)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.app;
+&nbsp;
+&nbsp;import static org.junit.jupiter.api.Assertions.*;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;import org.junit.jupiter.params.ParameterizedTest;
+&nbsp;import org.junit.jupiter.params.provider.ValueSource;
+&nbsp;
+&nbsp;
+&nbsp;/*
+&nbsp;Room Test Cases:
+&nbsp;
+&nbsp;Methods:
+&nbsp;- 1 test per method
+&nbsp;- Room()
+&nbsp;- printRobotState()
+&nbsp;- getRobot()
+&nbsp;- getFloor()
+&nbsp;- getFloorSize()
+&nbsp;- isInitialized()
+&nbsp;
+&nbsp;Note: 4 for Room(n)
+&nbsp;- -1 (neg), +1(base), +100 (large)
+&nbsp;- Boundary: 0
+&nbsp;
+&nbsp;Note: 2 for movePen
+&nbsp;- True-&gt;False, False-&gt;True
+&nbsp;
+&nbsp;Note: 10 for moveRobot
+&nbsp;- 1 (left, Pen down), 2 (right, Pen up), 2 (up, Pen down), 1 (down, Pen up), x &gt; n (left, right), y &gt; n (up, down)
+&nbsp;- Boundaries: 0 (down, col), 0 (left, row), n (up, col), n(right, row)
+&nbsp;
+&nbsp;Note: 2 for printFloor
+&nbsp;- empty, w/ stars
+&nbsp;
+&nbsp;Variables
+&nbsp;- floor[][] domain: (n by n)
+&nbsp;- floorSize domain: n
+&nbsp;- isInitialized domain: (False, True)
+&nbsp; */
+&nbsp;
+<b class="fc">&nbsp;public class RoomTest {</b>
+&nbsp;
+&nbsp;    // Test Function #11
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : No input.
+&nbsp;    // Description : Room has been created but not initialized yet.
+&nbsp;    // Expected output : &lt;isInitialized() false&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @Test
+&nbsp;    public void testUninitializedRoom() {
+<b class="fc">&nbsp;        Room testRoom = new Room();</b>
+<b class="fc">&nbsp;        assertFalse(testRoom.isInitialized());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #12
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : size = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+&nbsp;    // Description : Room initialized to size N specified by first checking if it has been initialized and then comparing value of size N specified (2D) to actual room size.
+&nbsp;    // Expected output : &lt;isInitialized() true getFloorSize() size&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+&nbsp;    public void testRoomInitialization(int size) {
+<b class="fc">&nbsp;        Room testRoom = new Room(size);</b>
+<b class="fc">&nbsp;        assertTrue(testRoom.isInitialized());</b>
+<b class="fc">&nbsp;        assertEquals(size, testRoom.getFloorSize(), String.format(&quot;Room size entered: %d is not equal to room size returned: %d&quot;, size, testRoom.getFloorSize()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #13
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : size = {7, 8, 1, 3, 5, 10, 8} &lt;Room(n) size&gt;
+&nbsp;    // Description : Determine if a created robot is initialized to all the correct values while a room at size N specified.
+&nbsp;    // Expected output : &lt;isInitialized() true getFloorSize() size getRobotRow() 0 getRobotCol() 0 getRobotDirDescription() north isPenDown() false&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
+&nbsp;    public void testRobotCreation(int size) {
+<b class="fc">&nbsp;        Room testRoom = new Room(size);</b>
+&nbsp;
+<b class="fc">&nbsp;        Robot testRobot = testRoom.getRobot();</b>
+&nbsp;
+<b class="fc">&nbsp;        assertTrue(testRoom.isInitialized());</b>
+<b class="fc">&nbsp;        assertEquals(size, testRoom.getFloorSize());</b>
+&nbsp;
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, 0, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, 0, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;north&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;north&quot;, testRobot.getRobotDirDescription()));</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #14
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : moves = {7, 8, 1, 3, 5, 10, 8}, &lt;Room(n) 10 moveRobot() moves setRobotDirection() 1 moveRobot() moves&gt;
+&nbsp;    // Description : Robot can move on the floor accurately depending on which direction and number of moves are provided.
+&nbsp;    // Expected output : &lt;isInitialized() true getFloorSize() 10 getRobotRow() 0 getRobotCol 0 getRobotDirDescription north isPenDown() false ...
+&nbsp;    // getRobotRow() n-1 getRobotCol 0 getRobotDirDescription north isPenDown() false ...
+&nbsp;    // getRobotRow() n-1 getRobotCol n-1 getRobotDirDescription east isPenDown() false floorArr[i] int[n]&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
+&nbsp;    public void testRobotMovement(int moves) {
+<b class="fc">&nbsp;        int n = 10;</b>
+<b class="fc">&nbsp;        Room testRoom = new Room(n);</b>
+&nbsp;
+<b class="fc">&nbsp;        Robot testRobot = testRoom.getRobot();</b>
+&nbsp;
+<b class="fc">&nbsp;        assertTrue(testRoom.isInitialized());</b>
+<b class="fc">&nbsp;        assertEquals(n, testRoom.getFloorSize());</b>
+&nbsp;
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, 0, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, 0, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;north&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;north&quot;, testRobot.getRobotDirDescription()));</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.moveRobot(moves);</b>
+<b class="fc">&nbsp;        assertEquals(moves &lt; n ? moves : n - 1, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, moves &lt; n ? moves : n, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, 0, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;north&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;north&quot;, testRobot.getRobotDirDescription()));</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+&nbsp;
+<b class="fc">&nbsp;        testRobot.setRobotDirection(1);</b>
+<b class="fc">&nbsp;        testRoom.moveRobot(moves);</b>
+<b class="fc">&nbsp;        assertEquals(moves &lt; n ? moves : n - 1, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, moves &lt; n ? moves : n, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(moves &lt; n ? moves : n - 1, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, moves &lt; n ? moves : n, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;east&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;east&quot;, testRobot.getRobotDirDescription()));</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+<b class="fc">&nbsp;        testRoom.printRobotState();</b>
+&nbsp;
+<b class="fc">&nbsp;        int[][] floorArr = testRoom.getFloor();</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; testRoom.getFloorSize(); i++) {</b>
+<b class="fc">&nbsp;            assertArrayEquals(new int[n], floorArr[i]);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        testRoom.printFloor();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #15
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : moves = {4, 2, 3} &lt;Room(n) 10 setRobotDirection() -1 moveRobot() moves&gt;
+&nbsp;    // Description : Robot doesn&#39;t go out of bounds (beyond the wall of room) when given instructions to.
+&nbsp;    // Robot at initial position of 0,0 turned west and moved by N moves. Should remain at 0,0.
+&nbsp;    // Expected output : &lt;getRobotRow() 0 getRobotCol() 0 getRobotDirDescription() west&gt;
+&nbsp;    // Tester : Ali Turkman
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(ints = {4, 2, 3})
+&nbsp;    public void testRobotBoundary(int moves) {
+<b class="fc">&nbsp;        int n = 10;</b>
+<b class="fc">&nbsp;        Room testRoom = new Room(n);</b>
+&nbsp;
+<b class="fc">&nbsp;        Robot testRobot = testRoom.getRobot();</b>
+&nbsp;
+<b class="fc">&nbsp;        assertTrue(testRoom.isInitialized());</b>
+<b class="fc">&nbsp;        assertEquals(n, testRoom.getFloorSize());</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.movePen(true);</b>
+<b class="fc">&nbsp;        assertTrue(testRobot.isPenDown());</b>
+&nbsp;
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, 0, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, 0, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;north&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;north&quot;, testRobot.getRobotDirDescription()));</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        testRobot.setRobotDirection(-1);</b>
+<b class="fc">&nbsp;        assertEquals(&quot;west&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;west&quot;, testRobot.getRobotDirDescription()));</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.moveRobot(moves);</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotRow(), String.format(&quot;Robot row expected: %d is not equal to robot row returned: %d&quot;, 0, testRobot.getRobotRow()));</b>
+<b class="fc">&nbsp;        assertEquals(0, testRobot.getRobotCol(), String.format(&quot;Robot col expected: %d is not equal to robot col returned: %d&quot;, 0, testRobot.getRobotCol()));</b>
+<b class="fc">&nbsp;        assertEquals(&quot;west&quot;, testRobot.getRobotDirDescription(), String.format(&quot;Robot direction expected: %s is not equal to robot direction returned: %s&quot;, &quot;west&quot;, testRobot.getRobotDirDescription()));</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.printRobotState();</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        testRoom.printFloor();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #16
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : &lt;Room(n) 10 movePen() true false&gt;.
+&nbsp;    // Description : Pen can be turned up and down when asserted.
+&nbsp;    // Expected output : &lt;isPenDown() false true false &gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @Test
+&nbsp;    public void testMovePen() {
+<b class="fc">&nbsp;        int n = 10;</b>
+<b class="fc">&nbsp;        Room testRoom = new Room(n);</b>
+&nbsp;
+<b class="fc">&nbsp;        Robot testRobot = testRoom.getRobot();</b>
+&nbsp;
+<b class="fc">&nbsp;        assertTrue(testRoom.isInitialized());</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.movePen(true);</b>
+<b class="fc">&nbsp;        assertTrue(testRobot.isPenDown());</b>
+&nbsp;
+<b class="fc">&nbsp;        testRoom.movePen(false);</b>
+<b class="fc">&nbsp;        assertFalse(testRobot.isPenDown());</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:06</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CompositeFilter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine</a>
+</div>
+
+<h1>Coverage Summary for Class: CompositeFilter (org.junit.platform.engine)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CompositeFilter</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (3/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (5/20)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CompositeFilter$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (5/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    30.4%
+  </span>
+  <span class="absValue">
+    (7/23)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import org.junit.platform.commons.util.Preconditions;
+&nbsp;
+&nbsp;class CompositeFilter&lt;T&gt; implements Filter&lt;T&gt; {
+&nbsp;    private static final Filter ALWAYS_INCLUDED_FILTER = new Filter() {
+&nbsp;        public FilterResult apply(Object obj) {
+&nbsp;            return CompositeFilter.ALWAYS_INCLUDED_RESULT;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Predicate toPredicate() {
+&nbsp;            return (obj) -&gt; {
+&nbsp;                return true;
+&nbsp;            };
+&nbsp;        }
+&nbsp;    };
+&nbsp;    private static final FilterResult ALWAYS_INCLUDED_RESULT = FilterResult.included(&quot;Always included&quot;);
+&nbsp;    private static final FilterResult INCLUDED_BY_ALL_FILTERS = FilterResult.included(&quot;Element was included by all filters.&quot;);
+&nbsp;    private final Collection&lt;Filter&lt;T&gt;&gt; filters;
+&nbsp;
+<b class="fc">&nbsp;    static &lt;T&gt; Filter&lt;T&gt; alwaysIncluded() {</b>
+&nbsp;        return ALWAYS_INCLUDED_FILTER;
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    CompositeFilter(Collection&lt;? extends Filter&lt;T&gt;&gt; filters) {
+&nbsp;        this.filters = new ArrayList(Preconditions.notEmpty(filters, &quot;filters must not be empty&quot;));
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public FilterResult apply(T element) {
+&nbsp;        return (FilterResult)this.filters.stream().map((filter) -&gt; {
+&nbsp;            return filter.apply(element);
+<b class="nc">&nbsp;        }).filter(FilterResult::excluded).findFirst().orElse(INCLUDED_BY_ALL_FILTERS);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Predicate&lt;T&gt; toPredicate() {
+<b class="fc">&nbsp;        return (Predicate)this.filters.stream().map(Filter::toPredicate).reduce(Predicate::and).get();</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String toString() {
+&nbsp;        return (String)this.filters.stream().map(Object::toString).map((value) -&gt; {
+<b class="fc">&nbsp;            return String.format(&quot;(%s)&quot;, value);</b>
+&nbsp;        }).collect(Collectors.joining(&quot; and &quot;));
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

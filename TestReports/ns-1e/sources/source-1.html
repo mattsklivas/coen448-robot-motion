@@ -1,0 +1,395 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Try</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.commons.function</a>
+</div>
+
+<h1>Coverage Summary for Class: Try (org.junit.platform.commons.function)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Try</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (8/12)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Try$Failure</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Try$Success</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (3/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    19%
+  </span>
+  <span class="absValue">
+    (4/21)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    28.1%
+  </span>
+  <span class="absValue">
+    (9/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7.1%
+  </span>
+  <span class="absValue">
+    (1/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    21.4%
+  </span>
+  <span class="absValue">
+    (12/56)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.commons.function;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.concurrent.Callable;
+&nbsp;import java.util.function.Consumer;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Supplier;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.JUnitException;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.MAINTAINED,
+&nbsp;    since = &quot;1.4&quot;
+&nbsp;)
+&nbsp;public abstract class Try&lt;V&gt; {
+&nbsp;    public static &lt;V&gt; Try&lt;V&gt; call(Callable&lt;V&gt; action) {
+&nbsp;        checkNotNull(action, &quot;action&quot;);
+&nbsp;        return of(() -&gt; {
+&nbsp;            return success(action.call());
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    public static &lt;V&gt; Try&lt;V&gt; success(V value) {
+&nbsp;        return new Success(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static &lt;V&gt; Try&lt;V&gt; failure(Exception cause) {
+&nbsp;        return new Failure((Exception)checkNotNull(cause, &quot;cause&quot;));
+&nbsp;    }
+&nbsp;
+&nbsp;    private static &lt;T&gt; T checkNotNull(T input, String title) {
+&nbsp;        if (input == null) {
+&nbsp;            throw new JUnitException(title + &quot; must not be null&quot;);
+&nbsp;        } else {
+<b class="fc">&nbsp;            return input;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static &lt;V&gt; Try&lt;V&gt; of(Callable&lt;Try&lt;V&gt;&gt; action) {
+&nbsp;        try {
+&nbsp;            return (Try)action.call();
+&nbsp;        } catch (Exception var2) {
+&nbsp;            return failure(var2);
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private Try() {
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    public abstract &lt;U&gt; Try&lt;U&gt; andThenTry(Transformer&lt;V, U&gt; var1);</b>
+&nbsp;
+&nbsp;    public abstract &lt;U&gt; Try&lt;U&gt; andThen(Function&lt;V, Try&lt;U&gt;&gt; var1);
+&nbsp;
+&nbsp;    public abstract Try&lt;V&gt; orElseTry(Callable&lt;V&gt; var1);
+&nbsp;
+&nbsp;    public abstract Try&lt;V&gt; orElse(Supplier&lt;Try&lt;V&gt;&gt; var1);
+&nbsp;
+&nbsp;    public abstract V get() throws Exception;
+&nbsp;
+&nbsp;    public abstract &lt;E extends Exception&gt; V getOrThrow(Function&lt;? super Exception, E&gt; var1) throws E;
+<b class="fc">&nbsp;</b>
+&nbsp;    public abstract Try&lt;V&gt; ifSuccess(Consumer&lt;V&gt; var1);
+&nbsp;
+&nbsp;    public abstract Try&lt;V&gt; ifFailure(Consumer&lt;Exception&gt; var1);
+&nbsp;
+&nbsp;    public abstract Optional&lt;V&gt; toOptional();
+&nbsp;
+&nbsp;    private static class Failure&lt;V&gt; extends Try&lt;V&gt; {
+&nbsp;        private final Exception cause;
+&nbsp;
+&nbsp;        Failure(Exception cause) {
+<b class="nc">&nbsp;            super(null);</b>
+&nbsp;            this.cause = cause;
+&nbsp;        }
+&nbsp;
+&nbsp;        public &lt;U&gt; Try&lt;U&gt; andThenTry(Transformer&lt;V, U&gt; transformer) {
+<b class="pc">&nbsp;            return this.uncheckedCast();</b>
+&nbsp;        }
+<b class="nc">&nbsp;</b>
+&nbsp;        public &lt;U&gt; Try&lt;U&gt; andThen(Function&lt;V, Try&lt;U&gt;&gt; function) {
+<b class="fc">&nbsp;            return this.uncheckedCast();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        private &lt;U&gt; Try&lt;U&gt; uncheckedCast() {
+&nbsp;            return this;
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        public Try&lt;V&gt; orElseTry(Callable&lt;V&gt; action) {</b>
+<b class="nc">&nbsp;            Try.checkNotNull(action, &quot;action&quot;);</b>
+&nbsp;            return Try.call(action);
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        public Try&lt;V&gt; orElse(Supplier&lt;Try&lt;V&gt;&gt; supplier) {</b>
+&nbsp;            Try.checkNotNull(supplier, &quot;supplier&quot;);
+&nbsp;            Objects.requireNonNull(supplier);
+&nbsp;            return Try.of(supplier::get);
+&nbsp;        }
+&nbsp;
+&nbsp;        public V get() throws Exception {
+&nbsp;            throw this.cause;
+&nbsp;        }
+&nbsp;
+&nbsp;        public &lt;E extends Exception&gt; V getOrThrow(Function&lt;? super Exception, E&gt; exceptionTransformer) throws E {
+&nbsp;            Try.checkNotNull(exceptionTransformer, &quot;exceptionTransformer&quot;);
+&nbsp;            throw (Exception)exceptionTransformer.apply(this.cause);
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; ifSuccess(Consumer&lt;V&gt; valueConsumer) {
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; ifFailure(Consumer&lt;Exception&gt; causeConsumer) {
+&nbsp;            Try.checkNotNull(causeConsumer, &quot;causeConsumer&quot;);
+&nbsp;            causeConsumer.accept(this.cause);
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Optional&lt;V&gt; toOptional() {
+&nbsp;            return Optional.empty();
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean equals(Object that) {
+&nbsp;            if (this == that) {
+&nbsp;                return true;
+&nbsp;            } else {
+&nbsp;                return that != null &amp;&amp; this.getClass() == that.getClass() ? Objects.equals(this.cause, ((Failure)that).cause) : false;
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        public int hashCode() {
+&nbsp;            return Objects.hash(new Object[]{this.cause});
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static class Success&lt;V&gt; extends Try&lt;V&gt; {
+&nbsp;        private final V value;
+&nbsp;
+&nbsp;        Success(V value) {
+&nbsp;            super(null);
+&nbsp;            this.value = value;
+&nbsp;        }
+&nbsp;
+&nbsp;        public &lt;U&gt; Try&lt;U&gt; andThenTry(Transformer&lt;V, U&gt; transformer) {
+&nbsp;            Try.checkNotNull(transformer, &quot;transformer&quot;);
+&nbsp;            return Try.call(() -&gt; {
+&nbsp;                return transformer.apply(this.value);
+&nbsp;            });
+&nbsp;        }
+&nbsp;
+&nbsp;        public &lt;U&gt; Try&lt;U&gt; andThen(Function&lt;V, Try&lt;U&gt;&gt; function) {
+&nbsp;            Try.checkNotNull(function, &quot;function&quot;);
+&nbsp;            return Try.of(() -&gt; {
+&nbsp;                return (Try)function.apply(this.value);
+&nbsp;            });
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; orElseTry(Callable&lt;V&gt; action) {
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; orElse(Supplier&lt;Try&lt;V&gt;&gt; supplier) {
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public V get() {
+&nbsp;            return this.value;
+&nbsp;        }
+&nbsp;
+&nbsp;        public &lt;E extends Exception&gt; V getOrThrow(Function&lt;? super Exception, E&gt; exceptionTransformer) {
+&nbsp;            return this.value;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; ifSuccess(Consumer&lt;V&gt; valueConsumer) {
+&nbsp;            Try.checkNotNull(valueConsumer, &quot;valueConsumer&quot;);
+&nbsp;            valueConsumer.accept(this.value);
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Try&lt;V&gt; ifFailure(Consumer&lt;Exception&gt; causeConsumer) {
+&nbsp;            return this;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Optional&lt;V&gt; toOptional() {
+&nbsp;            return Optional.ofNullable(this.value);
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean equals(Object that) {
+&nbsp;            if (this == that) {
+&nbsp;                return true;
+&nbsp;            } else {
+&nbsp;                return that != null &amp;&amp; this.getClass() == that.getClass() ? Objects.equals(this.value, ((Success)that).value) : false;
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        public int hashCode() {
+&nbsp;            return Objects.hash(new Object[]{this.value});
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @FunctionalInterface
+&nbsp;    public interface Transformer&lt;S, T&gt; {
+&nbsp;        T apply(S var1) throws Exception;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

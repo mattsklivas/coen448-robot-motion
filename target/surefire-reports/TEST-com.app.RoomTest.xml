@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.app.RoomTest" time="0.1" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.app.RoomTest" time="0.069" tests="29" errors="0" skipped="0" failures="0">
   <properties/>
-  <testcase name="testRobotCreation{int}[1]" classname="com.app.RoomTest" time="0.002"/>
-  <testcase name="testRobotCreation{int}[2]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRobotCreation{int}[1]" classname="com.app.RoomTest" time="0.017"/>
+  <testcase name="testRobotCreation{int}[2]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRobotCreation{int}[3]" classname="com.app.RoomTest" time="0.001"/>
   <testcase name="testRobotCreation{int}[4]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRobotCreation{int}[5]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRobotCreation{int}[6]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRobotCreation{int}[7]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRobotBoundary{int}[1]" classname="com.app.RoomTest" time="0.006"/>
-  <testcase name="testRobotBoundary{int}[2]" classname="com.app.RoomTest" time="0.005"/>
-  <testcase name="testRobotBoundary{int}[3]" classname="com.app.RoomTest" time="0.005"/>
-  <testcase name="testRobotMovement{int}[1]" classname="com.app.RoomTest" time="0.019"/>
-  <testcase name="testRobotMovement{int}[2]" classname="com.app.RoomTest" time="0.005"/>
-  <testcase name="testRobotMovement{int}[3]" classname="com.app.RoomTest" time="0.005"/>
-  <testcase name="testRobotMovement{int}[4]" classname="com.app.RoomTest" time="0.004"/>
-  <testcase name="testRobotMovement{int}[5]" classname="com.app.RoomTest" time="0.005"/>
-  <testcase name="testRobotMovement{int}[6]" classname="com.app.RoomTest" time="0.006"/>
-  <testcase name="testRobotMovement{int}[7]" classname="com.app.RoomTest" time="0.004"/>
-  <testcase name="testUninitializedRoom" classname="com.app.RoomTest" time="0"/>
-  <testcase name="testMovePen" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRoomInitialization{int}[1]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRobotCreation{int}[6]" classname="com.app.RoomTest" time="0"/>
+  <testcase name="testRobotCreation{int}[7]" classname="com.app.RoomTest" time="0"/>
+  <testcase name="testRobotBoundary{int}[1]" classname="com.app.RoomTest" time="0.005"/>
+  <testcase name="testRobotBoundary{int}[2]" classname="com.app.RoomTest" time="0.003"/>
+  <testcase name="testRobotBoundary{int}[3]" classname="com.app.RoomTest" time="0.002"/>
+  <testcase name="testRobotMovement{int}[1]" classname="com.app.RoomTest" time="0.002"/>
+  <testcase name="testRobotMovement{int}[2]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRobotMovement{int}[3]" classname="com.app.RoomTest" time="0.002"/>
+  <testcase name="testRobotMovement{int}[4]" classname="com.app.RoomTest" time="0.002"/>
+  <testcase name="testRobotMovement{int}[5]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRobotMovement{int}[6]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRobotMovement{int}[7]" classname="com.app.RoomTest" time="0.002"/>
+  <testcase name="testUninitializedRoom" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testMovePen" classname="com.app.RoomTest" time="0"/>
+  <testcase name="testRoomInitialization{int}[1]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRoomInitialization{int}[2]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRoomInitialization{int}[3]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRoomInitialization{int}[4]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRoomInitialization{int}[5]" classname="com.app.RoomTest" time="0.001"/>
-  <testcase name="testRoomInitialization{int}[6]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRoomInitialization{int}[4]" classname="com.app.RoomTest" time="0"/>
+  <testcase name="testRoomInitialization{int}[5]" classname="com.app.RoomTest" time="0"/>
+  <testcase name="testRoomInitialization{int}[6]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRoomInitialization{int}[7]" classname="com.app.RoomTest" time="0"/>
-  <testcase name="testRoomInitialization{int}[8]" classname="com.app.RoomTest" time="0.001"/>
+  <testcase name="testRoomInitialization{int}[8]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRoomInitialization{int}[9]" classname="com.app.RoomTest" time="0"/>
   <testcase name="testRoomInitialization{int}[10]" classname="com.app.RoomTest" time="0"/>
 </testsuite>

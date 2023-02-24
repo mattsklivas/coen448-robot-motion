@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ModuleUtils</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.commons.util</a>
+</div>
+
+<h1>Coverage Summary for Class: ModuleUtils (org.junit.platform.commons.util)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ModuleUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ModuleUtils$ModuleReferenceScanner</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/62)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.commons.util;
+&nbsp;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.logging.Logger;
+&nbsp;import org.junit.platform.commons.logging.LoggerFactory;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;1.1&quot;
+&nbsp;)
+&nbsp;public class ModuleUtils {
+&nbsp;    private static final Logger logger = LoggerFactory.getLogger(ModuleUtils.class);
+&nbsp;
+&nbsp;    public ModuleUtils() {
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Set&lt;String&gt; findAllNonSystemBootModuleNames() {
+&nbsp;        logger.config(() -&gt; {
+&nbsp;            return &quot;Basic version of findAllNonSystemBootModuleNames() always returns an empty set!&quot;;
+&nbsp;        });
+&nbsp;        return Collections.emptySet();
+&nbsp;    }
+&nbsp;
+&nbsp;    public static boolean isJavaPlatformModuleSystemAvailable() {
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Optional&lt;String&gt; getModuleName(Class&lt;?&gt; type) {
+&nbsp;        return Optional.empty();
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Optional&lt;String&gt; getModuleVersion(Class&lt;?&gt; type) {
+&nbsp;        return Optional.empty();
+&nbsp;    }
+&nbsp;
+&nbsp;    public static List&lt;Class&lt;?&gt;&gt; findAllClassesInModule(String moduleName, ClassFilter filter) {
+&nbsp;        Preconditions.notBlank(moduleName, &quot;Module name must not be null or empty&quot;);
+&nbsp;        Preconditions.notNull(filter, &quot;Class filter must not be null&quot;);
+&nbsp;        logger.config(() -&gt; {
+&nbsp;            return &quot;Basic version of findAllClassesInModule() always returns an empty list!&quot;;
+&nbsp;        });
+<b class="nc">&nbsp;        return Collections.emptyList();</b>
+&nbsp;    }
+<b class="nc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

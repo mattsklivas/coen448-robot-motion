@@ -1,0 +1,374 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > runner</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.app</a>
+</div>
+
+<h1>Coverage Summary for Class: runner (com.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">runner</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.3%
+  </span>
+  <span class="absValue">
+    (12/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    69.8%
+  </span>
+  <span class="absValue">
+    (44/63)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.8%
+  </span>
+  <span class="absValue">
+    (103/116)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.app;
+&nbsp;
+&nbsp;import java.util.*;
+&nbsp;
+<b class="nc">&nbsp;public class runner {</b>
+&nbsp;    // Room object
+<b class="fc">&nbsp;    public static Room room = new Room();</b>
+&nbsp;
+<b class="fc">&nbsp;    public static Set&lt;Character&gt; knownCommandsAlpha = new HashSet&lt;&gt;();</b>
+<b class="fc">&nbsp;    public static Set&lt;Character&gt; knownCommandsAlphaNum = new HashSet&lt;&gt;();</b>
+&nbsp;
+&nbsp;    // Entrypoint of program execution
+&nbsp;    public static void main(String[] args) throws Exception {
+<b class="fc">&nbsp;        Scanner sc = new Scanner(System.in);</b>
+&nbsp;
+<b class="fc">&nbsp;        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</b>
+&nbsp;        while(true) {
+&nbsp;            // Request new commands from the user
+<b class="fc">&nbsp;            System.out.print(&quot;Enter command: &quot;);</b>
+<b class="fc">&nbsp;            boolean isExit = parseCommand(sc.nextLine());</b>
+&nbsp;
+&nbsp;            // Exit the program if the command Q has been entered
+<b class="fc">&nbsp;            if (isExit) {</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            System.out.println();</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        sc.close();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static char getOption(String command) {
+<b class="fc">&nbsp;        command = command.toLowerCase().trim();</b>
+&nbsp;        // Check if command is at least 1 character long
+<b class="fc">&nbsp;        if (command.length() == 0) {</b>
+<b class="fc">&nbsp;            return &#39; &#39;;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return command.charAt(0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static String getParam(String command) {
+&nbsp;        // Get the command&#39;s integer parameter if it exists
+<b class="pc">&nbsp;        if (command.length() &lt;= 1) {</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (command.charAt(1) == &#39; &#39;) {</b>
+&nbsp;            // Check if an integer parameter is included
+<b class="pc">&nbsp;            if (command.length() == 2) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Error: Numerical parameter required for the provided command. Please try again...&quot;);</b>
+<b class="nc">&nbsp;                return null;</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            return command.substring(2).strip();</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            return command.substring(1).strip();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static boolean validateSingletonCommand(String command) {
+&nbsp;        // Check if the command is a known command
+<b class="fc">&nbsp;        if (command.length() &gt; 1) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Error: Extra arguments included in command. Please try again...&quot;);</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static boolean checkForExit(char option) {
+<b class="fc">&nbsp;        if (option == &#39;q&#39;) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;\nExiting program...&quot;);</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static boolean checkForEmptyOption(char option) {
+<b class="fc">&nbsp;        if (option == &#39; &#39;) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Error: No command entered. Please try again...&quot;);</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static boolean validateParamFormat(String param) {
+&nbsp;        // Check if the extra parameter is an integer
+<b class="fc">&nbsp;        if (!param.matches(&quot;[0-9]+&quot;)) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Error: Positive non-zero numerical parameter required for the provided command. Please try again...&quot;);</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        } else {
+&nbsp;            try {
+&nbsp;                // Parse the provided parameter to an integer
+<b class="fc">&nbsp;                if (Integer.parseInt(param) &gt; 100) {</b>
+<b class="fc">&nbsp;                    System.out.println(&quot;Error: Numerical parameter provided is too large. Please try again...&quot;);</b>
+<b class="fc">&nbsp;                    return false;</b>
+&nbsp;                }
+<b class="nc">&nbsp;            } catch (NumberFormatException e) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Error: Unable to parse provided command parameter. Please try again...&quot;);</b>
+<b class="nc">&nbsp;                return false;</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static boolean parseCommand(String command) {
+&nbsp;        /*
+&nbsp;        AVAILABLE STANDALONE COMMANDS:
+&nbsp;        [U|u] Pen up
+&nbsp;        [D|d] Pen down
+&nbsp;        [R|r] Turn right
+&nbsp;        [L|l] Turn left
+&nbsp;        [P|p] Print the NxN array + display the indices
+&nbsp;        [C|c] Print current position of the pen, whether it is up or down + its facing direction
+&nbsp;        [Q|q] Stop program
+&nbsp;
+&nbsp;        AVAILABLE COMMANDS WITH MULTIPLE PARAMETERS:
+&nbsp;        [M s|m s] Move forward s spaces (s is non-negative), zero or one space between m and s
+&nbsp;        [I n|i n] Initialize the system
+&nbsp;        */
+&nbsp;
+&nbsp;        // Set any alpha characters to lowercase and trim the string
+<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+&nbsp;
+<b class="fc">&nbsp;        char option = getOption(command);</b>
+&nbsp;
+&nbsp;        // Check if the command is empty
+<b class="pc">&nbsp;        if (checkForEmptyOption(option)) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Check if first symbol represents a known command
+<b class="fc">&nbsp;        if (knownCommandsAlpha.contains(option)) {</b>
+&nbsp;            // Check if there&#39;s any additional arguments included
+<b class="pc">&nbsp;            if (!validateSingletonCommand(command)) {</b>
+<b class="nc">&nbsp;                return false;</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            // Check if the command is Q
+<b class="fc">&nbsp;            if (checkForExit(option)) {</b>
+<b class="fc">&nbsp;                return true;</b>
+<b class="pc">&nbsp;            } else if (room.isInitialized()) {</b>
+<b class="pc">&nbsp;                switch (option) {</b>
+&nbsp;                    case &#39;u&#39;:
+<b class="fc">&nbsp;                        movePenDown(false);</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;d&#39;:
+<b class="fc">&nbsp;                        movePenDown(true);</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;r&#39;:
+<b class="fc">&nbsp;                        room.getRobot().setRobotDirection(1);</b>
+<b class="fc">&nbsp;                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;l&#39;:
+<b class="fc">&nbsp;                        room.getRobot().setRobotDirection(-1);</b>
+<b class="fc">&nbsp;                        System.out.printf(&quot;Robot is now facing %s%n&quot;, room.getRobot().getRobotDirDescription());</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;p&#39;:
+<b class="fc">&nbsp;                        System.out.println(&quot;Floor printout:&quot;);</b>
+<b class="fc">&nbsp;                        room.printFloor();</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;c&#39;:
+<b class="fc">&nbsp;                        room.printRobotState();</b>
+<b class="fc">&nbsp;                        break;</b>
+&nbsp;                    default:
+<b class="nc">&nbsp;                        System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
+&nbsp;                }
+&nbsp;            } else {
+<b class="nc">&nbsp;                printInitializedError();</b>
+<b class="nc">&nbsp;                return false;</b>
+&nbsp;            }
+<b class="pc">&nbsp;        } else if (knownCommandsAlphaNum.contains(option) &amp;&amp; command.length() &gt; 1) {</b>
+<b class="fc">&nbsp;            String param = &quot;&quot;;</b>
+<b class="fc">&nbsp;            int parsedParam = -1;</b>
+&nbsp;
+&nbsp;            // Get the command&#39;s integer parameter if it exists
+<b class="fc">&nbsp;            param = getParam(command);</b>
+&nbsp;
+&nbsp;            // Check if the extra parameter is an integer
+<b class="fc">&nbsp;            if (!validateParamFormat(param)) {</b>
+<b class="fc">&nbsp;                return false;</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            // convert the parameter to an integer
+<b class="fc">&nbsp;            parsedParam = Integer.parseInt(param);</b>
+&nbsp;
+<b class="pc">&nbsp;            switch(option) {</b>
+&nbsp;                case &#39;m&#39;:
+<b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
+<b class="fc">&nbsp;                        System.out.println(&quot;Moving robot...&quot;);</b>
+<b class="fc">&nbsp;                        room.moveRobot(parsedParam);</b>
+&nbsp;                    } else {
+<b class="fc">&nbsp;                        printInitializedError();</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    break;</b>
+&nbsp;                case &#39;i&#39;:
+<b class="fc">&nbsp;                    if (room.isInitialized()) {</b>
+<b class="fc">&nbsp;                        System.out.println(&quot;Room is being reinitialized...&quot;);</b>
+<b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
+&nbsp;                    } else {
+<b class="fc">&nbsp;                        room = new Room(parsedParam);</b>
+<b class="fc">&nbsp;                        System.out.println(&quot;Initializing floor...&quot;);</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    break;</b>
+&nbsp;                default:
+<b class="nc">&nbsp;                    System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        } else {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Error: Invalid command entered. Please try again...&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    // State = do we want to move pen down
+&nbsp;    // curr = up = false
+&nbsp;    // state = down = true
+&nbsp;    private static void movePenDown(boolean state) {
+<b class="fc">&nbsp;        if (room.getRobot().isPenDown() == state) {</b>
+<b class="fc">&nbsp;            System.out.printf(&quot;Pen is already in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            room.movePen(state);</b>
+<b class="fc">&nbsp;            System.out.printf(&quot;Pen is now in the %s position.%n&quot;, room.getRobot().getPenPosition());</b>
+&nbsp;        } 
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private static void printInitializedError() {
+<b class="fc">&nbsp;        System.out.println(&quot;Error: Room must be initialized before executing the command provided.&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Initialize command: I &lt;n&gt; | i &lt;n&gt;&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;n: size of the room (n x n)&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private static void formatKnownCommands(Set&lt;Character&gt; alpha, Set&lt;Character&gt; alphaNum) {
+<b class="fc">&nbsp;        alpha.add(&#39;u&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;d&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;r&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;l&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;p&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;c&#39;);</b>
+<b class="fc">&nbsp;        alpha.add(&#39;q&#39;);</b>
+&nbsp;
+<b class="fc">&nbsp;        alphaNum.add(&#39;m&#39;);</b>
+<b class="fc">&nbsp;        alphaNum.add(&#39;i&#39;);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:06</div>
+</div>
+</body>
+</html>

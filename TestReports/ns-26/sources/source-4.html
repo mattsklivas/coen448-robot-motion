@@ -1,0 +1,396 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SelectorResolver</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine.support.discovery</a>
+</div>
+
+<h1>Coverage Summary for Class: SelectorResolver (org.junit.platform.engine.support.discovery)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SelectorResolver</td>
+<td class="coverageStat">
+  <span class="percent">
+    23.1%
+  </span>
+  <span class="absValue">
+    (3/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    23.1%
+  </span>
+  <span class="absValue">
+    (3/13)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SelectorResolver$Context</td>
+  </tr>
+  <tr>
+    <td class="name">SelectorResolver$Match</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.8%
+  </span>
+  <span class="absValue">
+    (9/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SelectorResolver$Match$Type</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SelectorResolver$Resolution</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    61.3%
+  </span>
+  <span class="absValue">
+    (19/31)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    70.7%
+  </span>
+  <span class="absValue">
+    (29/41)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine.support.discovery;
+&nbsp;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Supplier;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.util.Preconditions;
+&nbsp;import org.junit.platform.engine.DiscoverySelector;
+&nbsp;import org.junit.platform.engine.TestDescriptor;
+&nbsp;import org.junit.platform.engine.discovery.ClassSelector;
+&nbsp;import org.junit.platform.engine.discovery.ClasspathResourceSelector;
+&nbsp;import org.junit.platform.engine.discovery.ClasspathRootSelector;
+&nbsp;import org.junit.platform.engine.discovery.DirectorySelector;
+&nbsp;import org.junit.platform.engine.discovery.FileSelector;
+&nbsp;import org.junit.platform.engine.discovery.MethodSelector;
+&nbsp;import org.junit.platform.engine.discovery.ModuleSelector;
+&nbsp;import org.junit.platform.engine.discovery.NestedClassSelector;
+&nbsp;import org.junit.platform.engine.discovery.NestedMethodSelector;
+&nbsp;import org.junit.platform.engine.discovery.PackageSelector;
+&nbsp;import org.junit.platform.engine.discovery.UniqueIdSelector;
+&nbsp;import org.junit.platform.engine.discovery.UriSelector;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.EXPERIMENTAL,
+&nbsp;    since = &quot;1.5&quot;
+&nbsp;)
+&nbsp;public interface SelectorResolver {
+&nbsp;    default Resolution resolve(ClasspathResourceSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(ClasspathRootSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(ClassSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(NestedClassSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(DirectorySelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(FileSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(MethodSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(NestedMethodSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(ModuleSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(PackageSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(UniqueIdSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(UriSelector selector, Context context) {
+&nbsp;        return this.resolve((DiscoverySelector)selector, context);
+&nbsp;    }
+&nbsp;
+&nbsp;    default Resolution resolve(DiscoverySelector selector, Context context) {
+&nbsp;        return SelectorResolver.Resolution.unresolved();
+&nbsp;    }
+&nbsp;
+&nbsp;    @API(
+<b class="nc">&nbsp;        status = Status.EXPERIMENTAL,</b>
+&nbsp;        since = &quot;1.5&quot;
+&nbsp;    )
+&nbsp;    public static class Match {
+&nbsp;        private final TestDescriptor testDescriptor;
+&nbsp;        private final Supplier&lt;Set&lt;? extends DiscoverySelector&gt;&gt; childSelectorsSupplier;
+&nbsp;        private final Type type;
+&nbsp;
+&nbsp;        public static Match exact(TestDescriptor testDescriptor) {
+&nbsp;            return exact(testDescriptor, Collections::emptySet);
+&nbsp;        }
+&nbsp;
+&nbsp;        public static Match exact(TestDescriptor testDescriptor, Supplier&lt;Set&lt;? extends DiscoverySelector&gt;&gt; childSelectorsSupplier) {
+&nbsp;            return new Match(testDescriptor, childSelectorsSupplier, SelectorResolver.Match.Type.EXACT);
+&nbsp;        }
+&nbsp;
+&nbsp;        public static Match partial(TestDescriptor testDescriptor) {
+&nbsp;            return partial(testDescriptor, Collections::emptySet);
+&nbsp;        }
+<b class="nc">&nbsp;</b>
+&nbsp;        public static Match partial(TestDescriptor testDescriptor, Supplier&lt;Set&lt;? extends DiscoverySelector&gt;&gt; childSelectorsSupplier) {
+&nbsp;            return new Match(testDescriptor, childSelectorsSupplier, SelectorResolver.Match.Type.PARTIAL);
+&nbsp;        }
+&nbsp;
+&nbsp;        private Match(TestDescriptor testDescriptor, Supplier&lt;Set&lt;? extends DiscoverySelector&gt;&gt; childSelectorsSupplier, Type type) {
+&nbsp;            this.testDescriptor = (TestDescriptor)Preconditions.notNull(testDescriptor, &quot;testDescriptor must not be null&quot;);
+&nbsp;            this.childSelectorsSupplier = (Supplier)Preconditions.notNull(childSelectorsSupplier, &quot;childSelectorsSupplier must not be null&quot;);
+&nbsp;            this.type = type;
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean isExact() {
+&nbsp;            return this.type == SelectorResolver.Match.Type.EXACT;
+&nbsp;        }
+&nbsp;
+&nbsp;        public TestDescriptor getTestDescriptor() {
+&nbsp;            return this.testDescriptor;
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        public Set&lt;? extends DiscoverySelector&gt; expand() {</b>
+&nbsp;            return (Set)this.childSelectorsSupplier.get();
+&nbsp;        }
+&nbsp;
+&nbsp;        private static enum Type {
+&nbsp;            EXACT,
+&nbsp;            PARTIAL;
+&nbsp;
+&nbsp;            private Type() {
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @API(
+&nbsp;        status = Status.EXPERIMENTAL,
+&nbsp;        since = &quot;1.5&quot;
+&nbsp;    )
+&nbsp;    public static class Resolution {
+&nbsp;        private static final Resolution UNRESOLVED = new Resolution(Collections.emptySet(), Collections.emptySet());
+<b class="nc">&nbsp;        private final Set&lt;Match&gt; matches;</b>
+&nbsp;        private final Set&lt;? extends DiscoverySelector&gt; selectors;
+&nbsp;
+&nbsp;        public static Resolution unresolved() {
+&nbsp;            return UNRESOLVED;
+&nbsp;        }
+&nbsp;
+&nbsp;        public static Resolution match(Match match) {
+&nbsp;            return new Resolution(Collections.singleton(match), Collections.emptySet());
+&nbsp;        }
+&nbsp;
+&nbsp;        public static Resolution matches(Set&lt;Match&gt; matches) {
+&nbsp;            Preconditions.containsNoNullElements(matches, &quot;matches must not contain null elements&quot;);
+&nbsp;            Preconditions.notEmpty(matches, &quot;matches must not be empty&quot;);
+&nbsp;            return new Resolution(matches, Collections.emptySet());
+&nbsp;        }
+&nbsp;
+&nbsp;        public static Resolution selectors(Set&lt;? extends DiscoverySelector&gt; selectors) {
+&nbsp;            Preconditions.containsNoNullElements(selectors, &quot;selectors must not contain null elements&quot;);
+<b class="nc">&nbsp;            Preconditions.notEmpty(selectors, &quot;selectors must not be empty&quot;);</b>
+&nbsp;            return new Resolution(Collections.emptySet(), selectors);
+&nbsp;        }
+&nbsp;
+&nbsp;        private Resolution(Set&lt;Match&gt; matches, Set&lt;? extends DiscoverySelector&gt; selectors) {
+&nbsp;            this.matches = matches;
+&nbsp;            this.selectors = selectors;
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean isResolved() {
+&nbsp;            return this != UNRESOLVED;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Set&lt;Match&gt; getMatches() {
+&nbsp;            return this.matches;
+&nbsp;        }
+&nbsp;
+&nbsp;        public Set&lt;? extends DiscoverySelector&gt; getSelectors() {
+&nbsp;            return this.selectors;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @API(
+&nbsp;        status = Status.EXPERIMENTAL,
+&nbsp;        since = &quot;1.5&quot;
+&nbsp;    )
+&nbsp;    public interface Context {
+&nbsp;        Optional&lt;TestDescriptor&gt; resolve(DiscoverySelector var1);
+&nbsp;
+&nbsp;        &lt;T extends TestDescriptor&gt; Optional&lt;T&gt; addToParent(Function&lt;TestDescriptor, Optional&lt;T&gt;&gt; var1);
+&nbsp;
+&nbsp;        &lt;T extends TestDescriptor&gt; Optional&lt;T&gt; addToParent(Supplier&lt;DiscoverySelector&gt; var1, Function&lt;TestDescriptor, Optional&lt;T&gt;&gt; var2);
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

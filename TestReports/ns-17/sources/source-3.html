@@ -1,0 +1,236 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MutableExtensionRegistry</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.extension</a>
+</div>
+
+<h1>Coverage Summary for Class: MutableExtensionRegistry (org.junit.jupiter.engine.extension)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MutableExtensionRegistry</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.6%
+  </span>
+  <span class="absValue">
+    (11/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (11/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.6%
+  </span>
+  <span class="absValue">
+    (33/42)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.extension;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.ServiceLoader;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.Stream;
+&nbsp;import java.util.stream.StreamSupport;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.jupiter.api.extension.Extension;
+&nbsp;import org.junit.jupiter.engine.config.JupiterConfiguration;
+&nbsp;import org.junit.platform.commons.logging.Logger;
+&nbsp;import org.junit.platform.commons.logging.LoggerFactory;
+&nbsp;import org.junit.platform.commons.util.ClassLoaderUtils;
+&nbsp;import org.junit.platform.commons.util.Preconditions;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;5.5&quot;
+&nbsp;)
+&nbsp;public class MutableExtensionRegistry implements ExtensionRegistry, ExtensionRegistrar {
+&nbsp;    private static final Logger logger = LoggerFactory.getLogger(MutableExtensionRegistry.class);
+&nbsp;    private static final List&lt;Extension&gt; DEFAULT_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(new DisabledCondition(), new TempDirectory(), new TimeoutExtension(), new RepeatedTestExtension(), new TestInfoParameterResolver(), new TestReporterParameterResolver()));
+&nbsp;    private final MutableExtensionRegistry parent;
+&nbsp;    private final Set&lt;Class&lt;? extends Extension&gt;&gt; registeredExtensionTypes = new LinkedHashSet();
+&nbsp;    private final List&lt;Extension&gt; registeredExtensions = new ArrayList();
+&nbsp;
+&nbsp;    public static MutableExtensionRegistry createRegistryWithDefaultExtensions(JupiterConfiguration configuration) {
+&nbsp;        MutableExtensionRegistry extensionRegistry = new MutableExtensionRegistry((MutableExtensionRegistry)null);
+&nbsp;        logger.trace(() -&gt; {
+&nbsp;            return &quot;Registering default extensions: &quot; + DEFAULT_EXTENSIONS.stream().map((extension) -&gt; {
+&nbsp;                return extension.getClass().getName();
+&nbsp;            }).collect(Collectors.toList());
+&nbsp;        });
+&nbsp;        List var10000 = DEFAULT_EXTENSIONS;
+<b class="fc">&nbsp;        Objects.requireNonNull(extensionRegistry);</b>
+&nbsp;        var10000.forEach(extensionRegistry::registerDefaultExtension);
+<b class="fc">&nbsp;        if (configuration.isExtensionAutoDetectionEnabled()) {</b>
+&nbsp;            registerAutoDetectedExtensions(extensionRegistry);
+&nbsp;        }
+&nbsp;
+&nbsp;        return extensionRegistry;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void registerAutoDetectedExtensions(MutableExtensionRegistry extensionRegistry) {
+&nbsp;        Iterable&lt;Extension&gt; extensions = ServiceLoader.load(Extension.class, ClassLoaderUtils.getDefaultClassLoader());
+&nbsp;        logger.config(() -&gt; {
+&nbsp;            return &quot;Registering auto-detected extensions: &quot; + StreamSupport.stream(extensions.spliterator(), false).map((extension) -&gt; {
+&nbsp;                return extension.getClass().getName();
+&nbsp;            }).collect(Collectors.toList());
+&nbsp;        });
+&nbsp;        Objects.requireNonNull(extensionRegistry);
+&nbsp;        extensions.forEach(extensionRegistry::registerDefaultExtension);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static MutableExtensionRegistry createRegistryFrom(MutableExtensionRegistry parentRegistry, List&lt;Class&lt;? extends Extension&gt;&gt; extensionTypes) {
+&nbsp;        Preconditions.notNull(parentRegistry, &quot;parentRegistry must not be null&quot;);
+&nbsp;        MutableExtensionRegistry registry = new MutableExtensionRegistry(parentRegistry);
+&nbsp;        Objects.requireNonNull(registry);
+<b class="fc">&nbsp;        extensionTypes.forEach(registry::registerExtension);</b>
+&nbsp;        return registry;
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="nc">&nbsp;    private MutableExtensionRegistry(MutableExtensionRegistry parent) {</b>
+<b class="nc">&nbsp;        this.parent = parent;</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public &lt;E extends Extension&gt; Stream&lt;E&gt; stream(Class&lt;E&gt; extensionType) {</b>
+&nbsp;        return this.parent == null ? this.streamLocal(extensionType) : Stream.concat(this.parent.stream(extensionType), this.streamLocal(extensionType));
+<b class="pc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    private &lt;E extends Extension&gt; Stream&lt;E&gt; streamLocal(Class&lt;E&gt; extensionType) {
+&nbsp;        Stream var10000 = this.registeredExtensions.stream();
+<b class="fc">&nbsp;        Objects.requireNonNull(extensionType);</b>
+&nbsp;        var10000 = var10000.filter(extensionType::isInstance);
+&nbsp;        Objects.requireNonNull(extensionType);
+&nbsp;        return var10000.map(extensionType::cast);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private boolean isAlreadyRegistered(Class&lt;? extends Extension&gt; extensionType) {
+<b class="nc">&nbsp;        return this.registeredExtensionTypes.contains(extensionType) || this.parent != null &amp;&amp; this.parent.isAlreadyRegistered(extensionType);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    void registerExtension(Class&lt;? extends Extension&gt; extensionType) {</b>
+&nbsp;        if (!this.isAlreadyRegistered(extensionType)) {
+&nbsp;            this.registerExtension((Extension)ReflectionUtils.newInstance(extensionType, new Object[0]));
+<b class="nc">&nbsp;            this.registeredExtensionTypes.add(extensionType);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void registerDefaultExtension(Extension extension) {
+&nbsp;        this.registeredExtensions.add(extension);
+&nbsp;        this.registeredExtensionTypes.add(extension.getClass());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void registerExtension(Extension extension) {
+&nbsp;        this.registerExtension(extension, extension);
+&nbsp;    }
+&nbsp;
+&nbsp;    public void registerExtension(Extension extension, Object source) {
+<b class="fc">&nbsp;        Preconditions.notNull(extension, &quot;Extension must not be null&quot;);</b>
+&nbsp;        Preconditions.notNull(source, &quot;source must not be null&quot;);
+<b class="fc">&nbsp;        logger.trace(() -&gt; {</b>
+<b class="fc">&nbsp;            return String.format(&quot;Registering extension [%s] from source [%s].&quot;, extension, source);</b>
+<b class="fc">&nbsp;        });</b>
+&nbsp;        this.registeredExtensions.add(extension);
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

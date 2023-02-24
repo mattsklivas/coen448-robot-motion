@@ -1,0 +1,277 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > runnerTest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.app</a>
+</div>
+
+<h1>Coverage Summary for Class: runnerTest (com.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">runnerTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.8%
+  </span>
+  <span class="absValue">
+    (15/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (39/39)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.app;
+&nbsp;
+&nbsp;import java.io.InputStream;
+&nbsp;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertEquals;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertNull;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertThrows;
+&nbsp;
+&nbsp;import java.io.FileInputStream;
+&nbsp;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;import org.junit.jupiter.params.ParameterizedTest;
+&nbsp;import org.junit.jupiter.params.provider.ValueSource;
+&nbsp;
+<b class="fc">&nbsp;public class runnerTest {</b>
+&nbsp;
+&nbsp;    // Test Function #17
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : test_inputs file values
+&nbsp;    // Description : Program can run values specified in test inputs text file.
+&nbsp;    // Expected output : No exceptions thrown.
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @Test
+&nbsp;    public void testRunner() throws Exception {
+<b class="fc">&nbsp;        final InputStream defaultIS = System.in;</b>
+<b class="fc">&nbsp;        String currDir = System.getProperty(&quot;user.dir&quot;);</b>
+<b class="fc">&nbsp;        String testDir = &quot;/src/test/java/com/app/test_inputs&quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;        final FileInputStream fileIS = new FileInputStream(currDir + testDir + &quot;/test_inputs_main.txt&quot;);</b>
+<b class="fc">&nbsp;        System.setIn(fileIS);</b>
+<b class="fc">&nbsp;        runner.main(null);</b>
+<b class="fc">&nbsp;        System.setIn(defaultIS);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #18
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : strings = {&quot;q&quot;, &quot;u &quot;, &quot;q  &quot;, &quot;q &quot;, &quot;q&quot;, &quot;q &quot;, &quot;R&quot;, &quot;l&quot;, &quot;P&quot;}
+&nbsp;    // Description : Parses commands to make sure program can accept all command inputs even if in improper format like the command being followed by a space or uppercase.
+&nbsp;    // Expected output : Commands in improper format (like &quot;q &quot; instead of &quot;q&quot;) yield same result as proper format (like &quot;q&quot;).
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(strings = {&quot;q&quot;, &quot;u &quot;, &quot;q  &quot;, &quot;q &quot;, &quot;q&quot;, &quot;q &quot;, &quot;R&quot;, &quot;l&quot;, &quot;P&quot;})
+&nbsp;    public void testParseCommand(String command) {
+<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+<b class="pc">&nbsp;        boolean expected = command == &quot;q&quot;;</b>
+<b class="fc">&nbsp;        boolean actual = runner.parseCommand(command);</b>
+<b class="fc">&nbsp;        assertEquals(expected, actual);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #19
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : strings = {&quot;a&quot;, &quot;a &quot;, &quot;q  &quot;, &quot; &quot;, &quot;m&quot;, &quot;m    &quot;}
+&nbsp;    // Description : Parses and returns the first char provided in the command.
+&nbsp;    // Expected output : &lt;expected command, actual command&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    // Verify
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(strings = {&quot;a&quot;, &quot;a &quot;, &quot;q  &quot;, &quot; &quot;, &quot;m&quot;, &quot;m    &quot;})
+&nbsp;    public void testGetOption(String command) {
+<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+<b class="fc">&nbsp;        char expected = command.length() &lt;= 0 ? &#39; &#39; : command.charAt(0);</b>
+<b class="fc">&nbsp;        char actual = runner.getOption(command);</b>
+<b class="fc">&nbsp;        assertEquals(expected, actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #20
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : strings = {&quot;i 10&quot;, &quot;i 100 &quot;, &quot; &quot;, &quot; m  &quot;, &quot;m 10&quot;, &quot;100&quot;}
+&nbsp;    // Description : Parses command to confirm proper command formats are accepted and executed, also accounts for null values which cause rejection.
+&nbsp;    // Improper commands are not accepted, and are instead rejected.
+&nbsp;    // Expected output : &lt;expected command, actual command&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(strings = {&quot;i 10&quot;, &quot;i 100 &quot;, &quot; &quot;, &quot; m  &quot;, &quot;m 10&quot;, &quot;100&quot;})
+&nbsp;    public void testGetParam(String command) {
+<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+<b class="fc">&nbsp;        String expected = command.length() &lt;= 1 ? null : command.substring(1).strip();</b>
+&nbsp;//        String actual = runner.getParam(command);
+&nbsp;//        if (expected == null) {
+&nbsp;//            assertNull(expected, actual);
+&nbsp;//        }
+&nbsp;//        assertEquals(expected, actual, &quot;expected: &quot; + expected + &quot; actual: &quot; + actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #21
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : strings = {&quot;u&quot;, &quot;D&quot;, &quot;R&quot;, &quot;R 10&quot;, &quot;c&quot;, &quot;Q&quot;, &quot;q 10&quot;, &quot;P p&quot;, &quot;p&quot;}
+&nbsp;    // Description : Validates singleton commands.
+&nbsp;    // Expected output : &lt;expected, actual&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(strings = {&quot;u&quot;, &quot;D&quot;, &quot;R&quot;, &quot;R 10&quot;, &quot;c&quot;, &quot;Q&quot;, &quot;q 10&quot;, &quot;P p&quot;, &quot;p&quot;})
+&nbsp;    public void testValidateSingletonCommand(String command) {
+<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+<b class="fc">&nbsp;        boolean expected = command.length() == 1;</b>
+<b class="fc">&nbsp;        boolean actual = runner.validateSingletonCommand(command);</b>
+<b class="fc">&nbsp;        assertEquals(expected, actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #22
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : chars = {&#39;a&#39;, &#39;A&#39;, &#39;q&#39;, &#39;Q&#39;, &#39;d&#39;, &#39;q&#39;, &#39;U&#39;, &#39;r&#39;, &#39;t&#39;}
+&nbsp;    // Description : Validates commands to check for exit.
+&nbsp;    // Expected output : &lt;expected, actual&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(chars = {&#39;a&#39;, &#39;A&#39;, &#39;q&#39;, &#39;Q&#39;, &#39;d&#39;, &#39;q&#39;, &#39;U&#39;, &#39;r&#39;, &#39;t&#39;})
+&nbsp;    public void testCheckForExit(char option) {
+<b class="fc">&nbsp;        option = Character.toLowerCase(option);</b>
+<b class="fc">&nbsp;        boolean expected = Character.toLowerCase(option) == &#39;q&#39;;</b>
+<b class="fc">&nbsp;        boolean actual = runner.checkForExit(option);</b>
+<b class="fc">&nbsp;        assertEquals(expected, actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Test Function #23
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : chars = {&#39;a&#39;, &#39;a&#39;, &#39; &#39;, &#39; &#39;, &#39;q&#39;, &#39;Q&#39;, &#39;M&#39;, &#39;n&#39;, &#39; &#39;}
+&nbsp;    // Description : Checks for empty option provided.
+&nbsp;    // Expected output : &lt;expected, actual&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(chars = {&#39;a&#39;, &#39;a&#39;, &#39; &#39;, &#39; &#39;, &#39;q&#39;, &#39;Q&#39;, &#39;M&#39;, &#39;n&#39;, &#39; &#39;})
+&nbsp;    public void testCheckForEmptyOption(char option) {
+<b class="fc">&nbsp;        boolean expected = option == &#39; &#39;;</b>
+<b class="fc">&nbsp;        boolean actual = runner.checkForEmptyOption(option);</b>
+<b class="fc">&nbsp;        assertEquals(expected, actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    // Test Function #24
+&nbsp;    // Test type : Functional, blackbox
+&nbsp;    // Input : strings = {&quot;3&quot;, &quot;-100&quot;, &quot;100&quot;, &quot;10000&quot;, &quot; &quot;, &quot;45 &quot;, &quot;-45&quot;, &quot;3.4&quot;, &quot;-2.3&quot;, &quot;hello&quot;}
+&nbsp;    // Description : Validates that the param is a positive number between 0 and 100, improper param values are rejected.
+&nbsp;    // Expected output : &lt;expected, actual&gt; If exception : &lt;exception.getMessage(), e.getMessage()&gt;
+&nbsp;    // Tester : Nicholas Harris
+&nbsp;    // Date : 9th February
+&nbsp;    @ParameterizedTest
+&nbsp;    @ValueSource(strings = {&quot;3&quot;, &quot;-100&quot;, &quot;100&quot;, &quot;10000&quot;, &quot; &quot;, &quot;45 &quot;, &quot;-45&quot;, &quot;3.4&quot;, &quot;-2.3&quot;, &quot;hello&quot;})
+&nbsp;    public void validateParamFormat(String param) {
+<b class="fc">&nbsp;        final String paramStrip = param.strip();</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            Integer paramInt = Integer.parseInt(paramStrip);</b>
+<b class="fc">&nbsp;            boolean expected = paramStrip.matches(&quot;[0-9]+&quot;) &amp;&amp; paramInt &lt;= 100;</b>
+<b class="fc">&nbsp;            boolean actual = runner.validateParamFormat(paramStrip);</b>
+<b class="fc">&nbsp;            assertEquals(expected, actual);</b>
+<b class="fc">&nbsp;        } catch (NumberFormatException e) {</b>
+<b class="fc">&nbsp;            Exception exception = assertThrows(NumberFormatException.class, () -&gt; {</b>
+<b class="fc">&nbsp;                Integer.parseInt(paramStrip);</b>
+&nbsp;            });
+<b class="fc">&nbsp;            assertEquals(exception.getMessage(), e.getMessage());</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:06</div>
+</div>
+</body>
+</html>

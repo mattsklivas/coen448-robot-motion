@@ -1,0 +1,306 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TimeoutExtension</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.extension</a>
+</div>
+
+<h1>Coverage Summary for Class: TimeoutExtension (org.junit.jupiter.engine.extension)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TimeoutExtension</td>
+<td class="coverageStat">
+  <span class="percent">
+    53.8%
+  </span>
+  <span class="absValue">
+    (14/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    9.1%
+  </span>
+  <span class="absValue">
+    (2/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (18/42)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TimeoutExtension$TimeoutProvider</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    53.8%
+  </span>
+  <span class="absValue">
+    (14/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    9.1%
+  </span>
+  <span class="absValue">
+    (2/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (18/42)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.extension;
+&nbsp;
+&nbsp;import java.lang.reflect.AnnotatedElement;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.concurrent.Executors;
+&nbsp;import java.util.concurrent.ScheduledExecutorService;
+&nbsp;import java.util.concurrent.TimeUnit;
+&nbsp;import java.util.function.Function;
+&nbsp;import org.junit.jupiter.api.Timeout;
+&nbsp;import org.junit.jupiter.api.extension.BeforeAllCallback;
+&nbsp;import org.junit.jupiter.api.extension.BeforeEachCallback;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionConfigurationException;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContext;
+&nbsp;import org.junit.jupiter.api.extension.InvocationInterceptor;
+&nbsp;import org.junit.jupiter.api.extension.ReflectiveInvocationContext;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
+&nbsp;import org.junit.platform.commons.JUnitException;
+&nbsp;import org.junit.platform.commons.support.AnnotationSupport;
+&nbsp;import org.junit.platform.commons.util.ClassUtils;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.commons.util.RuntimeUtils;
+&nbsp;
+&nbsp;class TimeoutExtension implements BeforeAllCallback, BeforeEachCallback, InvocationInterceptor {
+&nbsp;    private static final ExtensionContext.Namespace NAMESPACE = Namespace.create(new Object[]{Timeout.class});
+&nbsp;    private static final String TESTABLE_METHOD_TIMEOUT_KEY = &quot;testable_method_timeout_from_annotation&quot;;
+&nbsp;    private static final String GLOBAL_TIMEOUT_CONFIG_KEY = &quot;global_timeout_config&quot;;
+&nbsp;    private static final String ENABLED_MODE_VALUE = &quot;enabled&quot;;
+&nbsp;    private static final String DISABLED_MODE_VALUE = &quot;disabled&quot;;
+&nbsp;    private static final String DISABLED_ON_DEBUG_MODE_VALUE = &quot;disabled_on_debug&quot;;
+&nbsp;
+&nbsp;    TimeoutExtension() {
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public void beforeAll(ExtensionContext context) {</b>
+&nbsp;        this.readAndStoreTimeoutSoChildrenInheritIt(context);
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public void beforeEach(ExtensionContext context) {
+&nbsp;        this.readAndStoreTimeoutSoChildrenInheritIt(context);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readAndStoreTimeoutSoChildrenInheritIt(ExtensionContext context) {
+&nbsp;        this.readTimeoutFromAnnotation(context.getElement()).ifPresent((timeout) -&gt; {
+&nbsp;            context.getStore(NAMESPACE).put(&quot;testable_method_timeout_from_annotation&quot;, timeout);
+<b class="fc">&nbsp;        });</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void interceptBeforeAllMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptLifecycleMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultBeforeAllMethodTimeout);
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public void interceptBeforeEachMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptLifecycleMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultBeforeEachMethodTimeout);
+<b class="fc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    public void interceptTestMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptTestableMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultTestMethodTimeout);
+&nbsp;    }
+&nbsp;
+&nbsp;    public void interceptTestTemplateMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptTestableMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultTestTemplateMethodTimeout);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public &lt;T&gt; T interceptTestFactoryMethod(InvocationInterceptor.Invocation&lt;T&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        return this.interceptTestableMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultTestFactoryMethodTimeout);
+&nbsp;    }
+&nbsp;
+&nbsp;    public void interceptAfterEachMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptLifecycleMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultAfterEachMethodTimeout);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public void interceptAfterAllMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) throws Throwable {
+&nbsp;        this.interceptLifecycleMethod(invocation, invocationContext, extensionContext, TimeoutConfiguration::getDefaultAfterAllMethodTimeout);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void interceptLifecycleMethod(InvocationInterceptor.Invocation&lt;Void&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext, TimeoutProvider defaultTimeoutProvider) throws Throwable {
+&nbsp;        TimeoutDuration timeout = (TimeoutDuration)this.readTimeoutFromAnnotation(Optional.of(invocationContext.getExecutable())).orElse((Object)null);
+<b class="fc">&nbsp;        this.intercept(invocation, invocationContext, extensionContext, timeout, defaultTimeoutProvider);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Optional&lt;TimeoutDuration&gt; readTimeoutFromAnnotation(Optional&lt;AnnotatedElement&gt; element) {
+&nbsp;        return AnnotationSupport.findAnnotation(element, Timeout.class).map(TimeoutDuration::from);
+&nbsp;    }
+&nbsp;
+&nbsp;    private &lt;T&gt; T interceptTestableMethod(InvocationInterceptor.Invocation&lt;T&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext, TimeoutProvider defaultTimeoutProvider) throws Throwable {
+<b class="fc">&nbsp;        TimeoutDuration timeout = (TimeoutDuration)extensionContext.getStore(NAMESPACE).get(&quot;testable_method_timeout_from_annotation&quot;, TimeoutDuration.class);</b>
+&nbsp;        return this.intercept(invocation, invocationContext, extensionContext, timeout, defaultTimeoutProvider);
+&nbsp;    }
+&nbsp;
+&nbsp;    private &lt;T&gt; T intercept(InvocationInterceptor.Invocation&lt;T&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext, TimeoutDuration explicitTimeout, TimeoutProvider defaultTimeoutProvider) throws Throwable {
+&nbsp;        TimeoutDuration timeout = explicitTimeout == null ? this.getDefaultTimeout(extensionContext, defaultTimeoutProvider) : explicitTimeout;
+&nbsp;        return this.decorate(invocation, invocationContext, extensionContext, timeout).proceed();
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    private TimeoutDuration getDefaultTimeout(ExtensionContext extensionContext, TimeoutProvider defaultTimeoutProvider) {
+&nbsp;        return (TimeoutDuration)((Optional)defaultTimeoutProvider.apply(this.getGlobalTimeoutConfiguration(extensionContext))).orElse((Object)null);
+&nbsp;    }
+&nbsp;
+&nbsp;    private TimeoutConfiguration getGlobalTimeoutConfiguration(ExtensionContext extensionContext) {
+&nbsp;        ExtensionContext root = extensionContext.getRoot();
+&nbsp;        return (TimeoutConfiguration)root.getStore(NAMESPACE).getOrComputeIfAbsent(&quot;global_timeout_config&quot;, (key) -&gt; {
+<b class="nc">&nbsp;            return new TimeoutConfiguration(root);</b>
+&nbsp;        }, TimeoutConfiguration.class);
+&nbsp;    }
+&nbsp;
+&nbsp;    private &lt;T&gt; InvocationInterceptor.Invocation&lt;T&gt; decorate(InvocationInterceptor.Invocation&lt;T&gt; invocation, ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext, TimeoutDuration timeout) {
+&nbsp;        return (InvocationInterceptor.Invocation)(timeout != null &amp;&amp; !this.isTimeoutDisabled(extensionContext) ? new TimeoutInvocation(invocation, timeout, this.getExecutor(extensionContext), () -&gt; {
+&nbsp;            return this.describe(invocationContext, extensionContext);
+&nbsp;        }) : invocation);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private String describe(ReflectiveInvocationContext&lt;Method&gt; invocationContext, ExtensionContext extensionContext) {
+&nbsp;        Method method = (Method)invocationContext.getExecutable();
+&nbsp;        Optional&lt;Class&lt;?&gt;&gt; testClass = extensionContext.getTestClass();
+&nbsp;        return testClass.isPresent() &amp;&amp; invocationContext.getTargetClass().equals(testClass.get()) ? String.format(&quot;%s(%s)&quot;, method.getName(), ClassUtils.nullSafeToString(method.getParameterTypes())) : ReflectionUtils.getFullyQualifiedMethodName(invocationContext.getTargetClass(), method);
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    private ScheduledExecutorService getExecutor(ExtensionContext extensionContext) {</b>
+&nbsp;        return ((ExecutorResource)extensionContext.getRoot().getStore(NAMESPACE).getOrComputeIfAbsent(ExecutorResource.class)).get();
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private boolean isTimeoutDisabled(ExtensionContext extensionContext) {
+&nbsp;        Optional&lt;String&gt; mode = extensionContext.getConfigurationParameter(&quot;junit.jupiter.execution.timeout.mode&quot;);
+&nbsp;        return (Boolean)mode.map(this::isTimeoutDisabled).orElse(false);
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private boolean isTimeoutDisabled(String mode) {
+&nbsp;        switch (mode) {
+&nbsp;            case &quot;enabled&quot;:
+&nbsp;                return false;
+&nbsp;            case &quot;disabled&quot;:
+<b class="fc">&nbsp;                return true;</b>
+&nbsp;            case &quot;disabled_on_debug&quot;:
+<b class="fc">&nbsp;                return RuntimeUtils.isDebugMode();</b>
+&nbsp;            default:
+&nbsp;                throw new ExtensionConfigurationException(&quot;Unsupported timeout mode: &quot; + mode);
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static class ExecutorResource implements ExtensionContext.Store.CloseableResource {
+<b class="pc">&nbsp;        private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor((runnable) -&gt; {</b>
+<b class="nc">&nbsp;            Thread thread = new Thread(runnable, &quot;junit-jupiter-timeout-watcher&quot;);</b>
+<b class="fc">&nbsp;            thread.setPriority(10);</b>
+&nbsp;            return thread;
+&nbsp;        });
+&nbsp;
+&nbsp;        ExecutorResource() {
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+&nbsp;        ScheduledExecutorService get() {
+&nbsp;            return this.executor;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        public void close() throws Throwable {</b>
+<b class="fc">&nbsp;            this.executor.shutdown();</b>
+&nbsp;            boolean terminated = this.executor.awaitTermination(5L, TimeUnit.SECONDS);
+&nbsp;            if (!terminated) {
+&nbsp;                this.executor.shutdownNow();
+&nbsp;                throw new JUnitException(&quot;Scheduled executor could not be stopped in an orderly manner&quot;);
+&nbsp;            }
+<b class="pc">&nbsp;        }</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    @FunctionalInterface</b>
+<b class="nc">&nbsp;    private interface TimeoutProvider extends Function&lt;TimeoutConfiguration, Optional&lt;TimeoutDuration&gt;&gt; {</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

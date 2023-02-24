@@ -1,0 +1,124 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > JupiterConfiguration</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.config</a>
+</div>
+
+<h1>Coverage Summary for Class: JupiterConfiguration (org.junit.jupiter.engine.config)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">JupiterConfiguration</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.config;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.jupiter.api.DisplayNameGenerator;
+&nbsp;import org.junit.jupiter.api.TestInstance;
+&nbsp;import org.junit.jupiter.api.extension.ExecutionCondition;
+&nbsp;import org.junit.jupiter.api.parallel.ExecutionMode;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;5.4&quot;
+&nbsp;)
+&nbsp;public interface JupiterConfiguration {
+&nbsp;    String DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME = &quot;junit.jupiter.conditions.deactivate&quot;;
+&nbsp;    String PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME = &quot;junit.jupiter.execution.parallel.enabled&quot;;
+&nbsp;    String DEFAULT_EXECUTION_MODE_PROPERTY_NAME = &quot;junit.jupiter.execution.parallel.mode.default&quot;;
+&nbsp;    String DEFAULT_CLASSES_EXECUTION_MODE_PROPERTY_NAME = &quot;junit.jupiter.execution.parallel.mode.classes.default&quot;;
+&nbsp;    String EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME = &quot;junit.jupiter.extensions.autodetection.enabled&quot;;
+&nbsp;    String DEFAULT_TEST_INSTANCE_LIFECYCLE_PROPERTY_NAME = &quot;junit.jupiter.testinstance.lifecycle.default&quot;;
+&nbsp;    String DEACTIVATE_ALL_CONDITIONS_PATTERN = &quot;*&quot;;
+&nbsp;    String DEFAULT_DISPLAY_NAME_GENERATOR_PROPERTY_NAME = &quot;junit.jupiter.displayname.generator.default&quot;;
+&nbsp;    String DEFAULT_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.default&quot;;
+&nbsp;    String DEFAULT_TESTABLE_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.testable.method.default&quot;;
+&nbsp;    String DEFAULT_TEST_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.test.method.default&quot;;
+&nbsp;    String DEFAULT_TEST_TEMPLATE_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.testtemplate.method.default&quot;;
+&nbsp;    String DEFAULT_TEST_FACTORY_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.testfactory.method.default&quot;;
+&nbsp;    String DEFAULT_LIFECYCLE_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.lifecycle.method.default&quot;;
+&nbsp;    String DEFAULT_BEFORE_ALL_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.beforeall.method.default&quot;;
+&nbsp;    String DEFAULT_BEFORE_EACH_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.beforeeach.method.default&quot;;
+&nbsp;    String DEFAULT_AFTER_EACH_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.aftereach.method.default&quot;;
+&nbsp;    String DEFAULT_AFTER_ALL_METHOD_TIMEOUT_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.afterall.method.default&quot;;
+&nbsp;    String TIMEOUT_MODE_PROPERTY_NAME = &quot;junit.jupiter.execution.timeout.mode&quot;;
+&nbsp;
+&nbsp;    Optional&lt;String&gt; getRawConfigurationParameter(String var1);
+&nbsp;
+&nbsp;    boolean isParallelExecutionEnabled();
+&nbsp;
+&nbsp;    boolean isExtensionAutoDetectionEnabled();
+&nbsp;
+&nbsp;    ExecutionMode getDefaultExecutionMode();
+&nbsp;
+&nbsp;    ExecutionMode getDefaultClassesExecutionMode();
+&nbsp;
+&nbsp;    TestInstance.Lifecycle getDefaultTestInstanceLifecycle();
+&nbsp;
+&nbsp;    Predicate&lt;ExecutionCondition&gt; getExecutionConditionFilter();
+&nbsp;
+&nbsp;    DisplayNameGenerator getDefaultDisplayNameGenerator();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

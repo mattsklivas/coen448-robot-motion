@@ -1,0 +1,300 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ExecutableInvoker</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.execution</a>
+</div>
+
+<h1>Coverage Summary for Class: ExecutableInvoker (org.junit.jupiter.engine.execution)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExecutableInvoker</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    29.2%
+  </span>
+  <span class="absValue">
+    (7/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    53%
+  </span>
+  <span class="absValue">
+    (35/66)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExecutableInvoker$ReflectiveInterceptorCall</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExecutableInvoker$ReflectiveInterceptorCall$VoidMethodInterceptorCall</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (12/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    29.2%
+  </span>
+  <span class="absValue">
+    (7/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55.1%
+  </span>
+  <span class="absValue">
+    (38/69)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.execution;
+&nbsp;
+&nbsp;import java.lang.reflect.Constructor;
+&nbsp;import java.lang.reflect.Executable;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.lang.reflect.Parameter;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContext;
+&nbsp;import org.junit.jupiter.api.extension.InvocationInterceptor;
+&nbsp;import org.junit.jupiter.api.extension.ParameterContext;
+&nbsp;import org.junit.jupiter.api.extension.ParameterResolutionException;
+&nbsp;import org.junit.jupiter.api.extension.ParameterResolver;
+&nbsp;import org.junit.jupiter.api.extension.ReflectiveInvocationContext;
+&nbsp;import org.junit.jupiter.engine.extension.ExtensionRegistry;
+&nbsp;import org.junit.platform.commons.logging.Logger;
+&nbsp;import org.junit.platform.commons.logging.LoggerFactory;
+&nbsp;import org.junit.platform.commons.util.BlacklistedExceptions;
+&nbsp;import org.junit.platform.commons.util.Preconditions;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.commons.util.StringUtils;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;5.0&quot;
+&nbsp;)
+&nbsp;public class ExecutableInvoker {
+&nbsp;    private static final Logger logger = LoggerFactory.getLogger(ExecutableInvoker.class);
+&nbsp;    private static final InvocationInterceptorChain interceptorChain = new InvocationInterceptorChain();
+&nbsp;
+&nbsp;    public ExecutableInvoker() {
+&nbsp;    }
+&nbsp;
+&nbsp;    public &lt;T&gt; T invoke(Constructor&lt;T&gt; constructor, Optional&lt;Object&gt; outerInstance, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry, ReflectiveInterceptorCall&lt;Constructor&lt;T&gt;, T&gt; interceptorCall) {
+&nbsp;        Object[] arguments = this.resolveParameters(constructor, Optional.empty(), outerInstance, extensionContext, extensionRegistry);
+&nbsp;        ConstructorInvocation&lt;T&gt; invocation = new ConstructorInvocation(constructor, arguments);
+&nbsp;        return this.invoke((InvocationInterceptor.Invocation)invocation, (ReflectiveInvocationContext)invocation, extensionContext, extensionRegistry, interceptorCall);
+&nbsp;    }
+&nbsp;
+&nbsp;    public &lt;T&gt; T invoke(Method method, Object target, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry, ReflectiveInterceptorCall&lt;Method, T&gt; interceptorCall) {
+<b class="fc">&nbsp;        Optional&lt;Object&gt; optionalTarget = target instanceof Optional ? (Optional)target : Optional.ofNullable(target);</b>
+&nbsp;        Object[] arguments = this.resolveParameters(method, optionalTarget, extensionContext, extensionRegistry);
+<b class="fc">&nbsp;        MethodInvocation&lt;T&gt; invocation = new MethodInvocation(method, optionalTarget, arguments);</b>
+<b class="fc">&nbsp;        return this.invoke((InvocationInterceptor.Invocation)invocation, (ReflectiveInvocationContext)invocation, extensionContext, extensionRegistry, interceptorCall);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private &lt;E extends Executable, T&gt; T invoke(InvocationInterceptor.Invocation&lt;T&gt; originalInvocation, ReflectiveInvocationContext&lt;E&gt; invocationContext, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry, ReflectiveInterceptorCall&lt;E, T&gt; call) {
+&nbsp;        return interceptorChain.invoke(originalInvocation, extensionRegistry, (interceptor, wrappedInvocation) -&gt; {
+&nbsp;            return call.apply(interceptor, wrappedInvocation, invocationContext, extensionContext);
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    private Object[] resolveParameters(Method method, Optional&lt;Object&gt; target, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry) {
+&nbsp;        return this.resolveParameters(method, target, Optional.empty(), extensionContext, extensionRegistry);
+&nbsp;    }
+&nbsp;
+&nbsp;    private Object[] resolveParameters(Executable executable, Optional&lt;Object&gt; target, Optional&lt;Object&gt; outerInstance, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry) {
+&nbsp;        Preconditions.notNull(target, &quot;target must not be null&quot;);
+&nbsp;        Parameter[] parameters = executable.getParameters();
+&nbsp;        Object[] values = new Object[parameters.length];
+&nbsp;        int start = 0;
+&nbsp;        if (outerInstance.isPresent()) {
+&nbsp;            values[0] = outerInstance.get();
+&nbsp;            start = 1;
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+&nbsp;        for(int i = start; i &lt; parameters.length; ++i) {
+<b class="fc">&nbsp;            ParameterContext parameterContext = new DefaultParameterContext(parameters[i], i, target);</b>
+<b class="fc">&nbsp;            values[i] = this.resolveParameter(parameterContext, executable, extensionContext, extensionRegistry);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        return values;
+&nbsp;    }
+&nbsp;
+&nbsp;    private Object resolveParameter(ParameterContext parameterContext, Executable executable, ExtensionContext extensionContext, ExtensionRegistry extensionRegistry) {
+&nbsp;        String resolvers;
+&nbsp;        try {
+&nbsp;            List&lt;ParameterResolver&gt; matchingResolvers = (List)extensionRegistry.stream(ParameterResolver.class).filter((resolverx) -&gt; {
+&nbsp;                return resolverx.supportsParameter(parameterContext, extensionContext);
+&nbsp;            }).collect(Collectors.toList());
+&nbsp;            if (matchingResolvers.isEmpty()) {
+&nbsp;                throw new ParameterResolutionException(String.format(&quot;No ParameterResolver registered for parameter [%s] in %s [%s].&quot;, parameterContext.getParameter(), asLabel(executable), executable.toGenericString()));
+&nbsp;            } else if (matchingResolvers.size() &gt; 1) {
+&nbsp;                resolvers = (String)matchingResolvers.stream().map(StringUtils::defaultToString).collect(Collectors.joining(&quot;, &quot;));
+&nbsp;                throw new ParameterResolutionException(String.format(&quot;Discovered multiple competing ParameterResolvers for parameter [%s] in %s [%s]: %s&quot;, parameterContext.getParameter(), asLabel(executable), executable.toGenericString(), resolvers));
+<b class="pc">&nbsp;            } else {</b>
+<b class="fc">&nbsp;                ParameterResolver resolver = (ParameterResolver)matchingResolvers.get(0);</b>
+<b class="fc">&nbsp;                Object value = resolver.resolveParameter(parameterContext, extensionContext);</b>
+<b class="fc">&nbsp;                this.validateResolvedType(parameterContext.getParameter(), value, executable, resolver);</b>
+<b class="fc">&nbsp;                logger.trace(() -&gt; {</b>
+&nbsp;                    return String.format(&quot;ParameterResolver [%s] resolved a value of type [%s] for parameter [%s] in %s [%s].&quot;, resolver.getClass().getName(), value != null ? value.getClass().getName() : null, parameterContext.getParameter(), asLabel(executable), executable.toGenericString());
+&nbsp;                });
+&nbsp;                return value;
+&nbsp;            }
+&nbsp;        } catch (ParameterResolutionException var8) {
+<b class="fc">&nbsp;            throw var8;</b>
+<b class="fc">&nbsp;        } catch (Throwable var9) {</b>
+&nbsp;            BlacklistedExceptions.rethrowIfBlacklisted(var9);
+&nbsp;            resolvers = String.format(&quot;Failed to resolve parameter [%s] in %s [%s]&quot;, parameterContext.getParameter(), asLabel(executable), executable.toGenericString());
+&nbsp;            if (StringUtils.isNotBlank(var9.getMessage())) {
+&nbsp;                resolvers = resolvers + &quot;: &quot; + var9.getMessage();
+&nbsp;            }
+&nbsp;
+&nbsp;            throw new ParameterResolutionException(resolvers, var9);
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    private void validateResolvedType(Parameter parameter, Object value, Executable executable, ParameterResolver resolver) {</b>
+&nbsp;        Class&lt;?&gt; type = parameter.getType();
+&nbsp;        if (!ReflectionUtils.isAssignableTo(value, type)) {
+&nbsp;            String message;
+&nbsp;            if (value == null &amp;&amp; type.isPrimitive()) {
+&nbsp;                message = String.format(&quot;ParameterResolver [%s] resolved a null value for parameter [%s] in %s [%s], but a primitive of type [%s] is required.&quot;, resolver.getClass().getName(), parameter, asLabel(executable), executable.toGenericString(), type.getName());
+&nbsp;            } else {
+&nbsp;                message = String.format(&quot;ParameterResolver [%s] resolved a value of type [%s] for parameter [%s] in %s [%s], but a value assignment compatible with [%s] is required.&quot;, resolver.getClass().getName(), value != null ? value.getClass().getName() : null, parameter, asLabel(executable), executable.toGenericString(), type.getName());
+&nbsp;            }
+&nbsp;
+&nbsp;            throw new ParameterResolutionException(message);
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static String asLabel(Executable executable) {
+&nbsp;        return executable instanceof Constructor ? &quot;constructor&quot; : &quot;method&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    public interface ReflectiveInterceptorCall&lt;E extends Executable, T&gt; {
+&nbsp;        T apply(InvocationInterceptor var1, InvocationInterceptor.Invocation&lt;T&gt; var2, ReflectiveInvocationContext&lt;E&gt; var3, ExtensionContext var4) throws Throwable;
+&nbsp;
+&nbsp;        static ReflectiveInterceptorCall&lt;Method, Void&gt; ofVoidMethod(VoidMethodInterceptorCall call) {
+&nbsp;            return (interceptorChain, invocation, invocationContext, extensionContext) -&gt; {
+&nbsp;                call.apply(interceptorChain, invocation, invocationContext, extensionContext);
+&nbsp;                return null;
+&nbsp;            };
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        public interface VoidMethodInterceptorCall {</b>
+&nbsp;            void apply(InvocationInterceptor var1, InvocationInterceptor.Invocation&lt;Void&gt; var2, ReflectiveInvocationContext&lt;Method&gt; var3, ExtensionContext var4) throws Throwable;
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

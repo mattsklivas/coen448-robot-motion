@@ -1,0 +1,354 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ExtensionValuesStore</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.execution</a>
+</div>
+
+<h1>Coverage Summary for Class: ExtensionValuesStore (org.junit.jupiter.engine.execution)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExtensionValuesStore</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.8%
+  </span>
+  <span class="absValue">
+    (9/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (15/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.6%
+  </span>
+  <span class="absValue">
+    (33/42)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExtensionValuesStore$CompositeKey</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (5/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.8%
+  </span>
+  <span class="absValue">
+    (9/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExtensionValuesStore$MemoizingSupplier</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    89.5%
+  </span>
+  <span class="absValue">
+    (17/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    67.6%
+  </span>
+  <span class="absValue">
+    (23/34)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (55/66)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.execution;
+&nbsp;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.concurrent.ConcurrentHashMap;
+&nbsp;import java.util.concurrent.ConcurrentMap;
+&nbsp;import java.util.concurrent.locks.Lock;
+&nbsp;import java.util.concurrent.locks.ReentrantLock;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Supplier;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContext;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContextException;
+&nbsp;import org.junit.jupiter.engine.support.JupiterThrowableCollectorFactory;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.engine.support.hierarchical.ThrowableCollector;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;5.0&quot;
+&nbsp;)
+&nbsp;public class ExtensionValuesStore {
+&nbsp;    private final ExtensionValuesStore parentStore;
+&nbsp;    private final ConcurrentMap&lt;CompositeKey, Supplier&lt;Object&gt;&gt; storedValues = new ConcurrentHashMap(4);
+&nbsp;
+&nbsp;    public ExtensionValuesStore(ExtensionValuesStore parentStore) {
+&nbsp;        this.parentStore = parentStore;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void closeAllStoredCloseableValues() {
+&nbsp;        ThrowableCollector throwableCollector = JupiterThrowableCollectorFactory.createThrowableCollector();
+&nbsp;        Iterator var2 = this.storedValues.values().iterator();
+&nbsp;
+&nbsp;        while(var2.hasNext()) {
+&nbsp;            Supplier&lt;Object&gt; supplier = (Supplier)var2.next();
+<b class="fc">&nbsp;            Object value = supplier.get();</b>
+&nbsp;            if (value instanceof ExtensionContext.Store.CloseableResource) {
+<b class="fc">&nbsp;                ExtensionContext.Store.CloseableResource resource = (ExtensionContext.Store.CloseableResource)value;</b>
+<b class="fc">&nbsp;                Objects.requireNonNull(resource);</b>
+&nbsp;                throwableCollector.execute(resource::close);
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        throwableCollector.assertEmpty();
+&nbsp;    }
+&nbsp;
+&nbsp;    Object get(ExtensionContext.Namespace namespace, Object key) {
+&nbsp;        Supplier&lt;Object&gt; storedValue = this.getStoredValue(new CompositeKey(namespace, key));
+<b class="fc">&nbsp;        return storedValue != null ? storedValue.get() : null;</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="pc">&nbsp;    &lt;T&gt; T get(ExtensionContext.Namespace namespace, Object key, Class&lt;T&gt; requiredType) {</b>
+<b class="nc">&nbsp;        Object value = this.get(namespace, key);</b>
+<b class="nc">&nbsp;        return this.castToRequiredType(key, value, requiredType);</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    &lt;K, V&gt; Object getOrComputeIfAbsent(ExtensionContext.Namespace namespace, K key, Function&lt;K, V&gt; defaultCreator) {</b>
+&nbsp;        CompositeKey compositeKey = new CompositeKey(namespace, key);
+&nbsp;        Supplier&lt;Object&gt; storedValue = this.getStoredValue(compositeKey);
+&nbsp;        if (storedValue == null) {
+<b class="fc">&nbsp;            Supplier&lt;Object&gt; newValue = new MemoizingSupplier(() -&gt; {</b>
+<b class="fc">&nbsp;                return defaultCreator.apply(key);</b>
+&nbsp;            });
+&nbsp;            storedValue = (Supplier)Optional.ofNullable((Supplier)this.storedValues.putIfAbsent(compositeKey, newValue)).orElse(newValue);
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;        return storedValue.get();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    &lt;K, V&gt; V getOrComputeIfAbsent(ExtensionContext.Namespace namespace, K key, Function&lt;K, V&gt; defaultCreator, Class&lt;V&gt; requiredType) {
+<b class="fc">&nbsp;        Object value = this.getOrComputeIfAbsent(namespace, key, defaultCreator);</b>
+<b class="fc">&nbsp;        return this.castToRequiredType(key, value, requiredType);</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    void put(ExtensionContext.Namespace namespace, Object key, Object value) {</b>
+&nbsp;        this.storedValues.put(new CompositeKey(namespace, key), () -&gt; {
+<b class="fc">&nbsp;            return value;</b>
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    Object remove(ExtensionContext.Namespace namespace, Object key) {</b>
+<b class="fc">&nbsp;        Supplier&lt;Object&gt; previous = (Supplier)this.storedValues.remove(new CompositeKey(namespace, key));</b>
+&nbsp;        return previous != null ? previous.get() : null;
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    &lt;T&gt; T remove(ExtensionContext.Namespace namespace, Object key, Class&lt;T&gt; requiredType) {</b>
+&nbsp;        Object value = this.remove(namespace, key);
+&nbsp;        return this.castToRequiredType(key, value, requiredType);
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private Supplier&lt;Object&gt; getStoredValue(CompositeKey compositeKey) {</b>
+&nbsp;        Supplier&lt;Object&gt; storedValue = (Supplier)this.storedValues.get(compositeKey);
+&nbsp;        if (storedValue != null) {
+&nbsp;            return storedValue;
+<b class="nc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;            return this.parentStore != null ? this.parentStore.getStoredValue(compositeKey) : null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private &lt;T&gt; T castToRequiredType(Object key, Object value, Class&lt;T&gt; requiredType) {</b>
+<b class="fc">&nbsp;        if (value == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        } else if (ReflectionUtils.isAssignableTo(value, requiredType)) {
+<b class="fc">&nbsp;            return requiredType.isPrimitive() ? ReflectionUtils.getWrapperType(requiredType).cast(value) : requiredType.cast(value);</b>
+<b class="fc">&nbsp;        } else {</b>
+&nbsp;            throw new ExtensionContextException(String.format(&quot;Object stored under key [%s] is not of required type [%s]&quot;, key, requiredType.getName()));
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private static class MemoizingSupplier implements Supplier&lt;Object&gt; {
+&nbsp;        private static final Object NO_VALUE_SET = new Object();
+&nbsp;        private final Lock lock;
+&nbsp;        private final Supplier&lt;Object&gt; delegate;
+<b class="fc">&nbsp;        private volatile Object value;</b>
+<b class="fc">&nbsp;</b>
+&nbsp;        private MemoizingSupplier(Supplier&lt;Object&gt; delegate) {
+<b class="pc">&nbsp;            this.lock = new ReentrantLock();</b>
+<b class="pc">&nbsp;            this.value = NO_VALUE_SET;</b>
+<b class="nc">&nbsp;            this.delegate = delegate;</b>
+&nbsp;        }
+<b class="fc">&nbsp;</b>
+&nbsp;        public Object get() {
+&nbsp;            if (this.value == NO_VALUE_SET) {
+<b class="nc">&nbsp;                this.lock.lock();</b>
+<b class="nc">&nbsp;</b>
+&nbsp;                try {
+&nbsp;                    if (this.value == NO_VALUE_SET) {
+<b class="fc">&nbsp;                        this.value = this.delegate.get();</b>
+&nbsp;                    }
+&nbsp;                } finally {
+&nbsp;                    this.lock.unlock();
+&nbsp;                }
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;            return this.value;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static class CompositeKey {
+<b class="pc">&nbsp;        private final ExtensionContext.Namespace namespace;</b>
+<b class="nc">&nbsp;        private final Object key;</b>
+&nbsp;
+<b class="pc">&nbsp;        private CompositeKey(ExtensionContext.Namespace namespace, Object key) {</b>
+<b class="nc">&nbsp;            this.namespace = namespace;</b>
+&nbsp;            this.key = key;
+<b class="fc">&nbsp;        }</b>
+<b class="pc">&nbsp;</b>
+&nbsp;        public boolean equals(Object o) {
+&nbsp;            if (this == o) {
+&nbsp;                return true;
+&nbsp;            } else if (o != null &amp;&amp; this.getClass() == o.getClass()) {
+<b class="fc">&nbsp;                CompositeKey that = (CompositeKey)o;</b>
+&nbsp;                return this.namespace.equals(that.namespace) &amp;&amp; this.key.equals(that.key);
+&nbsp;            } else {
+&nbsp;                return false;
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        public int hashCode() {</b>
+&nbsp;            return Objects.hash(new Object[]{this.namespace, this.key});
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+<b class="fc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

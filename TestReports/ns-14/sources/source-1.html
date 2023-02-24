@@ -1,0 +1,262 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ClassSelectorResolver</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.discovery</a>
+</div>
+
+<h1>Coverage Summary for Class: ClassSelectorResolver (org.junit.jupiter.engine.discovery)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ClassSelectorResolver</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    47.1%
+  </span>
+  <span class="absValue">
+    (8/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    16.7%
+  </span>
+  <span class="absValue">
+    (3/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    41.7%
+  </span>
+  <span class="absValue">
+    (25/60)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.discovery;
+&nbsp;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.Stream;
+&nbsp;import org.junit.jupiter.engine.config.JupiterConfiguration;
+&nbsp;import org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor;
+&nbsp;import org.junit.jupiter.engine.descriptor.ClassTestDescriptor;
+&nbsp;import org.junit.jupiter.engine.descriptor.NestedClassTestDescriptor;
+&nbsp;import org.junit.jupiter.engine.discovery.predicates.IsNestedTestClass;
+&nbsp;import org.junit.jupiter.engine.discovery.predicates.IsTestClassWithTests;
+&nbsp;import org.junit.platform.commons.support.ReflectionSupport;
+&nbsp;import org.junit.platform.commons.util.FunctionUtils;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.engine.DiscoverySelector;
+&nbsp;import org.junit.platform.engine.TestDescriptor;
+&nbsp;import org.junit.platform.engine.UniqueId;
+&nbsp;import org.junit.platform.engine.discovery.ClassSelector;
+&nbsp;import org.junit.platform.engine.discovery.DiscoverySelectors;
+&nbsp;import org.junit.platform.engine.discovery.NestedClassSelector;
+&nbsp;import org.junit.platform.engine.discovery.UniqueIdSelector;
+&nbsp;import org.junit.platform.engine.support.discovery.SelectorResolver;
+&nbsp;import org.junit.platform.engine.support.discovery.SelectorResolver.Match;
+&nbsp;import org.junit.platform.engine.support.discovery.SelectorResolver.Resolution;
+&nbsp;
+&nbsp;class ClassSelectorResolver implements SelectorResolver {
+&nbsp;    private static final IsTestClassWithTests isTestClassWithTests = new IsTestClassWithTests();
+&nbsp;    private static final IsNestedTestClass isNestedTestClass = new IsNestedTestClass();
+&nbsp;    private final Predicate&lt;String&gt; classNameFilter;
+&nbsp;    private final JupiterConfiguration configuration;
+&nbsp;
+&nbsp;    ClassSelectorResolver(Predicate&lt;String&gt; classNameFilter, JupiterConfiguration configuration) {
+&nbsp;        this.classNameFilter = classNameFilter;
+&nbsp;        this.configuration = configuration;
+&nbsp;    }
+&nbsp;
+&nbsp;    public SelectorResolver.Resolution resolve(ClassSelector selector, SelectorResolver.Context context) {
+&nbsp;        Class&lt;?&gt; testClass = selector.getJavaClass();
+&nbsp;        if (isTestClassWithTests.test(testClass)) {
+&nbsp;            if (this.classNameFilter.test(testClass.getName())) {
+&nbsp;                return this.toResolution(context.addToParent((parent) -&gt; {
+<b class="fc">&nbsp;                    return Optional.of(this.newClassTestDescriptor(parent, testClass));</b>
+<b class="fc">&nbsp;                }));</b>
+&nbsp;            }
+&nbsp;        } else if (isNestedTestClass.test(testClass)) {
+&nbsp;            return this.toResolution(context.addToParent(() -&gt; {
+&nbsp;                return DiscoverySelectors.selectClass(testClass.getEnclosingClass());
+<b class="fc">&nbsp;            }, (parent) -&gt; {</b>
+<b class="fc">&nbsp;                return Optional.of(this.newNestedClassTestDescriptor(parent, testClass));</b>
+<b class="fc">&nbsp;            }));</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        return Resolution.unresolved();
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="pc">&nbsp;    public SelectorResolver.Resolution resolve(NestedClassSelector selector, SelectorResolver.Context context) {</b>
+&nbsp;        return isNestedTestClass.test(selector.getNestedClass()) ? this.toResolution(context.addToParent(() -&gt; {
+<b class="pc">&nbsp;            return this.selectClass(selector.getEnclosingClasses());</b>
+<b class="fc">&nbsp;        }, (parent) -&gt; {</b>
+<b class="fc">&nbsp;            return Optional.of(this.newNestedClassTestDescriptor(parent, selector.getNestedClass()));</b>
+&nbsp;        })) : Resolution.unresolved();
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    public SelectorResolver.Resolution resolve(UniqueIdSelector selector, SelectorResolver.Context context) {</b>
+<b class="nc">&nbsp;        UniqueId uniqueId = selector.getUniqueId();</b>
+&nbsp;        UniqueId.Segment lastSegment = uniqueId.getLastSegment();
+<b class="nc">&nbsp;        String simpleClassName;</b>
+&nbsp;        if (&quot;class&quot;.equals(lastSegment.getType())) {
+&nbsp;            simpleClassName = lastSegment.getValue();
+&nbsp;            return (SelectorResolver.Resolution)ReflectionUtils.tryToLoadClass(simpleClassName).toOptional().filter(isTestClassWithTests).map((testClass) -&gt; {
+&nbsp;                return this.toResolution(context.addToParent((parent) -&gt; {
+<b class="nc">&nbsp;                    return Optional.of(this.newClassTestDescriptor(parent, testClass));</b>
+<b class="nc">&nbsp;                }));</b>
+<b class="nc">&nbsp;            }).orElse(Resolution.unresolved());</b>
+&nbsp;        } else if (&quot;nested-class&quot;.equals(lastSegment.getType())) {
+<b class="nc">&nbsp;            simpleClassName = lastSegment.getValue();</b>
+&nbsp;            return this.toResolution(context.addToParent(() -&gt; {
+&nbsp;                return DiscoverySelectors.selectUniqueId(uniqueId.removeLastSegment());
+&nbsp;            }, (parent) -&gt; {
+&nbsp;                if (parent instanceof ClassBasedTestDescriptor) {
+<b class="nc">&nbsp;                    Class&lt;?&gt; parentTestClass = ((ClassBasedTestDescriptor)parent).getTestClass();</b>
+<b class="nc">&nbsp;                    return ReflectionUtils.findNestedClasses(parentTestClass, isNestedTestClass.and(FunctionUtils.where(Class::getSimpleName, Predicate.isEqual(simpleClassName)))).stream().findFirst().flatMap((testClass) -&gt; {</b>
+<b class="nc">&nbsp;                        return Optional.of(this.newNestedClassTestDescriptor(parent, testClass));</b>
+<b class="nc">&nbsp;                    });</b>
+<b class="nc">&nbsp;                } else {</b>
+<b class="nc">&nbsp;                    return Optional.empty();</b>
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;            }));</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return Resolution.unresolved();</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private ClassTestDescriptor newClassTestDescriptor(TestDescriptor parent, Class&lt;?&gt; testClass) {</b>
+<b class="nc">&nbsp;        return new ClassTestDescriptor(parent.getUniqueId().append(&quot;class&quot;, testClass.getName()), testClass, this.configuration);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private NestedClassTestDescriptor newNestedClassTestDescriptor(TestDescriptor parent, Class&lt;?&gt; testClass) {</b>
+&nbsp;        return new NestedClassTestDescriptor(parent.getUniqueId().append(&quot;nested-class&quot;, testClass.getSimpleName()), testClass, this.configuration);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private SelectorResolver.Resolution toResolution(Optional&lt;? extends ClassBasedTestDescriptor&gt; testDescriptor) {
+<b class="nc">&nbsp;        return (SelectorResolver.Resolution)testDescriptor.map((it) -&gt; {</b>
+&nbsp;            Class&lt;?&gt; testClass = it.getTestClass();
+&nbsp;            List&lt;Class&lt;?&gt;&gt; testClasses = new ArrayList(it.getEnclosingTestClasses());
+&nbsp;            testClasses.add(testClass);
+<b class="fc">&nbsp;            return Resolution.match(Match.exact(it, () -&gt; {</b>
+<b class="fc">&nbsp;                Stream&lt;DiscoverySelector&gt; methods = ReflectionUtils.findMethods(testClass, IsTestClassWithTests.isTestOrTestFactoryOrTestTemplateMethod).stream().map((method) -&gt; {</b>
+&nbsp;                    return this.selectMethod(testClasses, method);
+&nbsp;                });
+&nbsp;                Stream&lt;NestedClassSelector&gt; nestedClasses = ReflectionSupport.findNestedClasses(testClass, isNestedTestClass).stream().map((nestedClass) -&gt; {
+&nbsp;                    return DiscoverySelectors.selectNestedClass(testClasses, nestedClass);
+<b class="nc">&nbsp;                });</b>
+<b class="nc">&nbsp;                return (Set)Stream.concat(methods, nestedClasses).collect(Collectors.toCollection(LinkedHashSet::new));</b>
+&nbsp;            }));
+&nbsp;        }).orElse(Resolution.unresolved());
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private DiscoverySelector selectClass(List&lt;Class&lt;?&gt;&gt; classes) {</b>
+<b class="fc">&nbsp;        if (classes.size() == 1) {</b>
+<b class="fc">&nbsp;            return DiscoverySelectors.selectClass((Class)classes.get(0));</b>
+<b class="fc">&nbsp;        } else {</b>
+&nbsp;            int lastIndex = classes.size() - 1;
+<b class="fc">&nbsp;            return DiscoverySelectors.selectNestedClass(classes.subList(0, lastIndex), (Class)classes.get(lastIndex));</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    private DiscoverySelector selectMethod(List&lt;Class&lt;?&gt;&gt; classes, Method method) {</b>
+<b class="fc">&nbsp;        if (classes.size() == 1) {</b>
+&nbsp;            return DiscoverySelectors.selectMethod((Class)classes.get(0), method);
+&nbsp;        } else {
+<b class="fc">&nbsp;            int lastIndex = classes.size() - 1;</b>
+&nbsp;            return DiscoverySelectors.selectNestedMethod(classes.subList(0, lastIndex), (Class)classes.get(lastIndex), method);
+&nbsp;        }
+&nbsp;    }
+<b class="nc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,514 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ClassBasedTestDescriptor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.descriptor</a>
+</div>
+
+<h1>Coverage Summary for Class: ClassBasedTestDescriptor (org.junit.jupiter.engine.descriptor)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ClassBasedTestDescriptor</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55.8%
+  </span>
+  <span class="absValue">
+    (24/43)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    37.5%
+  </span>
+  <span class="absValue">
+    (18/48)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55.8%
+  </span>
+  <span class="absValue">
+    (92/165)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.descriptor;
+&nbsp;
+&nbsp;import java.lang.reflect.Constructor;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Supplier;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.jupiter.api.TestInstance;
+&nbsp;import org.junit.jupiter.api.TestInstance.Lifecycle;
+&nbsp;import org.junit.jupiter.api.extension.AfterAllCallback;
+&nbsp;import org.junit.jupiter.api.extension.BeforeAllCallback;
+&nbsp;import org.junit.jupiter.api.extension.Extension;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionConfigurationException;
+&nbsp;import org.junit.jupiter.api.extension.ExtensionContext;
+&nbsp;import org.junit.jupiter.api.extension.InvocationInterceptor;
+&nbsp;import org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler;
+&nbsp;import org.junit.jupiter.api.extension.TestInstanceFactory;
+&nbsp;import org.junit.jupiter.api.extension.TestInstancePostProcessor;
+&nbsp;import org.junit.jupiter.api.extension.TestInstancePreDestroyCallback;
+&nbsp;import org.junit.jupiter.api.extension.TestInstances;
+&nbsp;import org.junit.jupiter.api.extension.TestInstantiationException;
+&nbsp;import org.junit.jupiter.api.function.Executable;
+&nbsp;import org.junit.jupiter.engine.config.JupiterConfiguration;
+&nbsp;import org.junit.jupiter.engine.execution.AfterEachMethodAdapter;
+&nbsp;import org.junit.jupiter.engine.execution.BeforeEachMethodAdapter;
+&nbsp;import org.junit.jupiter.engine.execution.DefaultTestInstances;
+&nbsp;import org.junit.jupiter.engine.execution.ExecutableInvoker;
+&nbsp;import org.junit.jupiter.engine.execution.JupiterEngineExecutionContext;
+&nbsp;import org.junit.jupiter.engine.execution.TestInstancesProvider;
+&nbsp;import org.junit.jupiter.engine.execution.ExecutableInvoker.ReflectiveInterceptorCall;
+&nbsp;import org.junit.jupiter.engine.extension.ExtensionRegistrar;
+&nbsp;import org.junit.jupiter.engine.extension.ExtensionRegistry;
+&nbsp;import org.junit.jupiter.engine.extension.MutableExtensionRegistry;
+&nbsp;import org.junit.jupiter.engine.support.JupiterThrowableCollectorFactory;
+&nbsp;import org.junit.platform.commons.JUnitException;
+&nbsp;import org.junit.platform.commons.util.BlacklistedExceptions;
+&nbsp;import org.junit.platform.commons.util.ExceptionUtils;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.commons.util.StringUtils;
+&nbsp;import org.junit.platform.engine.TestDescriptor;
+&nbsp;import org.junit.platform.engine.TestTag;
+&nbsp;import org.junit.platform.engine.UniqueId;
+&nbsp;import org.junit.platform.engine.TestDescriptor.Type;
+&nbsp;import org.junit.platform.engine.support.descriptor.ClassSource;
+&nbsp;import org.junit.platform.engine.support.hierarchical.ExclusiveResource;
+&nbsp;import org.junit.platform.engine.support.hierarchical.Node;
+&nbsp;import org.junit.platform.engine.support.hierarchical.ThrowableCollector;
+&nbsp;import org.junit.platform.engine.support.hierarchical.Node.ExecutionMode;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;5.5&quot;
+&nbsp;)
+&nbsp;public abstract class ClassBasedTestDescriptor extends JupiterTestDescriptor {
+&nbsp;    private static final ExecutableInvoker executableInvoker = new ExecutableInvoker();
+&nbsp;    private final Class&lt;?&gt; testClass;
+&nbsp;    protected final Set&lt;TestTag&gt; tags;
+&nbsp;    protected final TestInstance.Lifecycle lifecycle;
+&nbsp;    private Node.ExecutionMode defaultChildExecutionMode;
+&nbsp;    private TestInstanceFactory testInstanceFactory;
+&nbsp;    private List&lt;Method&gt; beforeAllMethods;
+&nbsp;    private List&lt;Method&gt; afterAllMethods;
+&nbsp;
+&nbsp;    ClassBasedTestDescriptor(UniqueId uniqueId, Class&lt;?&gt; testClass, Supplier&lt;String&gt; displayNameSupplier, JupiterConfiguration configuration) {
+&nbsp;        super(uniqueId, testClass, displayNameSupplier, ClassSource.from(testClass), configuration);
+&nbsp;        this.testClass = testClass;
+&nbsp;        this.tags = getTags(testClass);
+<b class="fc">&nbsp;        this.lifecycle = TestInstanceLifecycleUtils.getTestInstanceLifecycle(testClass, configuration);</b>
+&nbsp;        this.defaultChildExecutionMode = this.lifecycle == Lifecycle.PER_CLASS ? ExecutionMode.SAME_THREAD : null;
+&nbsp;    }
+&nbsp;
+&nbsp;    public final Class&lt;?&gt; getTestClass() {
+&nbsp;        return this.testClass;
+&nbsp;    }
+&nbsp;
+&nbsp;    public abstract List&lt;Class&lt;?&gt;&gt; getEnclosingTestClasses();
+&nbsp;
+&nbsp;    public TestDescriptor.Type getType() {
+&nbsp;        return Type.CONTAINER;
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    public String getLegacyReportingName() {
+<b class="fc">&nbsp;        return this.testClass.getName();</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="pc">&nbsp;    protected Optional&lt;Node.ExecutionMode&gt; getExplicitExecutionMode() {</b>
+&nbsp;        return this.getExecutionModeFromAnnotation(this.getTestClass());
+&nbsp;    }
+&nbsp;
+&nbsp;    protected Optional&lt;Node.ExecutionMode&gt; getDefaultChildExecutionMode() {
+&nbsp;        return Optional.ofNullable(this.defaultChildExecutionMode);
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public void setDefaultChildExecutionMode(Node.ExecutionMode defaultChildExecutionMode) {
+&nbsp;        this.defaultChildExecutionMode = defaultChildExecutionMode;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;ExclusiveResource&gt; getExclusiveResources() {
+<b class="fc">&nbsp;        return this.getExclusiveResourcesFromAnnotation(this.getTestClass());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JupiterEngineExecutionContext prepare(JupiterEngineExecutionContext context) {
+&nbsp;        MutableExtensionRegistry registry = ExtensionUtils.populateNewExtensionRegistryFromExtendWithAnnotation(context.getExtensionRegistry(), this.testClass);
+<b class="fc">&nbsp;        ExtensionUtils.registerExtensionsFromFields(registry, this.testClass, (Object)null);</b>
+&nbsp;        this.testInstanceFactory = this.resolveTestInstanceFactory(registry);
+&nbsp;        this.registerBeforeEachMethodAdapters(registry);
+&nbsp;        this.registerAfterEachMethodAdapters(registry);
+&nbsp;        ThrowableCollector throwableCollector = JupiterThrowableCollectorFactory.createThrowableCollector();
+&nbsp;        ClassExtensionContext extensionContext = new ClassExtensionContext(context.getExtensionContext(), context.getExecutionListener(), this, this.lifecycle, context.getConfiguration(), throwableCollector);
+&nbsp;        this.beforeAllMethods = LifecycleMethodUtils.findBeforeAllMethods(this.testClass, this.lifecycle == Lifecycle.PER_METHOD);
+<b class="nc">&nbsp;        this.afterAllMethods = LifecycleMethodUtils.findAfterAllMethods(this.testClass, this.lifecycle == Lifecycle.PER_METHOD);</b>
+&nbsp;        return context.extend().withTestInstancesProvider(this.testInstancesProvider(context, extensionContext)).withExtensionRegistry(registry).withExtensionContext(extensionContext).withThrowableCollector(throwableCollector).build();
+&nbsp;    }
+&nbsp;
+&nbsp;    public JupiterEngineExecutionContext before(JupiterEngineExecutionContext context) {
+<b class="nc">&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();</b>
+&nbsp;        if (this.isPerClassLifecycle(context)) {
+&nbsp;            ClassExtensionContext extensionContext = (ClassExtensionContext)context.getExtensionContext();
+&nbsp;            throwableCollector.execute(() -&gt; {
+<b class="nc">&nbsp;                extensionContext.setTestInstances(context.getTestInstancesProvider().getTestInstances(context.getExtensionRegistry()));</b>
+&nbsp;            });
+&nbsp;        }
+&nbsp;
+&nbsp;        if (throwableCollector.isEmpty()) {
+<b class="fc">&nbsp;            context.beforeAllCallbacksExecuted(true);</b>
+&nbsp;            this.invokeBeforeAllCallbacks(context);
+&nbsp;            if (throwableCollector.isEmpty()) {
+&nbsp;                context.beforeAllMethodsExecuted(true);
+&nbsp;                this.invokeBeforeAllMethods(context);
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        throwableCollector.assertEmpty();
+&nbsp;        return context;
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public void after(JupiterEngineExecutionContext context) {
+&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();
+&nbsp;        Throwable previousThrowable = throwableCollector.getThrowable();
+<b class="fc">&nbsp;        if (context.beforeAllMethodsExecuted()) {</b>
+&nbsp;            this.invokeAfterAllMethods(context);
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+&nbsp;        if (context.beforeAllCallbacksExecuted()) {
+<b class="fc">&nbsp;            this.invokeAfterAllCallbacks(context);</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+&nbsp;        if (this.isPerClassLifecycle(context)) {
+<b class="pc">&nbsp;            this.invokeTestInstancePreDestroyCallbacks(context);</b>
+<b class="pc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        if (previousThrowable != throwableCollector.getThrowable()) {
+<b class="fc">&nbsp;            throwableCollector.assertEmpty();</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    private TestInstanceFactory resolveTestInstanceFactory(ExtensionRegistry registry) {</b>
+&nbsp;        List&lt;TestInstanceFactory&gt; factories = registry.getExtensions(TestInstanceFactory.class);
+&nbsp;        if (factories.size() == 1) {
+&nbsp;            return (TestInstanceFactory)factories.get(0);
+&nbsp;        } else if (factories.size() &gt; 1) {
+&nbsp;            String factoryNames = (String)factories.stream().map((factory) -&gt; {
+<b class="fc">&nbsp;                return factory.getClass().getName();</b>
+&nbsp;            }).collect(Collectors.joining(&quot;, &quot;));
+<b class="pc">&nbsp;            String errorMessage = String.format(&quot;The following TestInstanceFactory extensions were registered for test class [%s], but only one is permitted: %s&quot;, this.testClass.getName(), factoryNames);</b>
+&nbsp;            throw new ExtensionConfigurationException(errorMessage);
+&nbsp;        } else {
+<b class="nc">&nbsp;            return null;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private TestInstancesProvider testInstancesProvider(JupiterEngineExecutionContext parentExecutionContext, ClassExtensionContext extensionContext) {
+<b class="pc">&nbsp;        return (registry, registrar) -&gt; {</b>
+<b class="fc">&nbsp;            return (TestInstances)extensionContext.getTestInstances().orElseGet(() -&gt; {</b>
+<b class="fc">&nbsp;                return this.instantiateAndPostProcessTestInstance(parentExecutionContext, extensionContext, registry, registrar);</b>
+&nbsp;            });
+<b class="pc">&nbsp;        };</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;</b>
+&nbsp;    private TestInstances instantiateAndPostProcessTestInstance(JupiterEngineExecutionContext parentExecutionContext, ExtensionContext extensionContext, ExtensionRegistry registry, ExtensionRegistrar registrar) {
+&nbsp;        TestInstances instances = this.instantiateTestClass(parentExecutionContext, registry, registrar, extensionContext);
+&nbsp;        this.invokeTestInstancePostProcessors(instances.getInnermostInstance(), registry, extensionContext);
+<b class="fc">&nbsp;        ExtensionUtils.registerExtensionsFromFields(registrar, this.testClass, instances.getInnermostInstance());</b>
+&nbsp;        return instances;
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    protected abstract TestInstances instantiateTestClass(JupiterEngineExecutionContext var1, ExtensionRegistry var2, ExtensionRegistrar var3, ExtensionContext var4);
+&nbsp;
+&nbsp;    protected TestInstances instantiateTestClass(Optional&lt;TestInstances&gt; outerInstances, ExtensionRegistry registry, ExtensionContext extensionContext) {
+&nbsp;        Optional&lt;Object&gt; outerInstance = outerInstances.map(TestInstances::getInnermostInstance);
+<b class="fc">&nbsp;        Object instance = this.testInstanceFactory != null ? this.invokeTestInstanceFactory(outerInstance, extensionContext) : this.invokeTestClassConstructor(outerInstance, registry, extensionContext);</b>
+<b class="fc">&nbsp;        return (TestInstances)outerInstances.map((instances) -&gt; {</b>
+&nbsp;            return DefaultTestInstances.of(instances, instance);
+<b class="pc">&nbsp;        }).orElse(DefaultTestInstances.of(instance));</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private Object invokeTestInstanceFactory(Optional&lt;Object&gt; outerInstance, ExtensionContext extensionContext) {
+<b class="pc">&nbsp;        Object instance;</b>
+<b class="fc">&nbsp;        try {</b>
+&nbsp;            instance = this.testInstanceFactory.createTestInstance(new DefaultTestInstanceFactoryContext(this.testClass, outerInstance), extensionContext);
+&nbsp;        } catch (Throwable var8) {
+<b class="pc">&nbsp;            BlacklistedExceptions.rethrowIfBlacklisted(var8);</b>
+<b class="nc">&nbsp;            if (var8 instanceof TestInstantiationException) {</b>
+&nbsp;                throw (TestInstantiationException)var8;
+&nbsp;            }
+&nbsp;
+&nbsp;            String message = String.format(&quot;TestInstanceFactory [%s] failed to instantiate test class [%s]&quot;, this.testInstanceFactory.getClass().getName(), this.testClass.getName());
+&nbsp;            if (StringUtils.isNotBlank(var8.getMessage())) {
+&nbsp;                message = message + &quot;: &quot; + var8.getMessage();
+&nbsp;            }
+<b class="pc">&nbsp;</b>
+<b class="nc">&nbsp;            throw new TestInstantiationException(message, var8);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        if (!this.testClass.isInstance(instance)) {
+&nbsp;            String testClassName = this.testClass.getName();
+<b class="fc">&nbsp;            Class&lt;?&gt; instanceClass = instance == null ? null : instance.getClass();</b>
+&nbsp;            String instanceClassName = instanceClass == null ? &quot;null&quot; : instanceClass.getName();
+<b class="pc">&nbsp;            if (testClassName.equals(instanceClassName)) {</b>
+<b class="nc">&nbsp;                testClassName = testClassName + &quot;@&quot; + Integer.toHexString(System.identityHashCode(this.testClass));</b>
+&nbsp;                instanceClassName = instanceClassName + &quot;@&quot; + Integer.toHexString(System.identityHashCode(instanceClass));
+&nbsp;            }
+<b class="pc">&nbsp;</b>
+<b class="nc">&nbsp;            String message = String.format(&quot;TestInstanceFactory [%s] failed to return an instance of [%s] and instead returned an instance of [%s].&quot;, this.testInstanceFactory.getClass().getName(), testClassName, instanceClassName);</b>
+<b class="nc">&nbsp;            throw new TestInstantiationException(message);</b>
+<b class="nc">&nbsp;        } else {</b>
+&nbsp;            return instance;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    private Object invokeTestClassConstructor(Optional&lt;Object&gt; outerInstance, ExtensionRegistry registry, ExtensionContext extensionContext) {
+<b class="nc">&nbsp;        Constructor&lt;?&gt; constructor = ReflectionUtils.getDeclaredConstructor(this.testClass);</b>
+&nbsp;        return executableInvoker.invoke(constructor, outerInstance, extensionContext, registry, InvocationInterceptor::interceptTestClassConstructor);
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    private void invokeTestInstancePostProcessors(Object instance, ExtensionRegistry registry, ExtensionContext context) {
+&nbsp;        registry.stream(TestInstancePostProcessor.class).forEach((extension) -&gt; {
+&nbsp;            this.executeAndMaskThrowable(() -&gt; {
+&nbsp;                extension.postProcessTestInstance(instance, context);
+&nbsp;            });
+<b class="fc">&nbsp;        });</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    private void executeAndMaskThrowable(Executable executable) {
+&nbsp;        try {
+&nbsp;            executable.execute();
+&nbsp;        } catch (Throwable var3) {
+<b class="fc">&nbsp;            ExceptionUtils.throwAsUncheckedException(var3);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private void invokeBeforeAllCallbacks(JupiterEngineExecutionContext context) {</b>
+<b class="fc">&nbsp;        ExtensionRegistry registry = context.getExtensionRegistry();</b>
+&nbsp;        ExtensionContext extensionContext = context.getExtensionContext();
+&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();
+&nbsp;        Iterator var5 = registry.getExtensions(BeforeAllCallback.class).iterator();
+&nbsp;
+&nbsp;        while(var5.hasNext()) {
+&nbsp;            BeforeAllCallback callback = (BeforeAllCallback)var5.next();
+&nbsp;            throwableCollector.execute(() -&gt; {
+&nbsp;                callback.beforeAll(extensionContext);
+<b class="fc">&nbsp;            });</b>
+<b class="pc">&nbsp;            if (throwableCollector.isNotEmpty()) {</b>
+<b class="nc">&nbsp;                break;</b>
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void invokeBeforeAllMethods(JupiterEngineExecutionContext context) {
+&nbsp;        ExtensionRegistry registry = context.getExtensionRegistry();
+&nbsp;        ExtensionContext extensionContext = context.getExtensionContext();
+&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();
+<b class="nc">&nbsp;        Object testInstance = extensionContext.getTestInstance().orElse((Object)null);</b>
+&nbsp;        Iterator var6 = this.beforeAllMethods.iterator();
+&nbsp;
+<b class="nc">&nbsp;        while(var6.hasNext()) {</b>
+<b class="nc">&nbsp;            Method method = (Method)var6.next();</b>
+&nbsp;            throwableCollector.execute(() -&gt; {
+<b class="nc">&nbsp;                try {</b>
+<b class="nc">&nbsp;                    executableInvoker.invoke(method, testInstance, extensionContext, registry, ReflectiveInterceptorCall.ofVoidMethod(InvocationInterceptor::interceptBeforeAllMethod));</b>
+&nbsp;                } catch (Throwable var6) {
+&nbsp;                    this.invokeBeforeAllMethodExecutionExceptionHandlers(registry, extensionContext, var6);
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            });</b>
+<b class="nc">&nbsp;            if (throwableCollector.isNotEmpty()) {</b>
+&nbsp;                break;
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private void invokeBeforeAllMethodExecutionExceptionHandlers(ExtensionRegistry registry, ExtensionContext context, Throwable throwable) {</b>
+<b class="nc">&nbsp;        this.invokeExecutionExceptionHandlers(LifecycleMethodExecutionExceptionHandler.class, registry, throwable, (handler, handledThrowable) -&gt; {</b>
+&nbsp;            handler.handleBeforeAllMethodExecutionException(context, handledThrowable);
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    private void invokeAfterAllMethods(JupiterEngineExecutionContext context) {</b>
+<b class="nc">&nbsp;        ExtensionRegistry registry = context.getExtensionRegistry();</b>
+<b class="nc">&nbsp;        ExtensionContext extensionContext = context.getExtensionContext();</b>
+&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();
+<b class="nc">&nbsp;        Object testInstance = extensionContext.getTestInstance().orElse((Object)null);</b>
+&nbsp;        this.afterAllMethods.forEach((method) -&gt; {
+<b class="nc">&nbsp;            throwableCollector.execute(() -&gt; {</b>
+&nbsp;                try {
+<b class="nc">&nbsp;                    executableInvoker.invoke(method, testInstance, extensionContext, registry, ReflectiveInterceptorCall.ofVoidMethod(InvocationInterceptor::interceptAfterAllMethod));</b>
+&nbsp;                } catch (Throwable var6) {
+&nbsp;                    this.invokeAfterAllMethodExecutionExceptionHandlers(registry, extensionContext, var6);
+<b class="nc">&nbsp;                }</b>
+&nbsp;
+&nbsp;            });
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private void invokeAfterAllMethodExecutionExceptionHandlers(ExtensionRegistry registry, ExtensionContext context, Throwable throwable) {</b>
+<b class="fc">&nbsp;        this.invokeExecutionExceptionHandlers(LifecycleMethodExecutionExceptionHandler.class, registry, throwable, (handler, handledThrowable) -&gt; {</b>
+&nbsp;            handler.handleAfterAllMethodExecutionException(context, handledThrowable);
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    private void invokeAfterAllCallbacks(JupiterEngineExecutionContext context) {
+&nbsp;        ExtensionRegistry registry = context.getExtensionRegistry();
+<b class="fc">&nbsp;        ExtensionContext extensionContext = context.getExtensionContext();</b>
+<b class="nc">&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();</b>
+&nbsp;        registry.getReversedExtensions(AfterAllCallback.class).forEach((extension) -&gt; {
+&nbsp;            throwableCollector.execute(() -&gt; {
+&nbsp;                extension.afterAll(extensionContext);
+&nbsp;            });
+<b class="nc">&nbsp;        });</b>
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private void invokeTestInstancePreDestroyCallbacks(JupiterEngineExecutionContext context) {</b>
+<b class="nc">&nbsp;        ExtensionContext extensionContext = context.getExtensionContext();</b>
+&nbsp;        ThrowableCollector throwableCollector = context.getThrowableCollector();
+&nbsp;        context.getExtensionRegistry().getReversedExtensions(TestInstancePreDestroyCallback.class).forEach((extension) -&gt; {
+&nbsp;            throwableCollector.execute(() -&gt; {
+<b class="fc">&nbsp;                extension.preDestroyTestInstance(extensionContext);</b>
+<b class="fc">&nbsp;            });</b>
+<b class="fc">&nbsp;        });</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    private boolean isPerClassLifecycle(JupiterEngineExecutionContext context) {</b>
+<b class="pc">&nbsp;        return context.getExtensionContext().getTestInstanceLifecycle().orElse(Lifecycle.PER_METHOD) == Lifecycle.PER_CLASS;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="fc">&nbsp;    private void registerBeforeEachMethodAdapters(ExtensionRegistrar registrar) {</b>
+&nbsp;        List&lt;Method&gt; beforeEachMethods = LifecycleMethodUtils.findBeforeEachMethods(this.testClass);
+&nbsp;        this.registerMethodsAsExtensions(beforeEachMethods, registrar, this::synthesizeBeforeEachMethodAdapter);
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="fc">&nbsp;    private void registerAfterEachMethodAdapters(ExtensionRegistrar registrar) {</b>
+<b class="fc">&nbsp;        List&lt;Method&gt; afterEachMethods = new ArrayList(LifecycleMethodUtils.findAfterEachMethods(this.testClass));</b>
+<b class="fc">&nbsp;        Collections.reverse(afterEachMethods);</b>
+&nbsp;        this.registerMethodsAsExtensions(afterEachMethods, registrar, this::synthesizeAfterEachMethodAdapter);
+<b class="pc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    private void registerMethodsAsExtensions(List&lt;Method&gt; methods, ExtensionRegistrar registrar, Function&lt;Method, Extension&gt; extensionSynthesizer) {
+<b class="nc">&nbsp;        methods.forEach((method) -&gt; {</b>
+<b class="nc">&nbsp;            registrar.registerExtension((Extension)extensionSynthesizer.apply(method), method);</b>
+&nbsp;        });
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private BeforeEachMethodAdapter synthesizeBeforeEachMethodAdapter(Method method) {</b>
+&nbsp;        return (extensionContext, registry) -&gt; {
+<b class="nc">&nbsp;            this.invokeMethodInExtensionContext(method, extensionContext, registry, InvocationInterceptor::interceptBeforeEachMethod);</b>
+<b class="nc">&nbsp;        };</b>
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    private AfterEachMethodAdapter synthesizeAfterEachMethodAdapter(Method method) {
+&nbsp;        return (extensionContext, registry) -&gt; {
+&nbsp;            this.invokeMethodInExtensionContext(method, extensionContext, registry, InvocationInterceptor::interceptAfterEachMethod);
+&nbsp;        };
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    private void invokeMethodInExtensionContext(Method method, ExtensionContext context, ExtensionRegistry registry, ExecutableInvoker.ReflectiveInterceptorCall.VoidMethodInterceptorCall interceptorCall) {</b>
+&nbsp;        TestInstances testInstances = context.getRequiredTestInstances();
+&nbsp;        Object target = testInstances.findInstance(method.getDeclaringClass()).orElseThrow(() -&gt; {
+&nbsp;            return new JUnitException(&quot;Failed to find instance for method: &quot; + method.toGenericString());
+<b class="fc">&nbsp;        });</b>
+<b class="fc">&nbsp;        executableInvoker.invoke(method, target, context, registry, ReflectiveInterceptorCall.ofVoidMethod(interceptorCall));</b>
+<b class="fc">&nbsp;    }</b>
+<b class="fc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

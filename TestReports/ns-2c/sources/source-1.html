@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Filter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.runner.manipulation</a>
+</div>
+
+<h1>Coverage Summary for Class: Filter (org.junit.runner.manipulation)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Filter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.runner.manipulation;
+&nbsp;
+&nbsp;import java.util.Iterator;
+&nbsp;import org.junit.runner.Description;
+&nbsp;
+&nbsp;public abstract class Filter {
+&nbsp;    public static final Filter ALL = new Filter() {
+&nbsp;        public boolean shouldRun(Description description) {
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        public String describe() {</b>
+&nbsp;            return &quot;all tests&quot;;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        public void apply(Object child) throws NoTestsRemainException {</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public Filter intersect(Filter second) {
+&nbsp;            return second;
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    public Filter() {
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Filter matchMethodDescription(final Description desiredDescription) {
+&nbsp;        return new Filter() {
+&nbsp;            public boolean shouldRun(Description description) {
+&nbsp;                if (description.isTest()) {
+&nbsp;                    return desiredDescription.equals(description);
+&nbsp;                } else {
+&nbsp;                    Iterator i$ = description.getChildren().iterator();
+&nbsp;
+&nbsp;                    Description each;
+&nbsp;                    do {
+&nbsp;                        if (!i$.hasNext()) {
+&nbsp;                            return false;
+&nbsp;                        }
+&nbsp;
+&nbsp;                        each = (Description)i$.next();
+&nbsp;                    } while(!this.shouldRun(each));
+<b class="nc">&nbsp;</b>
+&nbsp;                    return true;
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+&nbsp;            public String describe() {
+&nbsp;                return String.format(&quot;Method %s&quot;, desiredDescription.getDisplayName());
+&nbsp;            }
+&nbsp;        };
+&nbsp;    }
+&nbsp;
+&nbsp;    public abstract boolean shouldRun(Description var1);
+&nbsp;
+&nbsp;    public abstract String describe();
+&nbsp;
+&nbsp;    public void apply(Object child) throws NoTestsRemainException {
+&nbsp;        if (child instanceof Filterable) {
+&nbsp;            Filterable filterable = (Filterable)child;
+&nbsp;            filterable.filter(this);
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Filter intersect(final Filter second) {
+&nbsp;        return second != this &amp;&amp; second != ALL ? new Filter() {
+&nbsp;            public boolean shouldRun(Description description) {
+&nbsp;                return Filter.this.shouldRun(description) &amp;&amp; second.shouldRun(description);
+&nbsp;            }
+&nbsp;
+&nbsp;            public String describe() {
+&nbsp;                return Filter.this.describe() + &quot; and &quot; + second.describe();
+&nbsp;            }
+&nbsp;        } : this;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

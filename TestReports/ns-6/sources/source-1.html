@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Assert</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">junit.framework</a>
+</div>
+
+<h1>Coverage Summary for Class: Assert (junit.framework)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Assert</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/50)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/59)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package junit.framework;
+&nbsp;
+&nbsp;/** @deprecated */
+&nbsp;@Deprecated
+&nbsp;public class Assert {
+&nbsp;    protected Assert() {
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    public static void assertTrue(String message, boolean condition) {
+&nbsp;        if (!condition) {
+&nbsp;            fail(message);
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static void assertTrue(boolean condition) {</b>
+<b class="nc">&nbsp;        assertTrue((String)null, condition);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertFalse(String message, boolean condition) {
+&nbsp;        assertTrue(message, !condition);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertFalse(boolean condition) {
+&nbsp;        assertFalse((String)null, condition);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static void fail(String message) {
+&nbsp;        if (message == null) {
+&nbsp;            throw new AssertionFailedError();
+&nbsp;        } else {
+&nbsp;            throw new AssertionFailedError(message);
+&nbsp;        }
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static void fail() {
+&nbsp;        fail((String)null);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, Object expected, Object actual) {
+&nbsp;        if (expected != null || actual != null) {
+<b class="nc">&nbsp;            if (expected == null || !expected.equals(actual)) {</b>
+&nbsp;                failNotEquals(message, expected, actual);
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(Object expected, Object actual) {
+<b class="nc">&nbsp;        assertEquals((String)null, (Object)expected, (Object)actual);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    public static void assertEquals(String message, String expected, String actual) {</b>
+&nbsp;        if (expected != null || actual != null) {
+&nbsp;            if (expected == null || !expected.equals(actual)) {
+&nbsp;                String cleanMessage = message == null ? &quot;&quot; : message;
+&nbsp;                throw new ComparisonFailure(cleanMessage, expected, actual);
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static void assertEquals(String expected, String actual) {
+&nbsp;        assertEquals((String)null, (String)expected, (String)actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, double expected, double actual, double delta) {
+&nbsp;        if (Double.compare(expected, actual) != 0) {
+<b class="nc">&nbsp;            if (!(Math.abs(expected - actual) &lt;= delta)) {</b>
+&nbsp;                failNotEquals(message, new Double(expected), new Double(actual));
+&nbsp;            }
+<b class="nc">&nbsp;</b>
+&nbsp;        }
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    public static void assertEquals(double expected, double actual, double delta) {
+&nbsp;        assertEquals((String)null, expected, actual, delta);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, float expected, float actual, float delta) {
+&nbsp;        if (Float.compare(expected, actual) != 0) {
+&nbsp;            if (!(Math.abs(expected - actual) &lt;= delta)) {
+<b class="nc">&nbsp;                failNotEquals(message, new Float(expected), new Float(actual));</b>
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(float expected, float actual, float delta) {
+<b class="nc">&nbsp;        assertEquals((String)null, expected, actual, delta);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static void assertEquals(String message, long expected, long actual) {</b>
+&nbsp;        assertEquals(message, (Object)expected, (Object)actual);
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    public static void assertEquals(long expected, long actual) {</b>
+&nbsp;        assertEquals((String)null, expected, actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, boolean expected, boolean actual) {
+&nbsp;        assertEquals(message, (Object)expected, (Object)actual);
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    public static void assertEquals(boolean expected, boolean actual) {
+&nbsp;        assertEquals((String)null, expected, actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, byte expected, byte actual) {
+&nbsp;        assertEquals(message, (Object)expected, (Object)actual);
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static void assertEquals(byte expected, byte actual) {</b>
+&nbsp;        assertEquals((String)null, (byte)expected, (byte)actual);
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;    public static void assertEquals(String message, char expected, char actual) {</b>
+&nbsp;        assertEquals(message, (Object)expected, (Object)actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(char expected, char actual) {
+&nbsp;        assertEquals((String)null, (char)expected, (char)actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, short expected, short actual) {
+<b class="nc">&nbsp;        assertEquals(message, (Object)expected, (Object)actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(short expected, short actual) {
+&nbsp;        assertEquals((String)null, (short)expected, (short)actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertEquals(String message, int expected, int actual) {
+&nbsp;        assertEquals(message, (Object)expected, (Object)actual);
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static void assertEquals(int expected, int actual) {
+<b class="nc">&nbsp;        assertEquals((String)null, (int)expected, (int)actual);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static void assertNotNull(Object object) {
+&nbsp;        assertNotNull((String)null, object);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertNotNull(String message, Object object) {
+&nbsp;        assertTrue(message, object != null);
+&nbsp;    }
+<b class="nc">&nbsp;</b>
+&nbsp;    public static void assertNull(Object object) {
+&nbsp;        if (object != null) {
+&nbsp;            assertNull(&quot;Expected: &lt;null&gt; but was: &quot; + object.toString(), object);
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static void assertNull(String message, Object object) {</b>
+&nbsp;        assertTrue(message, object == null);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertSame(String message, Object expected, Object actual) {
+&nbsp;        if (expected != actual) {
+&nbsp;            failNotSame(message, expected, actual);
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertSame(Object expected, Object actual) {
+&nbsp;        assertSame((String)null, expected, actual);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertNotSame(String message, Object expected, Object actual) {
+<b class="nc">&nbsp;        if (expected == actual) {</b>
+&nbsp;            failSame(message);
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void assertNotSame(Object expected, Object actual) {
+<b class="nc">&nbsp;        assertNotSame((String)null, expected, actual);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void failSame(String message) {
+&nbsp;        String formatted = message != null ? message + &quot; &quot; : &quot;&quot;;
+&nbsp;        fail(formatted + &quot;expected not same&quot;);
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static void failNotSame(String message, Object expected, Object actual) {</b>
+&nbsp;        String formatted = message != null ? message + &quot; &quot; : &quot;&quot;;
+&nbsp;        fail(formatted + &quot;expected same:&lt;&quot; + expected + &quot;&gt; was not:&lt;&quot; + actual + &quot;&gt;&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void failNotEquals(String message, Object expected, Object actual) {
+&nbsp;        fail(format(message, expected, actual));
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static String format(String message, Object expected, Object actual) {
+&nbsp;        String formatted = &quot;&quot;;
+&nbsp;        if (message != null &amp;&amp; message.length() &gt; 0) {
+&nbsp;            formatted = message + &quot; &quot;;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return formatted + &quot;expected:&lt;&quot; + expected + &quot;&gt; but was:&lt;&quot; + actual + &quot;&gt;&quot;;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

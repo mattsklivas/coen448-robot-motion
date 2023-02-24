@@ -1,0 +1,208 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MethodOrderingVisitor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.jupiter.engine.discovery</a>
+</div>
+
+<h1>Coverage Summary for Class: MethodOrderingVisitor (org.junit.jupiter.engine.discovery)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MethodOrderingVisitor</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (4/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (2/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25.6%
+  </span>
+  <span class="absValue">
+    (11/43)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.jupiter.engine.discovery;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.Stream;
+&nbsp;import org.junit.jupiter.api.MethodOrderer;
+&nbsp;import org.junit.jupiter.api.TestMethodOrder;
+&nbsp;import org.junit.jupiter.engine.config.JupiterConfiguration;
+&nbsp;import org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor;
+&nbsp;import org.junit.jupiter.engine.descriptor.JupiterTestDescriptor;
+&nbsp;import org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor;
+&nbsp;import org.junit.platform.commons.logging.Logger;
+&nbsp;import org.junit.platform.commons.logging.LoggerFactory;
+&nbsp;import org.junit.platform.commons.support.AnnotationSupport;
+&nbsp;import org.junit.platform.commons.util.BlacklistedExceptions;
+&nbsp;import org.junit.platform.commons.util.ReflectionUtils;
+&nbsp;import org.junit.platform.engine.TestDescriptor;
+&nbsp;
+&nbsp;class MethodOrderingVisitor implements TestDescriptor.Visitor {
+&nbsp;    private static final Logger logger = LoggerFactory.getLogger(MethodOrderingVisitor.class);
+&nbsp;    private final JupiterConfiguration configuration;
+&nbsp;
+&nbsp;    MethodOrderingVisitor(JupiterConfiguration configuration) {
+&nbsp;        this.configuration = configuration;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void visit(TestDescriptor testDescriptor) {
+&nbsp;        if (testDescriptor instanceof ClassBasedTestDescriptor) {
+<b class="fc">&nbsp;            ClassBasedTestDescriptor classBasedTestDescriptor = (ClassBasedTestDescriptor)testDescriptor;</b>
+&nbsp;
+&nbsp;            try {
+&nbsp;                this.orderContainedMethods(classBasedTestDescriptor, classBasedTestDescriptor.getTestClass());
+<b class="fc">&nbsp;            } catch (Throwable var4) {</b>
+<b class="fc">&nbsp;                BlacklistedExceptions.rethrowIfBlacklisted(var4);</b>
+&nbsp;                logger.error(var4, () -&gt; {
+&nbsp;                    return &quot;Failed to order methods for &quot; + classBasedTestDescriptor.getTestClass();
+&nbsp;                });
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;</b>
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    private void orderContainedMethods(ClassBasedTestDescriptor classBasedTestDescriptor, Class&lt;?&gt; testClass) {
+<b class="nc">&nbsp;        AnnotationSupport.findAnnotation(testClass, TestMethodOrder.class).map(TestMethodOrder::value).map((x$0) -&gt; {</b>
+<b class="nc">&nbsp;            return (MethodOrderer)ReflectionUtils.newInstance(x$0, new Object[0]);</b>
+<b class="nc">&nbsp;        }).ifPresent((methodOrderer) -&gt; {</b>
+<b class="fc">&nbsp;            Set&lt;? extends TestDescriptor&gt; children = classBasedTestDescriptor.getChildren();</b>
+&nbsp;            List&lt;TestDescriptor&gt; nonMethodTestDescriptors = (List)children.stream().filter((testDescriptor) -&gt; {
+&nbsp;                return !(testDescriptor instanceof MethodBasedTestDescriptor);
+&nbsp;            }).collect(Collectors.toList());
+&nbsp;            Stream var10000 = children.stream();
+&nbsp;            Objects.requireNonNull(MethodBasedTestDescriptor.class);
+&nbsp;            var10000 = var10000.filter(MethodBasedTestDescriptor.class::isInstance);
+&nbsp;            Objects.requireNonNull(MethodBasedTestDescriptor.class);
+<b class="fc">&nbsp;            List&lt;DefaultMethodDescriptor&gt; methodDescriptors = (List)var10000.map(MethodBasedTestDescriptor.class::cast).map(DefaultMethodDescriptor::new).collect(Collectors.toCollection(ArrayList::new));</b>
+<b class="fc">&nbsp;            Set&lt;DefaultMethodDescriptor&gt; originalMethodDescriptors = new LinkedHashSet(methodDescriptors);</b>
+<b class="fc">&nbsp;            methodOrderer.orderMethods(new DefaultMethodOrdererContext(methodDescriptors, testClass, this.configuration));</b>
+<b class="fc">&nbsp;            int difference = methodDescriptors.size() - originalMethodDescriptors.size();</b>
+&nbsp;            if (difference &gt; 0) {
+<b class="nc">&nbsp;                logger.warn(() -&gt; {</b>
+&nbsp;                    return String.format(&quot;MethodOrderer [%s] added %s MethodDescriptor(s) for test class [%s] which will be ignored.&quot;, methodOrderer.getClass().getName(), difference, testClass.getName());
+<b class="nc">&nbsp;                });</b>
+<b class="nc">&nbsp;            } else if (difference &lt; 0) {</b>
+<b class="nc">&nbsp;                logger.warn(() -&gt; {</b>
+&nbsp;                    return String.format(&quot;MethodOrderer [%s] removed %s MethodDescriptor(s) for test class [%s] which will be retained with arbitrary ordering.&quot;, methodOrderer.getClass().getName(), -difference, testClass.getName());
+<b class="nc">&nbsp;                });</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            var10000 = methodDescriptors.stream();</b>
+<b class="nc">&nbsp;            Objects.requireNonNull(originalMethodDescriptors);</b>
+&nbsp;            Set&lt;TestDescriptor&gt; sortedMethodTestDescriptors = (Set)var10000.filter(originalMethodDescriptors::contains).map(DefaultMethodDescriptor::getTestDescriptor).collect(Collectors.toCollection(LinkedHashSet::new));
+&nbsp;            var10000 = Stream.concat(sortedMethodTestDescriptors.stream(), nonMethodTestDescriptors.stream());
+<b class="nc">&nbsp;            Objects.requireNonNull(classBasedTestDescriptor);</b>
+&nbsp;            var10000.forEach(classBasedTestDescriptor::removeChild);
+<b class="nc">&nbsp;            var10000 = Stream.concat(sortedMethodTestDescriptors.stream(), nonMethodTestDescriptors.stream());</b>
+&nbsp;            Objects.requireNonNull(classBasedTestDescriptor);
+&nbsp;            var10000.forEach(classBasedTestDescriptor::addChild);
+<b class="nc">&nbsp;            Optional var10 = methodOrderer.getDefaultExecutionMode().map(JupiterTestDescriptor::toExecutionMode);</b>
+&nbsp;            Objects.requireNonNull(classBasedTestDescriptor);
+<b class="nc">&nbsp;            var10.ifPresent(classBasedTestDescriptor::setDefaultChildExecutionMode);</b>
+<b class="nc">&nbsp;        });</b>
+&nbsp;    }
+<b class="nc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

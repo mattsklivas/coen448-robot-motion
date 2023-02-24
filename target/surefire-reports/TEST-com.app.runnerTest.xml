@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.app.runnerTest" time="0.316" tests="59" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.app.runnerTest" time="0.068" tests="59" errors="0" skipped="0" failures="0">
   <properties/>
-  <testcase name="testGetParam{String}[1]" classname="com.app.runnerTest" time="0.054"/>
-  <testcase name="testGetParam{String}[2]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testGetParam{String}[3]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testGetParam{String}[4]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testGetParam{String}[5]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testGetParam{String}[6]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testValidateSingletonCommand{String}[1]" classname="com.app.runnerTest" time="0.028"/>
-  <testcase name="testValidateSingletonCommand{String}[2]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testGetParam{String}[1]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testGetParam{String}[2]" classname="com.app.runnerTest" time="0.003"/>
+  <testcase name="testGetParam{String}[3]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testGetParam{String}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testGetParam{String}[5]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testGetParam{String}[6]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testValidateSingletonCommand{String}[1]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testValidateSingletonCommand{String}[2]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[3]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[4]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[5]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[6]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[7]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testValidateSingletonCommand{String}[8]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testValidateSingletonCommand{String}[9]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testCheckForEmptyOption{char}[1]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testValidateSingletonCommand{String}[9]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testCheckForEmptyOption{char}[1]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForEmptyOption{char}[2]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForEmptyOption{char}[3]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testCheckForEmptyOption{char}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testCheckForEmptyOption{char}[4]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testCheckForEmptyOption{char}[5]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForEmptyOption{char}[6]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForEmptyOption{char}[7]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForEmptyOption{char}[8]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testCheckForEmptyOption{char}[9]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[1]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testCheckForEmptyOption{char}[9]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[1]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testParseCommand{String}[2]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[3]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[3]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[4]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testParseCommand{String}[5]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testParseCommand{String}[6]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[7]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[8]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testParseCommand{String}[9]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[6]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[7]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[8]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testParseCommand{String}[9]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testCheckForExit{char}[1]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testCheckForExit{char}[2]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testCheckForExit{char}[3]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testCheckForExit{char}[4]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testCheckForExit{char}[5]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testCheckForExit{char}[6]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testCheckForExit{char}[3]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testCheckForExit{char}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testCheckForExit{char}[5]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testCheckForExit{char}[6]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testCheckForExit{char}[7]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testCheckForExit{char}[8]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testCheckForExit{char}[9]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[1]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[2]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[3]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="validateParamFormat{String}[4]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[5]" classname="com.app.runnerTest" time="0.007"/>
+  <testcase name="testCheckForExit{char}[8]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testCheckForExit{char}[9]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[1]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[2]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[3]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="validateParamFormat{String}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[5]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="validateParamFormat{String}[6]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[7]" classname="com.app.runnerTest" time="0.002"/>
-  <testcase name="validateParamFormat{String}[8]" classname="com.app.runnerTest" time="0.002"/>
-  <testcase name="validateParamFormat{String}[9]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="validateParamFormat{String}[10]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="validateParamFormat{String}[7]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[8]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="validateParamFormat{String}[9]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="validateParamFormat{String}[10]" classname="com.app.runnerTest" time="0"/>
   <testcase name="testGetOption{String}[1]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testGetOption{String}[2]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testGetOption{String}[3]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testGetOption{String}[4]" classname="com.app.runnerTest" time="0.001"/>
-  <testcase name="testGetOption{String}[5]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testGetOption{String}[2]" classname="com.app.runnerTest" time="0.001"/>
+  <testcase name="testGetOption{String}[3]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testGetOption{String}[4]" classname="com.app.runnerTest" time="0"/>
+  <testcase name="testGetOption{String}[5]" classname="com.app.runnerTest" time="0.001"/>
   <testcase name="testGetOption{String}[6]" classname="com.app.runnerTest" time="0"/>
-  <testcase name="testRunner" classname="com.app.runnerTest" time="0.103"/>
+  <testcase name="testRunner" classname="com.app.runnerTest" time="0.026"/>
 </testsuite>

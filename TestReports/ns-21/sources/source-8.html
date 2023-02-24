@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CollectionUtils</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.commons.util</a>
+</div>
+
+<h1>Coverage Summary for Class: CollectionUtils (org.junit.platform.commons.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CollectionUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    40%
+  </span>
+  <span class="absValue">
+    (2/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    3.1%
+  </span>
+  <span class="absValue">
+    (1/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (4/40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.commons.util;
+&nbsp;
+&nbsp;import java.lang.reflect.Array;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.HashSet;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.Spliterators;
+&nbsp;import java.util.stream.Collector;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.DoubleStream;
+&nbsp;import java.util.stream.IntStream;
+&nbsp;import java.util.stream.LongStream;
+&nbsp;import java.util.stream.Stream;
+&nbsp;import java.util.stream.StreamSupport;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.PreconditionViolationException;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.INTERNAL,
+&nbsp;    since = &quot;1.0&quot;
+&nbsp;)
+&nbsp;public final class CollectionUtils {
+&nbsp;    private CollectionUtils() {
+&nbsp;    }
+&nbsp;
+&nbsp;    public static &lt;T&gt; T getOnlyElement(Collection&lt;T&gt; collection) {
+&nbsp;        Preconditions.notNull(collection, &quot;collection must not be null&quot;);
+&nbsp;        Preconditions.condition(collection.size() == 1, () -&gt; {
+&nbsp;            return &quot;collection must contain exactly one element: &quot; + collection;
+&nbsp;        });
+&nbsp;        return collection.iterator().next();
+&nbsp;    }
+&nbsp;
+&nbsp;    @API(
+&nbsp;        status = Status.INTERNAL,
+&nbsp;        since = &quot;1.6&quot;
+&nbsp;    )
+&nbsp;    public static &lt;T&gt; Set&lt;T&gt; toSet(T[] values) {
+&nbsp;        Preconditions.notNull(values, &quot;values array must not be null&quot;);
+&nbsp;        if (values.length == 0) {
+&nbsp;            return Collections.emptySet();
+&nbsp;        } else if (values.length == 1) {
+&nbsp;            return Collections.singleton(values[0]);
+&nbsp;        } else {
+&nbsp;            Set&lt;T&gt; set = new HashSet();
+&nbsp;            Collections.addAll(set, values);
+&nbsp;            return set;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static &lt;T&gt; Collector&lt;T, ?, List&lt;T&gt;&gt; toUnmodifiableList() {
+&nbsp;        return Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList);
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+<b class="pc">&nbsp;    public static Stream&lt;?&gt; toStream(Object object) {</b>
+<b class="nc">&nbsp;        Preconditions.notNull(object, &quot;Object must not be null&quot;);</b>
+<b class="fc">&nbsp;        if (object instanceof Stream) {</b>
+&nbsp;            return (Stream)object;
+&nbsp;        } else if (object instanceof DoubleStream) {
+&nbsp;            return ((DoubleStream)object).boxed();
+&nbsp;        } else if (object instanceof IntStream) {
+&nbsp;            return ((IntStream)object).boxed();
+&nbsp;        } else if (object instanceof LongStream) {
+&nbsp;            return ((LongStream)object).boxed();
+&nbsp;        } else if (object instanceof Collection) {
+&nbsp;            return ((Collection)object).stream();
+&nbsp;        } else if (object instanceof Iterable) {
+&nbsp;            return StreamSupport.stream(((Iterable)object).spliterator(), false);
+&nbsp;        } else if (object instanceof Iterator) {
+<b class="nc">&nbsp;            return StreamSupport.stream(Spliterators.spliteratorUnknownSize((Iterator)object, 16), false);</b>
+<b class="nc">&nbsp;        } else if (object instanceof Object[]) {</b>
+<b class="nc">&nbsp;            return Arrays.stream((Object[])object);</b>
+&nbsp;        } else if (object instanceof double[]) {
+<b class="nc">&nbsp;            return DoubleStream.of((double[])object).boxed();</b>
+<b class="nc">&nbsp;        } else if (object instanceof int[]) {</b>
+&nbsp;            return IntStream.of((int[])object).boxed();
+<b class="nc">&nbsp;        } else if (object instanceof long[]) {</b>
+<b class="nc">&nbsp;            return LongStream.of((long[])object).boxed();</b>
+<b class="nc">&nbsp;        } else if (object.getClass().isArray() &amp;&amp; object.getClass().getComponentType().isPrimitive()) {</b>
+&nbsp;            return IntStream.range(0, Array.getLength(object)).mapToObj((i) -&gt; {
+&nbsp;                return Array.get(object, i);
+&nbsp;            });
+&nbsp;        } else {
+&nbsp;            throw new PreconditionViolationException(&quot;Cannot convert instance of &quot; + object.getClass().getName() + &quot; into a Stream: &quot; + object);
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

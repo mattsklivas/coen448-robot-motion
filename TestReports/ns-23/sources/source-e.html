@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PackageNameFilter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine.discovery</a>
+</div>
+
+<h1>Coverage Summary for Class: PackageNameFilter (org.junit.platform.engine.discovery)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PackageNameFilter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine.discovery;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.engine.DiscoveryFilter;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.STABLE,
+&nbsp;    since = &quot;1.0&quot;
+&nbsp;)
+&nbsp;public interface PackageNameFilter extends DiscoveryFilter&lt;String&gt; {
+&nbsp;    static PackageNameFilter includePackageNames(String... names) {
+&nbsp;        return new IncludePackageNameFilter(names);
+&nbsp;    }
+&nbsp;
+&nbsp;    static PackageNameFilter includePackageNames(List&lt;String&gt; names) {
+&nbsp;        return includePackageNames((String[])names.toArray(new String[0]));
+&nbsp;    }
+&nbsp;
+&nbsp;    static PackageNameFilter excludePackageNames(String... names) {
+&nbsp;        return new ExcludePackageNameFilter(names);
+&nbsp;    }
+&nbsp;
+&nbsp;    static PackageNameFilter excludePackageNames(List&lt;String&gt; names) {
+&nbsp;        return excludePackageNames((String[])names.toArray(new String[0]));
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

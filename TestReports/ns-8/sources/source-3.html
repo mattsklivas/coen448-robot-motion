@@ -1,0 +1,336 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StackLocator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.apache.logging.log4j.util</a>
+</div>
+
+<h1>Coverage Summary for Class: StackLocator (org.apache.logging.log4j.util)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StackLocator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">StackLocator$FqcnCallerLocator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.apache.logging.log4j.util;
+&nbsp;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.util.Stack;
+&nbsp;
+&nbsp;public final class StackLocator {
+&nbsp;    static final int JDK_7u25_OFFSET;
+&nbsp;    private static final Method GET_CALLER_CLASS;
+&nbsp;    private static final StackLocator INSTANCE;
+&nbsp;
+&nbsp;    public static StackLocator getInstance() {
+&nbsp;        return INSTANCE;
+&nbsp;    }
+&nbsp;
+&nbsp;    private StackLocator() {
+&nbsp;    }
+&nbsp;
+&nbsp;    @PerformanceSensitive
+&nbsp;    public Class&lt;?&gt; getCallerClass(int depth) {
+&nbsp;        if (depth &lt; 0) {
+&nbsp;            throw new IndexOutOfBoundsException(Integer.toString(depth));
+&nbsp;        } else if (GET_CALLER_CLASS == null) {
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            try {</b>
+&nbsp;                return (Class)GET_CALLER_CLASS.invoke((Object)null, depth + 1 + JDK_7u25_OFFSET);
+<b class="nc">&nbsp;            } catch (Exception var3) {</b>
+&nbsp;                return null;
+<b class="nc">&nbsp;            }</b>
+&nbsp;        }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    @PerformanceSensitive
+&nbsp;    public Class&lt;?&gt; getCallerClass(String fqcn, String pkg) {
+<b class="nc">&nbsp;        boolean next = false;</b>
+&nbsp;
+&nbsp;        Class clazz;
+<b class="nc">&nbsp;        for(int i = 2; null != (clazz = this.getCallerClass(i)); ++i) {</b>
+&nbsp;            if (fqcn.equals(clazz.getName())) {
+&nbsp;                next = true;
+&nbsp;            } else if (next &amp;&amp; clazz.getName().startsWith(pkg)) {
+<b class="nc">&nbsp;                return clazz;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return null;</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    @PerformanceSensitive
+&nbsp;    public Class&lt;?&gt; getCallerClass(Class&lt;?&gt; anchor) {
+&nbsp;        boolean next = false;
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;        Class clazz;</b>
+<b class="nc">&nbsp;        for(int i = 2; null != (clazz = this.getCallerClass(i)); ++i) {</b>
+&nbsp;            if (anchor.equals(clazz)) {
+&nbsp;                next = true;
+&nbsp;            } else if (next) {
+<b class="nc">&nbsp;                return clazz;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        return Object.class;
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;    @PerformanceSensitive
+<b class="nc">&nbsp;    public Stack&lt;Class&lt;?&gt;&gt; getCurrentStackTrace() {</b>
+<b class="nc">&nbsp;        if (PrivateSecurityManagerStackTraceUtil.isEnabled()) {</b>
+<b class="nc">&nbsp;            return PrivateSecurityManagerStackTraceUtil.getCurrentStackTrace();</b>
+<b class="nc">&nbsp;        } else {</b>
+&nbsp;            Stack&lt;Class&lt;?&gt;&gt; classes = new Stack();
+&nbsp;
+&nbsp;            Class clazz;
+<b class="nc">&nbsp;            for(int i = 1; null != (clazz = this.getCallerClass(i)); ++i) {</b>
+<b class="nc">&nbsp;                classes.push(clazz);</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;</b>
+<b class="nc">&nbsp;            return classes;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public StackTraceElement calcLocation(String fqcnOfLogger) {</b>
+&nbsp;        if (fqcnOfLogger == null) {
+&nbsp;            return null;
+<b class="nc">&nbsp;        } else {</b>
+&nbsp;            StackTraceElement[] stackTrace = (new Throwable()).getStackTrace();
+&nbsp;            boolean found = false;
+&nbsp;
+<b class="nc">&nbsp;            for(int i = 0; i &lt; stackTrace.length; ++i) {</b>
+<b class="nc">&nbsp;                String className = stackTrace[i].getClassName();</b>
+<b class="nc">&nbsp;                if (fqcnOfLogger.equals(className)) {</b>
+<b class="nc">&nbsp;                    found = true;</b>
+<b class="nc">&nbsp;                } else if (found &amp;&amp; !fqcnOfLogger.equals(className)) {</b>
+<b class="nc">&nbsp;                    return stackTrace[i];</b>
+&nbsp;                }
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;</b>
+&nbsp;            return null;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public StackTraceElement getStackTraceElement(int depth) {
+<b class="nc">&nbsp;        StackTraceElement[] elements = (new Throwable()).getStackTrace();</b>
+&nbsp;        int i = 0;
+&nbsp;        StackTraceElement[] var4 = elements;
+&nbsp;        int var5 = elements.length;
+&nbsp;
+&nbsp;        for(int var6 = 0; var6 &lt; var5; ++var6) {
+&nbsp;            StackTraceElement element = var4[var6];
+&nbsp;            if (this.isValid(element)) {
+&nbsp;                if (i == depth) {
+&nbsp;                    return element;
+&nbsp;                }
+&nbsp;
+&nbsp;                ++i;
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        throw new IndexOutOfBoundsException(Integer.toString(depth));
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isValid(StackTraceElement element) {
+&nbsp;        if (element.isNativeMethod()) {
+&nbsp;            return false;
+&nbsp;        } else {
+&nbsp;            String cn = element.getClassName();
+&nbsp;            if (cn.startsWith(&quot;sun.reflect.&quot;)) {
+&nbsp;                return false;
+&nbsp;            } else {
+&nbsp;                String mn = element.getMethodName();
+&nbsp;                if (!cn.startsWith(&quot;java.lang.reflect.&quot;) || !mn.equals(&quot;invoke&quot;) &amp;&amp; !mn.equals(&quot;newInstance&quot;)) {
+&nbsp;                    if (cn.startsWith(&quot;jdk.internal.reflect.&quot;)) {
+&nbsp;                        return false;
+&nbsp;                    } else if (cn.equals(&quot;java.lang.Class&quot;) &amp;&amp; mn.equals(&quot;newInstance&quot;)) {
+&nbsp;                        return false;
+&nbsp;                    } else {
+&nbsp;                        return !cn.equals(&quot;java.lang.invoke.MethodHandle&quot;) || !mn.startsWith(&quot;invoke&quot;);
+&nbsp;                    }
+&nbsp;                } else {
+&nbsp;                    return false;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    static {
+&nbsp;        int java7u25CompensationOffset = 0;
+&nbsp;
+&nbsp;        Method getCallerClass;
+&nbsp;        try {
+&nbsp;            Class&lt;?&gt; sunReflectionClass = LoaderUtil.loadClass(&quot;sun.reflect.Reflection&quot;);
+&nbsp;            getCallerClass = sunReflectionClass.getDeclaredMethod(&quot;getCallerClass&quot;, Integer.TYPE);
+&nbsp;            Object o = getCallerClass.invoke((Object)null, 0);
+&nbsp;            getCallerClass.invoke((Object)null, 0);
+&nbsp;            if (o != null &amp;&amp; o == sunReflectionClass) {
+&nbsp;                o = getCallerClass.invoke((Object)null, 1);
+&nbsp;                if (o == sunReflectionClass) {
+&nbsp;                    System.out.println(&quot;WARNING: Java 1.7.0_25 is in use which has a broken implementation of Reflection.getCallerClass().  Please consider upgrading to Java 1.7.0_40 or later.&quot;);
+&nbsp;                    java7u25CompensationOffset = 1;
+&nbsp;                }
+&nbsp;            } else {
+&nbsp;                getCallerClass = null;
+&nbsp;                java7u25CompensationOffset = -1;
+&nbsp;            }
+&nbsp;        } catch (LinkageError | Exception var4) {
+&nbsp;            System.out.println(&quot;WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.&quot;);
+&nbsp;            getCallerClass = null;
+&nbsp;            java7u25CompensationOffset = -1;
+&nbsp;        }
+&nbsp;
+&nbsp;        GET_CALLER_CLASS = getCallerClass;
+&nbsp;        JDK_7u25_OFFSET = java7u25CompensationOffset;
+&nbsp;        INSTANCE = new StackLocator();
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > AnnotatedBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.internal.builders</a>
+</div>
+
+<h1>Coverage Summary for Class: AnnotatedBuilder (org.junit.internal.builders)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AnnotatedBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (4/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.9%
+  </span>
+  <span class="absValue">
+    (9/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.internal.builders;
+&nbsp;
+&nbsp;import java.lang.reflect.Modifier;
+&nbsp;import org.junit.runner.RunWith;
+&nbsp;import org.junit.runner.Runner;
+&nbsp;import org.junit.runners.model.InitializationError;
+&nbsp;import org.junit.runners.model.RunnerBuilder;
+&nbsp;
+&nbsp;public class AnnotatedBuilder extends RunnerBuilder {
+&nbsp;    private static final String CONSTRUCTOR_ERROR_FORMAT = &quot;Custom runner class %s should have a public constructor with signature %s(Class testClass)&quot;;
+&nbsp;    private final RunnerBuilder suiteBuilder;
+&nbsp;
+&nbsp;    public AnnotatedBuilder(RunnerBuilder suiteBuilder) {
+&nbsp;        this.suiteBuilder = suiteBuilder;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Runner runnerForClass(Class&lt;?&gt; testClass) throws Exception {
+&nbsp;        for(Class&lt;?&gt; currentTestClass = testClass; currentTestClass != null; currentTestClass = this.getEnclosingClassForNonStaticMemberClass(currentTestClass)) {
+&nbsp;            RunWith annotation = (RunWith)currentTestClass.getAnnotation(RunWith.class);
+&nbsp;            if (annotation != null) {
+&nbsp;                return this.buildRunner(annotation.value(), testClass);
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        return null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private Class&lt;?&gt; getEnclosingClassForNonStaticMemberClass(Class&lt;?&gt; currentTestClass) {
+&nbsp;        return currentTestClass.isMemberClass() &amp;&amp; !Modifier.isStatic(currentTestClass.getModifiers()) ? currentTestClass.getEnclosingClass() : null;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Runner buildRunner(Class&lt;? extends Runner&gt; runnerClass, Class&lt;?&gt; testClass) throws Exception {
+&nbsp;        try {
+&nbsp;            return (Runner)runnerClass.getConstructor(Class.class).newInstance(testClass);
+&nbsp;        } catch (NoSuchMethodException var7) {
+&nbsp;            try {
+&nbsp;                return (Runner)runnerClass.getConstructor(Class.class, RunnerBuilder.class).newInstance(testClass, this.suiteBuilder);
+&nbsp;            } catch (NoSuchMethodException var6) {
+&nbsp;                String simpleName = runnerClass.getSimpleName();
+&nbsp;                throw new InitializationError(String.format(&quot;Custom runner class %s should have a public constructor with signature %s(Class testClass)&quot;, simpleName, simpleName));
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

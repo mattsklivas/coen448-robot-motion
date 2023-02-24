@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > NestedClassSelector</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine.discovery</a>
+</div>
+
+<h1>Coverage Summary for Class: NestedClassSelector (org.junit.platform.engine.discovery)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NestedClassSelector</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine.discovery;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.util.ToStringBuilder;
+&nbsp;import org.junit.platform.engine.DiscoverySelector;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.STABLE,
+&nbsp;    since = &quot;1.6&quot;
+&nbsp;)
+&nbsp;public class NestedClassSelector implements DiscoverySelector {
+&nbsp;    private List&lt;ClassSelector&gt; enclosingClassSelectors;
+&nbsp;    private ClassSelector nestedClassSelector;
+&nbsp;
+&nbsp;    NestedClassSelector(List&lt;String&gt; enclosingClassNames, String nestedClassName) {
+&nbsp;        this.enclosingClassSelectors = (List)enclosingClassNames.stream().map(ClassSelector::new).collect(Collectors.toList());
+&nbsp;        this.nestedClassSelector = new ClassSelector(nestedClassName);
+&nbsp;    }
+&nbsp;
+&nbsp;    NestedClassSelector(List&lt;Class&lt;?&gt;&gt; enclosingClasses, Class&lt;?&gt; nestedClass) {
+&nbsp;        this.enclosingClassSelectors = (List)enclosingClasses.stream().map(ClassSelector::new).collect(Collectors.toList());
+&nbsp;        this.nestedClassSelector = new ClassSelector(nestedClass);
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;String&gt; getEnclosingClassNames() {
+&nbsp;        return (List)this.enclosingClassSelectors.stream().map(ClassSelector::getClassName).collect(Collectors.toList());
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;Class&lt;?&gt;&gt; getEnclosingClasses() {
+&nbsp;        return (List)this.enclosingClassSelectors.stream().map(ClassSelector::getJavaClass).collect(Collectors.toList());
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getNestedClassName() {
+&nbsp;        return this.nestedClassSelector.getClassName();
+&nbsp;    }
+&nbsp;
+&nbsp;    public Class&lt;?&gt; getNestedClass() {
+&nbsp;        return this.nestedClassSelector.getJavaClass();
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean equals(Object o) {
+&nbsp;        if (this == o) {
+<b class="nc">&nbsp;            return true;</b>
+<b class="nc">&nbsp;        } else if (o != null &amp;&amp; this.getClass() == o.getClass()) {</b>
+<b class="nc">&nbsp;            NestedClassSelector that = (NestedClassSelector)o;</b>
+&nbsp;            return this.enclosingClassSelectors.equals(that.enclosingClassSelectors) &amp;&amp; this.nestedClassSelector.equals(that.nestedClassSelector);
+&nbsp;        } else {
+<b class="nc">&nbsp;            return false;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public int hashCode() {
+&nbsp;        return Objects.hash(new Object[]{this.enclosingClassSelectors, this.nestedClassSelector});
+&nbsp;    }
+&nbsp;
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;        return (new ToStringBuilder(this)).append(&quot;enclosingClassNames&quot;, this.getEnclosingClassNames()).append(&quot;nestedClassName&quot;, this.getNestedClassName()).toString();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

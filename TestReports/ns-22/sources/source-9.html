@@ -1,0 +1,280 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TestDescriptor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine</a>
+</div>
+
+<h1>Coverage Summary for Class: TestDescriptor (org.junit.platform.engine)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TestDescriptor</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.4%
+  </span>
+  <span class="absValue">
+    (10/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    63.2%
+  </span>
+  <span class="absValue">
+    (12/19)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TestDescriptor$Type</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TestDescriptor$Visitor</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (11/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72.7%
+  </span>
+  <span class="absValue">
+    (16/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72%
+  </span>
+  <span class="absValue">
+    (18/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine;
+&nbsp;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.apiguardian.api.API.Status;
+&nbsp;import org.junit.platform.commons.util.Preconditions;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = Status.STABLE,
+&nbsp;    since = &quot;1.0&quot;
+&nbsp;)
+&nbsp;public interface TestDescriptor {
+&nbsp;    UniqueId getUniqueId();
+&nbsp;
+&nbsp;    String getDisplayName();
+&nbsp;
+&nbsp;    default String getLegacyReportingName() {
+&nbsp;        return this.getDisplayName();
+&nbsp;    }
+&nbsp;
+&nbsp;    Set&lt;TestTag&gt; getTags();
+&nbsp;
+&nbsp;    Optional&lt;TestSource&gt; getSource();
+&nbsp;
+&nbsp;    Optional&lt;TestDescriptor&gt; getParent();
+&nbsp;
+&nbsp;    void setParent(TestDescriptor var1);
+&nbsp;
+&nbsp;    Set&lt;? extends TestDescriptor&gt; getChildren();
+&nbsp;
+&nbsp;    default Set&lt;? extends TestDescriptor&gt; getDescendants() {
+&nbsp;        Set&lt;TestDescriptor&gt; descendants = new LinkedHashSet();
+&nbsp;        descendants.addAll(this.getChildren());
+&nbsp;        Iterator var2 = this.getChildren().iterator();
+&nbsp;
+&nbsp;        while(var2.hasNext()) {
+&nbsp;            TestDescriptor child = (TestDescriptor)var2.next();
+&nbsp;            descendants.addAll(child.getDescendants());
+&nbsp;        }
+&nbsp;
+&nbsp;        return Collections.unmodifiableSet(descendants);
+&nbsp;    }
+&nbsp;
+&nbsp;    void addChild(TestDescriptor var1);
+&nbsp;
+&nbsp;    void removeChild(TestDescriptor var1);
+&nbsp;
+&nbsp;    void removeFromHierarchy();
+&nbsp;
+&nbsp;    default boolean isRoot() {
+&nbsp;        return !this.getParent().isPresent();
+&nbsp;    }
+&nbsp;
+&nbsp;    Type getType();
+&nbsp;
+&nbsp;    default boolean isContainer() {
+&nbsp;        return this.getType().isContainer();
+&nbsp;    }
+<b class="fc">&nbsp;</b>
+&nbsp;    default boolean isTest() {
+&nbsp;        return this.getType().isTest();
+&nbsp;    }
+&nbsp;
+&nbsp;    default boolean mayRegisterTests() {
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    static boolean containsTests(TestDescriptor testDescriptor) {
+&nbsp;        Preconditions.notNull(testDescriptor, &quot;TestDescriptor must not be null&quot;);
+&nbsp;        return testDescriptor.isTest() || testDescriptor.mayRegisterTests() || testDescriptor.getChildren().stream().anyMatch(TestDescriptor::containsTests);
+&nbsp;    }
+&nbsp;
+&nbsp;    default void prune() {
+&nbsp;        if (!this.isRoot() &amp;&amp; !containsTests(this)) {
+&nbsp;            this.removeFromHierarchy();
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    Optional&lt;? extends TestDescriptor&gt; findByUniqueId(UniqueId var1);
+&nbsp;
+&nbsp;    default void accept(Visitor visitor) {
+&nbsp;        Preconditions.notNull(visitor, &quot;Visitor must not be null&quot;);
+&nbsp;        visitor.visit(this);
+&nbsp;        (new LinkedHashSet(this.getChildren())).forEach((child) -&gt; {
+&nbsp;            child.accept(visitor);
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    public static enum Type {
+&nbsp;        CONTAINER,
+&nbsp;        TEST,
+&nbsp;        CONTAINER_AND_TEST;
+&nbsp;
+&nbsp;        private Type() {
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean isContainer() {
+&nbsp;            return this == CONTAINER || this == CONTAINER_AND_TEST;
+&nbsp;        }
+&nbsp;
+&nbsp;        public boolean isTest() {
+&nbsp;            return this == TEST || this == CONTAINER_AND_TEST;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @FunctionalInterface
+&nbsp;    public interface Visitor {
+<b class="nc">&nbsp;        void visit(TestDescriptor var1);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>

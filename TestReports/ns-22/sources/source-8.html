@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SelectorResolutionResult</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.junit.platform.engine</a>
+</div>
+
+<h1>Coverage Summary for Class: SelectorResolutionResult (org.junit.platform.engine)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SelectorResolutionResult</td>
+<td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+  <span class="absValue">
+    (5/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (8/14)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SelectorResolutionResult$Status</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (6/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (12/18)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//
+&nbsp;// Source code recreated from a .class file by IntelliJ IDEA
+&nbsp;// (powered by FernFlower decompiler)
+&nbsp;//
+&nbsp;
+&nbsp;package org.junit.platform.engine;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import org.apiguardian.api.API;
+&nbsp;import org.junit.platform.commons.util.ToStringBuilder;
+&nbsp;
+&nbsp;@API(
+&nbsp;    status = org.apiguardian.api.API.Status.EXPERIMENTAL,
+&nbsp;    since = &quot;1.6&quot;
+&nbsp;)
+&nbsp;public class SelectorResolutionResult {
+&nbsp;    private static final SelectorResolutionResult RESOLVED_RESULT;
+&nbsp;    private static final SelectorResolutionResult UNRESOLVED_RESULT;
+&nbsp;    private final Status status;
+&nbsp;    private final Throwable throwable;
+&nbsp;
+&nbsp;    public static SelectorResolutionResult resolved() {
+&nbsp;        return RESOLVED_RESULT;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static SelectorResolutionResult unresolved() {
+&nbsp;        return UNRESOLVED_RESULT;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static SelectorResolutionResult failed(Throwable throwable) {
+&nbsp;        return new SelectorResolutionResult(SelectorResolutionResult.Status.FAILED, throwable);
+&nbsp;    }
+&nbsp;
+&nbsp;    private SelectorResolutionResult(Status status, Throwable throwable) {
+<b class="fc">&nbsp;        this.status = status;</b>
+&nbsp;        this.throwable = throwable;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Status getStatus() {
+&nbsp;        return this.status;
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public Optional&lt;Throwable&gt; getThrowable() {
+&nbsp;        return Optional.ofNullable(this.throwable);
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public String toString() {</b>
+&nbsp;        return (new ToStringBuilder(this)).append(&quot;status&quot;, this.status).append(&quot;throwable&quot;, this.throwable).toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    static {
+&nbsp;        RESOLVED_RESULT = new SelectorResolutionResult(SelectorResolutionResult.Status.RESOLVED, (Throwable)null);
+<b class="fc">&nbsp;        UNRESOLVED_RESULT = new SelectorResolutionResult(SelectorResolutionResult.Status.UNRESOLVED, (Throwable)null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static enum Status {
+<b class="fc">&nbsp;        RESOLVED,</b>
+<b class="fc">&nbsp;        UNRESOLVED,</b>
+&nbsp;        FAILED;
+&nbsp;
+&nbsp;        private Status() {
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-23 22:04</div>
+</div>
+</body>
+</html>
