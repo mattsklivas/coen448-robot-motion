@@ -1,14 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.app.RobotTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.app.RobotTest
-testGetRobotDirection  Time elapsed: 0 s
-testGetPenPosition  Time elapsed: 0 s
-testInitializedRobot  Time elapsed: 0 s
-testSetRobotCol  Time elapsed: 0 s
-testSetRobotRow  Time elapsed: 0 s
-testRobotMovementUp  Time elapsed: 0 s
-testRobotPenDown  Time elapsed: 0.001 s
-testRobotPenUp  Time elapsed: 0 s
-testRobotMovementDown  Time elapsed: 0 s
-tesSetRobotDirection  Time elapsed: 0 s
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.app.RobotTest
