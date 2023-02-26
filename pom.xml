@@ -13,140 +13,6 @@
     <artifactId>coen448-robot-motion</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>coen448-robot-motion</name>
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <source>18</source>-->
-<!--                    <target>18</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.jacoco</groupId>-->
-<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
-<!--                <version>0.8.8</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>default-prepare-agent</id>-->
-<!--                        <goals>-->
-<!--                            <goal>prepare-agent</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <destFile>${project.build.directory}/coverage-reports/jacoco.exec</destFile>-->
-<!--                            <propertyName>surefireArgLine</propertyName>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>default-report</id>-->
-<!--                        <phase>test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>report</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <dataFile>${project.build.directory}/coverage-reports/jacoco.exec</dataFile>-->
-<!--                            <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>default-check</id>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <rules>-->
-<!--                                <rule>-->
-<!--                                    <element>BUNDLE</element>-->
-<!--                                    <limits>-->
-<!--                                        <limit>-->
-<!--                                            <counter>COMPLEXITY</counter>-->
-<!--                                            <value>COVEREDRATIO</value>-->
-<!--                                            <minimum>0.70</minimum>-->
-<!--                                        </limit>-->
-<!--                                    </limits>-->
-<!--                                </rule>-->
-<!--                            </rules>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.jacoco</groupId>-->
-<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
-<!--                <version>0.8.8</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>default-prepare-agent</id>-->
-<!--                        <goals>-->
-<!--                            <goal>prepare-agent</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>default-report</id>-->
-<!--                        <goals>-->
-<!--                            <goal>report</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>default-check</id>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <rules>-->
-<!--                                <rule>-->
-<!--                                    <element>BUNDLE</element>-->
-<!--                                    <limits>-->
-<!--                                        <limit>-->
-<!--                                            <counter>COMPLEXITY</counter>-->
-<!--                                            <value>COVERED-RATIO</value>-->
-<!--                                            <minimum>0.60</minimum>-->
-<!--                                        </limit>-->
-<!--                                    </limits>-->
-<!--                                </rule>-->
-<!--                            </rules>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
-
-<!--    <properties>-->
-<!--        <maven.compiler.source>15</maven.compiler.source>-->
-<!--        <maven.compiler.target>15</maven.compiler.target>-->
-<!--    </properties>-->
-
-<!--    <dependencies>-->
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.13.2</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter</artifactId>-->
-<!--            <version>5.9.2</version>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
-
-<!--    <reporting>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.jacoco</groupId>-->
-<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
-<!--                <reportSets>-->
-<!--                    <reportSet>-->
-<!--                        <reports>-->
-<!--                            &lt;!&ndash; select non-aggregate reports &ndash;&gt;-->
-<!--                            <report>report</report>-->
-<!--                        </reports>-->
-<!--                    </reportSet>-->
-<!--                </reportSets>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </reporting>-->
 
     <properties>
         <jacoco.version>0.8.8</jacoco.version>
@@ -159,67 +25,8 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-activemq</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-integration</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.flapdoodle.embed</groupId>
-            <artifactId>de.flapdoodle.embed.mongo</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>${checkstyle.version}</version>
-            <type>maven-plugin</type>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-project-info-reports-plugin</artifactId>
-            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -227,51 +34,28 @@
             <version>${jacoco.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.7.0.1746</version>
-        </dependency>
-        <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>8.36</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ta4j</groupId>
-            <artifactId>ta4j-core</artifactId>
-            <version>0.13</version>
+            <groupId>org.jmockit</groupId> <artifactId>jmockit</artifactId>
+            <version>1.45</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>18</source>
-                    <target>18</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.9.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.7.0.1746</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <forkCount>0</forkCount>
-                    <reportFormat>plain</reportFormat>
-                    <includes>
-                        <include>**/*Test*.java</include>
-                        <include>**/*IT*.java</include>
-                    </includes>
+                    <systemPropertyVariables>
+                        <coverage-metrics>
+                            all
+                        </coverage-metrics>
+                    </systemPropertyVariables>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}"/org/jmockit/jmockit/1.45/jmockit-1.45.jar
+
+                        -Dcoverage-output=html
+<!--                        -Dcoverage-metrics=all&lt;!&ndash; or html-cp, serial, serial-append; if not set, defaults to "html" &ndash;&gt;-->
+                        -Dcoverage-classes=loaded          <!-- or a "*" expression for class names; if not set, measures all production code classes -->
+                    </argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -314,28 +98,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle.version}</version>
-                <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
-                </configuration>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>check</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>
