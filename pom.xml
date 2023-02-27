@@ -34,8 +34,9 @@
             <version>${jacoco.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jmockit</groupId> <artifactId>jmockit</artifactId>
-            <version>1.45</version>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>1.49</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -44,18 +45,13 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <systemPropertyVariables>
-                        <coverage-metrics>
-                            all
-                        </coverage-metrics>
-                    </systemPropertyVariables>
                     <argLine>
-                        -javaagent:"${settings.localRepository}"/org/jmockit/jmockit/1.45/jmockit-1.45.jar
-
-                        -Dcoverage-output=html
-<!--                        -Dcoverage-metrics=all&lt;!&ndash; or html-cp, serial, serial-append; if not set, defaults to "html" &ndash;&gt;-->
-                        -Dcoverage-classes=loaded          <!-- or a "*" expression for class names; if not set, measures all production code classes -->
+                        -javaagent:"${settings.localRepository}"/org/jmockit/jmockit/1.49/jmockit-1.49.jar=coverage
                     </argLine>
+                    <systemPropertyVariables>
+                        <coverage-output>html-cp</coverage-output>
+                        <coverage-metrics>path</coverage-metrics>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -87,7 +83,7 @@
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
-                                            <value>COVEREDRATIO</value>
+                                            <value>COVERED-RATIO</value>
                                         </limit>
                                     </limits>
                                 </rule>
