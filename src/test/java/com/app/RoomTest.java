@@ -1,9 +1,13 @@
 package com.app;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.io.*;
 
 
 /*
@@ -201,6 +205,171 @@ public class RoomTest {
 
         testRoom.movePen(false);
         assertFalse(testRobot.isPenDown());
+    }
+
+    // Test Function #25
+    // Test type : Functional, blackbox
+    // Input : <Room(n) 10 printRobotState() setIsPenDown true moveRobot(moves) 4 setRobotDirection(dir) 1 printRobotState()>.
+    // Description : Print default and changed robot state after robot move and rotation with pen down
+    // Expected output : < Default robot state, Modified robot state >
+    // Tester : Nicholas Kawwas
+    // Date : 26th February
+    @Test
+    public void testPrintRobotState() throws IOException {
+        // Save default output stream
+        PrintStream defaultPrint = System.out;
+
+        // Capture output stream
+        ByteArrayOutputStream outStreamCap = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outStreamCap));
+
+        int n = 10;
+        int moveNorth = 4;
+        int rotateClockwise = 1;
+
+        int currCol = 0;
+
+        Room testRoom = new Room(n);
+        Robot testRobot = testRoom.getRobot();
+
+        // Get default robot state
+        testRoom.printRobotState();
+        assertEquals("Position: " + currCol + ", 0 - Pen: up - Facing: north\n", outStreamCap.toString());
+
+        // Pen down, moved north then rotated east
+        testRobot.setIsPenDown(true);
+        testRoom.moveRobot(moveNorth);
+        currCol += moveNorth;
+        testRobot.setRobotDirection(rotateClockwise);
+
+        // Reset stream to compare next print
+        outStreamCap.reset();
+
+        // Get print state after robot move and rotation with pen change
+        testRoom.printRobotState();
+        assertEquals("Position: " + currCol + ", 0 - Pen: down - Facing: east\n", outStreamCap.toString());
+
+        // Reset output stream
+        System.setOut(defaultPrint);
+        outStreamCap.close();
+    }
+
+
+    /*
+     Test Function #26
+     Test type : Functional, blackbox
+     Input : <Room(n) 10 printFloor() movePen() true moveRobot(movesNorth) 4 setRobotDirection(dir) 1 moveRobot(movesEast) 2 printFloor()>.
+     Description : Print default and changed room floor line by line
+     Expected output : < Default empty room floor, Modified room floor >
+     Tester : Nicholas Kawwas
+     Date : 26th February
+     */
+    @Test
+    public void testPrintRoomState() throws IOException {
+        // Save default output stream
+        PrintStream defaultPrint = System.out;
+
+        // Capture output stream
+        ByteArrayOutputStream outStreamCap = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outStreamCap));
+
+        int n = 10;
+        int moveNorth = 4;
+        int moveEast = 2;
+        int rotateClockwise = 1;
+
+        // Prepare constants for empty line, final line
+        int outIndex = n;
+        String finalLine = "\\";
+        String emptyLine = "  ";
+        for (int i = 0; i < n; i++) {
+            finalLine += "  " + i;
+            emptyLine += "  " + " ";
+        }
+        finalLine += "  ";
+
+        // Prepare constants for moves up and east
+        String upMoveLine = " ";
+        String eastMoveLine = " ";
+        for (int i = 0; i < n; i++) {
+            if(i == 0) {
+                upMoveLine += " * " + " ";
+            } else {
+                upMoveLine += "  " + " ";
+            }
+
+            if(i < moveEast) {
+                eastMoveLine += " * ";
+            } else if (i == moveEast) {
+                eastMoveLine += " * " + " ";
+            } else {
+                eastMoveLine += "  " + " ";
+            }
+        }
+
+
+        Room testRoom = new Room(n);
+        Robot testRobot = testRoom.getRobot();
+
+        // Get default floor
+        testRoom.printFloor();
+
+        BufferedReader br = new BufferedReader(
+                new StringReader(outStreamCap.toString())
+        );
+
+        // Test printing empty room
+        String expectedOut;
+        String actualOut;
+        while ((actualOut = br.readLine()) != null) {
+            outIndex--;
+            if(outIndex < 0) {
+                expectedOut =  finalLine;
+            } else {
+                expectedOut =  "" + outIndex + emptyLine;
+            }
+
+            assertEquals(expectedOut, actualOut);
+        }
+
+        // Reset stream to compare next print
+        outStreamCap.reset();
+
+        // Pen down, moved north then rotated east
+        testRoom.movePen(true);
+        testRoom.moveRobot(moveNorth);
+        testRobot.setRobotDirection(rotateClockwise);
+        testRoom.moveRobot(moveEast);
+
+        // Get floor with moves and rotation
+        testRoom.printFloor();
+
+        // Test printing traversed room
+        br = new BufferedReader(
+                new StringReader(outStreamCap.toString())
+        );
+        outIndex = n;
+        while ((actualOut = br.readLine()) != null) {
+            outIndex--;
+            if(outIndex < 0) {
+                expectedOut =  finalLine;
+            } else {
+                expectedOut = "" + outIndex;
+                if(outIndex == moveNorth) {
+                    expectedOut += eastMoveLine;
+                } else if(outIndex < moveNorth) {
+                    expectedOut += upMoveLine;
+                } else {
+                    expectedOut += emptyLine;
+                }
+            }
+
+            assertEquals(expectedOut, actualOut);
+        }
+
+        // Reset output stream
+        System.setOut(defaultPrint);
+        outStreamCap.close();
     }
 }
 

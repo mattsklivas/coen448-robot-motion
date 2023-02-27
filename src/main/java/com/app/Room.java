@@ -31,7 +31,7 @@ public class Room {
 
         // Set current tile to 1 when putting pen down
         if (robot.isPenDown())
-            floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
+            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;
     }
 
     // Move robot forward s spaces (M s/m s)
@@ -58,23 +58,11 @@ public class Room {
             }
 
             // Modify row if moving horizontal
-            if(isHorizontal) {
-                int newCol = robot.getRobotCol() + offset;
-                if (newCol >= floorSize || newCol < 0) {
-                    System.out.println("Robot is at the edge of the room");
-                    break;
-                }
+            if(isHorizontal)
                 robot.incrementRobotCol(offset);
-            }
             // Modify col otherwise (moving vertical)
-            else {
-                int newRow = robot.getRobotRow() + offset;
-                if (newRow >= floorSize || newRow < 0) {
-                    System.out.println("Robot is at the edge of the room");
-                    break;
-                }
+            else
                 robot.incrementRobotRow(offset);
-            }
 
             // Draw if pen down
             if (robot.isPenDown())
