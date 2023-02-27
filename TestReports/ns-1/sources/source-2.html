@@ -63,18 +63,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    88.9%
+    100%
   </span>
   <span class="absValue">
-    (32/36)
+    (28/28)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    92.5%
+    100%
   </span>
   <span class="absValue">
-    (49/53)
+    (50/50)
   </span>
 </td>
 </tr>
@@ -100,7 +100,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;    public Room() {</b>
 <b class="fc">&nbsp;        robot = new Robot();</b>
 <b class="fc">&nbsp;        isInitialized = false;</b>
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    // Initialize the system - robot and floor (I n/i n)
 <b class="fc">&nbsp;    public Room(int n) {</b>
@@ -111,7 +111,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        floor = new int[n][n];</b>
 <b class="fc">&nbsp;        floorSize = n;</b>
 <b class="fc">&nbsp;        isInitialized = true;</b>
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    // Move pen up (U/u) or down (D/d)
 &nbsp;    public void movePen(boolean isPenDown) {
@@ -119,8 +119,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;        // Set current tile to 1 when putting pen down
 <b class="fc">&nbsp;        if (robot.isPenDown())</b>
-<b class="fc">&nbsp;            floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</b>
-&nbsp;    }
+<b class="fc">&nbsp;            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</b>
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    // Move robot forward s spaces (M s/m s)
 &nbsp;    public void moveRobot(int spaces) {
@@ -146,35 +146,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            }
 &nbsp;
 &nbsp;            // Modify row if moving horizontal
-<b class="fc">&nbsp;            if(isHorizontal) {</b>
-<b class="fc">&nbsp;                int newCol = robot.getRobotCol() + offset;</b>
-<b class="pc">&nbsp;                if (newCol &gt;= floorSize || newCol &lt; 0) {</b>
-<b class="nc">&nbsp;                    System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
-<b class="nc">&nbsp;                    break;</b>
-&nbsp;                }
+<b class="fc">&nbsp;            if(isHorizontal)</b>
 <b class="fc">&nbsp;                robot.incrementRobotCol(offset);</b>
-<b class="fc">&nbsp;            }</b>
 &nbsp;            // Modify col otherwise (moving vertical)
-&nbsp;            else {
-<b class="fc">&nbsp;                int newRow = robot.getRobotRow() + offset;</b>
-<b class="pc">&nbsp;                if (newRow &gt;= floorSize || newRow &lt; 0) {</b>
-<b class="nc">&nbsp;                    System.out.println(&quot;Robot is at the edge of the room&quot;);</b>
-<b class="nc">&nbsp;                    break;</b>
-&nbsp;                }
+&nbsp;            else
 <b class="fc">&nbsp;                robot.incrementRobotRow(offset);</b>
-&nbsp;            }
 &nbsp;
 &nbsp;            // Draw if pen down
 <b class="fc">&nbsp;            if (robot.isPenDown())</b>
 <b class="fc">&nbsp;                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</b>
 &nbsp;        }
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    // Print pen position and direction (C/c)
 &nbsp;    public void printRobotState() {
 <b class="fc">&nbsp;        System.out.printf(&quot;Position: %s - Pen: %s - Facing: %s%n&quot;,</b>
 <b class="fc">&nbsp;                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());</b>
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    // Print floor matrix with indices (P/p)
 &nbsp;    public void printFloor() {
@@ -203,7 +191,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;        }
 &nbsp;
 <b class="fc">&nbsp;        System.out.println();</b>
-&nbsp;    }
+<b class="fc">&nbsp;    }</b>
 &nbsp;
 &nbsp;    public Robot getRobot() {
 <b class="fc">&nbsp;        return this.robot;</b>
@@ -244,7 +232,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-23 22:15</div>
+    <div style="float:right;">generated on 2023-02-26 21:49</div>
 </div>
 </body>
 </html>

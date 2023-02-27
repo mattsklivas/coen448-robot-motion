@@ -40,8 +40,25 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.1</version>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <reportFormat>plain</reportFormat>-->
+<!--                    <includes>-->
+<!--                        <include>**/*Test*.java</include>-->
+<!--                        <include>**/*IT*.java</include>-->
+<!--                    </includes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
@@ -83,7 +100,7 @@
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
-                                            <value>COVERED-RATIO</value>
+                                            <value>COVEREDRATIO</value>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -94,4 +111,30 @@
             </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>check</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>

@@ -2,600 +2,397 @@
 <html>
 <head>
   <title>runner.java</title>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
-  <link rel='stylesheet' type='text/css' href='../../coverage.css'/>
-  <link rel='shortcut icon' type='image/png' href='../../logo.png'/>
-  <script type='text/javascript' src='../../coverage.js'></script>
-  <script type='text/javascript' src='../../prettify.js'></script>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href='../../source.css'>
+  <link rel='shortcut icon' type='image/png' href='../../logo.png'>
+  <script src='../../coverage.js'></script>
+  <base target='_blank'>
+  <script src='../../prettify.js'></script>
 </head>
 <body onload='prettyPrint()'>
-  <table cellpadding='0' cellspacing='1'>
+  <table>
     <caption>coen448-robot-motion/src/main/java/com/app/runner.java</caption>
     <tr>
-      <td class='line'>1</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>package com.app;</pre></td>
+      <td>1</td><td></td>
+      <td><pre class='pp'>package com.app;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.*;
+      <td></td><td></td>
+      <td><pre class='ims pp' onclick='shLns(this)'><div>import java.util.*;
 </div><span>import ...</span></pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>5</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l5s0'>public class runner {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>5</td><td class='ct'>0</td>
+      <td><pre class='pp cvd' id='l5s0'>public class runner {</pre></td>
     </tr>
     <tr>
-      <td class='line'>6</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Room object</pre></td>
+      <td>6</td><td></td>
+      <td><pre class='cm'>    // Room object</pre></td>
     </tr>
     <tr>
-      <td class='line'>7</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l7s0'>    public static Room <span class='static covered' title='Reads: 94 Writes: 6'>room</span> = new Room();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>7</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l7s0'>    public static Room <span class='static cvd' title='Reads: 94 Writes: 7'>room</span> = new Room();</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>9</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l9s0'>    public static Set&lt;Character> <span class='static covered' title='Reads: 53 Writes: 0'>knownCommandsAlpha</span> = new HashSet&lt;>();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>9</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l9s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 53 Writes: 1'>knownCommandsAlpha</span> = new HashSet&lt;>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>10</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l10s0'>    public static Set&lt;Character> <span class='static covered' title='Reads: 29 Writes: 0'>knownCommandsAlphaNum</span> = new HashSet&lt;>();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>10</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l10s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 29 Writes: 1'>knownCommandsAlphaNum</span> = new HashSet&lt;>();</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>12</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Entrypoint of program execution</pre></td>
+      <td>12</td><td></td>
+      <td><pre class='cm'>    // Entrypoint of program execution</pre></td>
     </tr>
     <tr>
-      <td class='line'>13</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static void main(String[] args) throws Exception {</pre></td>
+      <td>13</td><td></td>
+      <td><pre class='pp'>    public static void main(String[] args) throws Exception {</pre></td>
     </tr>
     <tr>
-      <td class='line'>14</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l14s0'>        Scanner sc = new Scanner(System.in);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>14</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l14s0'>        Scanner sc = new Scanner(System.in);</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>16</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l16s0'>        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>16</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l16s0'>        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</pre></td>
     </tr>
     <tr>
-      <td class='line'>17</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        while(true) {</pre></td>
+      <td>17</td><td class='ct'>42</td>
+      <td><pre class='pp cvd' id='l17s0'>        while(true) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Request new commands from the user</pre></td>
+      <td>18</td><td></td>
+      <td><pre class='cm'>            // Request new commands from the user</pre></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td class='count'>43</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l19s0'>            System.out.print("Enter command: ");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>19</td><td class='ct'>43</td>
+      <td><pre class='pp cvd' id='l19s0'>            System.out.print("Enter command: ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>20</td><td class='count'>43</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l20s0'>            boolean isExit = parseCommand(sc.nextLine());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>20</td><td class='ct'>43</td>
+      <td><pre class='pp cvd' id='l20s0'>            boolean isExit = parseCommand(sc.nextLine());</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Exit the program if the command Q has been entered</pre></td>
+      <td>22</td><td></td>
+      <td><pre class='cm'>            // Exit the program if the command Q has been entered</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>43</td>
-      <td><pre class='prettyprint jmp'>            <span id='l23s0' title='Executions: 43' class='covered cp' onclick='showHide(this,0)'>if (isExit)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>23</td><td class='ct'>43</td>
+      <td><pre class='pp jmp'>            <span id='l23s0' title='Executions: 43' class='cvd'>if (isExit)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l24s0'>                break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>24</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l24s0'>                break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>25</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>27</td><td class='count'>42</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l27s0'>            System.out.println();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x42</li>
-        </ol>
-      </td>
+      <td>27</td><td class='ct'>42</td>
+      <td><pre class='pp cvd' id='l27s0'>            System.out.println();</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>42</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l28s0'>        }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x42</li>
-        </ol>
-      </td>
+      <td>28</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>30</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l30s0'>        sc.close();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>30</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l30s0'>        sc.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l31s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>31</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l31s0'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>34</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static char getOption(String command) {</pre></td>
+      <td>34</td><td></td>
+      <td><pre class='pp'>    public static char getOption(String command) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>58</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l35s0'>        command = command.toLowerCase().trim();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testGetOption: 66x6</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>35</td><td class='ct'>58</td>
+      <td><pre class='pp cvd' id='l35s0'>        command = command.toLowerCase().trim();</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Check if command is at least 1 character long</pre></td>
+      <td>36</td><td></td>
+      <td><pre class='cm'>        // Check if command is at least 1 character long</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>58</td>
-      <td><pre class='prettyprint jmp'>        <span id='l37s0' title='Executions: 58' class='covered cp' onclick='showHide(this,0)'>if (command.length() == 0)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testGetOption: 66x6</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>37</td><td class='ct'>58</td>
+      <td><pre class='pp jmp'>        <span id='l37s0' title='Executions: 58' class='cvd'>if (command.length() == 0)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l38s0'>            return ' ';</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testGetOption: 66</li>
-        </ol>
-      </td>
+      <td>38</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l38s0'>            return ' ';</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>39</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>57</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l40s0'>        return command.charAt(0);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testGetOption: 66x5</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>40</td><td class='ct'>57</td>
+      <td><pre class='pp cvd' id='l40s0'>        return command.charAt(0);</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>41</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>44</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static String getParam(String command) {</pre></td>
+      <td>44</td><td></td>
+      <td><pre class='pp'>    public static String getParam(String command) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>45</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Get the command's integer parameter if it exists</pre></td>
+      <td>45</td><td></td>
+      <td><pre class='cm'>        // Get the command's integer parameter if it exists</pre></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td class='count'>18</td>
-      <td><pre class='prettyprint jmp'>        <span id='l46s0' title='Executions: 18' class='covered cp' onclick='showHide(this,0)'>if (command.length() &lt;= 1)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>46</td><td class='ct'>18</td>
+      <td><pre class='pp jmp'>        <span id='l46s0' title='Executions: 18' class='cvd'>if (command.length() &lt;= 1)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l47s0'>            return null;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>47</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l47s0'>            return null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>48</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>50</td><td class='count'>18</td>
-      <td><pre class='prettyprint jmp'>        <span id='l50s0' title='Executions: 18' class='covered cp' onclick='showHide(this,0)'>if (command.charAt(1) == ' ')</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>50</td><td class='ct'>18</td>
+      <td><pre class='pp jmp'>        <span id='l50s0' title='Executions: 18' class='cvd'>if (command.charAt(1) == ' ')</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Check if an integer parameter is included</pre></td>
+      <td>51</td><td></td>
+      <td><pre class='cm'>            // Check if an integer parameter is included</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>16</td>
-      <td><pre class='prettyprint jmp'>            <span id='l52s0' title='Executions: 16' class='covered cp' onclick='showHide(this,0)'>if (command.length() == 2)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x16</li>
-        </ol>
-      </td>
+      <td>52</td><td class='ct'>16</td>
+      <td><pre class='pp jmp'>            <span id='l52s0' title='Executions: 16' class='cvd'>if (command.length() == 2)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l53s0'>                System.out.println("Error: Numerical parameter required for the provided command. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>53</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l53s0'>                System.out.println("Error: Numerical parameter required for the provided command. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l54s0'>                return null;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>54</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l54s0'>                return null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>55</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>57</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l57s0'>            return command.substring(2).strip();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x16</li>
-        </ol>
-      </td>
+      <td>57</td><td class='ct'>16</td>
+      <td><pre class='pp cvd' id='l57s0'>            return command.substring(2).strip();</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        } else {</pre></td>
+      <td>58</td><td></td>
+      <td><pre class='pp'>        } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l59s0'>            return command.substring(1).strip();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
+      <td>59</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l59s0'>            return command.substring(1).strip();</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>60</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr>
-      <td class='line'>61</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>61</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>64</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static boolean validateSingletonCommand(String command) {</pre></td>
+      <td>64</td><td></td>
+      <td><pre class='pp'>    public static boolean validateSingletonCommand(String command) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Check if the command is a known command</pre></td>
+      <td>65</td><td></td>
+      <td><pre class='cm'>        // Check if the command is a known command</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>33</td>
-      <td><pre class='prettyprint jmp'>        <span id='l66s0' title='Executions: 33' class='covered cp' onclick='showHide(this,0)'>if (command.length() > 1)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102x9</li>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
-        </ol>
-      </td>
+      <td>66</td><td class='ct'>33</td>
+      <td><pre class='pp jmp'>        <span id='l66s0' title='Executions: 33' class='cvd'>if (command.length() > 1)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l67s0'>            System.out.println("Error: Extra arguments included in command. Please try again...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102x3</li>
-        </ol>
-      </td>
+      <td>67</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l67s0'>            System.out.println("Error: Extra arguments included in command. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>68</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l68s0'>            return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102x3</li>
-        </ol>
-      </td>
+      <td>68</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l68s0'>            return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>69</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>71</td><td class='count'>30</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l71s0'>        return true;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102x6</li>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
-        </ol>
-      </td>
+      <td>71</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l71s0'>        return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>72</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>72</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static boolean checkForExit(char option) {</pre></td>
+      <td>75</td><td></td>
+      <td><pre class='pp'>    public static boolean checkForExit(char option) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>33</td>
-      <td><pre class='prettyprint jmp'>        <span id='l76s0' title='Executions: 33' class='covered cp' onclick='showHide(this,0)'>if (option == 'q')</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForExit: 118x9</li>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
-        </ol>
-      </td>
+      <td>76</td><td class='ct'>33</td>
+      <td><pre class='pp jmp'>        <span id='l76s0' title='Executions: 33' class='cvd'>if (option == 'q')</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l77s0'>            System.out.println("\nExiting program...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForExit: 118x3</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>77</td><td class='ct'>4</td>
+      <td><pre class='pp cvd' id='l77s0'>            System.out.println("\nExiting program...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l78s0'>            return true;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForExit: 118x3</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>78</td><td class='ct'>4</td>
+      <td><pre class='pp cvd' id='l78s0'>            return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>79</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>81</td><td class='count'>29</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l81s0'>        return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForExit: 118x6</li>
-          <li>com.app.runnerTest#testRunner: 32x23</li>
-        </ol>
-      </td>
+      <td>81</td><td class='ct'>29</td>
+      <td><pre class='pp cvd' id='l81s0'>        return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>82</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>82</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>85</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static boolean checkForEmptyOption(char option) {</pre></td>
+      <td>85</td><td></td>
+      <td><pre class='pp'>    public static boolean checkForEmptyOption(char option) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>61</td>
-      <td><pre class='prettyprint jmp'>        <span id='l86s0' title='Executions: 61' class='covered cp' onclick='showHide(this,0)'>if (option == ' ')</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForEmptyOption: 133x9</li>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>86</td><td class='ct'>61</td>
+      <td><pre class='pp jmp'>        <span id='l86s0' title='Executions: 61' class='cvd'>if (option == ' ')</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l87s0'>            System.out.println("Error: No command entered. Please try again...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForEmptyOption: 133x3</li>
-        </ol>
-      </td>
+      <td>87</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l87s0'>            System.out.println("Error: No command entered. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l88s0'>            return true;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForEmptyOption: 133x3</li>
-        </ol>
-      </td>
+      <td>88</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l88s0'>            return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>89</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>91</td><td class='count'>58</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l91s0'>        return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testCheckForEmptyOption: 133x6</li>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>91</td><td class='ct'>58</td>
+      <td><pre class='pp cvd' id='l91s0'>        return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>92</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>95</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static boolean validateParamFormat(String param) {</pre></td>
+      <td>95</td><td></td>
+      <td><pre class='pp'>    public static boolean validateParamFormat(String param) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>96</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Check if the extra parameter is an integer</pre></td>
+      <td>96</td><td></td>
+      <td><pre class='cm'>        // Check if the extra parameter is an integer</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td class='count'>24</td>
-      <td><pre class='prettyprint jmp'>        <span id='l97s0' title='Executions: 24' class='covered cp' onclick='showHide(this,0)'>if (!param.matches("[0-9]+"))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x6</li>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>97</td><td class='ct'>24</td>
+      <td><pre class='pp jmp'>        <span id='l97s0' title='Executions: 24' class='cvd'>if (!param.matches("[0-9]+"))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>98</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l98s0'>            System.out.println("Error: Positive non-zero numerical parameter required for the provided command. Please try again...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x2</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>98</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l98s0'>            System.out.println("Error: Positive non-zero numerical parameter required for the provided command. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>99</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l99s0'>            return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x2</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>99</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l99s0'>            return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>100</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        } else {</pre></td>
+      <td>100</td><td></td>
+      <td><pre class='pp'>        } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>101</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            try {</pre></td>
+      <td>101</td><td></td>
+      <td><pre class='pp'>            try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td>&nbsp;</td>
-      <td><pre class='comment'>                // Parse the provided parameter to an integer</pre></td>
+      <td>102</td><td></td>
+      <td><pre class='cm'>                // Parse the provided parameter to an integer</pre></td>
     </tr>
     <tr>
-      <td class='line'>103</td><td class='count'>21</td>
-      <td><pre class='prettyprint jmp'>                <span id='l103s0' title='Executions: 21' class='covered cp' onclick='showHide(this,0)'>if (Integer.parseInt(param) > 100)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x4</li>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>103</td><td class='ct'>21</td>
+      <td><pre class='pp jmp'>                <span id='l103s0' title='Executions: 21' class='cvd'>if (Integer.parseInt(param) > 100)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>104</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l104s0'>                    System.out.println("Error: Numerical parameter provided is too large. Please try again...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153</li>
-        </ol>
-      </td>
+      <td>104</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l104s0'>                    System.out.println("Error: Numerical parameter provided is too large. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>105</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l105s0'>                    return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153</li>
-        </ol>
-      </td>
+      <td>105</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l105s0'>                    return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>106</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                }</pre></td>
+      <td>106</td><td></td>
+      <td><pre class='pp'>                }</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l107s0'>            } catch (NumberFormatException e) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>107</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l107s0'>            } catch (NumberFormatException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>108</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l108s0'>                System.out.println("Error: Unable to parse provided command parameter. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>108</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l108s0'>                System.out.println("Error: Unable to parse provided command parameter. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>109</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l109s0'>                return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>109</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l109s0'>                return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>110</td><td class='count'>20</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l110s0'>            }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x3</li>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>110</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>111</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>113</td><td class='count'>20</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l113s0'>        return true;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x3</li>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>113</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l113s0'>        return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>114</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>114</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>117</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public static boolean parseCommand(String command) {</pre></td>
+      <td>117</td><td></td>
+      <td><pre class='pp'>    public static boolean parseCommand(String command) {</pre></td>
     </tr>
     <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td class='comment' onclick='showHideLines(this)'><div>        /*
+      <td></td><td></td>
+      <td class='cm' onclick='shLns(this)'><div>        /*
         AVAILABLE STANDALONE COMMANDS:
         [U|u] Pen up
         [D|d] Pen down
@@ -610,745 +407,463 @@
         [I n|i n] Initialize the system
         */</div><span>        /*...*/</span></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>133</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Set any alpha characters to lowercase and trim the string</pre></td>
+      <td>133</td><td></td>
+      <td><pre class='cm'>        // Set any alpha characters to lowercase and trim the string</pre></td>
     </tr>
     <tr>
-      <td class='line'>134</td><td class='count'>52</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l134s0'>        command = command.toLowerCase().strip();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>134</td><td class='ct'>52</td>
+      <td><pre class='pp cvd' id='l134s0'>        command = command.toLowerCase().strip();</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>136</td><td class='count'>52</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l136s0'>        char option = getOption(command);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>136</td><td class='ct'>52</td>
+      <td><pre class='pp cvd' id='l136s0'>        char option = getOption(command);</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>138</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Check if the command is empty</pre></td>
+      <td>138</td><td></td>
+      <td><pre class='cm'>        // Check if the command is empty</pre></td>
     </tr>
     <tr>
-      <td class='line'>139</td><td class='count'>52</td>
-      <td><pre class='prettyprint jmp'>        <span id='l139s0' title='Executions: 52' class='covered cp' onclick='showHide(this,0)'>if (checkForEmptyOption(option))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>139</td><td class='ct'>52</td>
+      <td><pre class='pp jmp'>        <span id='l139s0' title='Executions: 52' class='cvd'>if (checkForEmptyOption(option))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>140</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l140s0'>            return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>140</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l140s0'>            return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>141</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>143</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Check if first symbol represents a known command</pre></td>
+      <td>143</td><td></td>
+      <td><pre class='cm'>        // Check if first symbol represents a known command</pre></td>
     </tr>
     <tr>
-      <td class='line'>144</td><td class='count'>52</td>
-      <td><pre class='prettyprint jmp'>        <span id='l144s0' title='Executions: 52' class='covered cp' onclick='showHide(this,0)'>if (knownCommandsAlpha.contains(option))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
+      <td>144</td><td class='ct'>52</td>
+      <td><pre class='pp jmp'>        <span id='l144s0' title='Executions: 52' class='cvd'>if (knownCommandsAlpha.contains(option))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>145</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Check if there's any additional arguments included</pre></td>
+      <td>145</td><td></td>
+      <td><pre class='cm'>            // Check if there's any additional arguments included</pre></td>
     </tr>
     <tr>
-      <td class='line'>146</td><td class='count'>24</td>
-      <td><pre class='prettyprint jmp'>            <span id='l146s0' title='Executions: 24' class='covered cp' onclick='showHide(this,0)'>if (!validateSingletonCommand(command))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
-        </ol>
-      </td>
+      <td>146</td><td class='ct'>24</td>
+      <td><pre class='pp jmp'>            <span id='l146s0' title='Executions: 24' class='cvd'>if (!validateSingletonCommand(command))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>147</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l147s0'>                return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>147</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l147s0'>                return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>148</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>148</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>150</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Check if the command is Q</pre></td>
+      <td>150</td><td></td>
+      <td><pre class='cm'>            // Check if the command is Q</pre></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td class='count'>24</td>
-      <td><pre class='prettyprint jmp'>            <span id='l151s0' title='Executions: 24' class='covered cp' onclick='showHide(this,0)'>if (checkForExit(option))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
-        </ol>
-      </td>
+      <td>151</td><td class='ct'>24</td>
+      <td><pre class='pp jmp'>            <span id='l151s0' title='Executions: 24' class='cvd'>if (checkForExit(option))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>152</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l152s0'>                return true;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>152</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l152s0'>                return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>153</td><td class='count'>23</td>
-      <td><pre class='prettyprint jmp'>            <span id='l153s0' title='Executions: 23' class='covered cp' onclick='showHide(this,0)'>}</span> else if (room.isInitialized()) {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x23</li>
-        </ol>
-      </td>
+      <td>153</td><td class='ct'>23</td>
+      <td><pre class='pp jmp'>            <span id='l153s0' title='Executions: 23' class='cvd'>}</span> else if (room.isInitialized()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>154</td><td class='count'>23</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l154s0'>                switch (option) {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x23</li>
-        </ol>
-      </td>
+      <td>154</td><td class='ct'>23</td>
+      <td><pre class='pp cvd' id='l154s0'>                switch (option) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>155</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'u':</pre></td>
+      <td>155</td><td></td>
+      <td><pre class='pp'>                    case 'u':</pre></td>
     </tr>
     <tr>
-      <td class='line'>156</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l156s0'>                        movePenDown(false);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>156</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l156s0'>                        movePenDown(false);</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l157s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>157</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l157s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>158</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'd':</pre></td>
+      <td>158</td><td></td>
+      <td><pre class='pp'>                    case 'd':</pre></td>
     </tr>
     <tr>
-      <td class='line'>159</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l159s0'>                        movePenDown(true);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>159</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l159s0'>                        movePenDown(true);</pre></td>
     </tr>
     <tr>
-      <td class='line'>160</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l160s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>160</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l160s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>161</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'r':</pre></td>
+      <td>161</td><td></td>
+      <td><pre class='pp'>                    case 'r':</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l162s0'>                        room.getRobot().setRobotDirection(1);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
-        </ol>
-      </td>
+      <td>162</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l162s0'>                        room.getRobot().setRobotDirection(1);</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l163s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
-        </ol>
-      </td>
+      <td>163</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l163s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre></td>
     </tr>
     <tr>
-      <td class='line'>164</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l164s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
-        </ol>
-      </td>
+      <td>164</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l164s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>165</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'l':</pre></td>
+      <td>165</td><td></td>
+      <td><pre class='pp'>                    case 'l':</pre></td>
     </tr>
     <tr>
-      <td class='line'>166</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l166s0'>                        room.getRobot().setRobotDirection(-1);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>166</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l166s0'>                        room.getRobot().setRobotDirection(-1);</pre></td>
     </tr>
     <tr>
-      <td class='line'>167</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l167s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>167</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l167s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l168s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>168</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l168s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'p':</pre></td>
+      <td>169</td><td></td>
+      <td><pre class='pp'>                    case 'p':</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l170s0'>                        System.out.println("Floor printout:");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>170</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l170s0'>                        System.out.println("Floor printout:");</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l171s0'>                        room.printFloor();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>171</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l171s0'>                        room.printFloor();</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l172s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>172</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l172s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    case 'c':</pre></td>
+      <td>173</td><td></td>
+      <td><pre class='pp'>                    case 'c':</pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l174s0'>                        room.printRobotState();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
+      <td>174</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l174s0'>                        room.printRobotState();</pre></td>
     </tr>
     <tr>
-      <td class='line'>175</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l175s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
+      <td>175</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l175s0'>                        break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>176</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    default:</pre></td>
+      <td>176</td><td></td>
+      <td><pre class='pp'>                    default:</pre></td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l177s0'>                        System.out.println("Error: Command not recognized. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>177</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l177s0'>                        System.out.println("Error: Command not recognized. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                }</pre></td>
+      <td>178</td><td></td>
+      <td><pre class='pp'>                }</pre></td>
     </tr>
     <tr>
-      <td class='line'>179</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            } else {</pre></td>
+      <td>179</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l179s0'>            } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>180</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l180s0'>                printInitializedError();</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>180</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l180s0'>                printInitializedError();</pre></td>
     </tr>
     <tr>
-      <td class='line'>181</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l181s0'>                return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>181</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l181s0'>                return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>182</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>182</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td class='line'>183</td><td class='count'>28</td>
-      <td><pre class='prettyprint jmp'>        <span id='l183s0' title='Executions: 28' class='covered cp' onclick='showHide(this,0)'>}</span> else <span id='l183s1' title='Executions: 18' class='covered cp' onclick='showHide(this,1)'>if (knownCommandsAlphaNum.contains(option)</span> && command.length() > 1) {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x19</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>183</td><td class='ct'>28</td>
+      <td><pre class='pp jmp'>        <span id='l183s0' title='Executions: 28' class='cvd'>}</span> else <span id='l183s1' title='Executions: 18' class='cvd'>if (knownCommandsAlphaNum.contains(option)</span> && command.length() > 1) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>184</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l184s0'>            String param = "";</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>184</td><td class='ct'>18</td>
+      <td><pre class='pp cvd' id='l184s0'>            String param = "";</pre></td>
     </tr>
     <tr>
-      <td class='line'>185</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l185s0'>            int parsedParam = -1;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>185</td><td class='ct'>18</td>
+      <td><pre class='pp cvd' id='l185s0'>            int parsedParam = -1;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>187</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Get the command's integer parameter if it exists</pre></td>
+      <td>187</td><td></td>
+      <td><pre class='cm'>            // Get the command's integer parameter if it exists</pre></td>
     </tr>
     <tr>
-      <td class='line'>188</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l188s0'>            param = getParam(command);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>188</td><td class='ct'>18</td>
+      <td><pre class='pp cvd' id='l188s0'>            param = getParam(command);</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>190</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Check if the extra parameter is an integer</pre></td>
+      <td>190</td><td></td>
+      <td><pre class='cm'>            // Check if the extra parameter is an integer</pre></td>
     </tr>
     <tr>
-      <td class='line'>191</td><td class='count'>18</td>
-      <td><pre class='prettyprint jmp'>            <span id='l191s0' title='Executions: 18' class='covered cp' onclick='showHide(this,0)'>if (!validateParamFormat(param))</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>191</td><td class='ct'>18</td>
+      <td><pre class='pp jmp'>            <span id='l191s0' title='Executions: 18' class='cvd'>if (!validateParamFormat(param))</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>192</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l192s0'>                return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>192</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l192s0'>                return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>193</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>193</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>195</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // convert the parameter to an integer</pre></td>
+      <td>195</td><td></td>
+      <td><pre class='cm'>            // convert the parameter to an integer</pre></td>
     </tr>
     <tr>
-      <td class='line'>196</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l196s0'>            parsedParam = Integer.parseInt(param);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>196</td><td class='ct'>17</td>
+      <td><pre class='pp cvd' id='l196s0'>            parsedParam = Integer.parseInt(param);</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>198</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l198s0'>            switch(option) {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>198</td><td class='ct'>17</td>
+      <td><pre class='pp cvd' id='l198s0'>            switch(option) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>199</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                case 'm':</pre></td>
+      <td>199</td><td></td>
+      <td><pre class='pp'>                case 'm':</pre></td>
     </tr>
     <tr>
-      <td class='line'>200</td><td class='count'>11</td>
-      <td><pre class='prettyprint jmp'>                    <span id='l200s0' title='Executions: 11' class='covered cp' onclick='showHide(this,0)'>if (room.isInitialized())</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x11</li>
-        </ol>
-      </td>
+      <td>200</td><td class='ct'>11</td>
+      <td><pre class='pp jmp'>                    <span id='l200s0' title='Executions: 11' class='cvd'>if (room.isInitialized())</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>201</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l201s0'>                        System.out.println("Moving robot...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-      </td>
+      <td>201</td><td class='ct'>10</td>
+      <td><pre class='pp cvd' id='l201s0'>                        System.out.println("Moving robot...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>202</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l202s0'>                        room.moveRobot(parsedParam);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-      </td>
+      <td>202</td><td class='ct'>10</td>
+      <td><pre class='pp cvd' id='l202s0'>                        room.moveRobot(parsedParam);</pre></td>
     </tr>
     <tr>
-      <td class='line'>203</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    } else {</pre></td>
+      <td>203</td><td class='ct'>10</td>
+      <td><pre class='pp cvd' id='l203s0'>                    } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>204</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l204s0'>                        printInitializedError();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>204</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l204s0'>                        printInitializedError();</pre></td>
     </tr>
     <tr>
-      <td class='line'>205</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    }</pre></td>
+      <td>205</td><td></td>
+      <td><pre class='pp'>                    }</pre></td>
     </tr>
     <tr>
-      <td class='line'>206</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l206s0'>                    break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>206</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l206s0'>                    break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>207</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                case 'i':</pre></td>
+      <td>207</td><td></td>
+      <td><pre class='pp'>                case 'i':</pre></td>
     </tr>
     <tr>
-      <td class='line'>208</td><td class='count'>6</td>
-      <td><pre class='prettyprint jmp'>                    <span id='l208s0' title='Executions: 6' class='covered cp' onclick='showHide(this,0)'>if (room.isInitialized())</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
+      <td>208</td><td class='ct'>6</td>
+      <td><pre class='pp jmp'>                    <span id='l208s0' title='Executions: 6' class='cvd'>if (room.isInitialized())</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>209</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l209s0'>                        System.out.println("Room is being reinitialized...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x5</li>
-        </ol>
-      </td>
+      <td>209</td><td class='ct'>5</td>
+      <td><pre class='pp cvd' id='l209s0'>                        System.out.println("Room is being reinitialized...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>210</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l210s0'>                        room = new Room(parsedParam);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x5</li>
-        </ol>
-      </td>
+      <td>210</td><td class='ct'>5</td>
+      <td><pre class='pp cvd' id='l210s0'>                        room = new Room(parsedParam);</pre></td>
     </tr>
     <tr>
-      <td class='line'>211</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    } else {</pre></td>
+      <td>211</td><td class='ct'>5</td>
+      <td><pre class='pp cvd' id='l211s0'>                    } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>212</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l212s0'>                        room = new Room(parsedParam);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>212</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l212s0'>                        room = new Room(parsedParam);</pre></td>
     </tr>
     <tr>
-      <td class='line'>213</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l213s0'>                        System.out.println("Initializing floor...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>213</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l213s0'>                        System.out.println("Initializing floor...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>214</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                    }</pre></td>
+      <td>214</td><td></td>
+      <td><pre class='pp'>                    }</pre></td>
     </tr>
     <tr>
-      <td class='line'>215</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l215s0'>                    break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>215</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l215s0'>                    break;</pre></td>
     </tr>
     <tr>
-      <td class='line'>216</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                default:</pre></td>
+      <td>216</td><td></td>
+      <td><pre class='pp'>                default:</pre></td>
     </tr>
     <tr>
-      <td class='line'>217</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l217s0'>                    System.out.println("Error: Command not recognized. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>217</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l217s0'>                    System.out.println("Error: Command not recognized. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>218</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>218</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td class='line'>219</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l219s0'>        } else {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
+      <td>219</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l219s0'>        } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>220</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l220s0'>            System.out.println("Error: Invalid command entered. Please try again...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>220</td><td class='ct'>10</td>
+      <td><pre class='pp cvd' id='l220s0'>            System.out.println("Error: Invalid command entered. Please try again...");</pre></td>
     </tr>
     <tr>
-      <td class='line'>221</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>221</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>223</td><td class='count'>50</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l223s0'>        return false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x41</li>
-        </ol>
-      </td>
+      <td>223</td><td class='ct'>50</td>
+      <td><pre class='pp cvd' id='l223s0'>        return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>224</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>224</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>227</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // State = do we want to move pen down</pre></td>
+      <td>227</td><td></td>
+      <td><pre class='cm'>    // State = do we want to move pen down</pre></td>
     </tr>
     <tr>
-      <td class='line'>228</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // curr = up = false</pre></td>
+      <td>228</td><td></td>
+      <td><pre class='cm'>    // curr = up = false</pre></td>
     </tr>
     <tr>
-      <td class='line'>229</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // state = down = true</pre></td>
+      <td>229</td><td></td>
+      <td><pre class='cm'>    // state = down = true</pre></td>
     </tr>
     <tr>
-      <td class='line'>230</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private static void movePenDown(boolean state) {</pre></td>
+      <td>230</td><td></td>
+      <td><pre class='pp'>    private static void movePenDown(boolean state) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>231</td><td class='count'>9</td>
-      <td><pre class='prettyprint jmp'>        <span id='l231s0' title='Executions: 9' class='covered cp' onclick='showHide(this,0)'>if (room.getRobot().isPenDown() == state)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x9</li>
-        </ol>
-      </td>
+      <td>231</td><td class='ct'>9</td>
+      <td><pre class='pp jmp'>        <span id='l231s0' title='Executions: 9' class='cvd'>if (room.getRobot().isPenDown() == state)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>232</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l232s0'>            System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>232</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l232s0'>            System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());</pre></td>
     </tr>
     <tr>
-      <td class='line'>233</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        } else {</pre></td>
+      <td>233</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l233s0'>        } else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>234</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l234s0'>            room.movePen(state);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>234</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l234s0'>            room.movePen(state);</pre></td>
     </tr>
     <tr>
-      <td class='line'>235</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l235s0'>            System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>235</td><td class='ct'>8</td>
+      <td><pre class='pp cvd' id='l235s0'>            System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());</pre></td>
     </tr>
     <tr>
-      <td class='line'>236</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        } </pre></td>
+      <td>236</td><td></td>
+      <td><pre class='pp'>        } </pre></td>
     </tr>
     <tr>
-      <td class='line'>237</td><td class='count'>9</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l237s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x9</li>
-        </ol>
-      </td>
+      <td>237</td><td class='ct'>9</td>
+      <td><pre class='pp cvd' id='l237s0'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>240</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private static void printInitializedError() {</pre></td>
+      <td>240</td><td></td>
+      <td><pre class='pp'>    private static void printInitializedError() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>241</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l241s0'>        System.out.println("Error: Room must be initialized before executing the command provided.");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>241</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l241s0'>        System.out.println("Error: Room must be initialized before executing the command provided.");</pre></td>
     </tr>
     <tr>
-      <td class='line'>242</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l242s0'>        System.out.println("Initialize command: I &lt;n> | i &lt;n>");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>242</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l242s0'>        System.out.println("Initialize command: I &lt;n> | i &lt;n>");</pre></td>
     </tr>
     <tr>
-      <td class='line'>243</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l243s0'>        System.out.println("n: size of the room (n x n)");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>243</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l243s0'>        System.out.println("n: size of the room (n x n)");</pre></td>
     </tr>
     <tr>
-      <td class='line'>244</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l244s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>244</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l244s0'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>247</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private static void formatKnownCommands(Set&lt;Character> alpha, Set&lt;Character> alphaNum) {</pre></td>
+      <td>247</td><td></td>
+      <td><pre class='pp'>    private static void formatKnownCommands(Set&lt;Character> alpha, Set&lt;Character> alphaNum) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>248</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l248s0'>        alpha.add('u');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>248</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l248s0'>        alpha.add('u');</pre></td>
     </tr>
     <tr>
-      <td class='line'>249</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l249s0'>        alpha.add('d');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>249</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l249s0'>        alpha.add('d');</pre></td>
     </tr>
     <tr>
-      <td class='line'>250</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l250s0'>        alpha.add('r');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>250</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l250s0'>        alpha.add('r');</pre></td>
     </tr>
     <tr>
-      <td class='line'>251</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l251s0'>        alpha.add('l');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>251</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l251s0'>        alpha.add('l');</pre></td>
     </tr>
     <tr>
-      <td class='line'>252</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l252s0'>        alpha.add('p');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>252</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l252s0'>        alpha.add('p');</pre></td>
     </tr>
     <tr>
-      <td class='line'>253</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l253s0'>        alpha.add('c');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>253</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l253s0'>        alpha.add('c');</pre></td>
     </tr>
     <tr>
-      <td class='line'>254</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l254s0'>        alpha.add('q');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>254</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l254s0'>        alpha.add('q');</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>256</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l256s0'>        alphaNum.add('m');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>256</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l256s0'>        alphaNum.add('m');</pre></td>
     </tr>
     <tr>
-      <td class='line'>257</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l257s0'>        alphaNum.add('i');</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>257</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l257s0'>        alphaNum.add('i');</pre></td>
     </tr>
     <tr>
-      <td class='line'>258</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l258s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>258</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l258s0'>    }</pre></td>
     </tr>
     <tr>
-      <td class='line'>259</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>}</pre></td>
+      <td>259</td><td></td>
+      <td><pre class='pp'>}</pre></td>
     </tr>
   </table>
 </body>

@@ -2,866 +2,435 @@
 <html>
 <head>
   <title>Room.java</title>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
-  <link rel='stylesheet' type='text/css' href='../../coverage.css'/>
-  <link rel='shortcut icon' type='image/png' href='../../logo.png'/>
-  <script type='text/javascript' src='../../coverage.js'></script>
-  <script type='text/javascript' src='../../prettify.js'></script>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href='../../source.css'>
+  <link rel='shortcut icon' type='image/png' href='../../logo.png'>
+  <script src='../../coverage.js'></script>
+  <base target='_blank'>
+  <script src='../../prettify.js'></script>
 </head>
 <body onload='prettyPrint()'>
-  <table cellpadding='0' cellspacing='1'>
+  <table>
     <caption>coen448-robot-motion/src/main/java/com/app/Room.java</caption>
     <tr>
-      <td class='line'>1</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>package com.app;</pre></td>
+      <td>1</td><td></td>
+      <td><pre class='pp'>package com.app;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>3</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>public class Room {</pre></td>
+      <td>3</td><td></td>
+      <td><pre class='pp'>public class Room {</pre></td>
     </tr>
     <tr>
-      <td class='line'>4</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // com.app.Robot walks in room on floor</pre></td>
+      <td>4</td><td></td>
+      <td><pre class='cm'>    // com.app.Robot walks in room on floor</pre></td>
     </tr>
     <tr>
-      <td class='line'>5</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private Robot <span class='instance uncovered' title='Reads: 813 Writes: 36'>robot</span>;</pre></td>
+      <td>5</td><td></td>
+      <td><pre class='pp'>    private Robot <span class='instance cvd' title='Reads: 712 Writes: 38'>robot</span>;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>7</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Floor contains robot trace path</pre></td>
+      <td>7</td><td></td>
+      <td><pre class='cm'>    // Floor contains robot trace path</pre></td>
     </tr>
     <tr>
-      <td class='line'>8</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private int floor[][];</pre></td>
+      <td>8</td><td></td>
+      <td><pre class='pp'>    private int floor[][];</pre></td>
     </tr>
     <tr>
-      <td class='line'>9</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private int floorSize;</pre></td>
+      <td>9</td><td></td>
+      <td><pre class='pp'>    private int floorSize;</pre></td>
     </tr>
     <tr>
-      <td class='line'>10</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private boolean isInitialized;</pre></td>
+      <td>10</td><td></td>
+      <td><pre class='pp'>    private boolean isInitialized;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>12</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l12s0'>    public Room() {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>12</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l12s0'>    public Room() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>13</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l13s0'>        robot = new Robot();</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>13</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l13s0'>        robot = new Robot();</pre></td>
     </tr>
     <tr>
-      <td class='line'>14</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l14s0'>        isInitialized = false;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+      <td>14</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l14s0'>        isInitialized = false;</pre></td>
     </tr>
-    <tr>
-      <td class='line'>15</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l15s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-        </ol>
-      </td>
+    <tr>
+      <td>15</td><td class='ct'>2</td>
+      <td><pre class='pp cvd' id='l15s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>17</td><td></td>
+      <td><pre class='cm'>    // Initialize the system - robot and floor (I n/i n)</pre></td>
+    </tr>
+    <tr>
+      <td>18</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l18s0'>    public Room(int n) {</pre></td>
+    </tr>
+    <tr>
+      <td>19</td><td></td>
+      <td><pre class='cm'>        // Initialize robot</pre></td>
+    </tr>
+    <tr>
+      <td>20</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l20s0'>        robot = new Robot();</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>22</td><td></td>
+      <td><pre class='cm'>        // Initialize floor</pre></td>
+    </tr>
+    <tr>
+      <td>23</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l23s0'>        <span class='instance cvd' title='Reads: 2058 Writes: 36'>floor</span> = new int[n][n];</pre></td>
+    </tr>
+    <tr>
+      <td>24</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l24s0'>        <span class='instance cvd' title='Reads: 2652 Writes: 36'>floorSize</span> = n;</pre></td>
+    </tr>
+    <tr>
+      <td>25</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l25s0'>        <span class='instance cvd' title='Reads: 69 Writes: 38'>isInitialized</span> = true;</pre></td>
+    </tr>
+    <tr>
+      <td>26</td><td class='ct'>36</td>
+      <td><pre class='pp cvd' id='l26s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>28</td><td></td>
+      <td><pre class='cm'>    // Move pen up (U/u) or down (D/d)</pre></td>
+    </tr>
+    <tr>
+      <td>29</td><td></td>
+      <td><pre class='pp'>    public void movePen(boolean isPenDown) {</pre></td>
+    </tr>
+    <tr>
+      <td>30</td><td class='ct'>14</td>
+      <td><pre class='pp cvd' id='l30s0'>        robot.setIsPenDown(isPenDown);</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>32</td><td></td>
+      <td><pre class='cm'>        // Set current tile to 1 when putting pen down</pre></td>
+    </tr>
+    <tr>
+      <td>33</td><td class='ct'>14</td>
+      <td><pre class='pp jmp'>        <span id='l33s0' title='Executions: 14' class='cvd'>if (robot.isPenDown())</span></pre></td>
+    </tr>
+    <tr>
+      <td>34</td><td class='ct'>12</td>
+      <td><pre class='pp cvd' id='l34s0'>            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</pre></td>
+    </tr>
+    <tr>
+      <td>35</td><td class='ct'>14</td>
+      <td><pre class='pp cvd' id='l35s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>37</td><td></td>
+      <td><pre class='cm'>    // Move robot forward s spaces (M s/m s)</pre></td>
+    </tr>
+    <tr>
+      <td>38</td><td></td>
+      <td><pre class='pp'>    public void moveRobot(int spaces) {</pre></td>
+    </tr>
+    <tr>
+      <td>39</td><td></td>
+      <td><pre class='cm'>        // Get current direction</pre></td>
+    </tr>
+    <tr>
+      <td>40</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l40s0'>        int robotDir = robot.getRobotDirection();</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>42</td><td></td>
+      <td><pre class='cm'>        // Moving down (2) and left (3) with negative offset</pre></td>
+    </tr>
+    <tr>
+      <td>43</td><td></td>
+      <td><pre class='cm'>        // Moving up (0) and right (1) with positive offset</pre></td>
+    </tr>
+    <tr>
+      <td>44</td><td class='ct'>30</td>
+      <td><pre class='pp jmp'>        <span id='l44s0' title='Executions: 30' class='cvd'>int offset = robotDir &lt; 2</span> ? <span id='l44s1' title='Executions: 26' class='cvd'>1</span> : <span id='l44s2' title='Executions: 4' class='cvd'>-1;</span></pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>46</td><td></td>
+      <td><pre class='cm'>        // Moving vertical (up 0, down 2) or horizontal (right 1, left 3)</pre></td>
+    </tr>
+    <tr>
+      <td>47</td><td class='ct'>30</td>
+      <td><pre class='pp jmp'>        <span id='l47s0' title='Executions: 30' class='cvd'>boolean isHorizontal = robotDir % 2 != 0</span> ? <span id='l47s1' title='Executions: 13' class='cvd'>true</span> : <span id='l47s2' title='Executions: 17' class='cvd'>false;</span></pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>49</td><td></td>
+      <td><pre class='cm'>        // Get initial position: vertical move -> col, horizontal move -> row</pre></td>
+    </tr>
+    <tr>
+      <td>50</td><td class='ct'>30</td>
+      <td><pre class='pp jmp'>        <span id='l50s0' title='Executions: 30' class='cvd'>int initialPos = isHorizontal</span> ? <span id='l50s1' title='Executions: 13' class='cvd'>robot.getRobotCol()</span> : <span id='l50s2' title='Executions: 17' class='cvd'>robot.getRobotRow();</span></pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>52</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l52s0'>        int newPos = 0;</pre></td>
+    </tr>
+    <tr>
+      <td>53</td><td class='ct'>199</td>
+      <td><pre class='pp cvd' id='l53s0'>        for(int i = 1; i &lt;= spaces; i++) {</pre></td>
+    </tr>
+    <tr>
+      <td>54</td><td class='ct'>182</td>
+      <td><pre class='pp cvd' id='l54s0'>            newPos = initialPos + i*offset;</pre></td>
+    </tr>
+    <tr>
+      <td>55</td><td class='ct'>182</td>
+      <td><pre class='pp jmp'>            <span id='l55s0' title='Executions: 182' class='cvd'>if (newPos >= floorSize</span> || <span id='l55s1' title='Executions: 173' class='cvd'>newPos &lt; 0)</span> {</pre></td>
+    </tr>
+    <tr>
+      <td>56</td><td class='ct'>13</td>
+      <td><pre class='pp cvd' id='l56s0'>                System.out.println("Robot is at the edge of the room");</pre></td>
+    </tr>
+    <tr>
+      <td>57</td><td class='ct'>13</td>
+      <td><pre class='pp cvd' id='l57s0'>                break;</pre></td>
+    </tr>
+    <tr>
+      <td>58</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>60</td><td></td>
+      <td><pre class='cm'>            // Modify row if moving horizontal</pre></td>
+    </tr>
+    <tr>
+      <td>61</td><td class='ct'>169</td>
+      <td><pre class='pp jmp'>            <span id='l61s0' title='Executions: 169' class='cvd'>if(isHorizontal)</span></pre></td>
+    </tr>
+    <tr>
+      <td>62</td><td class='ct'>65</td>
+      <td><pre class='pp cvd' id='l62s0'>                robot.incrementRobotCol(offset);</pre></td>
+    </tr>
+    <tr>
+      <td>63</td><td></td>
+      <td><pre class='cm'>            // Modify col otherwise (moving vertical)</pre></td>
+    </tr>
+    <tr>
+      <td>64</td><td></td>
+      <td><pre class='pp'>            else</pre></td>
+    </tr>
+    <tr>
+      <td>65</td><td class='ct'>104</td>
+      <td><pre class='pp cvd' id='l65s0'>                robot.incrementRobotRow(offset);</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>67</td><td></td>
+      <td><pre class='cm'>            // Draw if pen down</pre></td>
+    </tr>
+    <tr>
+      <td>68</td><td class='ct'>169</td>
+      <td><pre class='pp jmp'>            <span id='l68s0' title='Executions: 169' class='cvd'>if (robot.isPenDown())</span></pre></td>
+    </tr>
+    <tr>
+      <td>69</td><td class='ct'>87</td>
+      <td><pre class='pp cvd' id='l69s0'>                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</pre></td>
+    </tr>
+    <tr>
+      <td>70</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
+    </tr>
+    <tr>
+      <td>71</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l71s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>73</td><td></td>
+      <td><pre class='cm'>    // Print pen position and direction (C/c)</pre></td>
+    </tr>
+    <tr>
+      <td>74</td><td></td>
+      <td><pre class='pp'>    public void printRobotState() {</pre></td>
+    </tr>
+    <tr>
+      <td>75</td><td class='ct'>28</td>
+      <td><pre class='pp cvd' id='l75s0'>        System.out.printf("Position: %s - Pen: %s - Facing: %s%n",</pre></td>
+    </tr>
+    <tr>
+      <td>76</td><td class='ct'>14</td>
+      <td><pre class='pp cvd' id='l76s0'>                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());</pre></td>
+    </tr>
+    <tr>
+      <td>77</td><td class='ct'>14</td>
+      <td><pre class='pp cvd' id='l77s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>79</td><td></td>
+      <td><pre class='cm'>    // Print floor matrix with indices (P/p)</pre></td>
+    </tr>
+    <tr>
+      <td>80</td><td></td>
+      <td><pre class='pp'>    public void printFloor() {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>17</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Initialize the system - robot and floor (I n/i n)</pre></td>
+      <td>81</td><td class='ct'>202</td>
+      <td><pre class='pp cvd' id='l81s0'>        for(int i = floorSize - 1; i >= 0; i--) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l18s0'>    public Room(int n) {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
+      <td>82</td><td></td>
+      <td><pre class='cm'>            // Print row indices</pre></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Initialize robot</pre></td>
+      <td>83</td><td class='ct'>182</td>
+      <td><pre class='pp cvd' id='l83s0'>            System.out.printf("%-3d", i);</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>20</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l20s0'>        robot = new Robot();</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Initialize floor</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>23</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l23s0'>        <span class='instance uncovered' title='Reads: 1847 Writes: 34'>floor</span> = new int[n][n];</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>24</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l24s0'>        <span class='instance uncovered' title='Reads: 2557 Writes: 34'>floorSize</span> = n;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>25</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l25s0'>        <span class='instance covered' title='Reads: 69 Writes: 36'>isInitialized</span> = true;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
+      <td>85</td><td class='ct'>2134</td>
+      <td><pre class='pp cvd' id='l85s0'>            for(int j = 0; j &lt; floorSize; j++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l26s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Move pen up (U/u) or down (D/d)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void movePen(boolean isPenDown) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>30</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l30s0'>        robot.setIsPenDown(isPenDown);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199, 202</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>32</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Set current tile to 1 when putting pen down</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>33</td><td class='count'>13</td>
-      <td><pre class='prettyprint jmp'>        <span id='l33s0' title='Executions: 13' class='covered cp' onclick='showHide(this,0)'>if (robot.isPenDown())</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199, 202</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>34</td><td class='count'>11</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l34s0'>            floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199</li>
-          <li>com.app.runnerTest#testRunner: 32x7</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>35</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l35s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199, 202</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>37</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Move robot forward s spaces (M s/m s)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>38</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void moveRobot(int spaces) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Get current direction</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>40</td><td class='count'>27</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l40s0'>        int robotDir = robot.getRobotDirection();</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>42</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Moving down (2) and left (3) with negative offset</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>43</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Moving up (0) and right (1) with positive offset</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>44</td><td class='count'>27</td>
-      <td><pre class='prettyprint jmp'>        <span id='l44s0' title='Executions: 27' class='covered cp' onclick='showHide(this,0)'>int offset = robotDir &lt; 2</span> ? <span id='l44s1' title='Executions: 23' class='covered cp' onclick='showHide(this,1)'>1</span> : <span id='l44s2' title='Executions: 4' class='covered cp' onclick='showHide(this,2)'>-1;</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x9</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>46</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Moving vertical (up 0, down 2) or horizontal (right 1, left 3)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>47</td><td class='count'>27</td>
-      <td><pre class='prettyprint jmp'>        <span id='l47s0' title='Executions: 27' class='covered cp' onclick='showHide(this,0)'>boolean isHorizontal = robotDir % 2 != 0</span> ? <span id='l47s1' title='Executions: 12' class='covered cp' onclick='showHide(this,1)'>true</span> : <span id='l47s2' title='Executions: 15' class='covered cp' onclick='showHide(this,2)'>false;</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x7</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>49</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Get initial position: vertical move -> col, horizontal move -> row</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>50</td><td class='count'>27</td>
-      <td><pre class='prettyprint jmp'>        <span id='l50s0' title='Executions: 27' class='covered cp' onclick='showHide(this,0)'>int initialPos = isHorizontal</span> ? <span id='l50s1' title='Executions: 12' class='covered cp' onclick='showHide(this,1)'>robot.getRobotCol()</span> : <span id='l50s2' title='Executions: 15' class='covered cp' onclick='showHide(this,2)'>robot.getRobotRow();</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x7</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>52</td><td class='count'>27</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l52s0'>        int newPos = 0;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>53</td><td class='count'>186</td>
-      <td><pre class='prettyprint jmp'>        <span id='l53s0' title='Executions: 186' class='covered cp' onclick='showHide(this,0)'>for(int i = 1</span>; i &lt;= spaces; i++) {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x48, 126x48</li>
-          <li>com.app.runnerTest#testRunner: 32x87</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>54</td><td class='count'>172</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l54s0'>            newPos = initialPos + i*offset;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x42, 126x42</li>
-          <li>com.app.runnerTest#testRunner: 32x85</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>55</td><td class='count'>172</td>
-      <td><pre class='prettyprint jmp'>            <span id='l55s0' title='Executions: 172' class='covered cp' onclick='showHide(this,0)'>if (newPos >= floorSize</span> || <span id='l55s1' title='Executions: 163' class='covered cp' onclick='showHide(this,1)'>newPos &lt; 0)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x42, 126x42</li>
-          <li>com.app.runnerTest#testRunner: 32x85</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x41, 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x78</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>56</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l56s0'>                System.out.println("Robot is at the edge of the room");</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119, 126</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>57</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l57s0'>                break;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119, 126</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>58</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>60</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Modify row if moving horizontal</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>61</td><td class='count'>159</td>
-      <td><pre class='prettyprint jmp'>            <span id='l61s0' title='Executions: 159' class='covered cp' onclick='showHide(this,0)'>if(isHorizontal)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41, 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x77</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>62</td><td class='count'>63</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l62s0'>                int newCol = robot.getRobotCol() + offset;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>63</td><td class='count'>63</td>
-      <td><pre class='prettyprint jmp'>                <span id='l63s0' title='Executions: 63' class='covered cp' onclick='showHide(this,0)'>if (newCol >= floorSize</span> || <span id='l63s1' title='Executions: 63' class='covered cp' onclick='showHide(this,1)'>newCol &lt; 0)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>64</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l64s0'>                    System.out.println("Robot is at the edge of the room");</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l65s0'>                    break;</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>66</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                }</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>67</td><td class='count'>63</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l67s0'>                robot.incrementRobotCol(offset);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>68</td><td class='count'>63</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l68s0'>            }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Modify col otherwise (moving vertical)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>70</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            else {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>71</td><td class='count'>96</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l71s0'>                int newRow = robot.getRobotRow() + offset;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>72</td><td class='count'>96</td>
-      <td><pre class='prettyprint jmp'>                <span id='l72s0' title='Executions: 96' class='covered cp' onclick='showHide(this,0)'>if (newRow >= floorSize</span> || <span id='l72s1' title='Executions: 96' class='covered cp' onclick='showHide(this,1)'>newRow &lt; 0)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>73</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l73s0'>                    System.out.println("Robot is at the edge of the room");</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>74</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l74s0'>                    break;</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                }</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>76</td><td class='count'>96</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l76s0'>                robot.incrementRobotRow(offset);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>77</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>79</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Draw if pen down</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>80</td><td class='count'>159</td>
-      <td><pre class='prettyprint jmp'>            <span id='l80s0' title='Executions: 159' class='covered cp' onclick='showHide(this,0)'>if (robot.isPenDown())</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41, 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x77</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>81</td><td class='count'>77</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l81s0'>                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x77</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>82</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>83</td><td class='count'>27</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l83s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>85</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Print pen position and direction (C/c)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>86</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void printRobotState() {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>87</td><td class='count'>24</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l87s0'>        System.out.printf("Position: %s - Pen: %s - Facing: %s%n",</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x6</li>
-          <li>com.app.RoomTest#testRobotMovement: 131x14</li>
-          <li>com.app.runnerTest#testRunner: 32x4</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>88</td><td class='count'>12</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l88s0'>                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>89</td><td class='count'>12</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l89s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>91</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Print floor matrix with indices (P/p)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>92</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void printFloor() {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>93</td><td class='count'>180</td>
-      <td><pre class='prettyprint jmp'>        <span id='l93s0' title='Executions: 180' class='covered cp' onclick='showHide(this,0)'>for(int i = floorSize - 1</span>; i >= 0; i--) {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x33</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x77</li>
-          <li>com.app.runnerTest#testRunner: 32x70</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>94</td><td>&nbsp;</td>
-      <td><pre class='comment'>            // Print row indices</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>95</td><td class='count'>162</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l95s0'>            System.out.printf("%-3d", i);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x30</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x70</li>
-          <li>com.app.runnerTest#testRunner: 32x62</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>97</td><td class='count'>1914</td>
-      <td><pre class='prettyprint jmp'>            <span id='l97s0' title='Executions: 1914' class='covered cp' onclick='showHide(this,0)'>for(int j = 0</span>; j &lt; floorSize; j++) {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x330</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x770</li>
-          <li>com.app.runnerTest#testRunner: 32x814</li>
-        </ol>
-      </td>
-    </tr>
+      <td>86</td><td></td>
+      <td><pre class='cm'>                // com.app.Robot passed over floor tile (1 as *)</pre></td>
+    </tr>
+    <tr>
+      <td>87</td><td class='ct'>1952</td>
+      <td><pre class='pp jmp'>                <span id='l87s0' title='Executions: 1952' class='cvd'>if(floor[i][j] == 1)</span></pre></td>
+    </tr>
+    <tr>
+      <td>88</td><td class='ct'>94</td>
+      <td><pre class='pp cvd' id='l88s0'>                    System.out.printf("%-3s", "*");</pre></td>
+    </tr>
+    <tr>
+      <td>89</td><td></td>
+      <td><pre class='cm'>                // com.app.Robot has NOT visited floor tile yet (0 as blank)</pre></td>
+    </tr>
+    <tr>
+      <td>90</td><td></td>
+      <td><pre class='pp'>                else</pre></td>
+    </tr>
+    <tr>
+      <td>91</td><td class='ct'>1858</td>
+      <td><pre class='pp cvd' id='l91s0'>                    System.out.printf("%-3s", " ");</pre></td>
+    </tr>
+    <tr>
+      <td>92</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>94</td><td class='ct'>182</td>
+      <td><pre class='pp cvd' id='l94s0'>            System.out.println();</pre></td>
+    </tr>
     <tr>
-      <td class='line'>98</td><td>&nbsp;</td>
-      <td><pre class='comment'>                // com.app.Robot passed over floor tile (1 as *)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>99</td><td class='count'>1752</td>
-      <td><pre class='prettyprint jmp'>                <span id='l99s0' title='Executions: 1752' class='covered cp' onclick='showHide(this,0)'>if(floor[i][j] == 1)</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x300</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x700</li>
-          <li>com.app.runnerTest#testRunner: 32x752</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>100</td><td class='count'>87</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l100s0'>                    System.out.printf("%-3s", "*");</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x3</li>
-          <li>com.app.runnerTest#testRunner: 32x84</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>101</td><td>&nbsp;</td>
-      <td><pre class='comment'>                // com.app.Robot has NOT visited floor tile yet (0 as blank)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>102</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>                else</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>103</td><td class='count'>1665</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l103s0'>                    System.out.printf("%-3s", " ");</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x297</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x700</li>
-          <li>com.app.runnerTest#testRunner: 32x668</li>
-        </ol>
-      </td>
+      <td>95</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr>
-      <td class='line'>104</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>106</td><td class='count'>162</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l106s0'>            System.out.println();</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x30</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x70</li>
-          <li>com.app.runnerTest#testRunner: 32x62</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>107</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>109</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Print col indices</pre></td>
+      <td>97</td><td></td>
+      <td><pre class='cm'>        // Print col indices</pre></td>
     </tr>
-    <tr>
-      <td class='line'>110</td><td class='count'>180</td>
-      <td><pre class='prettyprint jmp'>        <span id='l110s0' title='Executions: 180' class='covered cp' onclick='showHide(this,0)'>for(int k = 0</span>; k &lt; floorSize; k++) {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x33</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x77</li>
-          <li>com.app.runnerTest#testRunner: 32x70</li>
-        </ol>
-      </td>
+    <tr>
+      <td>98</td><td class='ct'>202</td>
+      <td><pre class='pp cvd' id='l98s0'>        for(int k = 0; k &lt; floorSize; k++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td class='count'>162</td>
-      <td><pre class='prettyprint jmp'>            <span id='l111s0' title='Executions: 162' class='covered cp' onclick='showHide(this,0)'>if (k == 0)</span> {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x30</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x70</li>
-          <li>com.app.runnerTest#testRunner: 32x62</li>
-        </ol>
-      </td>
+      <td>99</td><td class='ct'>182</td>
+      <td><pre class='pp jmp'>            <span id='l99s0' title='Executions: 182' class='cvd'>if (k == 0)</span> {</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l112s0'>                System.out.printf("%-3s", "\\");</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x7</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>100</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l100s0'>                System.out.printf("%-3s", "\\");</pre></td>
     </tr>
     <tr>
-      <td class='line'>113</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>            }</pre></td>
+      <td>101</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td class='line'>114</td><td class='count'>162</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l114s0'>            System.out.printf("%-3d", k);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x30</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x70</li>
-          <li>com.app.runnerTest#testRunner: 32x62</li>
-        </ol>
-      </td>
+      <td>102</td><td class='ct'>182</td>
+      <td><pre class='pp cvd' id='l102s0'>            System.out.printf("%-3d", k);</pre></td>
     </tr>
     <tr>
-      <td class='line'>115</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        }</pre></td>
+      <td>103</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>117</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l117s0'>        System.out.println();</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x7</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>105</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l105s0'>        System.out.println();</pre></td>
     </tr>
     <tr>
-      <td class='line'>118</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l118s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 179x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 138x7</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-        </ol>
-      </td>
+      <td>106</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l106s0'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>120</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public Robot getRobot() {</pre></td>
+      <td>108</td><td></td>
+      <td><pre class='pp'>    public Robot getRobot() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>121</td><td class='count'>44</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l121s0'>        return this.robot;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 83x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 155x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 109x7</li>
-          <li>com.app.RoomTest#testMovePen: 194</li>
-          <li>com.app.runnerTest#testRunner: 32x26</li>
-        </ol>
-      </td>
+      <td>109</td><td class='ct'>46</td>
+      <td><pre class='pp cvd' id='l109s0'>        return this.robot;</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>110</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>124</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public int[][] getFloor() {</pre></td>
+      <td>112</td><td></td>
+      <td><pre class='pp'>    public int[][] getFloor() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>125</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l125s0'>        return floor;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 133x7</li>
-        </ol>
-      </td>
+      <td>113</td><td class='ct'>7</td>
+      <td><pre class='pp cvd' id='l113s0'>        return floor;</pre></td>
     </tr>
     <tr>
-      <td class='line'>126</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>114</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>128</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public int getFloorSize() {</pre></td>
+      <td>116</td><td></td>
+      <td><pre class='pp'>    public int getFloorSize() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>129</td><td class='count'>114</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l129s0'>        return floorSize;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 86x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 158x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 112x7, 134x77</li>
-          <li>com.app.RoomTest#testRoomInitialization: 68x20</li>
-        </ol>
-      </td>
+      <td>117</td><td class='ct'>114</td>
+      <td><pre class='pp cvd' id='l117s0'>        return floorSize;</pre></td>
     </tr>
     <tr>
-      <td class='line'>130</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>118</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>132</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public boolean isInitialized() {</pre></td>
+      <td>120</td><td></td>
+      <td><pre class='pp'>    public boolean isInitialized() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>133</td><td class='count'>69</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l133s0'>        return isInitialized;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 85x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 157x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 111x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 53</li>
-          <li>com.app.RoomTest#testMovePen: 196</li>
-          <li>com.app.RoomTest#testRoomInitialization: 67x10</li>
-          <li>com.app.runnerTest#testRunner: 32x40</li>
-        </ol>
-      </td>
+      <td>121</td><td class='ct'>69</td>
+      <td><pre class='pp cvd' id='l121s0'>        return isInitialized;</pre></td>
     </tr>
     <tr>
-      <td class='line'>134</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>122</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr>
-      <td class='line'>135</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>}</pre></td>
+      <td>123</td><td></td>
+      <td><pre class='pp'>}</pre></td>
     </tr>
   </table>
 </body>

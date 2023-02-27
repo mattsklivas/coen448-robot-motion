@@ -31,7 +31,7 @@ public class Room {
 
         // Set current tile to 1 when putting pen down
 <span class="fc bfc" id="L33" title="All 2 branches covered.">        if (robot.isPenDown())</span>
-<span class="fc" id="L34">            floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</span>
+<span class="fc" id="L34">            this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</span>
 <span class="fc" id="L35">    }</span>
 
     // Move robot forward s spaces (M s/m s)
@@ -58,79 +58,67 @@ public class Room {
             }
 
             // Modify row if moving horizontal
-<span class="fc bfc" id="L61" title="All 2 branches covered.">            if(isHorizontal) {</span>
-<span class="fc" id="L62">                int newCol = robot.getRobotCol() + offset;</span>
-<span class="pc bpc" id="L63" title="2 of 4 branches missed.">                if (newCol &gt;= floorSize || newCol &lt; 0) {</span>
-<span class="nc" id="L64">                    System.out.println(&quot;Robot is at the edge of the room&quot;);</span>
-<span class="nc" id="L65">                    break;</span>
-                }
-<span class="fc" id="L67">                robot.incrementRobotCol(offset);</span>
-<span class="fc" id="L68">            }</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">            if(isHorizontal)</span>
+<span class="fc" id="L62">                robot.incrementRobotCol(offset);</span>
             // Modify col otherwise (moving vertical)
-            else {
-<span class="fc" id="L71">                int newRow = robot.getRobotRow() + offset;</span>
-<span class="pc bpc" id="L72" title="2 of 4 branches missed.">                if (newRow &gt;= floorSize || newRow &lt; 0) {</span>
-<span class="nc" id="L73">                    System.out.println(&quot;Robot is at the edge of the room&quot;);</span>
-<span class="nc" id="L74">                    break;</span>
-                }
-<span class="fc" id="L76">                robot.incrementRobotRow(offset);</span>
-            }
+            else
+<span class="fc" id="L65">                robot.incrementRobotRow(offset);</span>
 
             // Draw if pen down
-<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (robot.isPenDown())</span>
-<span class="fc" id="L81">                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (robot.isPenDown())</span>
+<span class="fc" id="L69">                this.floor[robot.getRobotRow()][robot.getRobotCol()] = 1;</span>
         }
-<span class="fc" id="L83">    }</span>
+<span class="fc" id="L71">    }</span>
 
     // Print pen position and direction (C/c)
     public void printRobotState() {
-<span class="fc" id="L87">        System.out.printf(&quot;Position: %s - Pen: %s - Facing: %s%n&quot;,</span>
-<span class="fc" id="L88">                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());</span>
-<span class="fc" id="L89">    }</span>
+<span class="fc" id="L75">        System.out.printf(&quot;Position: %s - Pen: %s - Facing: %s%n&quot;,</span>
+<span class="fc" id="L76">                        robot.getRobotDescription(), robot.getPenPosition(), robot.getRobotDirDescription());</span>
+<span class="fc" id="L77">    }</span>
 
     // Print floor matrix with indices (P/p)
     public void printFloor() {
-<span class="fc bfc" id="L93" title="All 2 branches covered.">        for(int i = floorSize - 1; i &gt;= 0; i--) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        for(int i = floorSize - 1; i &gt;= 0; i--) {</span>
             // Print row indices
-<span class="fc" id="L95">            System.out.printf(&quot;%-3d&quot;, i);</span>
+<span class="fc" id="L83">            System.out.printf(&quot;%-3d&quot;, i);</span>
 
-<span class="fc bfc" id="L97" title="All 2 branches covered.">            for(int j = 0; j &lt; floorSize; j++) {</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            for(int j = 0; j &lt; floorSize; j++) {</span>
                 // com.app.Robot passed over floor tile (1 as *)
-<span class="fc bfc" id="L99" title="All 2 branches covered.">                if(floor[i][j] == 1)</span>
-<span class="fc" id="L100">                    System.out.printf(&quot;%-3s&quot;, &quot;*&quot;);</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">                if(floor[i][j] == 1)</span>
+<span class="fc" id="L88">                    System.out.printf(&quot;%-3s&quot;, &quot;*&quot;);</span>
                 // com.app.Robot has NOT visited floor tile yet (0 as blank)
                 else
-<span class="fc" id="L103">                    System.out.printf(&quot;%-3s&quot;, &quot; &quot;);</span>
+<span class="fc" id="L91">                    System.out.printf(&quot;%-3s&quot;, &quot; &quot;);</span>
             }
 
-<span class="fc" id="L106">            System.out.println();</span>
+<span class="fc" id="L94">            System.out.println();</span>
         }
 
         // Print col indices
-<span class="fc bfc" id="L110" title="All 2 branches covered.">        for(int k = 0; k &lt; floorSize; k++) {</span>
-<span class="fc bfc" id="L111" title="All 2 branches covered.">            if (k == 0) {</span>
-<span class="fc" id="L112">                System.out.printf(&quot;%-3s&quot;, &quot;\\&quot;);</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for(int k = 0; k &lt; floorSize; k++) {</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">            if (k == 0) {</span>
+<span class="fc" id="L100">                System.out.printf(&quot;%-3s&quot;, &quot;\\&quot;);</span>
             }
-<span class="fc" id="L114">            System.out.printf(&quot;%-3d&quot;, k);</span>
+<span class="fc" id="L102">            System.out.printf(&quot;%-3d&quot;, k);</span>
         }
 
-<span class="fc" id="L117">        System.out.println();</span>
-<span class="fc" id="L118">    }</span>
+<span class="fc" id="L105">        System.out.println();</span>
+<span class="fc" id="L106">    }</span>
 
     public Robot getRobot() {
-<span class="fc" id="L121">        return this.robot;</span>
+<span class="fc" id="L109">        return this.robot;</span>
     }
 
     public int[][] getFloor() {
-<span class="fc" id="L125">        return floor;</span>
+<span class="fc" id="L113">        return floor;</span>
     }
 
     public int getFloorSize() {
-<span class="fc" id="L129">        return floorSize;</span>
+<span class="fc" id="L117">        return floorSize;</span>
     }
 
     public boolean isInitialized() {
-<span class="fc" id="L133">        return isInitialized;</span>
+<span class="fc" id="L121">        return isInitialized;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
