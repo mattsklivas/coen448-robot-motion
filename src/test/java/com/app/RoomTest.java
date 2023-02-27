@@ -234,7 +234,7 @@ public class RoomTest {
 
         // Get default robot state
         testRoom.printRobotState();
-        assertEquals("Position: " + currCol + ", 0 - Pen: up - Facing: north\n", outStreamCap.toString());
+        assertEquals("Position: " + currCol + ", 0 - Pen: up - Facing: north", outStreamCap.toString().replaceAll("\r|\n", ""));
 
         // Pen down, moved north then rotated east
         testRobot.setIsPenDown(true);
@@ -247,7 +247,7 @@ public class RoomTest {
 
         // Get print state after robot move and rotation with pen change
         testRoom.printRobotState();
-        assertEquals("Position: " + currCol + ", 0 - Pen: down - Facing: east\n", outStreamCap.toString());
+        assertEquals("Position: " + currCol + ", 0 - Pen: down - Facing: east", outStreamCap.toString().replaceAll("\r|\n", ""));
 
         // Reset output stream
         System.setOut(defaultPrint);
