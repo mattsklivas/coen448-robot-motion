@@ -1,4 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-coen448-robot-motion,com.app,runner,30,357,8,44,13,107,9,33,1,12
-coen448-robot-motion,com.app,Robot,0,94,0,8,0,31,0,18,0,14
-coen448-robot-motion,com.app,Room,8,285,4,32,4,55,4,24,0,10
+coen448-robot-motion,com.app,runner,31,355,8,44,15,108,9,33,1,12
+coen448-robot-motion,com.app,Robot,0,101,0,8,0,31,0,18,0,14
+coen448-robot-motion,com.app,Room,0,261,0,28,0,50,0,24,0,10

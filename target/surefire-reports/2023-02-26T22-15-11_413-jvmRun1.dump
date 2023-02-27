@@ -1,4 +1,4 @@
-# Created at 2023-02-22T21:23:50.218
+# Created at 2023-02-26T22:15:11.965
 java.lang.RuntimeException: Unable to create test class 'com.app.RoomTest'
 	at org.apache.maven.surefire.util.DefaultScanResult.loadClass(DefaultScanResult.java:140)
 	at org.apache.maven.surefire.util.DefaultScanResult.applyFilter(DefaultScanResult.java:100)

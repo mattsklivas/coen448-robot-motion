@@ -2,575 +2,327 @@
 <html>
 <head>
   <title>Robot.java</title>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
-  <link rel='stylesheet' type='text/css' href='../../coverage.css'/>
-  <link rel='shortcut icon' type='image/png' href='../../logo.png'/>
-  <script type='text/javascript' src='../../coverage.js'></script>
-  <script type='text/javascript' src='../../prettify.js'></script>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href='../../source.css'>
+  <link rel='shortcut icon' type='image/png' href='../../logo.png'>
+  <script src='../../coverage.js'></script>
+  <base target='_blank'>
+  <script src='../../prettify.js'></script>
 </head>
 <body onload='prettyPrint()'>
-  <table cellpadding='0' cellspacing='1'>
+  <table>
     <caption>coen448-robot-motion/src/main/java/com/app/Robot.java</caption>
     <tr>
-      <td class='line'>1</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>package com.app;</pre></td>
+      <td>1</td><td></td>
+      <td><pre class='pp'>package com.app;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.lang.Math;
+      <td></td><td></td>
+      <td><pre class='ims pp' onclick='shLns(this)'><div>import java.lang.Math;
 </div><span>import ...</span></pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>5</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>public class Robot {</pre></td>
+      <td>5</td><td></td>
+      <td><pre class='pp'>public class Robot {</pre></td>
     </tr>
     <tr>
-      <td class='line'>6</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Current robot position in room</pre></td>
+      <td>6</td><td></td>
+      <td><pre class='cm'>    // Current robot position in room</pre></td>
     </tr>
     <tr>
-      <td class='line'>7</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private int <span class='instance uncovered' title='Reads: 383 Writes: 146'>robotRow</span>, robotCol;</pre></td>
+      <td>7</td><td></td>
+      <td><pre class='pp'>    private int <span class='instance cvd' title='Reads: 310 Writes: 156'>robotRow</span>, robotCol;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>9</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // com.app.Robot pen position as either up or down</pre></td>
+      <td>9</td><td></td>
+      <td><pre class='cm'>    // com.app.Robot pen position as either up or down</pre></td>
     </tr>
     <tr>
-      <td class='line'>10</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Up (False), Down (True)</pre></td>
+      <td>10</td><td></td>
+      <td><pre class='cm'>    // Up (False), Down (True)</pre></td>
     </tr>
     <tr>
-      <td class='line'>11</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private boolean isPenDown;</pre></td>
+      <td>11</td><td></td>
+      <td><pre class='pp'>    private boolean isPenDown;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>13</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // com.app.Robot pen direction</pre></td>
+      <td>13</td><td></td>
+      <td><pre class='cm'>    // com.app.Robot pen direction</pre></td>
     </tr>
     <tr>
-      <td class='line'>14</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Up/North (0), Right/East (1), Down/South (2), Left/West (3)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Note: Vertical is Even, Horizontal is Odd</pre></td>
-    </tr>
+      <td>14</td><td></td>
+      <td><pre class='cm'>    // Up/North (0), Right/East (1), Down/South (2), Left/West (3)</pre></td>
+    </tr>
+    <tr>
+      <td>15</td><td></td>
+      <td><pre class='cm'>    // Note: Vertical is Even, Horizontal is Odd</pre></td>
+    </tr>
+    <tr>
+      <td>16</td><td></td>
+      <td><pre class='pp'>    private int robotDirection;</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>18</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l18s0'>    public Robot() {</pre></td>
+    </tr>
+    <tr>
+      <td>19</td><td></td>
+      <td><pre class='cm'>        // com.app.Robot starts at (0, 0)</pre></td>
+    </tr>
+    <tr>
+      <td>20</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l20s0'>        this.robotRow = 0;</pre></td>
+    </tr>
+    <tr>
+      <td>21</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l21s0'>        this.<span class='instance cvd' title='Reads: 263 Writes: 115'>robotCol</span> = 0;</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>23</td><td></td>
+      <td><pre class='cm'>        // Pen initially up and north</pre></td>
+    </tr>
+    <tr>
+      <td>24</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l24s0'>        this.<span class='instance cvd' title='Reads: 257 Writes: 68'>isPenDown</span> = false;</pre></td>
+    </tr>
+    <tr>
+      <td>25</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l25s0'>        this.<span class='instance cvd' title='Reads: 238 Writes: 78'>robotDirection</span> = 0;</pre></td>
+    </tr>
+    <tr>
+      <td>26</td><td class='ct'>48</td>
+      <td><pre class='pp cvd' id='l26s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>28</td><td></td>
+      <td><pre class='cm'>    // Move up (+y) and down (-y)</pre></td>
+    </tr>
+    <tr>
+      <td>29</td><td></td>
+      <td><pre class='pp'>    public void incrementRobotRow(int inc) {</pre></td>
+    </tr>
+    <tr>
+      <td>30</td><td class='ct'>107</td>
+      <td><pre class='pp cvd' id='l30s0'>        this.robotRow += inc;</pre></td>
+    </tr>
+    <tr>
+      <td>31</td><td class='ct'>107</td>
+      <td><pre class='pp cvd' id='l31s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>33</td><td></td>
+      <td><pre class='cm'>    // Move left (-x) and right (+x)</pre></td>
+    </tr>
+    <tr>
+      <td>34</td><td></td>
+      <td><pre class='pp'>    public void incrementRobotCol(int inc) {</pre></td>
+    </tr>
+    <tr>
+      <td>35</td><td class='ct'>66</td>
+      <td><pre class='pp cvd' id='l35s0'>        this.robotCol += inc;</pre></td>
+    </tr>
+    <tr>
+      <td>36</td><td class='ct'>66</td>
+      <td><pre class='pp cvd' id='l36s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>38</td><td></td>
+      <td><pre class='cm'>    // Update current col</pre></td>
+    </tr>
+    <tr>
+      <td>39</td><td></td>
+      <td><pre class='pp'>    public void setRobotCol(int col) {</pre></td>
+    </tr>
+    <tr>
+      <td>40</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l40s0'>        this.robotCol = col;</pre></td>
+    </tr>
+    <tr>
+      <td>41</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l41s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>43</td><td></td>
+      <td><pre class='pp'>    public void setRobotRow(int row) {</pre></td>
+    </tr>
+    <tr>
+      <td>44</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l44s0'>        this.robotRow = row;</pre></td>
+    </tr>
+    <tr>
+      <td>45</td><td class='ct'>1</td>
+      <td><pre class='pp cvd' id='l45s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>47</td><td></td>
+      <td><pre class='pp'>    public void setIsPenDown(boolean state) {</pre></td>
+    </tr>
+    <tr>
+      <td>48</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l48s0'>        this.isPenDown = state;</pre></td>
+    </tr>
+    <tr>
+      <td>49</td><td class='ct'>20</td>
+      <td><pre class='pp cvd' id='l49s0'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>51</td><td></td>
+      <td><pre class='pp'>    public void setRobotDirection(int rotateDirection) {</pre></td>
+    </tr>
+    <tr>
+      <td>52</td><td></td>
+      <td><pre class='cm'>        // Update direction based on rotation direction</pre></td>
+    </tr>
+    <tr>
+      <td>53</td><td></td>
+      <td><pre class='cm'>        // Rotate left (-1) and right (+1)</pre></td>
+    </tr>
     <tr>
-      <td class='line'>16</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    private int robotDirection;</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>18</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l18s0'>    public Robot() {</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>19</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // com.app.Robot starts at (0, 0)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>20</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l20s0'>        this.robotRow = 0;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>21</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l21s0'>        this.<span class='instance uncovered' title='Reads: 310 Writes: 111'>robotCol</span> = 0;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>23</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Pen initially up and north</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>24</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l24s0'>        this.<span class='instance uncovered' title='Reads: 244 Writes: 64'>isPenDown</span> = false;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>25</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l25s0'>        this.<span class='instance uncovered' title='Reads: 230 Writes: 74'>robotDirection</span> = 0;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>26</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l26s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 81x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 153x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 107x7</li>
-          <li>com.app.RoomTest#testUninitializedRoom: 52</li>
-          <li>com.app.RoomTest#testMovePen: 192</li>
-          <li>com.app.RoomTest#testRoomInitialization: 66x10</li>
-          <li>com.app.runnerTest#testValidateSingletonCommand: 102</li>
-          <li>com.app.runnerTest#testRunner: 32x6</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 210</li>
-          <li>com.app.RobotTest#testGetPenPosition: 188</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Move up (+y) and down (-y)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void incrementRobotRow(int inc) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>30</td><td class='count'>99</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l30s0'>        this.robotRow += inc;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-          <li>com.app.RobotTest#testRobotMovementUp: 61</li>
-          <li>com.app.RobotTest#testRobotMovementDown: 77, 79</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>31</td><td class='count'>99</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l31s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 119x41</li>
-          <li>com.app.runnerTest#testRunner: 32x55</li>
-          <li>com.app.RobotTest#testRobotMovementUp: 61</li>
-          <li>com.app.RobotTest#testRobotMovementDown: 77, 79</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Move left (-x) and right (+x)</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>34</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void incrementRobotCol(int inc) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>35</td><td class='count'>64</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l35s0'>        this.robotCol += inc;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-          <li>com.app.RobotTest#testRobotMovementUp: 63</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>36</td><td class='count'>64</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l36s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 126x41</li>
-          <li>com.app.runnerTest#testRunner: 32x22</li>
-          <li>com.app.RobotTest#testRobotMovementUp: 63</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>38</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // Update current col</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void setRobotCol(int col) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>40</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l40s0'>        this.robotCol = col;</pre>
-        <ol style='display:none'>
-          <li>com.app.RobotTest#testSetRobotCol: 95</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>41</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l41s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RobotTest#testSetRobotCol: 95</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>43</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void setRobotRow(int row) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>44</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l44s0'>        this.robotRow = row;</pre>
-        <ol style='display:none'>
-          <li>com.app.RobotTest#testSetRobotRow: 111</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>45</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l45s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RobotTest#testSetRobotRow: 111</li>
-        </ol>
-      </td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>47</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void setIsPenDown(boolean state) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>48</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l48s0'>        this.isPenDown = state;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199, 202</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-          <li>com.app.RobotTest#testGetPenPosition: 191, 194, 197</li>
-          <li>com.app.RobotTest#testRobotPenDown: 125</li>
-          <li>com.app.RobotTest#testRobotPenUp: 142</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>49</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l49s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3</li>
-          <li>com.app.RoomTest#testMovePen: 199, 202</li>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
-          <li>com.app.RobotTest#testGetPenPosition: 191, 194, 197</li>
-          <li>com.app.RobotTest#testRobotPenDown: 125</li>
-          <li>com.app.RobotTest#testRobotPenUp: 142</li>
-        </ol>
-      </td>
+      <td>54</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l54s0'>        this.robotDirection = Math.floorMod(this.robotDirection + rotateDirection, 4);</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public void setRobotDirection(int rotateDirection) {</pre></td>
+      <td>55</td><td class='ct'>30</td>
+      <td><pre class='pp cvd' id='l55s0'>    }</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>52</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Update direction based on rotation direction</pre></td>
+      <td>57</td><td></td>
+      <td><pre class='pp'>    public int getRobotCol() {</pre></td>
     </tr>
-    <tr>
-      <td class='line'>53</td><td>&nbsp;</td>
-      <td><pre class='comment'>        // Rotate left (-1) and right (+1)</pre></td>
+    <tr>
+      <td>58</td><td class='ct'>183</td>
+      <td><pre class='pp cvd' id='l58s0'>        return this.robotCol;</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>28</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l54s0'>        this.robotDirection = Math.floorMod(this.robotDirection + rotateDirection, 4);</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 168x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 125x7</li>
-          <li>com.app.runnerTest#testRunner: 32x4</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 213, 216, 219, 222, 225, 228, 231</li>
-        </ol>
-      </td>
+      <td>59</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>55</td><td class='count'>28</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l55s0'>    }</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 168x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 125x7</li>
-          <li>com.app.runnerTest#testRunner: 32x4</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 213, 216, 219, 222, 225, 228, 231</li>
-        </ol>
-      </td>
+      <td>61</td><td></td>
+      <td><pre class='pp'>    public int getRobotRow() {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>57</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public int getRobotCol() {</pre></td>
+      <td>62</td><td class='ct'>189</td>
+      <td><pre class='pp cvd' id='l62s0'>        return this.robotRow;</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>234</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l58s0'>        return this.robotCol;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 89x14</li>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3, 164x6, 171x3, 173x6</li>
-          <li>com.app.RoomTest#testRobotMovement: 115x14, 121x14, 126x48, 128x14</li>
-          <li>com.app.RoomTest#testMovePen: 199</li>
-        </ol>
-      </td>
+      <td>63</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>59</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>65</td><td></td>
+      <td><pre class='pp'>    public boolean isPenDown() {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>61</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public int getRobotRow() {</pre></td>
+      <td>66</td><td class='ct'>230</td>
+      <td><pre class='pp cvd' id='l66s0'>        return this.isPenDown;</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>272</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l62s0'>        return this.robotRow;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 88x14</li>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3, 163x6, 172x6</li>
-          <li>com.app.RoomTest#testRobotMovement: 114x14, 119x48, 120x14, 127x14</li>
-          <li>com.app.RoomTest#testMovePen: 199</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>67</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>63</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>69</td><td></td>
+      <td><pre class='pp'>    public int getRobotDirection() {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public boolean isPenDown() {</pre></td>
+      <td>70</td><td class='ct'>41</td>
+      <td><pre class='pp cvd' id='l70s0'>        return this.robotDirection;</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>219</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l66s0'>        return this.isPenDown;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 91x7</li>
-          <li>com.app.RoomTest#testRobotBoundary: 160x3, 161x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 117x7, 119x41, 123x7, 126x41, 130x7</li>
-          <li>com.app.RoomTest#testMovePen: 197, 199</li>
-        </ol>
-      </td>
+      <td>71</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>67</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>73</td><td></td>
+      <td><pre class='cm'>    // format: (row, col)</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public int getRobotDirection() {</pre></td>
+      <td>74</td><td></td>
+      <td><pre class='pp'>    public String getRobotDescription() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>70</td><td class='count'>38</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l70s0'>        return this.robotDirection;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 171x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 119x7, 126x7</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-          <li>com.app.RobotTest#testGetRobotDirection: 211, 214, 217, 220, 223, 226</li>
-        </ol>
-      </td>
+      <td>75</td><td class='ct'>14</td>
+      <td><pre class='pp cvd' id='l75s0'>        return this.robotRow + ", " + this.robotCol;</pre></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>73</td><td>&nbsp;</td>
-      <td><pre class='comment'>    // format: (row, col)</pre></td>
+      <td>76</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr>
-      <td class='line'>74</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public String getRobotDescription() {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>75</td><td class='count'>12</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l75s0'>        return this.robotRow + ", " + this.robotCol;</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>76</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>78</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public String getPenPosition() {</pre></td>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>78</td><td></td>
+      <td><pre class='pp'>    public String getPenPosition() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>25</td>
-      <td><pre class='prettyprint jmp'>        <span id='l79s0' title='Executions: 25' class='covered cp' onclick='showHide(this,0)'>return this.isPenDown</span> ? <span id='l79s1' title='Executions: 14' class='covered cp' onclick='showHide(this,1)'>"down"</span> : <span id='l79s2' title='Executions: 11' class='covered cp' onclick='showHide(this,2)'>"up";</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x11</li>
-          <li>com.app.RobotTest#testGetPenPosition: 189, 192, 195, 198</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 176x3</li>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
-          <li>com.app.RobotTest#testGetPenPosition: 192</li>
-        </ol>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-          <li>com.app.RobotTest#testGetPenPosition: 189, 195, 198</li>
-        </ol>
-      </td>
+      <td>79</td><td class='ct'>27</td>
+      <td><pre class='pp jmp'>        <span id='l79s0' title='Executions: 27' class='cvd'>return this.isPenDown</span> ? <span id='l79s1' title='Executions: 15' class='cvd'>"down"</span> : <span id='l79s2' title='Executions: 12' class='cvd'>"up";</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>80</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td class='line'>82</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    public String getRobotDirDescription() {</pre></td>
+      <td>82</td><td></td>
+      <td><pre class='pp'>    public String getRobotDirDescription() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>83</td><td class='count'>97</td>
-      <td><pre class='prettyprint jmp'>        <span id='l83s0' title='Executions: 97' class='covered cp' onclick='showHide(this,0)'>if(this.robotDirection == 0)</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 90x14</li>
-          <li>com.app.RoomTest#testRobotBoundary: 165x6, 169x6, 174x6, 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 116x14, 122x14, 129x14, 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>83</td><td class='ct'>99</td>
+      <td><pre class='pp jmp'>        <span id='l83s0' title='Executions: 99' class='cvd'>if(this.robotDirection == 0)</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>84</td><td class='count'>51</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l84s0'>            return "north";</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotCreation: 90x14</li>
-          <li>com.app.RoomTest#testRobotBoundary: 165x6</li>
-          <li>com.app.RoomTest#testRobotMovement: 116x14, 122x14</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 156, 176</li>
-        </ol>
-      </td>
+      <td>84</td><td class='ct'>52</td>
+      <td><pre class='pp cvd' id='l84s0'>            return "north";</pre></td>
     </tr>
     <tr>
-      <td class='line'>85</td><td class='count'>46</td>
-      <td><pre class='prettyprint jmp'>        else <span id='l85s0' title='Executions: 46' class='covered cp' onclick='showHide(this,0)'>if(this.robotDirection == 1)</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 169x6, 174x6, 176x3</li>
-          <li>com.app.RoomTest#testRobotMovement: 129x14, 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x5</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 159, 162, 166, 170</li>
-        </ol>
-      </td>
+      <td>85</td><td class='ct'>47</td>
+      <td><pre class='pp jmp'>        else <span id='l85s0' title='Executions: 47' class='cvd'>if(this.robotDirection == 1)</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>25</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l86s0'>            return "east";</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotMovement: 129x14, 131x7</li>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 159</li>
-        </ol>
-      </td>
+      <td>86</td><td class='ct'>26</td>
+      <td><pre class='pp cvd' id='l86s0'>            return "east";</pre></td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>21</td>
-      <td><pre class='prettyprint jmp'>        else <span id='l87s0' title='Executions: 21' class='covered cp' onclick='showHide(this,0)'>if(this.robotDirection == 2)</span></pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 169x6, 174x6, 176x3</li>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 162, 166, 170, 173</li>
-        </ol>
-      </td>
+      <td>87</td><td class='ct'>21</td>
+      <td><pre class='pp jmp'>        else <span id='l87s0' title='Executions: 21' class='cvd'>if(this.robotDirection == 2)</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l88s0'>            return "south";</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 162, 170</li>
-        </ol>
-      </td>
+      <td>88</td><td class='ct'>3</td>
+      <td><pre class='pp cvd' id='l88s0'>            return "south";</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>        else</pre></td>
+      <td>89</td><td></td>
+      <td><pre class='pp'>        else</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered cp' onclick='showHide(this)' id='l90s0'>            return "west";</pre>
-        <ol style='display:none'>
-          <li>com.app.RoomTest#testRobotBoundary: 169x6, 174x6, 176x3</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
-          <li>com.app.RobotTest#tesSetRobotDirection: 166, 173</li>
-        </ol>
-      </td>
+      <td>90</td><td class='ct'>18</td>
+      <td><pre class='pp cvd' id='l90s0'>            return "west";</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>    }</pre></td>
+      <td>91</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>}</pre></td>
+      <td>92</td><td></td>
+      <td><pre class='pp'>}</pre></td>
     </tr>
   </table>
 </body>

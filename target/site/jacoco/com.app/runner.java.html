@@ -14,7 +14,7 @@ import java.util.*;
 <span class="fc" id="L14">        Scanner sc = new Scanner(System.in);</span>
 
 <span class="fc" id="L16">        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</span>
-        while(true) {
+<span class="fc" id="L17">        while(true) {</span>
             // Request new commands from the user
 <span class="fc" id="L19">            System.out.print(&quot;Enter command: &quot;);</span>
 <span class="fc" id="L20">            boolean isExit = parseCommand(sc.nextLine());</span>
@@ -25,7 +25,7 @@ import java.util.*;
             }
 
 <span class="fc" id="L27">            System.out.println();</span>
-<span class="fc" id="L28">        }</span>
+        }
 
 <span class="fc" id="L30">        sc.close();</span>
 <span class="fc" id="L31">    }</span>
@@ -107,7 +107,7 @@ import java.util.*;
 <span class="nc" id="L107">            } catch (NumberFormatException e) {</span>
 <span class="nc" id="L108">                System.out.println(&quot;Error: Unable to parse provided command parameter. Please try again...&quot;);</span>
 <span class="nc" id="L109">                return false;</span>
-<span class="fc" id="L110">            }</span>
+            }
         }
 
 <span class="fc" id="L113">        return true;</span>
@@ -176,7 +176,7 @@ import java.util.*;
                     default:
 <span class="nc" id="L177">                        System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</span>
                 }
-            } else {
+<span class="nc" id="L179">            } else {</span>
 <span class="nc" id="L180">                printInitializedError();</span>
 <span class="nc" id="L181">                return false;</span>
             }
@@ -200,7 +200,7 @@ import java.util.*;
 <span class="fc bfc" id="L200" title="All 2 branches covered.">                    if (room.isInitialized()) {</span>
 <span class="fc" id="L201">                        System.out.println(&quot;Moving robot...&quot;);</span>
 <span class="fc" id="L202">                        room.moveRobot(parsedParam);</span>
-                    } else {
+<span class="fc" id="L203">                    } else {</span>
 <span class="fc" id="L204">                        printInitializedError();</span>
                     }
 <span class="fc" id="L206">                    break;</span>
@@ -208,7 +208,7 @@ import java.util.*;
 <span class="fc bfc" id="L208" title="All 2 branches covered.">                    if (room.isInitialized()) {</span>
 <span class="fc" id="L209">                        System.out.println(&quot;Room is being reinitialized...&quot;);</span>
 <span class="fc" id="L210">                        room = new Room(parsedParam);</span>
-                    } else {
+<span class="fc" id="L211">                    } else {</span>
 <span class="fc" id="L212">                        room = new Room(parsedParam);</span>
 <span class="fc" id="L213">                        System.out.println(&quot;Initializing floor...&quot;);</span>
                     }
@@ -216,7 +216,7 @@ import java.util.*;
                 default:
 <span class="nc" id="L217">                    System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</span>
             }
-<span class="fc" id="L219">        } else {</span>
+<span class="nc" id="L219">        } else {</span>
 <span class="fc" id="L220">            System.out.println(&quot;Error: Invalid command entered. Please try again...&quot;);</span>
         }
 
@@ -230,7 +230,7 @@ import java.util.*;
     private static void movePenDown(boolean state) {
 <span class="fc bfc" id="L231" title="All 2 branches covered.">        if (room.getRobot().isPenDown() == state) {</span>
 <span class="fc" id="L232">            System.out.printf(&quot;Pen is already in the %s position.%n&quot;, room.getRobot().getPenPosition());</span>
-        } else {
+<span class="fc" id="L233">        } else {</span>
 <span class="fc" id="L234">            room.movePen(state);</span>
 <span class="fc" id="L235">            System.out.printf(&quot;Pen is now in the %s position.%n&quot;, room.getRobot().getPenPosition());</span>
         } 
