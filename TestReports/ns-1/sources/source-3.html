@@ -55,26 +55,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    92.3%
+    85.7%
   </span>
   <span class="absValue">
-    (12/13)
+    (12/14)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    69.8%
+    68.7%
   </span>
   <span class="absValue">
-    (44/63)
+    (46/67)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    89.2%
+    84.3%
   </span>
   <span class="absValue">
-    (107/120)
+    (113/134)
   </span>
 </td>
 </tr>
@@ -90,13 +90,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;import java.util.*;
 &nbsp;
+&nbsp;import javax.tools.OptionChecker;
+&nbsp;
 <b class="nc">&nbsp;public class runner {</b>
 &nbsp;    // Room object
 <b class="fc">&nbsp;    public static Room room = new Room();</b>
 &nbsp;
 <b class="fc">&nbsp;    public static Set&lt;Character&gt; knownCommandsAlpha = new HashSet&lt;&gt;();</b>
 <b class="fc">&nbsp;    public static Set&lt;Character&gt; knownCommandsAlphaNum = new HashSet&lt;&gt;();</b>
-&nbsp;
+<b class="fc">&nbsp;    public static Set&lt;String&gt; commandHistory = new HashSet&lt;&gt;();</b>
+<b class="fc">&nbsp;    public static boolean replayingHistory = false;</b>
 &nbsp;    // Entrypoint of program execution
 &nbsp;    public static void main(String[] args) throws Exception {
 <b class="fc">&nbsp;        Scanner sc = new Scanner(System.in);</b>
@@ -131,8 +134,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    public static String getParam(String command) {
 &nbsp;        // Get the command&#39;s integer parameter if it exists
-<b class="pc">&nbsp;        if (command.length() &lt;= 1) {</b>
-<b class="nc">&nbsp;            return null;</b>
+<b class="fc">&nbsp;        if (command.length() &lt;= 1) {</b>
+<b class="fc">&nbsp;            return null;</b>
 &nbsp;        }
 &nbsp;
 <b class="fc">&nbsp;        if (command.charAt(1) == &#39; &#39;) {</b>
@@ -142,9 +145,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;                return null;</b>
 &nbsp;            }
 &nbsp;
-<b class="fc">&nbsp;            return command.substring(2).strip();</b>
+<b class="fc">&nbsp;            return command.substring(2).trim();</b>
 &nbsp;        } else {
-<b class="fc">&nbsp;            return command.substring(1).strip();</b>
+<b class="fc">&nbsp;            return command.substring(1).trim();</b>
 &nbsp;        }
 &nbsp;    }
 &nbsp;
@@ -219,7 +222,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;        */
 &nbsp;
 &nbsp;        // Set any alpha characters to lowercase and trim the string
-<b class="fc">&nbsp;        command = command.toLowerCase().strip();</b>
+<b class="pc">&nbsp;        if (!replayingHistory) {</b>
+<b class="fc">&nbsp;            commandHistory.add(command);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        command = command.toLowerCase().trim();</b>
 &nbsp;
 <b class="fc">&nbsp;        char option = getOption(command);</b>
 &nbsp;
@@ -261,6 +267,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;                    case &#39;c&#39;:
 <b class="fc">&nbsp;                        room.printRobotState();</b>
 <b class="fc">&nbsp;                        break;</b>
+&nbsp;                    case &#39;h&#39;:
+<b class="nc">&nbsp;                        replayHistory();</b>
+<b class="nc">&nbsp;                        break;</b>
 &nbsp;                    default:
 <b class="nc">&nbsp;                        System.out.println(&quot;Error: Command not recognized. Please try again...&quot;);</b>
 &nbsp;                }
@@ -312,6 +321,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;
+&nbsp;    public static void replayHistory() {
+<b class="nc">&nbsp;        System.out.println(&quot;Replaying command history:&quot;);</b>
+<b class="nc">&nbsp;        replayingHistory = true;</b>
+<b class="nc">&nbsp;        for (String command : commandHistory) {</b>
+<b class="nc">&nbsp;            System.out.println(command);</b>
+&nbsp;            // TODO Do we need to actually apply the commands?
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        replayingHistory = false;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
 &nbsp;    // State = do we want to move pen down
 &nbsp;    // curr = up = false
 &nbsp;    // state = down = true
@@ -343,6 +362,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 <b class="fc">&nbsp;        alphaNum.add(&#39;m&#39;);</b>
 <b class="fc">&nbsp;        alphaNum.add(&#39;i&#39;);</b>
+&nbsp;
+<b class="fc">&nbsp;        commandHistory.clear();</b>
 <b class="fc">&nbsp;    }</b>
 &nbsp;}
 </code>
@@ -368,7 +389,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-02-26 21:49</div>
+    <div style="float:right;">generated on 2023-04-04 16:42</div>
 </div>
 </body>
 </html>

@@ -2,18 +2,17 @@ package com.app;
 
 import java.util.*;
 
-import javax.tools.OptionChecker;
-
 public class runner {
     // Room object
     public static Room room = new Room();
 
     public static Set<Character> knownCommandsAlpha = new HashSet<>();
     public static Set<Character> knownCommandsAlphaNum = new HashSet<>();
-    public static Set<String> commandHistory = new HashSet<>();
+    public static ArrayList<String> commandHistory = new ArrayList<>();
+
     public static boolean replayingHistory = false;
     // Entrypoint of program execution
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);
@@ -47,6 +46,7 @@ public class runner {
     public static String getParam(String command) {
         // Get the command's integer parameter if it exists
         if (command.length() <= 1) {
+            System.out.println("Error: Numerical parameter required for the provided command. Please try again...");
             return null;
         }
 
@@ -156,48 +156,41 @@ public class runner {
             // Check if the command is Q
             if (checkForExit(option)) {
                 return true;
+            } else if (option == 'h') {
+                replayHistory();
+                return false;
             } else if (room.isInitialized()) {
                 switch (option) {
-                    case 'u':
-                        movePenDown(false);
-                        break;
-                    case 'd':
-                        movePenDown(true);
-                        break;
-                    case 'r':
+                    case 'u' -> movePenDown(false);
+                    case 'd' -> movePenDown(true);
+                    case 'r' -> {
                         room.getRobot().setRobotDirection(1);
                         System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
-                        break;
-                    case 'l':
+                    }
+                    case 'l' -> {
                         room.getRobot().setRobotDirection(-1);
                         System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());
-                        break;
-                    case 'p':
+                    }
+                    case 'p' -> {
                         System.out.println("Floor printout:");
                         room.printFloor();
-                        break;
-                    case 'c':
-                        room.printRobotState();
-                        break;
-                    case 'h':
-                        replayHistory();
-                        break;
-                    default:
-                        System.out.println("Error: Command not recognized. Please try again...");
+                    }
+                    case 'c' -> room.printRobotState();
+                    default -> System.out.println("Error: Command not recognized. Please try again...");
                 }
             } else {
                 printInitializedError();
                 return false;
             }
         } else if (knownCommandsAlphaNum.contains(option) && command.length() > 1) {
-            String param = "";
-            int parsedParam = -1;
+            String param;
+            int parsedParam;
 
             // Get the command's integer parameter if it exists
             param = getParam(command);
 
             // Check if the extra parameter is an integer
-            if (!validateParamFormat(param)) {
+            if (param == null || !validateParamFormat(param)) {
                 return false;
             }
 
@@ -271,6 +264,7 @@ public class runner {
         alpha.add('p');
         alpha.add('c');
         alpha.add('q');
+        alpha.add('h');
 
         alphaNum.add('m');
         alphaNum.add('i');
