@@ -2,13 +2,16 @@ package com.app;
 
 import java.util.*;
 
+import javax.tools.OptionChecker;
+
 public class runner {
     // Room object
     public static Room room = new Room();
 
     public static Set<Character> knownCommandsAlpha = new HashSet<>();
     public static Set<Character> knownCommandsAlphaNum = new HashSet<>();
-
+    public static Set<String> commandHistory = new HashSet<>();
+    public static boolean replayingHistory = false;
     // Entrypoint of program execution
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -54,9 +57,9 @@ public class runner {
                 return null;
             }
 
-            return command.substring(2).strip();
+            return command.substring(2).trim();
         } else {
-            return command.substring(1).strip();
+            return command.substring(1).trim();
         }
     }
 
@@ -131,7 +134,10 @@ public class runner {
         */
 
         // Set any alpha characters to lowercase and trim the string
-        command = command.toLowerCase().strip();
+        if (!replayingHistory) {
+            commandHistory.add(command);
+        }
+        command = command.toLowerCase().trim();
 
         char option = getOption(command);
 
@@ -172,6 +178,9 @@ public class runner {
                         break;
                     case 'c':
                         room.printRobotState();
+                        break;
+                    case 'h':
+                        replayHistory();
                         break;
                     default:
                         System.out.println("Error: Command not recognized. Please try again...");
@@ -224,6 +233,16 @@ public class runner {
     }
 
 
+    public static void replayHistory() {
+        System.out.println("Replaying command history:");
+        replayingHistory = true;
+        for (String command : commandHistory) {
+            System.out.println(command);
+            // TODO Do we need to actually apply the commands?
+        }
+        replayingHistory = false;
+    }
+
     // State = do we want to move pen down
     // curr = up = false
     // state = down = true
@@ -255,5 +274,7 @@ public class runner {
 
         alphaNum.add('m');
         alphaNum.add('i');
+
+        commandHistory.clear();
     }
 }

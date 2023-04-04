@@ -43,7 +43,7 @@ public class runnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"})
     public void testParseCommand(String command) {
-        command = command.toLowerCase().strip();
+        command = command.toLowerCase().trim();
         boolean expected = command == "q";
         boolean actual = runner.parseCommand(command);
         assertEquals(expected, actual);
@@ -61,7 +61,7 @@ public class runnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"a", "a ", "q  ", " ", "m", "m    "})
     public void testGetOption(String command) {
-        command = command.toLowerCase().strip();
+        command = command.toLowerCase().trim();
         char expected = command.length() <= 0 ? ' ' : command.charAt(0);
         char actual = runner.getOption(command);
         assertEquals(expected, actual);
@@ -78,8 +78,8 @@ public class runnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"})
     public void testGetParam(String command) {
-        command = command.toLowerCase().strip();
-        String expected = command.length() <= 1 ? null : command.substring(1).strip();
+        command = command.toLowerCase().trim();
+        String expected = command.length() <= 1 ? null : command.substring(1).trim();
        String actual = runner.getParam(command);
        if (expected == null) {
            assertNull(expected, actual);
@@ -97,7 +97,7 @@ public class runnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"u", "D", "R", "R 10", "c", "Q", "q 10", "P p", "p"})
     public void testValidateSingletonCommand(String command) {
-        command = command.toLowerCase().strip();
+        command = command.toLowerCase().trim();
         boolean expected = command.length() == 1;
         boolean actual = runner.validateSingletonCommand(command);
         assertEquals(expected, actual);
@@ -145,7 +145,7 @@ public class runnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"3", "-100", "100", "10000", " ", "45 ", "-45", "3.4", "-2.3", "hello"})
     public void validateParamFormat(String param) {
-        final String paramStrip = param.strip();
+        final String paramStrip = param.trim();
 
         try {
             Integer paramInt = Integer.parseInt(paramStrip);
