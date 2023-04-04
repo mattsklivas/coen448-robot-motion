@@ -232,6 +232,8 @@ public class runner {
         for (String command : commandHistory) {
             System.out.println(command);
             // TODO Do we need to actually apply the commands?
+            // If we do, we need to make sure to skip replay commands when replaying
+            // if not it will infinitely loop
         }
         replayingHistory = false;
     }
