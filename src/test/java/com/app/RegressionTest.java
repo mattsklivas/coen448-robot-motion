@@ -55,4 +55,34 @@ public class RegressionTest {
         System.setIn(defaultIS);
         System.setOut(defaultPS);
     }
+
+    // Test Function #28
+    // Test type : Regression
+    // Input : 
+    // Description : 
+    // Expected output : 
+    // Tester : Nicholas Harris
+    // Date : 4th April
+    @Test
+    public void testReplayFunctionUpper() throws Exception {
+        final InputStream defaultIS = System.in;
+        final PrintStream defaultPS = System.out;
+
+        String currDir = System.getProperty("user.dir");
+        String testDir = "/src/test/java/com/app/test_inputs";
+        final FileInputStream fileIS = new FileInputStream(currDir + testDir + "/test_H.txt");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+        String expected = "Command history: \np\ni i\n\nf\nm 10\ni 5\nm 10\nd 10\nd\nu\nD\nl\nr\np\nc\nH";
+        // Set custom I/O
+        System.setIn(fileIS);
+        System.setOut(new PrintStream(outContent));
+        
+        runner.main(null);
+        assertTrue(outContent.toString().contains(expected), outContent.toString());
+
+        // Set default I/O
+        System.setIn(defaultIS);
+        System.setOut(defaultPS);
+    }
 }
