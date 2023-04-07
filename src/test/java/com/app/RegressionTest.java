@@ -43,7 +43,7 @@ public class RegressionTest {
         final FileInputStream fileIS = new FileInputStream(currDir + testDir + "/test_help.txt");
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-        String expected = "Command history: \ni 5\nm 10\nd\nu\nD\nl\nr\np\nc\nh";
+        String expected = "Command history: \np\ni i\n\nf\nm 10\ni 5\nm 10\nd 10\nd\nu\nD\nl\nr\np\nc\nh";
         // Set custom I/O
         System.setIn(fileIS);
         System.setOut(new PrintStream(outContent));

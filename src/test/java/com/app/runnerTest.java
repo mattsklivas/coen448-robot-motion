@@ -44,9 +44,9 @@ public class runnerTest {
     @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"})
     public void testParseCommand(String command) {
         command = command.toLowerCase().trim();
-        boolean expected = command == "q";
+        boolean expected = command.equals("q");
         boolean actual = runner.parseCommand(command);
-        assertEquals(expected, actual);
+        assertEquals(expected, actual, "expected: " + expected + " actual: " + actual + " command: " + command);
 
     }
 
@@ -62,7 +62,7 @@ public class runnerTest {
     @ValueSource(strings = {"a", "a ", "q  ", " ", "m", "m    "})
     public void testGetOption(String command) {
         command = command.toLowerCase().trim();
-        char expected = command.length() <= 0 ? ' ' : command.charAt(0);
+        char expected = command.length() == 0 ? ' ' : command.charAt(0);
         char actual = runner.getOption(command);
         assertEquals(expected, actual);
     }
@@ -82,7 +82,7 @@ public class runnerTest {
         String expected = command.length() <= 1 ? null : command.substring(1).trim();
        String actual = runner.getParam(command);
        if (expected == null) {
-           assertNull(expected, actual);
+           assertNull(null, actual);
        }
        assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
     }

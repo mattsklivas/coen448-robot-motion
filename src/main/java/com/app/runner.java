@@ -10,7 +10,6 @@ public class runner {
     public static Set<Character> knownCommandsAlphaNum = new HashSet<>();
     public static ArrayList<String> commandHistory = new ArrayList<>();
 
-    public static boolean replayingHistory = false;
     // Entrypoint of program execution
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

@@ -20,187 +20,181 @@
     <tr>
       <td></td><td></td>
       <td><pre class='ims pp' onclick='shLns(this)'><div>import java.util.*;
-
-import javax.tools.OptionChecker;
 </div><span>import ...</span></pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>7</td><td class='ct'>0</td>
-      <td><pre class='pp cvd' id='l7s0'>public class runner {</pre>
+      <td>5</td><td class='ct'>0</td>
+      <td><pre class='pp cvd' id='l5s0'>public class runner {</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>8</td><td></td>
+      <td>6</td><td></td>
       <td><pre class='cm'>    // Room object</pre></td>
     </tr>
     <tr>
-      <td>9</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l9s0'>    public static Room <span class='static cvd' title='Reads: 94 Writes: 7'>room</span> = new Room();</pre>
+      <td>7</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l7s0'>    public static Room <span class='static cvd' title='Reads: 134 Writes: 8'>room</span> = new Room();</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testGetParam: 83</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
+      <td>9</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l9s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 70 Writes: 1'>knownCommandsAlpha</span> = new HashSet&lt;>();</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l10s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 26 Writes: 1'>knownCommandsAlphaNum</span> = new HashSet&lt;>();</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
       <td>11</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l11s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 53 Writes: 1'>knownCommandsAlpha</span> = new HashSet&lt;>();</pre>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l11s0'>    public static ArrayList&lt;String> <span class='static cvd' title='Reads: 72 Writes: 1'>commandHistory</span> = new ArrayList&lt;>();</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testGetParam: 83</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
+    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>12</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l12s0'>    public static Set&lt;Character> <span class='static cvd' title='Reads: 29 Writes: 1'>knownCommandsAlphaNum</span> = new HashSet&lt;>();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testGetParam: 83</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>13</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l13s0'>    public static Set&lt;String> <span class='static cvd' title='Reads: 53 Writes: 1'>commandHistory</span> = new HashSet&lt;>();</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testGetParam: 83</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>14</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l14s0'>    public static boolean <span class='static cvd' title='Reads: 52 Writes: 1'>replayingHistory</span> = false;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testGetParam: 83</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>15</td><td></td>
+      <td>13</td><td></td>
       <td><pre class='cm'>    // Entrypoint of program execution</pre></td>
     </tr>
     <tr>
-      <td>16</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l16s0'>    public static void main(String[] args) throws Exception {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>14</td><td></td>
+      <td><pre class='pp'>    public static void main(String[] args) {</pre></td>
     </tr>
     <tr>
-      <td>17</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l17s0'>        Scanner sc = new Scanner(System.in);</pre>
+      <td>15</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l15s0'>        Scanner sc = new Scanner(System.in);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>19</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l19s0'>        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</pre>
+      <td>17</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l17s0'>        formatKnownCommands(knownCommandsAlpha, knownCommandsAlphaNum);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>20</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l20s0'>        while(true) {</pre>
-        <ol style='display:none'></ol>
+      <td>18</td><td class='ct'>58</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l18s0'>        while(true) {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
+          <li>com.app.runnerTest#testRunner: 32x42</li>
+        </ol>
       </td>
     </tr>
     <tr>
-      <td>21</td><td></td>
+      <td>19</td><td></td>
       <td><pre class='cm'>            // Request new commands from the user</pre></td>
     </tr>
     <tr>
-      <td>22</td><td class='ct'>43</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l22s0'>            System.out.print("Enter command: ");</pre>
+      <td>20</td><td class='ct'>60</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l20s0'>            System.out.print("Enter command: ");</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>23</td><td class='ct'>43</td>
-      <td><pre class='pp jmp'>            <span id='l23s0' title='Executions: 43' class='cvd cp' onclick='sh(this,0)'>boolean isExit = parseCommand(sc.nextLine());</span></pre>
+      <td>21</td><td class='ct'>60</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l21s0'>            boolean isExit = parseCommand(sc.nextLine());</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>25</td><td></td>
+      <td>23</td><td></td>
       <td><pre class='cm'>            // Exit the program if the command Q has been entered</pre></td>
     </tr>
     <tr>
-      <td>26</td><td class='ct'>43</td>
-      <td><pre class='pp jmp'>            <span id='l26s0' title='Executions: 43' class='cvd cp' onclick='sh(this,0)'>if (isExit)</span> {</pre>
+      <td>24</td><td class='ct'>60</td>
+      <td><pre class='pp jmp'>            <span id='l24s0' title='Executions: 60' class='cvd cp' onclick='sh(this,0)'>if (isExit)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>27</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l27s0'>                break;</pre>
+      <td>25</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l25s0'>                break;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>28</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l28s0'>            }</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>26</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>30</td><td class='ct'>42</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l30s0'>            System.out.println();</pre>
+      <td>28</td><td class='ct'>58</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l28s0'>            System.out.println();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
           <li>com.app.runnerTest#testRunner: 32x42</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>31</td><td class='ct'>42</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l31s0'>        }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x42</li>
-        </ol>
-      </td>
+      <td>29</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>33</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l33s0'>        sc.close();</pre>
+      <td>31</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l31s0'>        sc.close();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>34</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l34s0'>    }</pre>
+      <td>32</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l32s0'>    }</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>37</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>    <span id='l37s0' title='Executions: 0' class='uncvd'>public static char getOption(String command) {</span></pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>35</td><td></td>
+      <td><pre class='pp'>    public static char getOption(String command) {</pre></td>
     </tr>
     <tr>
-      <td>38</td><td class='ct'>58</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l38s0'>        command = command.toLowerCase().trim();</pre>
+      <td>36</td><td class='ct'>75</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l36s0'>        command = command.toLowerCase().trim();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testGetOption: 66x6</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
@@ -208,13 +202,14 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
-      <td>39</td><td></td>
+      <td>37</td><td></td>
       <td><pre class='cm'>        // Check if command is at least 1 character long</pre></td>
     </tr>
     <tr>
-      <td>40</td><td class='ct'>58</td>
-      <td><pre class='pp jmp'>        <span id='l40s0' title='Executions: 58' class='cvd cp' onclick='sh(this,0)'>if (command.length() == 0)</span> {</pre>
+      <td>38</td><td class='ct'>75</td>
+      <td><pre class='pp jmp'>        <span id='l38s0' title='Executions: 75' class='cvd cp' onclick='sh(this,0)'>if (command.length() == 0)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testGetOption: 66x6</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
@@ -222,21 +217,23 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
-      <td>41</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l41s0'>            return ' ';</pre>
+      <td>39</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l39s0'>            return ' ';</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testGetOption: 66</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>42</td><td></td>
+      <td>40</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr>
-      <td>43</td><td class='ct'>57</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l43s0'>        return command.charAt(0);</pre>
+      <td>41</td><td class='ct'>73</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l41s0'>        return command.charAt(0);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testGetOption: 66x5</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
@@ -244,99 +241,107 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
-      <td>44</td><td></td>
+      <td>42</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>47</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l47s0'>    public static String getParam(String command) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>45</td><td></td>
+      <td><pre class='pp'>    public static String getParam(String command) {</pre></td>
     </tr>
     <tr>
-      <td>48</td><td></td>
+      <td>46</td><td></td>
       <td><pre class='cm'>        // Get the command's integer parameter if it exists</pre></td>
     </tr>
     <tr>
-      <td>49</td><td class='ct'>24</td>
-      <td><pre class='pp jmp'>        <span id='l49s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>if (command.length() &lt;= 1)</span> {</pre>
+      <td>47</td><td class='ct'>28</td>
+      <td><pre class='pp jmp'>        <span id='l47s0' title='Executions: 28' class='cvd cp' onclick='sh(this,0)'>if (command.length() &lt;= 1)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testGetParam: 83x6</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>50</td><td class='ct'>2</td>
-      <td><pre class='pp jmp'>            <span id='l50s0' title='Executions: 2' class='cvd cp' onclick='sh(this,0)'>return null;</span></pre>
+      <td>48</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l48s0'>            System.out.println("Error: Numerical parameter required for the provided command. Please try again...");</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#testGetParam: 83x2</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>51</td><td></td>
+      <td>49</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l49s0'>            return null;</pre>
+        <ol style='display:none'>
+          <li>com.app.runnerTest#testGetParam: 83x2</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>50</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>53</td><td class='ct'>22</td>
-      <td><pre class='pp jmp'>        <span id='l53s0' title='Executions: 22' class='cvd cp' onclick='sh(this,0)'>if (command.charAt(1) == ' ')</span> {</pre>
+      <td>52</td><td class='ct'>26</td>
+      <td><pre class='pp jmp'>        <span id='l52s0' title='Executions: 26' class='cvd cp' onclick='sh(this,0)'>if (command.charAt(1) == ' ')</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testGetParam: 83x4</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>54</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l54s0'>            // Check if an integer parameter is included</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>53</td><td></td>
+      <td><pre class='cm'>            // Check if an integer parameter is included</pre></td>
     </tr>
     <tr>
-      <td>55</td><td class='ct'>19</td>
-      <td><pre class='pp jmp'>            <span id='l55s0' title='Executions: 19' class='cvd cp' onclick='sh(this,0)'>if (command.length() == 2)</span> {</pre>
+      <td>54</td><td class='ct'>23</td>
+      <td><pre class='pp jmp'>            <span id='l54s0' title='Executions: 23' class='cvd cp' onclick='sh(this,0)'>if (command.length() == 2)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testGetParam: 83x3</li>
           <li>com.app.runnerTest#testRunner: 32x16</li>
         </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>55</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l55s0'>                System.out.println("Error: Numerical parameter required for the provided command. Please try again...");</pre>
+        <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
       <td>56</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l56s0'>                System.out.println("Error: Numerical parameter required for the provided command. Please try again...");</pre>
+      <td><pre class='pp uncvd' id='l56s0'>                return null;</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>57</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l57s0'>                return null;</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>58</td><td></td>
+      <td>57</td><td></td>
       <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>60</td><td class='ct'>19</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l60s0'>            return command.substring(2).trim();</pre>
+      <td>59</td><td class='ct'>23</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l59s0'>            return command.substring(2).trim();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testGetParam: 83x3</li>
           <li>com.app.runnerTest#testRunner: 32x16</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>61</td><td></td>
+      <td>60</td><td></td>
       <td><pre class='pp'>        } else {</pre></td>
     </tr>
     <tr>
-      <td>62</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l62s0'>            return command.substring(1).trim();</pre>
+      <td>61</td><td class='ct'>3</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l61s0'>            return command.substring(1).trim();</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#testGetParam: 83</li>
           <li>com.app.runnerTest#testRunner: 32x2</li>
@@ -344,132 +349,139 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
+      <td>62</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
+    </tr>
+    <tr>
       <td>63</td><td></td>
-      <td><pre class='pp'>        }</pre></td>
-    </tr>
-    <tr>
-      <td>64</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>67</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l67s0'>    public static boolean validateSingletonCommand(String command) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>66</td><td></td>
+      <td><pre class='pp'>    public static boolean validateSingletonCommand(String command) {</pre></td>
     </tr>
     <tr>
-      <td>68</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l68s0'>        // Check if the command is a known command</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>67</td><td></td>
+      <td><pre class='cm'>        // Check if the command is a known command</pre></td>
     </tr>
     <tr>
-      <td>69</td><td class='ct'>33</td>
-      <td><pre class='pp jmp'>        <span id='l69s0' title='Executions: 33' class='cvd cp' onclick='sh(this,0)'>if (command.length() > 1)</span> {</pre>
+      <td>68</td><td class='ct'>53</td>
+      <td><pre class='pp jmp'>        <span id='l68s0' title='Executions: 53' class='cvd cp' onclick='sh(this,0)'>if (command.length() > 1)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x11</li>
           <li>com.app.runnerTest#testValidateSingletonCommand: 102x9</li>
+          <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x24</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>70</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l70s0'>            System.out.println("Error: Extra arguments included in command. Please try again...");</pre>
+      <td>69</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l69s0'>            System.out.println("Error: Extra arguments included in command. Please try again...");</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testValidateSingletonCommand: 102x3</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>71</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l71s0'>            return false;</pre>
+      <td>70</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l70s0'>            return false;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testValidateSingletonCommand: 102x3</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>72</td><td></td>
+      <td>71</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>74</td><td class='ct'>30</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l74s0'>        return true;</pre>
+      <td>73</td><td class='ct'>49</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l73s0'>        return true;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x10</li>
           <li>com.app.runnerTest#testValidateSingletonCommand: 102x6</li>
+          <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x24</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>75</td><td></td>
+      <td>74</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>78</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l78s0'>    public static boolean checkForExit(char option) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>77</td><td></td>
+      <td><pre class='pp'>    public static boolean checkForExit(char option) {</pre></td>
     </tr>
     <tr>
-      <td>79</td><td class='ct'>33</td>
-      <td><pre class='pp jmp'>        <span id='l79s0' title='Executions: 33' class='cvd cp' onclick='sh(this,0)'>if (option == 'q')</span> {</pre>
+      <td>78</td><td class='ct'>52</td>
+      <td><pre class='pp jmp'>        <span id='l78s0' title='Executions: 52' class='cvd cp' onclick='sh(this,0)'>if (option == 'q')</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x10</li>
+          <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testCheckForExit: 118x9</li>
           <li>com.app.runnerTest#testRunner: 32x24</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>80</td><td class='ct'>4</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l80s0'>            System.out.println("\nExiting program...");</pre>
+      <td>79</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l79s0'>            System.out.println("\nExiting program...");</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48x5</li>
           <li>com.app.runnerTest#testCheckForExit: 118x3</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>81</td><td class='ct'>4</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l81s0'>            return true;</pre>
+      <td>80</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l80s0'>            return true;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48x5</li>
           <li>com.app.runnerTest#testCheckForExit: 118x3</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>82</td><td></td>
+      <td>81</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>84</td><td class='ct'>29</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l84s0'>        return false;</pre>
+      <td>83</td><td class='ct'>42</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l83s0'>        return false;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x9</li>
+          <li>com.app.runnerTest#testParseCommand: 48x4</li>
           <li>com.app.runnerTest#testCheckForExit: 118x6</li>
           <li>com.app.runnerTest#testRunner: 32x23</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>85</td><td></td>
+      <td>84</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>88</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l88s0'>    public static boolean checkForEmptyOption(char option) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>87</td><td></td>
+      <td><pre class='pp'>    public static boolean checkForEmptyOption(char option) {</pre></td>
     </tr>
     <tr>
-      <td>89</td><td class='ct'>61</td>
-      <td><pre class='pp jmp'>        <span id='l89s0' title='Executions: 61' class='cvd cp' onclick='sh(this,0)'>if (option == ' ')</span> {</pre>
+      <td>88</td><td class='ct'>78</td>
+      <td><pre class='pp jmp'>        <span id='l88s0' title='Executions: 78' class='cvd cp' onclick='sh(this,0)'>if (option == ' ')</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testCheckForEmptyOption: 133x9</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
@@ -477,30 +489,33 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
-      <td>90</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l90s0'>            System.out.println("Error: No command entered. Please try again...");</pre>
+      <td>89</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l89s0'>            System.out.println("Error: No command entered. Please try again...");</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testCheckForEmptyOption: 133x3</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>91</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l91s0'>            return true;</pre>
+      <td>90</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l90s0'>            return true;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testCheckForEmptyOption: 133x3</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>92</td><td></td>
+      <td>91</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>94</td><td class='ct'>58</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l94s0'>        return false;</pre>
+      <td>93</td><td class='ct'>74</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l93s0'>        return false;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
           <li>com.app.runnerTest#testCheckForEmptyOption: 133x6</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
@@ -508,146 +523,134 @@ import javax.tools.OptionChecker;
       </td>
     </tr>
     <tr>
-      <td>95</td><td></td>
+      <td>94</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>98</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l98s0'>    public static boolean validateParamFormat(String param) {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>97</td><td></td>
+      <td><pre class='pp'>    public static boolean validateParamFormat(String param) {</pre></td>
     </tr>
     <tr>
-      <td>99</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l99s0'>        // Check if the extra parameter is an integer</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>98</td><td></td>
+      <td><pre class='cm'>        // Check if the extra parameter is an integer</pre></td>
     </tr>
     <tr>
-      <td>100</td><td class='ct'>24</td>
-      <td><pre class='pp jmp'>        <span id='l100s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>if (!param.matches("[0-9]+"))</span> {</pre>
+      <td>99</td><td class='ct'>28</td>
+      <td><pre class='pp jmp'>        <span id='l99s0' title='Executions: 28' class='cvd cp' onclick='sh(this,0)'>if (!param.matches("[0-9]+"))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#validateParamFormat: 153x6</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>101</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l101s0'>            System.out.println("Error: Positive non-zero numerical parameter required for the provided command. Please try again...");</pre>
+      <td>100</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l100s0'>            System.out.println("Error: Positive non-zero numerical parameter required for the provided command. Please try again...");</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#validateParamFormat: 153x2</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>102</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l102s0'>            return false;</pre>
+      <td>101</td><td class='ct'>4</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l101s0'>            return false;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#validateParamFormat: 153x2</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>103</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>        <span id='l103s0' title='Executions: 0' class='uncvd'>}</span> else {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>102</td><td></td>
+      <td><pre class='pp'>        } else {</pre></td>
     </tr>
     <tr>
-      <td>104</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l104s0'>            try {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>103</td><td></td>
+      <td><pre class='pp'>            try {</pre></td>
     </tr>
     <tr>
-      <td>105</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l105s0'>                // Parse the provided parameter to an integer</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>104</td><td></td>
+      <td><pre class='cm'>                // Parse the provided parameter to an integer</pre></td>
     </tr>
     <tr>
-      <td>106</td><td class='ct'>21</td>
-      <td><pre class='pp jmp'>                <span id='l106s0' title='Executions: 21' class='cvd cp' onclick='sh(this,0)'>if (Integer.parseInt(param) > 100)</span> {</pre>
+      <td>105</td><td class='ct'>24</td>
+      <td><pre class='pp jmp'>                <span id='l105s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>if (Integer.parseInt(param) > 100)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
           <li>com.app.runnerTest#validateParamFormat: 153x4</li>
           <li>com.app.runnerTest#testRunner: 32x17</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>107</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l107s0'>                    System.out.println("Error: Numerical parameter provided is too large. Please try again...");</pre>
+      <td>106</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l106s0'>                    System.out.println("Error: Numerical parameter provided is too large. Please try again...");</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#validateParamFormat: 153</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>108</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l108s0'>                    return false;</pre>
+      <td>107</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l107s0'>                    return false;</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#validateParamFormat: 153</li>
         </ol>
       </td>
+    </tr>
+    <tr>
+      <td>108</td><td></td>
+      <td><pre class='pp'>                }</pre></td>
     </tr>
     <tr>
       <td>109</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l109s0'>                }</pre>
+      <td><pre class='pp uncvd' id='l109s0'>            } catch (NumberFormatException e) {</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
       <td>110</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l110s0'>            } catch (NumberFormatException e) {</pre>
+      <td><pre class='pp uncvd' id='l110s0'>                System.out.println("Error: Unable to parse provided command parameter. Please try again...");</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
       <td>111</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l111s0'>                System.out.println("Error: Unable to parse provided command parameter. Please try again...");</pre>
+      <td><pre class='pp uncvd' id='l111s0'>                return false;</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>112</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l112s0'>                return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>112</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td>113</td><td class='ct'>20</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l113s0'>            }</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#validateParamFormat: 153x3</li>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>114</td><td></td>
+      <td>113</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>116</td><td class='ct'>20</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l116s0'>        return true;</pre>
+      <td>115</td><td class='ct'>23</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l115s0'>        return true;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
           <li>com.app.runnerTest#validateParamFormat: 153x3</li>
           <li>com.app.runnerTest#testRunner: 32x17</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>117</td><td></td>
+      <td>116</td><td></td>
       <td><pre class='pp'>    }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>120</td><td></td>
+      <td>119</td><td></td>
       <td><pre class='pp'>    public static boolean parseCommand(String command) {</pre></td>
     </tr>
     <tr>
@@ -669,39 +672,24 @@ import javax.tools.OptionChecker;
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>136</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l136s0'>        // Set any alpha characters to lowercase and trim the string</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>135</td><td></td>
+      <td><pre class='cm'>        // Add command to command history, set any alpha characters to lowercase and trim the string</pre></td>
     </tr>
     <tr>
-      <td>137</td><td class='ct'>52</td>
-      <td><pre class='pp jmp'>        <span id='l137s0' title='Executions: 52' class='cvd cp' onclick='sh(this,0)'>if (!replayingHistory)</span> {</pre>
+      <td>136</td><td class='ct'>69</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l136s0'>        commandHistory.add(command);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>138</td><td class='ct'>52</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l138s0'>            commandHistory.add(command);</pre>
+      <td>137</td><td class='ct'>69</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l137s0'>        command = command.toLowerCase().trim();</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x43</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>139</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>        <span id='l139s0' title='Executions: 0' class='uncvd'>}</span></pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>140</td><td class='ct'>52</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l140s0'>        command = command.toLowerCase().trim();</pre>
-        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
@@ -709,9 +697,10 @@ import javax.tools.OptionChecker;
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>142</td><td class='ct'>52</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l142s0'>        char option = getOption(command);</pre>
+      <td>139</td><td class='ct'>69</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l139s0'>        char option = getOption(command);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
@@ -719,160 +708,207 @@ import javax.tools.OptionChecker;
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>144</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>        // Check if the command is empty</pre></td>
+      <td>141</td><td></td>
+      <td><pre class='cm'>        // Check if the command is empty</pre></td>
     </tr>
     <tr>
-      <td>145</td><td class='ct'>52</td>
-      <td><pre class='pp jmp'>        <span id='l145s0' title='Executions: 52' class='cvd cp' onclick='sh(this,0)'>if (checkForEmptyOption(option))</span> {</pre>
+      <td>142</td><td class='ct'>69</td>
+      <td><pre class='pp jmp'>        <span id='l142s0' title='Executions: 69' class='cvd cp' onclick='sh(this,0)'>if (checkForEmptyOption(option))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x17</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>146</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>            <span id='l146s0' title='Executions: 0' class='uncvd'>return false;</span></pre>
-        <ol style='display:none'></ol>
+      <td>143</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l143s0'>            return false;</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
       </td>
     </tr>
     <tr>
-      <td>147</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l147s0'>        }</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>144</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>149</td><td></td>
+      <td>146</td><td></td>
       <td><pre class='cm'>        // Check if first symbol represents a known command</pre></td>
     </tr>
     <tr>
-      <td>150</td><td class='ct'>52</td>
-      <td><pre class='pp jmp'>        <span id='l150s0' title='Executions: 52' class='cvd cp' onclick='sh(this,0)'>if (knownCommandsAlpha.contains(option))</span> {</pre>
+      <td>147</td><td class='ct'>68</td>
+      <td><pre class='pp jmp'>        <span id='l147s0' title='Executions: 68' class='cvd cp' onclick='sh(this,0)'>if (knownCommandsAlpha.contains(option))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
           <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x43</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>151</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>            // Check if there's any additional arguments included</pre></td>
+      <td>148</td><td></td>
+      <td><pre class='cm'>            // Check if there's any additional arguments included</pre></td>
     </tr>
     <tr>
-      <td>152</td><td class='ct'>24</td>
-      <td><pre class='pp jmp'>            <span id='l152s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>if (!validateSingletonCommand(command))</span> {</pre>
+      <td>149</td><td class='ct'>44</td>
+      <td><pre class='pp jmp'>            <span id='l149s0' title='Executions: 44' class='cvd cp' onclick='sh(this,0)'>if (!validateSingletonCommand(command))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x11</li>
+          <li>com.app.runnerTest#testParseCommand: 48x9</li>
           <li>com.app.runnerTest#testRunner: 32x24</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>153</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>                <span id='l153s0' title='Executions: 0' class='uncvd'>return false;</span></pre>
-        <ol style='display:none'></ol>
+      <td>150</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l150s0'>                return false;</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
       </td>
     </tr>
     <tr>
-      <td>154</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l154s0'>            }</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>151</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>156</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l156s0'>            // Check if the command is Q</pre>
-        <ol style='display:none'></ol>
+      <td>153</td><td></td>
+      <td><pre class='cm'>            // Check if the command is Q</pre></td>
+    </tr>
+    <tr>
+      <td>154</td><td class='ct'>43</td>
+      <td><pre class='pp jmp'>            <span id='l154s0' title='Executions: 43' class='cvd cp' onclick='sh(this,0)'>if (checkForExit(option))</span> {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x10</li>
+          <li>com.app.runnerTest#testParseCommand: 48x9</li>
+          <li>com.app.runnerTest#testRunner: 32x24</li>
+        </ol>
       </td>
     </tr>
     <tr>
-      <td>157</td><td class='ct'>24</td>
-      <td><pre class='pp jmp'>            <span id='l157s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>if (checkForExit(option))</span> {</pre>
+      <td>155</td><td class='ct'>7</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l155s0'>                return true;</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x24</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48x5</li>
+          <li>com.app.runnerTest#testRunner: 32</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>156</td><td class='ct'>36</td>
+      <td><pre class='pp jmp'>            <span id='l156s0' title='Executions: 36' class='cvd cp' onclick='sh(this,0)'>}</span> else if (option == 'h') {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x9</li>
+          <li>com.app.runnerTest#testParseCommand: 48x4</li>
+          <li>com.app.runnerTest#testRunner: 32x23</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>157</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l157s0'>                replayHistory();</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
     <tr>
       <td>158</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l158s0'>                return true;</pre>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l158s0'>                return false;</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>159</td><td class='ct'>23</td>
-      <td><pre class='pp jmp'>            <span id='l159s0' title='Executions: 23' class='cvd cp' onclick='sh(this,0)'>}</span> else if (room.isInitialized()) {</pre>
+      <td>159</td><td class='ct'>35</td>
+      <td><pre class='pp jmp'>            <span id='l159s0' title='Executions: 35' class='cvd cp' onclick='sh(this,0)'>}</span> else if (room.isInitialized()) {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x8</li>
+          <li>com.app.runnerTest#testParseCommand: 48x4</li>
           <li>com.app.runnerTest#testRunner: 32x23</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>160</td><td class='ct'>23</td>
+      <td>160</td><td class='ct'>34</td>
       <td><pre class='pp cvd cp' onclick='sh(this)' id='l160s0'>                switch (option) {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x7</li>
+          <li>com.app.runnerTest#testParseCommand: 48x4</li>
           <li>com.app.runnerTest#testRunner: 32x23</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>161</td><td></td>
-      <td><pre class='pp'>                    case 'u':</pre></td>
-    </tr>
-    <tr>
-      <td>162</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l162s0'>                        movePenDown(false);</pre>
+      <td>161</td><td class='ct'>3</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l161s0'>                    case 'u' -> movePenDown(false);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>163</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l163s0'>                        break;</pre>
+      <td>162</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l162s0'>                    case 'd' -> movePenDown(true);</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>164</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l164s0'>                    case 'd':</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>165</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l165s0'>                        movePenDown(true);</pre>
-        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>166</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l166s0'>                        break;</pre>
+      <td>163</td><td></td>
+      <td><pre class='pp'>                    case 'r' -> {</pre></td>
+    </tr>
+    <tr>
+      <td>164</td><td class='ct'>5</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l164s0'>                        room.getRobot().setRobotDirection(1);</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x8</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
+          <li>com.app.runnerTest#testRunner: 32x3</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>167</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l167s0'>                    case 'r':</pre>
-        <ol style='display:none'></ol>
+      <td>165</td><td class='ct'>5</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l165s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
+          <li>com.app.runnerTest#testRunner: 32x3</li>
+        </ol>
       </td>
+    </tr>
+    <tr>
+      <td>166</td><td class='ct'>5</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l166s0'>                    }</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
+          <li>com.app.runnerTest#testRunner: 32x3</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>167</td><td></td>
+      <td><pre class='pp'>                    case 'l' -> {</pre></td>
     </tr>
     <tr>
       <td>168</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l168s0'>                        room.getRobot().setRobotDirection(1);</pre>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l168s0'>                        room.getRobot().setRobotDirection(-1);</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
+          <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
@@ -880,404 +916,390 @@ import javax.tools.OptionChecker;
       <td>169</td><td class='ct'>3</td>
       <td><pre class='pp cvd cp' onclick='sh(this)' id='l169s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
+          <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
       <td>170</td><td class='ct'>3</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l170s0'>                        break;</pre>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l170s0'>                    }</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x3</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>171</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l171s0'>                    case 'l':</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>172</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l172s0'>                        room.getRobot().setRobotDirection(-1);</pre>
-        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>173</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l173s0'>                        System.out.printf("Robot is now facing %s%n", room.getRobot().getRobotDirDescription());</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
+      <td>171</td><td></td>
+      <td><pre class='pp'>                    case 'p' -> {</pre></td>
     </tr>
     <tr>
-      <td>174</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l174s0'>                        break;</pre>
+      <td>172</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l172s0'>                        System.out.println("Floor printout:");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>175</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l175s0'>                    case 'p':</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>176</td><td class='ct'>8</td>
-      <td><pre class='pp jmp'>                        <span id='l176s0' title='Executions: 8' class='cvd cp' onclick='sh(this,0)'>System.out.println("Floor printout:");</span></pre>
-        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>177</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l177s0'>                        room.printFloor();</pre>
+      <td>173</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l173s0'>                        room.printFloor();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>178</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l178s0'>                        break;</pre>
+      <td>174</td><td class='ct'>10</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l174s0'>                    }</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>179</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l179s0'>                    case 'c':</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>180</td><td class='ct'>2</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l180s0'>                        room.printRobotState();</pre>
+      <td>175</td><td class='ct'>3</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l175s0'>                    case 'c' -> room.printRobotState();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32x2</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>181</td><td class='ct'>2</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l181s0'>                        break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x2</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>182</td><td></td>
-      <td><pre class='pp'>                    case 'h':</pre></td>
-    </tr>
-    <tr>
-      <td>183</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>                        <span id='l183s0' title='Executions: 0' class='uncvd'>replayHistory();</span></pre>
+      <td>176</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l176s0'>                    default -> System.out.println("Error: Command not recognized. Please try again...");</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>184</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>                        <span id='l184s0' title='Executions: 0' class='uncvd'>break;</span></pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>185</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l185s0'>                    default:</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>186</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l186s0'>                        System.out.println("Error: Command not recognized. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>187</td><td></td>
+      <td>177</td><td></td>
       <td><pre class='pp'>                }</pre></td>
     </tr>
     <tr>
-      <td>188</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l188s0'>            } else {</pre>
+      <td>178</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l178s0'>            } else {</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>189</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l189s0'>                printInitializedError();</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>190</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l190s0'>                return false;</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>191</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>            <span id='l191s0' title='Executions: 0' class='uncvd'>}</span></pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>192</td><td class='ct'>28</td>
-      <td><pre class='pp jmp'>        <span id='l192s0' title='Executions: 28' class='cvd cp' onclick='sh(this,0)'>}</span> else <span id='l192s1' title='Executions: 18' class='cvd cp' onclick='sh(this,1)'>if (knownCommandsAlphaNum.contains(option)</span> && command.length() > 1) {</pre>
+      <td>179</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l179s0'>                printInitializedError();</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>180</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l180s0'>                return false;</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>181</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
+    </tr>
+    <tr>
+      <td>182</td><td class='ct'>24</td>
+      <td><pre class='pp jmp'>        <span id='l182s0' title='Executions: 24' class='cvd cp' onclick='sh(this,0)'>}</span> else <span id='l182s1' title='Executions: 22' class='cvd cp' onclick='sh(this,1)'>if (knownCommandsAlphaNum.contains(option)</span> && command.length() > 1) {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x5</li>
           <li>com.app.runnerTest#testRunner: 32x19</li>
         </ol>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>193</td><td class='ct'>18</td>
-      <td><pre class='pp jmp'>            <span id='l193s0' title='Executions: 18' class='cvd cp' onclick='sh(this,0)'>String param = "";</span></pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x18</li>
-        </ol>
-      </td>
+      <td>183</td><td></td>
+      <td><pre class='pp'>            String param;</pre></td>
     </tr>
     <tr>
-      <td>194</td><td class='ct'>18</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l194s0'>            int parsedParam = -1;</pre>
+      <td>184</td><td></td>
+      <td><pre class='pp'>            int parsedParam;</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>186</td><td></td>
+      <td><pre class='cm'>            // Get the command's integer parameter if it exists</pre></td>
+    </tr>
+    <tr>
+      <td>187</td><td class='ct'>22</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l187s0'>            param = getParam(command);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>196</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l196s0'>            // Get the command's integer parameter if it exists</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>189</td><td></td>
+      <td><pre class='cm'>            // Check if the extra parameter is an integer</pre></td>
     </tr>
     <tr>
-      <td>197</td><td class='ct'>18</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l197s0'>            param = getParam(command);</pre>
+      <td>190</td><td class='ct'>22</td>
+      <td><pre class='pp jmp'>            <span id='l190s0' title='Executions: 22' class='cvd cp' onclick='sh(this,0)'>if (param == null</span> || <span id='l190s1' title='Executions: 22' class='cvd cp' onclick='sh(this,1)'>!validateParamFormat(param))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
-      </td>
-    </tr>
-    <tr><td></td><td></td><td></td></tr>
-    <tr>
-      <td>199</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l199s0'>            // Check if the extra parameter is an integer</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>200</td><td class='ct'>18</td>
-      <td><pre class='pp jmp'>            <span id='l200s0' title='Executions: 18' class='cvd cp' onclick='sh(this,0)'>if (!validateParamFormat(param))</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x4</li>
           <li>com.app.runnerTest#testRunner: 32x18</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>201</td><td class='ct'>1</td>
-      <td><pre class='pp jmp'>                <span id='l201s0' title='Executions: 1' class='cvd cp' onclick='sh(this,0)'>return false;</span></pre>
+      <td>191</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l191s0'>                return false;</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>202</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l202s0'>            }</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>192</td><td></td>
+      <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>204</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l204s0'>            // convert the parameter to an integer</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>194</td><td></td>
+      <td><pre class='cm'>            // convert the parameter to an integer</pre></td>
     </tr>
     <tr>
-      <td>205</td><td class='ct'>17</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l205s0'>            parsedParam = Integer.parseInt(param);</pre>
+      <td>195</td><td class='ct'>20</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l195s0'>            parsedParam = Integer.parseInt(param);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
           <li>com.app.runnerTest#testRunner: 32x17</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>207</td><td class='ct'>17</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l207s0'>            switch(option) {</pre>
+      <td>197</td><td class='ct'>20</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l197s0'>            switch(option) {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
           <li>com.app.runnerTest#testRunner: 32x17</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>208</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>                <span id='l208s0' title='Executions: 0' class='uncvd'>case 'm':</span></pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>198</td><td></td>
+      <td><pre class='pp'>                case 'm':</pre></td>
     </tr>
     <tr>
-      <td>209</td><td class='ct'>11</td>
-      <td><pre class='pp jmp'>                    <span id='l209s0' title='Executions: 11' class='cvd cp' onclick='sh(this,0)'>if (room.isInitialized())</span> {</pre>
+      <td>199</td><td class='ct'>13</td>
+      <td><pre class='pp jmp'>                    <span id='l199s0' title='Executions: 13' class='cvd cp' onclick='sh(this,0)'>if (room.isInitialized())</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
           <li>com.app.runnerTest#testRunner: 32x11</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>210</td><td class='ct'>10</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l210s0'>                        System.out.println("Moving robot...");</pre>
+      <td>200</td><td class='ct'>12</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l200s0'>                        System.out.println("Moving robot...");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32x11</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>211</td><td class='ct'>10</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l211s0'>                        room.moveRobot(parsedParam);</pre>
+      <td>201</td><td class='ct'>12</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l201s0'>                        room.moveRobot(parsedParam);</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x10</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32x11</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>212</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l212s0'>                    } else {</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>213</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l213s0'>                        printInitializedError();</pre>
+      <td>202</td><td class='ct'>12</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l202s0'>                    } else {</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32x11</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>214</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l214s0'>                    }</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>215</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l215s0'>                    break;</pre>
+      <td>203</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l203s0'>                        printInitializedError();</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>216</td><td></td>
+      <td>204</td><td></td>
+      <td><pre class='pp'>                    }</pre></td>
+    </tr>
+    <tr>
+      <td>205</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l205s0'>                    break;</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>206</td><td></td>
       <td><pre class='pp'>                case 'i':</pre></td>
     </tr>
     <tr>
-      <td>217</td><td class='ct'>6</td>
-      <td><pre class='pp jmp'>                    <span id='l217s0' title='Executions: 6' class='cvd cp' onclick='sh(this,0)'>if (room.isInitialized())</span> {</pre>
+      <td>207</td><td class='ct'>7</td>
+      <td><pre class='pp jmp'>                    <span id='l207s0' title='Executions: 7' class='cvd cp' onclick='sh(this,0)'>if (room.isInitialized())</span> {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32x6</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>208</td><td class='ct'>6</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l208s0'>                        System.out.println("Room is being reinitialized...");</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#testRunner: 32x6</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>218</td><td class='ct'>5</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l218s0'>                        System.out.println("Room is being reinitialized...");</pre>
+      <td>209</td><td class='ct'>6</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l209s0'>                        room = new Room(parsedParam);</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x5</li>
+          <li>com.app.runnerTest#testRunner: 32x6</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>219</td><td class='ct'>5</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l219s0'>                        room = new Room(parsedParam);</pre>
+      <td>210</td><td class='ct'>6</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l210s0'>                    } else {</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x5</li>
+          <li>com.app.runnerTest#testRunner: 32x6</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>220</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l220s0'>                    } else {</pre>
+      <td>211</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l211s0'>                        room = new Room(parsedParam);</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>212</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l212s0'>                        System.out.println("Initializing floor...");</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>213</td><td></td>
+      <td><pre class='pp'>                    }</pre></td>
+    </tr>
+    <tr>
+      <td>214</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l214s0'>                    break;</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>215</td><td></td>
+      <td><pre class='pp'>                default:</pre></td>
+    </tr>
+    <tr>
+      <td>216</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l216s0'>                    System.out.println("Error: Command not recognized. Please try again...");</pre>
         <ol style='display:none'></ol>
       </td>
     </tr>
     <tr>
-      <td>221</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l221s0'>                        room = new Room(parsedParam);</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>222</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l222s0'>                        System.out.println("Initializing floor...");</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>223</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l223s0'>                    }</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>224</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l224s0'>                    break;</pre>
-        <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>225</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>                <span id='l225s0' title='Executions: 0' class='uncvd'>default:</span></pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>226</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l226s0'>                    System.out.println("Error: Command not recognized. Please try again...");</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>227</td><td></td>
+      <td>217</td><td></td>
       <td><pre class='pp'>            }</pre></td>
     </tr>
     <tr>
-      <td>228</td><td class='ct'>17</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l228s0'>        } else {</pre>
+      <td>218</td><td class='ct'>0</td>
+      <td><pre class='pp uncvd' id='l218s0'>        } else {</pre>
+        <ol style='display:none'></ol>
+      </td>
+    </tr>
+    <tr>
+      <td>219</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l219s0'>            System.out.println("Error: Invalid command entered. Please try again...");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32x17</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>229</td><td class='ct'>10</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l229s0'>            System.out.println("Error: Invalid command entered. Please try again...");</pre>
+      <td>220</td><td></td>
+      <td><pre class='pp'>        }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>222</td><td class='ct'>56</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l222s0'>        return false;</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51x11</li>
+          <li>com.app.runnerTest#testParseCommand: 48x4</li>
+          <li>com.app.runnerTest#testRunner: 32x41</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>223</td><td></td>
+      <td><pre class='pp'>    }</pre></td>
+    </tr>
+    <tr><td></td><td></td><td></td></tr>
+    <tr>
+      <td>226</td><td></td>
+      <td><pre class='pp'>    public static void replayHistory() {</pre></td>
+    </tr>
+    <tr>
+      <td>227</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l227s0'>        System.out.println("Command history: ");</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>228</td><td class='ct'>18</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l228s0'>        for (String command : commandHistory) {</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x18</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>229</td><td class='ct'>16</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l229s0'>            System.out.println(command);</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x16</li>
         </ol>
       </td>
     </tr>
@@ -1285,287 +1307,245 @@ import javax.tools.OptionChecker;
       <td>230</td><td></td>
       <td><pre class='pp'>        }</pre></td>
     </tr>
-    <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>232</td><td class='ct'>50</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l232s0'>        return false;</pre>
+      <td>231</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l231s0'>    }</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testParseCommand: 48x9</li>
-          <li>com.app.runnerTest#testRunner: 32x41</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
         </ol>
       </td>
     </tr>
-    <tr>
-      <td>233</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l233s0'>    }</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>236</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l236s0'>    public static void replayHistory() {</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>233</td><td></td>
+      <td><pre class='cm'>    // State = do we want to move pen down</pre></td>
     </tr>
     <tr>
-      <td>237</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l237s0'>        System.out.println("Replaying command history:");</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>234</td><td></td>
+      <td><pre class='cm'>    // curr = up = false</pre></td>
     </tr>
     <tr>
-      <td>238</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l238s0'>        replayingHistory = true;</pre>
-        <ol style='display:none'></ol>
-      </td>
+      <td>235</td><td></td>
+      <td><pre class='cm'>    // state = down = true</pre></td>
     </tr>
     <tr>
-      <td>239</td><td class='ct'>0</td>
-      <td><pre class='pp jmp'>        <span id='l239s0' title='Executions: 0' class='uncvd'>for (String command</span> : <span id='l239s1' title='Executions: 0' class='uncvd'>commandHistory)</span> {</pre>
-        <ol style='display:none'></ol>
-        <ol style='display:none'></ol>
-      </td>
+      <td>236</td><td></td>
+      <td><pre class='pp'>    private static void movePenDown(boolean state) {</pre></td>
     </tr>
     <tr>
-      <td>240</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l240s0'>            System.out.println(command);</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>241</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l241s0'>            // TODO Do we need to actually apply the commands?</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>242</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l242s0'>        }</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>243</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l243s0'>        replayingHistory = false;</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>244</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l244s0'>    }</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr><td></td><td></td><td></td></tr>
-    <tr>
-      <td>246</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l246s0'>    // State = do we want to move pen down</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>247</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l247s0'>    // curr = up = false</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>248</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l248s0'>    // state = down = true</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>249</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l249s0'>    private static void movePenDown(boolean state) {</pre>
-        <ol style='display:none'></ol>
-      </td>
-    </tr>
-    <tr>
-      <td>250</td><td class='ct'>9</td>
-      <td><pre class='pp jmp'>        <span id='l250s0' title='Executions: 9' class='cvd cp' onclick='sh(this,0)'>if (room.getRobot().isPenDown() == state)</span> {</pre>
+      <td>237</td><td class='ct'>13</td>
+      <td><pre class='pp jmp'>        <span id='l237s0' title='Executions: 13' class='cvd cp' onclick='sh(this,0)'>if (room.getRobot().isPenDown() == state)</span> {</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x9</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>251</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l251s0'>            System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());</pre>
+      <td>238</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l238s0'>            System.out.printf("Pen is already in the %s position.%n", room.getRobot().getPenPosition());</pre>
         <ol style='display:none'>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>252</td><td class='ct'>0</td>
-      <td><pre class='pp uncvd' id='l252s0'>        } else {</pre>
-        <ol style='display:none'></ol>
+      <td>239</td><td class='ct'>1</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l239s0'>        } else {</pre>
+        <ol style='display:none'>
+          <li>com.app.runnerTest#testRunner: 32</li>
+        </ol>
       </td>
     </tr>
     <tr>
-      <td>253</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l253s0'>            room.movePen(state);</pre>
+      <td>240</td><td class='ct'>12</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l240s0'>            room.movePen(state);</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>254</td><td class='ct'>8</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l254s0'>            System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());</pre>
+      <td>241</td><td class='ct'>12</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l241s0'>            System.out.printf("Pen is now in the %s position.%n", room.getRobot().getPenPosition());</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x8</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>255</td><td></td>
+      <td>242</td><td></td>
       <td><pre class='pp'>        } </pre></td>
     </tr>
     <tr>
-      <td>256</td><td class='ct'>9</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l256s0'>    }</pre>
+      <td>243</td><td class='ct'>13</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l243s0'>    }</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51x3</li>
+          <li>com.app.runnerTest#testParseCommand: 48</li>
           <li>com.app.runnerTest#testRunner: 32x9</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>259</td><td></td>
+      <td>246</td><td></td>
       <td><pre class='pp'>    private static void printInitializedError() {</pre></td>
     </tr>
     <tr>
-      <td>260</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l260s0'>        System.out.println("Error: Room must be initialized before executing the command provided.");</pre>
+      <td>247</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l247s0'>        System.out.println("Error: Room must be initialized before executing the command provided.");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>261</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l261s0'>        System.out.println("Initialize command: I &lt;n> | i &lt;n>");</pre>
+      <td>248</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l248s0'>        System.out.println("Initialize command: I &lt;n> | i &lt;n>");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>262</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l262s0'>        System.out.println("n: size of the room (n x n)");</pre>
+      <td>249</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l249s0'>        System.out.println("n: size of the room (n x n)");</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>263</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l263s0'>    }</pre>
+      <td>250</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l250s0'>    }</pre>
         <ol style='display:none'>
-          <li>com.app.runnerTest#testRunner: 32</li>
+          <li>com.app.RegressionTest#testReplayFunction: 51x2</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>266</td><td></td>
+      <td>253</td><td></td>
       <td><pre class='pp'>    private static void formatKnownCommands(Set&lt;Character> alpha, Set&lt;Character> alphaNum) {</pre></td>
     </tr>
     <tr>
-      <td>267</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l267s0'>        alpha.add('u');</pre>
+      <td>254</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l254s0'>        alpha.add('u');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>268</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l268s0'>        alpha.add('d');</pre>
+      <td>255</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l255s0'>        alpha.add('d');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>269</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l269s0'>        alpha.add('r');</pre>
+      <td>256</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l256s0'>        alpha.add('r');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>270</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l270s0'>        alpha.add('l');</pre>
+      <td>257</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l257s0'>        alpha.add('l');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>271</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l271s0'>        alpha.add('p');</pre>
+      <td>258</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l258s0'>        alpha.add('p');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>272</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l272s0'>        alpha.add('c');</pre>
+      <td>259</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l259s0'>        alpha.add('c');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>273</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l273s0'>        alpha.add('q');</pre>
+      <td>260</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l260s0'>        alpha.add('q');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
+          <li>com.app.runnerTest#testRunner: 32</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>261</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l261s0'>        alpha.add('h');</pre>
+        <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>275</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l275s0'>        alphaNum.add('m');</pre>
+      <td>263</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l263s0'>        alphaNum.add('m');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>276</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l276s0'>        alphaNum.add('i');</pre>
+      <td>264</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l264s0'>        alphaNum.add('i');</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr><td></td><td></td><td></td></tr>
     <tr>
-      <td>278</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l278s0'>        commandHistory.clear();</pre>
+      <td>266</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l266s0'>        commandHistory.clear();</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>279</td><td class='ct'>1</td>
-      <td><pre class='pp cvd cp' onclick='sh(this)' id='l279s0'>    }</pre>
+      <td>267</td><td class='ct'>2</td>
+      <td><pre class='pp cvd cp' onclick='sh(this)' id='l267s0'>    }</pre>
         <ol style='display:none'>
+          <li>com.app.RegressionTest#testReplayFunction: 51</li>
           <li>com.app.runnerTest#testRunner: 32</li>
         </ol>
       </td>
     </tr>
     <tr>
-      <td>280</td><td></td>
+      <td>268</td><td></td>
       <td><pre class='pp'>}</pre></td>
     </tr>
   </table>
