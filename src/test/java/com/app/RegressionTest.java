@@ -1,11 +1,13 @@
 package com.app;
 
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 
 import org.junit.jupiter.api.Test;
@@ -31,6 +33,26 @@ public class RegressionTest {
     // Expected output : 
     // Tester : Nicholas Harris
     // Date : 4th April
-    
+    @Test
+    public void testReplayFunction() throws Exception {
+        final InputStream defaultIS = System.in;
+        final PrintStream defaultPS = System.out;
 
+        String currDir = System.getProperty("user.dir");
+        String testDir = "/src/test/java/com/app/test_inputs";
+        final FileInputStream fileIS = new FileInputStream(currDir + testDir + "/test_help.txt");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+        String expected = "Command history: \ni 5\nm 10\nd\nu\nD\nl\nr\np\nc\nh";
+        // Set custom I/O
+        System.setIn(fileIS);
+        System.setOut(new PrintStream(outContent));
+        
+        runner.main(null);
+        assertTrue(outContent.toString().contains(expected), outContent.toString());
+
+        // Set default I/O
+        System.setIn(defaultIS);
+        System.setOut(defaultPS);
+    }
 }
