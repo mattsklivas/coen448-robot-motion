@@ -133,10 +133,8 @@ public class runner {
         [I n|i n] Initialize the system
         */
 
-        // Set any alpha characters to lowercase and trim the string
-        if (!replayingHistory) {
-            commandHistory.add(command);
-        }
+        // Add command to command history, set any alpha characters to lowercase and trim the string
+        commandHistory.add(command);
         command = command.toLowerCase().trim();
 
         char option = getOption(command);
@@ -227,15 +225,10 @@ public class runner {
 
 
     public static void replayHistory() {
-        System.out.println("Replaying command history:");
-        replayingHistory = true;
+        System.out.println("Command history: ");
         for (String command : commandHistory) {
             System.out.println(command);
-            // TODO Do we need to actually apply the commands?
-            // If we do, we need to make sure to skip replay commands when replaying
-            // if not it will infinitely loop
         }
-        replayingHistory = false;
     }
 
     // State = do we want to move pen down
