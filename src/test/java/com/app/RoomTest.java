@@ -3,9 +3,12 @@ package com.app;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.io.*;
 
@@ -41,7 +44,7 @@ Variables
 - floorSize domain: n
 - isInitialized domain: (False, True)
  */
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RoomTest {
 
     // Test Function #11
@@ -52,6 +55,7 @@ public class RoomTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(18)
     public void testUninitializedRoom() {
         Room testRoom = new Room();
         assertFalse(testRoom.isInitialized());
@@ -65,6 +69,7 @@ public class RoomTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(17)
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
     public void testRoomInitialization(int size) {
         Room testRoom = new Room(size);
@@ -80,6 +85,7 @@ public class RoomTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(3)
     @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
     public void testRobotCreation(int size) {
         Room testRoom = new Room(size);
@@ -105,6 +111,7 @@ public class RoomTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(1)
     @ValueSource(ints = {7, 8, 1, 3, 5, 10, 8})
     public void testRobotMovement(int moves) {
         int n = 10;
@@ -151,6 +158,7 @@ public class RoomTest {
     // Tester : Ali Turkman
     // Date : 9th February
     @ParameterizedTest
+    @Order(9)
     @ValueSource(ints = {4, 2, 3})
     public void testRobotBoundary(int moves) {
         int n = 10;
@@ -191,6 +199,7 @@ public class RoomTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(26)
     public void testMovePen() {
         int n = 10;
         Room testRoom = new Room(n);
@@ -215,6 +224,7 @@ public class RoomTest {
     // Tester : Nicholas Kawwas
     // Date : 26th February
     @Test
+    @Order(15)
     public void testPrintRobotState() throws IOException {
         // Save default output stream
         PrintStream defaultPrint = System.out;
@@ -265,6 +275,7 @@ public class RoomTest {
      Date : 26th February
      */
     @Test
+    @Order(7)
     public void testPrintRoomState() throws IOException {
         // Save default output stream
         PrintStream defaultPrint = System.out;

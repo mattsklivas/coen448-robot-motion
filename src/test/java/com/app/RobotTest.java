@@ -1,7 +1,11 @@
 package com.app;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 /*
 Robot Test Cases:
@@ -32,7 +36,7 @@ Variables
 - isPenDown domain: (False, True)
 - robotDirection domain: (0,3)
  */
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RobotTest {
 
     // Test Function #01
@@ -43,6 +47,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(22)
     public void testInitializedRobot() {
         Robot testRobot = new Robot();
         assertFalse(testRobot.isPenDown());
@@ -56,6 +61,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(24)
     public void testRobotMovementUp() {
         Robot testRobot = new Robot();
         testRobot.incrementRobotRow(1);
@@ -72,6 +78,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(23)
     public void testRobotMovementDown() {
         Robot testRobot = new Robot();
         testRobot.incrementRobotRow(1);
@@ -88,6 +95,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(20)
     public void testSetRobotCol() {
         Robot testRobot = new Robot();
         assertEquals(0, testRobot.getRobotCol());
@@ -104,6 +112,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(21)
     public void testSetRobotRow() {
         Robot testRobot = new Robot();
         assertEquals(0, testRobot.getRobotRow());
@@ -120,6 +129,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(27)
     public void testRobotPenDown() {
         Robot testRobot = new Robot();
         testRobot.setIsPenDown(true);
@@ -134,6 +144,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(28)
     // write a method to move pen up
     public void testRobotPenUp() {
         Robot testRobot = new Robot();
@@ -151,6 +162,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(19)
     public void tesSetRobotDirection() {
         Robot testRobot = new Robot();
         assertEquals("north", testRobot.getRobotDirDescription());
@@ -184,6 +196,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(25)
     public void testGetPenPosition() {
         Robot testRobot = new Robot();
         assertEquals("up", testRobot.getPenPosition());
@@ -206,6 +219,7 @@ public class RobotTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(13)
     public void testGetRobotDirection() {
         Robot testRobot = new Robot();
         assertEquals(0, testRobot.getRobotDirection());

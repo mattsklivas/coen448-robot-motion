@@ -8,10 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.FileInputStream;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class runnerTest {
 
     // Test Function #17
@@ -22,6 +27,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @Test
+    @Order(2)
     public void testRunner() throws Exception {
         final InputStream defaultIS = System.in;
         String currDir = System.getProperty("user.dir");
@@ -41,6 +47,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(8)
     @ValueSource(strings = {"q", "u ", "q  ", "q ", "q", "q ", "R", "l", "P"})
     public void testParseCommand(String command) {
         command = command.toLowerCase().trim();
@@ -59,6 +66,7 @@ public class runnerTest {
     // Date : 9th February
     // Verify
     @ParameterizedTest
+    @Order(14)
     @ValueSource(strings = {"a", "a ", "q  ", " ", "m", "m    "})
     public void testGetOption(String command) {
         command = command.toLowerCase().trim();
@@ -76,15 +84,16 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(10)
     @ValueSource(strings = {"i 10", "i 100 ", " ", " m  ", "m 10", "100"})
     public void testGetParam(String command) {
         command = command.toLowerCase().trim();
         String expected = command.length() <= 1 ? null : command.substring(1).trim();
-       String actual = runner.getParam(command);
-       if (expected == null) {
-           assertNull(null, actual);
-       }
-       assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
+        String actual = runner.getParam(command);
+        if (expected == null) {
+            assertNull(null, actual);
+        }
+        assertEquals(expected, actual, "expected: " + expected + " actual: " + actual);
     }
 
     // Test Function #21
@@ -95,6 +104,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(12)
     @ValueSource(strings = {"u", "D", "R", "R 10", "c", "Q", "q 10", "P p", "p"})
     public void testValidateSingletonCommand(String command) {
         command = command.toLowerCase().trim();
@@ -111,6 +121,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(16)
     @ValueSource(chars = {'a', 'A', 'q', 'Q', 'd', 'q', 'U', 'r', 't'})
     public void testCheckForExit(char option) {
         option = Character.toLowerCase(option);
@@ -127,6 +138,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(11)
     @ValueSource(chars = {'a', 'a', ' ', ' ', 'q', 'Q', 'M', 'n', ' '})
     public void testCheckForEmptyOption(char option) {
         boolean expected = option == ' ';
@@ -143,6 +155,7 @@ public class runnerTest {
     // Tester : Nicholas Harris
     // Date : 9th February
     @ParameterizedTest
+    @Order(6)
     @ValueSource(strings = {"3", "-100", "100", "10000", " ", "45 ", "-45", "3.4", "-2.3", "hello"})
     public void validateParamFormat(String param) {
         final String paramStrip = param.trim();

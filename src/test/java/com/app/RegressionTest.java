@@ -10,10 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RegressionTest {
 
 
@@ -28,12 +32,13 @@ public class RegressionTest {
 
     // Test Function #27
     // Test type : Regression
-    // Input : 
-    // Description : 
-    // Expected output : 
+    // Input :
+    // Description :
+    // Expected output :
     // Tester : Nicholas Harris
     // Date : 4th April
     @Test
+    @Order(4)
     public void testReplayFunction() throws Exception {
         final InputStream defaultIS = System.in;
         final PrintStream defaultPS = System.out;
@@ -47,7 +52,7 @@ public class RegressionTest {
         // Set custom I/O
         System.setIn(fileIS);
         System.setOut(new PrintStream(outContent));
-        
+
         runner.main(null);
         assertTrue(outContent.toString().contains(expected), outContent.toString());
 
@@ -58,12 +63,13 @@ public class RegressionTest {
 
     // Test Function #28
     // Test type : Regression
-    // Input : 
-    // Description : 
-    // Expected output : 
+    // Input :
+    // Description :
+    // Expected output :
     // Tester : Nicholas Harris
     // Date : 4th April
     @Test
+    @Order(5)
     public void testReplayFunctionUpper() throws Exception {
         final InputStream defaultIS = System.in;
         final PrintStream defaultPS = System.out;
@@ -77,7 +83,7 @@ public class RegressionTest {
         // Set custom I/O
         System.setIn(fileIS);
         System.setOut(new PrintStream(outContent));
-        
+
         runner.main(null);
         assertTrue(outContent.toString().contains(expected), outContent.toString());
 
