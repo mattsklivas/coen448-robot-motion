@@ -54,7 +54,8 @@ public class RegressionTest {
         System.setOut(new PrintStream(outContent));
 
         runner.main(null);
-        assertTrue(outContent.toString().contains(expected), outContent.toString());
+        String output = outContent.toString().replaceAll("\r", "");
+        assertTrue(output.contains(expected), output);
 
         // Set default I/O
         System.setIn(defaultIS);
@@ -85,7 +86,8 @@ public class RegressionTest {
         System.setOut(new PrintStream(outContent));
 
         runner.main(null);
-        assertTrue(outContent.toString().contains(expected), outContent.toString());
+        String output = outContent.toString().replaceAll("\r", "");
+        assertTrue(output.contains(expected), output);
 
         // Set default I/O
         System.setIn(defaultIS);
